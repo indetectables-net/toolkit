@@ -1,6 +1,6 @@
 # Changelog
 
-## 2021.2 - Mar 18, 2021
+## 2021.2 - MASTER
 
 ### Added
 
@@ -16,11 +16,13 @@
 - Add ImHex
 - Add Api Monitor
 - Add PyInstxtractor
+- Compile updater.py (pyinstaller --onefile updater.py)
 
 ### Changed
 
 - Update tools
 - Add 9 tools to updater
+- Fix updater FileNotFoundError
 
 ## 2021.1 - May 17, 2020
 
