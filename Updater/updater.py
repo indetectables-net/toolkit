@@ -38,6 +38,10 @@ def cleanup_folder(path):
 
 # Steps
 def handle_updates():
+    # create folder if dont exist
+    if not os.path.exists(updates_path):
+        os.mkdir(updates_path)
+
     for ini_name in config.sections():
         try:
             update_tool(ini_name)
