@@ -1,5 +1,15 @@
 # Changelog
 
+## 2021.3 - MASTER
+
+### Added
+
+- Add ProcDOT
+
+### Changed
+
+- Update updater for support file password
+
 ## 2021.2 - Mar 31, 2020
 
 ### Added
