@@ -6,7 +6,7 @@
 
 - Add Exe2Aut
 - Add MyAutToExe
-- Add de4dot
+- Add De4Dot
 - Add Recaf
 - Add PE-Bear
 - Add PEStudio
