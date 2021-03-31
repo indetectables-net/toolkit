@@ -23,6 +23,7 @@
 - Update tools
 - Add 9 tools to updater
 - Fix updater FileNotFoundError
+- Change QUnpack version
 
 ## 2021.1 - May 17, 2020
 
