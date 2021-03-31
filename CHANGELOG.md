@@ -1,6 +1,6 @@
 # Changelog
 
-## 2021.2 - MASTER
+## 2021.2 - Mar 31, 2020
 
 ### Added
 
@@ -25,7 +25,7 @@
 - Fix updater FileNotFoundError
 - Change QUnpack version
 
-## 2021.1 - May 17, 2020
+## 2021.1 - Feb 10, 2021
 
 ### Added
 
