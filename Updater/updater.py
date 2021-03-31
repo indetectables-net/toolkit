@@ -74,7 +74,8 @@ def update_tool(name):
     # processing file
     print('{0}: processing file'.format(name))
     unpack_path = os.path.join(updates_path, file_info[0])
-    unpack(file_path, file_info, unpack_path)
+    update_file_pass = config.get(name, 'update_file_pass', fallback=None)
+    unpack(file_path, file_info[1], unpack_path, update_file_pass)
     repack(name, unpack_path, latest_version)
 
     # end!
@@ -146,13 +147,16 @@ def download(name, url, download_path):
     return file_path
 
 
-def unpack(file_path, file_info, unpack_path):
-    if file_info[1] == '.zip':
-        with zipfile.ZipFile(file_path, 'r') as compressed:
-            compressed.extractall(unpack_path)
+def unpack(file_path, file_ext, unpack_path, file_pass):
+    if file_ext == '.zip':
+        if file_pass:
+            file_pass = bytes(file_pass, 'utf-8')
 
-    elif file_info[1] == '.7z':
-        with py7zr.SevenZipFile(file_path, 'r') as compressed:
+        with zipfile.ZipFile(file_path, 'r') as compressed:
+            compressed.extractall(unpack_path, pwd=file_pass)
+
+    elif file_ext == '.7z':
+        with py7zr.SevenZipFile(file_path, 'r', password=file_pass) as compressed:
             compressed.extractall(unpack_path)
 
     else:
