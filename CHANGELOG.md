@@ -5,10 +5,15 @@
 ### Added
 
 - Add ProcDOT
+- Add CAPA
+- Add ApkStudio
+- Add HashCalc
 
 ### Changed
 
 - Update updater for support file password
+- Add 3 tools to updater
+- Update tools (02/04/2021)
 
 ## 2021.2 - Mar 31, 2020
 
