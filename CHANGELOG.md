@@ -11,9 +11,8 @@
 ### Changed
 
 - Added 3 tools to updater
-- Added download from sourceforge from specific folder /w regex 
-- Added sourceforge_dynamic_url name helpder
-- Fixed x64dbg updater script (don't use mirrors, use CDN and load balancer for mirror select)
+- Fixed x64dbg updater url (use sourceforge 302 response url)
+- Update tools (22/05/2021)
 
 ## 2021.3 - MASTER
 
