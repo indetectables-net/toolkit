@@ -1,5 +1,20 @@
 # Changelog
 
+## 2021.5 - MASTER
+
+### Added
+
+- Added Process Dump
+- Added AstroGrep
+- Added Scylla
+
+### Changed
+
+- Added 3 tools to updater
+- Added download from sourceforge from specific folder /w regex 
+- Added sourceforge_dynamic_url name helpder
+- Fixed x64dbg updater script (don't use mirrors, use CDN and load balancer for mirror select)
+
 ## 2021.3 - MASTER
 
 ### Added
