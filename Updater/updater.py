@@ -5,6 +5,7 @@
 # Developed for Python 3.6+
 # pip install requests py7zr
 
+import argparse
 import configparser
 import requests
 import re
@@ -13,6 +14,7 @@ import shutil
 import pathlib
 import zipfile
 import py7zr
+import time
 
 
 # Helpers functions
@@ -37,21 +39,21 @@ def cleanup_folder(path):
 
 
 # Steps
-def handle_updates():
+def handle_updates(update_list, force_download):
     # create folder if dont exist
     if not os.path.exists(updates_path):
         os.mkdir(updates_path)
 
-    for ini_name in config.sections():
+    for ini_name in update_list:
         try:
-            update_tool(ini_name)
+            update_tool(ini_name, force_download)
         except Exception as exception:
             print(exception)
 
     cleanup_folder(updates_path)
 
 
-def update_tool(name):
+def update_tool(name, force_download):
     # generate download url
     from_url = config.get(name, 'from')
     download_url = config.get(name, 'url')
@@ -63,7 +65,7 @@ def update_tool(name):
     html_response.raise_for_status()
 
     # regex shit
-    latest_version = check_version(name, html_response.text)
+    latest_version = check_version(name, html_response.text, force_download)
     update_download_url = get_download_url(name, html_response.text, from_url)
 
     # download
@@ -82,7 +84,7 @@ def update_tool(name):
     print('{0}: update complete'.format(name))
 
 
-def check_version(name, html):
+def check_version(name, html, force_download):
     # https://api.github.com/repos/horsicq/DIE-engine/releases/latest
     # python -c 'import json,sys;obj=json.load(sys.stdin);print obj["assets"][0]["browser_download_url"];'
     local_version = config.get(name, 'local_version')
@@ -92,7 +94,7 @@ def check_version(name, html):
     if not html_regex_version:
         raise Exception('{0}: re_version not match'.format(name))
 
-    if local_version == html_regex_version[0]:
+    if not force_download and local_version == html_regex_version[0]:
         raise Exception('{0}: {1} is the latest version'.format(name, local_version))
 
     print('{0}: updated from {1} --> {2}'.format(name, local_version, html_regex_version[0]))
@@ -117,6 +119,7 @@ def get_download_url(name, html, from_url):
             update_download_url = 'https://github.com{0}'.format(update_download_url)
 
     # case 3: if update_url and re_download is set.... generate download link (ex: sourceforge)
+    # anyway sourceforge response real download url when 302 redirect loop end
     elif re_download:
         html_regex_download = re.findall(re_download, html)
         if not html_regex_download:
@@ -137,8 +140,11 @@ def download(name, url, download_path):
     print('{0}: downloading update "{1}"'.format(name, file_name))
 
     # download
-    file_response = requests.get(url, stream=True)
+    file_response = requests.get(url, allow_redirects=True, stream=True)
     file_response.raise_for_status()
+
+    # for debug redirects
+    #print('{0}: download url "{1}"'.format(name, file_response.url))
 
     with open(file_path, 'wb') as handle:
         for block in file_response.iter_content(1024):
@@ -191,9 +197,62 @@ def repack(name, unpack_path, version):
         config.write(configfile)
 
 
+def print_banner():
+    print("""
+8888888               888          888                     888             888      888                   
+  888                 888          888                     888             888      888                   
+  888                 888          888                     888             888      888                   
+  888   88888b.   .d88888  .d88b.  888888 .d88b.   .d8888b 888888  8888b.  88888b.  888  .d88b.  .d8888b  
+  888   888 "88b d88" 888 d8P  Y8b 888   d8P  Y8b d88P"    888        "88b 888 "88b 888 d8P  Y8b 88K      
+  888   888  888 888  888 88888888 888   88888888 888      888    .d888888 888  888 888 88888888 "Y8888b. 
+  888   888  888 Y88b 888 Y8b.     Y88b. Y8b.     Y88b.    Y88b.  888  888 888 d88P 888 Y8b.          X88 
+8888888 888  888  "Y88888  "Y8888   "Y888 "Y8888   "Y8888P  "Y888 "Y888888 88888P"  888  "Y8888   88888P' 
+""")
+
+def init_argparse() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        usage="%(prog)s [OPTIONS]",
+        description="Universal Tool Updater - by DSR!",
+    )
+    parser.add_argument(
+        "-v",
+        "--version",
+        action="version",
+        version="version 1.0.0-master"
+    )
+    parser.add_argument(
+        "-u",
+        "--update",
+        dest='update',
+        help="update tools (default all)",
+        nargs="*"
+    )
+    parser.add_argument(
+        "-f",
+        "--force",
+        dest='force',
+        help="force download",
+        action=argparse.BooleanOptionalAction
+    )
+    return parser
+
+
+def main():
+    print_banner()
+
+    parser = init_argparse()
+    args = parser.parse_args()
+    update_list = args.update
+    if not args.update:
+        update_list = config.sections()
+
+    handle_updates(update_list, args.force)
+    time.sleep(3)
+
+
 # se fini
 current_path = os.fsdecode(os.getcwdb())
 updates_path = os.path.join(current_path, 'updates')
 config = configparser.ConfigParser()
 config.read('tools.ini')
-handle_updates()
+main()
