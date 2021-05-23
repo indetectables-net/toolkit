@@ -16,25 +16,15 @@ import py7zr
 
 
 # Helpers functions
-def get_filename_from_url(name, url):
-	sourceforge_dynamic_url = config.get(name, 'sourceforge_dynamic_url', fallback=None)
-	if not sourceforge_dynamic_url:
-		fragment_removed = url.split('#')[0]  # keep to left of first #
-		query_string_removed = fragment_removed.split('?')[0]
-		scheme_removed = query_string_removed.split('://')[-1].split(':')[-1]
+def get_filename_from_url(url):
+    fragment_removed = url.split('#')[0]  # keep to left of first #
+    query_string_removed = fragment_removed.split('?')[0]
+    scheme_removed = query_string_removed.split('://')[-1].split(':')[-1]
 
-		if scheme_removed.find('/') == -1:
-			return ''
+    if scheme_removed.find('/') == -1:
+        return ''
 
-		return os.path.basename(scheme_removed)
-	else:
-		# needed for sourceforge.net download from specific folder
-		if url.split('/')[-1] == 'download':
-			url_transform = url.strip('/download')
-			new_filename = url_transform.split('/')[-1]
-		else:
-			return ''
-		return os.path.basename(new_filename)
+    return os.path.basename(scheme_removed)
 
 
 def cleanup_folder(path):
@@ -114,8 +104,6 @@ def get_download_url(name, html, from_url):
     # case 1: if update_url is set... download it!
     update_download_url = config.get(name, 'update_url', fallback=None)
     re_download = config.get(name, 're_download', fallback=None)
-    sourceforge_dynamic_url = config.get(name, 'sourceforge_dynamic_url', fallback=None)
-    re_version = config.get(name, 're_version')
 
     # case 2: if update_url is not set, scrape the link from html (ex: nirsoft)
     if not update_download_url:
@@ -133,14 +121,8 @@ def get_download_url(name, html, from_url):
         html_regex_download = re.findall(re_download, html)
         if not html_regex_download:
             raise Exception('{0}: re_download not match'.format(name))
-        if not sourceforge_dynamic_url:
-            update_download_url = '{0}{1}'.format(update_download_url, html_regex_download[0])
-        else:
-            # sourceforge_dynamic_url download for specific folder /w regex
-            find_version = re.findall(re_version, html)
-            latest_re_version = find_version[0]
-            replace_version = re.findall(sourceforge_dynamic_url, update_download_url)
-            update_download_url = '{0}'.format(update_download_url.replace('.'.join(replace_version[0]), str(latest_re_version)))
+
+        update_download_url = '{0}{1}'.format(update_download_url, html_regex_download[0])
 
     if not update_download_url:
         raise Exception('{0}: update_download_url not generated!'.format(name))
@@ -150,7 +132,7 @@ def get_download_url(name, html, from_url):
 
 def download(name, url, download_path):
     # prepare
-    file_name = get_filename_from_url(name, url)
+    file_name = get_filename_from_url(url)
     file_path = os.path.join(download_path, file_name)
     print('{0}: downloading update "{1}"'.format(name, file_name))
 
