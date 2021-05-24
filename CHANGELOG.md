@@ -1,20 +1,6 @@
 # Changelog
 
-## 2021.5 - MASTER
-
-### Added
-
-- Added Process Dump
-- Added AstroGrep
-- Added Scylla
-
-### Changed
-
-- Added 3 tools to updater
-- Fixed x64dbg updater url (use sourceforge 302 response url)
-- Update tools (22/05/2021)
-
-## 2021.3 - MASTER
+## 2021.5 - May 24, 2021
 
 ### Added
 
@@ -22,14 +8,19 @@
 - Add CAPA
 - Add ApkStudio
 - Add HashCalc
+- Add Process Dump
+- Add AstroGrep
+- Add Scylla
 
 ### Changed
 
 - Update updater for support file password
-- Add 3 tools to updater
-- Update tools (02/04/2021)
+- Add 6 tools to updater
+- Fixed x64dbg updater url (use sourceforge 302 response url)
+- Add command line support in updater
+- Update tools (24/05/2021)
 
-## 2021.2 - Mar 31, 2020
+## 2021.3 - Mar 31, 2021
 
 ### Added
 
@@ -54,7 +45,7 @@
 - Fix updater FileNotFoundError
 - Change QUnpack version
 
-## 2021.1 - Feb 10, 2021
+## 2021.2 - Feb 10, 2021
 
 ### Added
 
@@ -64,19 +55,17 @@
 
 - Migrate to 7zip
 
-## 2020.5 - Oct 16, 2020
+## 2020.10 - Oct 16, 2020
 
 ### Added
 
 - Add XELFViewer
 
-## 2020.4 - Oct 7, 2020
-
 ### Changed
 
 - Update tools
 
-## 2020.3 - Jul 13, 2020
+## 2020.7 - Jul 13, 2020
 
 ### Added
 
@@ -86,7 +75,7 @@
 
 - Update tools
 
-## 2020.2 - May 17, 2020
+## 2020.5 - May 17, 2020
 
 ### Added
 
@@ -97,7 +86,7 @@
 
 - Update tools
 
-## 2020.1 - Feb 17, 2020
+## 2020.2 - Feb 17, 2020
 
 ### Added
 
