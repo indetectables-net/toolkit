@@ -38,22 +38,51 @@ def cleanup_folder(path):
             os.remove(full_path)
 
 
+def download(url, download_file_path):
+    file_response = requests.get(url, allow_redirects=True, stream=True)
+    file_response.raise_for_status()
+
+    # for debug redirects
+    #print('DEBUG: download url "{0}"'.format(file_response.url))
+
+    with open(download_file_path, 'wb') as handle:
+        for block in file_response.iter_content(1024):
+            handle.write(block)
+
+
+def unpack(file_path, file_ext, unpack_path, file_pass):
+    if file_ext == '.zip':
+        if file_pass:
+            file_pass = bytes(file_pass, 'utf-8')
+
+        with zipfile.ZipFile(file_path, 'r') as compressed:
+            compressed.extractall(unpack_path, pwd=file_pass)
+
+    elif file_ext == '.7z':
+        with py7zr.SevenZipFile(file_path, 'r', password=file_pass) as compressed:
+            compressed.extractall(unpack_path)
+
+    else:
+        pathlib.Path(unpack_path).mkdir(exist_ok=True)
+        shutil.copy(file_path, unpack_path)
+
+
 # Steps
-def handle_updates(update_list, force_download):
+def handle_updates(update_list, force_download, no_repack, no_clean):
     # create folder if dont exist
     if not os.path.exists(updates_path):
         os.mkdir(updates_path)
 
     for ini_name in update_list:
         try:
-            update_tool(ini_name, force_download)
+            update_tool(ini_name, force_download, no_repack, no_clean)
         except Exception as exception:
             print(exception)
 
     cleanup_folder(updates_path)
 
 
-def update_tool(name, force_download):
+def update_tool(name, force_download, no_repack, no_clean):
     # generate download url
     from_url = config.get(name, 'from')
     download_url = config.get(name, 'url')
@@ -69,18 +98,25 @@ def update_tool(name, force_download):
     update_download_url = get_download_url(name, html_response.text, from_url)
 
     # download
+    download_file_name = get_filename_from_url(update_download_url)
+    download_file_path = os.path.join(updates_path, download_file_name)
+    print('{0}: downloading update "{1}"'.format(name, download_file_name))
     cleanup_folder(updates_path)
-    file_path = download(name, update_download_url, updates_path)
-    file_info = os.path.splitext(file_path)
+    download(update_download_url, download_file_path)
+    file_info = os.path.splitext(download_file_path)
 
     # processing file
     print('{0}: processing file'.format(name))
-    unpack_path = os.path.join(updates_path, file_info[0])
     update_file_pass = config.get(name, 'update_file_pass', fallback=None)
-    unpack(file_path, file_info[1], unpack_path, update_file_pass)
-    repack(name, unpack_path, latest_version)
+    unpack_path = os.path.join(updates_path, file_info[0])
+    unpack(download_file_path, file_info[1], unpack_path, update_file_pass)
+    repack(name, unpack_path, latest_version, no_repack, no_clean)
 
-    # end!
+    # update local version data
+    config.set(name, 'local_version', latest_version)
+    with open('tools.ini', 'w') as configfile:
+        config.write(configfile)
+
     print('{0}: update complete'.format(name))
 
 
@@ -133,47 +169,12 @@ def get_download_url(name, html, from_url):
     return update_download_url
 
 
-def download(name, url, download_path):
-    # prepare
-    file_name = get_filename_from_url(url)
-    file_path = os.path.join(download_path, file_name)
-    print('{0}: downloading update "{1}"'.format(name, file_name))
-
-    # download
-    file_response = requests.get(url, allow_redirects=True, stream=True)
-    file_response.raise_for_status()
-
-    # for debug redirects
-    #print('{0}: download url "{1}"'.format(name, file_response.url))
-
-    with open(file_path, 'wb') as handle:
-        for block in file_response.iter_content(1024):
-            handle.write(block)
-
-    return file_path
-
-
-def unpack(file_path, file_ext, unpack_path, file_pass):
-    if file_ext == '.zip':
-        if file_pass:
-            file_pass = bytes(file_pass, 'utf-8')
-
-        with zipfile.ZipFile(file_path, 'r') as compressed:
-            compressed.extractall(unpack_path, pwd=file_pass)
-
-    elif file_ext == '.7z':
-        with py7zr.SevenZipFile(file_path, 'r', password=file_pass) as compressed:
-            compressed.extractall(unpack_path)
-
-    else:
-        pathlib.Path(unpack_path).mkdir(exist_ok=True)
-        shutil.copy2(file_path, unpack_path)
-
-
-def repack(name, unpack_path, version):
+def repack(name, unpack_path, version, no_repack, no_clean):
     # prepare
     tool_folder_name = config.get(name, 'folder')
     tool_folder_path = os.path.join(os.path.dirname(current_path), tool_folder_name)
+    pathlib.Path(tool_folder_path).mkdir(parents=True, exist_ok=True)
+
     tool_name = '{0} - {1}.7z'.format(name, version)
     tmp_tool_path = os.path.join(os.path.dirname(unpack_path), tool_name)
 
@@ -184,56 +185,69 @@ def repack(name, unpack_path, version):
         unpack_path = folder_sample
 
     # update tool
-    with py7zr.SevenZipFile(tmp_tool_path, 'w') as archive:
-        archive.writeall(unpack_path, arcname='')
+    if not no_clean:
+        cleanup_folder(tool_folder_path)
 
-    pathlib.Path(tool_folder_path).mkdir(parents=True, exist_ok=True)
-    cleanup_folder(tool_folder_path)
-    shutil.copy2(tmp_tool_path, tool_folder_path)
+    if no_repack:
+        shutil.copytree(unpack_path, tool_folder_path, copy_function=shutil.copy, dirs_exist_ok=True)
+    else:
+        with py7zr.SevenZipFile(tmp_tool_path, 'w') as archive:
+            archive.writeall(unpack_path, arcname='')
 
-    # update local version data
-    config.set(name, 'local_version', version)
-    with open('tools.ini', 'w') as configfile:
-        config.write(configfile)
+        shutil.copy(tmp_tool_path, tool_folder_path)
 
 
+# Implementation
 def print_banner():
     print("""
-8888888               888          888                     888             888      888                   
-  888                 888          888                     888             888      888                   
-  888                 888          888                     888             888      888                   
-  888   88888b.   .d88888  .d88b.  888888 .d88b.   .d8888b 888888  8888b.  88888b.  888  .d88b.  .d8888b  
-  888   888 "88b d88" 888 d8P  Y8b 888   d8P  Y8b d88P"    888        "88b 888 "88b 888 d8P  Y8b 88K      
-  888   888  888 888  888 88888888 888   88888888 888      888    .d888888 888  888 888 88888888 "Y8888b. 
-  888   888  888 Y88b 888 Y8b.     Y88b. Y8b.     Y88b.    Y88b.  888  888 888 d88P 888 Y8b.          X88 
-8888888 888  888  "Y88888  "Y8888   "Y888 "Y8888   "Y8888P  "Y888 "Y888888 88888P"  888  "Y8888   88888P' 
+    ____          __     __            __        __    __         
+   /  _/___  ____/ /__  / /____  _____/ /_____ _/ /_  / /__  _____
+   / // __ \/ __  / _ \/ __/ _ \/ ___/ __/ __ `/ __ \/ / _ \/ ___/
+ _/ // / / / /_/ /  __/ /_/  __/ /__/ /_/ /_/ / /_/ / /  __(__  ) 
+/___/_/ /_/\__,_/\___/\__/\___/\___/\__/\__,_/_.___/_/\___/____/  
+                                                                  
 """)
 
-def init_argparse() -> argparse.ArgumentParser:
+def init_argparse():
     parser = argparse.ArgumentParser(
-        usage="%(prog)s [OPTIONS]",
+        usage="%(prog)s [ARGUMENTS]",
         description="Universal Tool Updater - by DSR!",
     )
     parser.add_argument(
         "-v",
         "--version",
         action="version",
-        version="version 1.0.0-master"
+        version="version 1.1.0-master"
     )
     parser.add_argument(
         "-u",
         "--update",
         dest='update',
-        help="update tools (default all)",
+        help="update tools (default: all)",
         nargs="*"
+    )
+    parser.add_argument(
+        "-dfc",
+        "--disable-folder-clean",
+        dest='disable_folder_clean',
+        help="disable tool folder clean (default: no_disable_folder_clean)",
+        action=argparse.BooleanOptionalAction
+    )
+    parser.add_argument(
+        "-dr",
+        "--disable-repack",
+        dest='disable_repack',
+        help="disable tool repack (default: no_disable_repack)",
+        action=argparse.BooleanOptionalAction
     )
     parser.add_argument(
         "-f",
         "--force",
         dest='force',
-        help="force download",
+        help="force download (default: no_force)",
         action=argparse.BooleanOptionalAction
     )
+
     return parser
 
 
@@ -246,7 +260,12 @@ def main():
     if not args.update:
         update_list = config.sections()
 
-    handle_updates(update_list, args.force)
+    handle_updates(
+        update_list = update_list,
+        force_download = args.force,
+        no_repack = args.disable_repack,
+        no_clean = args.disable_folder_clean
+    )
     time.sleep(3)
 
 
