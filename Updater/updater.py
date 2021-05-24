@@ -205,13 +205,13 @@ def print_banner():
    / // __ \/ __  / _ \/ __/ _ \/ ___/ __/ __ `/ __ \/ / _ \/ ___/
  _/ // / / / /_/ /  __/ /_/  __/ /__/ /_/ /_/ / /_/ / /  __(__  ) 
 /___/_/ /_/\__,_/\___/\__/\___/\___/\__/\__,_/_.___/_/\___/____/  
-                                                                  
+
+Universal Tool Updater - by DSR!
 """)
 
 def init_argparse():
     parser = argparse.ArgumentParser(
         usage="%(prog)s [ARGUMENTS]",
-        description="Universal Tool Updater - by DSR!",
     )
     parser.add_argument(
         "-v",
