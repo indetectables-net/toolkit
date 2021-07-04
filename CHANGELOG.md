@@ -1,5 +1,12 @@
 # Changelog
 
+## 2021.6 - MASTER
+
+### Changed
+
+- Update updater to lastest version from https://github.com/xchwarze/universal-tool-updater
+- Update tools (04/07/2021)
+
 ## 2021.5 - May 24, 2021
 
 ### Added
