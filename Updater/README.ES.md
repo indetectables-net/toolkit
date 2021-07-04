@@ -11,7 +11,7 @@ Es el complemento inevitable del [toolkit](https://github.com/indetectables-net/
 Puede clonar el repo con [git](https://git-scm.com/download/win) o simplemente bajarlo desde descargar.
 
 ```bash
-git clone https://github.com/indetectables-net/toolkit
+git clone https://github.com/xchwarze/universal-tool-updater
 ```
 
 ## Configuración
