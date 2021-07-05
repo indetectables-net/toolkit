@@ -6,6 +6,7 @@
 
 - Update updater to lastest version from https://github.com/xchwarze/universal-tool-updater
 - Update tools (04/07/2021)
+- Add PyInstxtractor to updater
 
 ## 2021.5 - May 24, 2021
 
