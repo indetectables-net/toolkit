@@ -2,11 +2,22 @@
 
 ## 2021.6 - MASTER
 
+### Added
+
+- Add VirusTotalUploader
+
 ### Changed
 
 - Update updater to lastest version from https://github.com/xchwarze/universal-tool-updater
 - Update tools (04/07/2021)
 - Add PyInstxtractor to updater
+- Add IDR to updater
+
+### Removed
+
+- Drop JAD support
+- Drop Stud PE support
+- Drop Flasm
 
 ## 2021.5 - May 24, 2021
 
