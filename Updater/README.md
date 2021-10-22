@@ -41,8 +41,9 @@ Name | Mandatory | Description
 `re_download` | `NO` | Regex used to get the download link on the web used in `url`.
 `update_url` | `NO` | Update download URL. See "Strategy for download" for more info.
 `update_file_pass` | `NO` | Use this password to unzip the update.
-`pre_update_script` | `NO` | The entered script will be executed before the update process.
-`post_update_script` | `NO` | The entered script will be executed after the update process.
+`pre_update` | `NO` | The entered script will be executed before the update process.
+`post_update` | `NO` | The entered script will be executed after the update process.
+`post_unpack` | `NO` | The entered script will be executed after unpack the update file.
 
 ## Strategy for download
 
@@ -60,7 +61,7 @@ The tool supports various commands and combinations. These are the most used.
 * Update a particular tool
 
 ```bash
-updater.exe --update DIE
+updater.exe --update "Process Hacker 3"
 ```
 
 * Force Update of a tool

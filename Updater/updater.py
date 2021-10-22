@@ -86,7 +86,7 @@ def handle_updates(update_list, force_download, no_repack, no_clean):
 
 def update_tool(name, force_download, no_repack, no_clean):
     # execute custom pre update script
-    exec_update_script(name, False)
+    exec_update_script(name, 'pre_update')
 
     # generate download url
     from_url = config.get(name, 'from', fallback='web')
@@ -115,11 +115,12 @@ def update_tool(name, force_download, no_repack, no_clean):
     update_file_pass = config.get(name, 'update_file_pass', fallback=None)
     unpack_path = os.path.join(updates_path, file_info[0])
     unpack(download_file_path, file_info[1], unpack_path, update_file_pass)
+    exec_update_script(name, 'post_unpack')
     repack(name, unpack_path, latest_version, no_repack, no_clean)
 
     # update complete
     bump_version(name, latest_version)
-    exec_update_script(name, True)
+    exec_update_script(name, 'post_update')
     print('{0}: update complete'.format(name))
 
 
@@ -131,7 +132,7 @@ def check_version(name, html, force_download):
     html_regex_version = re.findall(re_version, html)
 
     if not html_regex_version:
-        raise Exception('{0}: re_version not match'.format(name))
+        raise Exception('{0}: re_version regex not match'.format(name))
 
     if not force_download and local_version == html_regex_version[0]:
         raise Exception('{0}: {1} is the latest version'.format(name, local_version))
@@ -153,7 +154,7 @@ def get_download_url(name, html, from_url):
     if re_download:
         html_regex_download = re.findall(re_download, html)
         if not html_regex_download:
-            raise Exception('{0}: re_download not match'.format(name))
+            raise Exception('{0}: re_download regex not match'.format(name))
 
         # case 3: if update_url and re_download is set.... generate download link
         if update_download_url:
@@ -206,8 +207,7 @@ def bump_version(name, latest_version):
         config.write(configfile)
 
 
-def exec_update_script(name, is_post):
-    script_type = 'post_update_script' if is_post else 'pre_update_script'
+def exec_update_script(name, script_type):
     script = config.get(name, script_type, fallback=None)
     if script:
         print('{0}: exec {1} "{2}"'.format(name, script_type, script))
@@ -235,7 +235,7 @@ def init_argparse():
         "-v",
         "--version",
         action="version",
-        version="version 1.3.0"
+        version="version 1.4.0"
     )
     parser.add_argument(
         "-u",

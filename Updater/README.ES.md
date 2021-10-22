@@ -43,6 +43,9 @@ Nombre | Obligatorio | Descripción
 `update_file_pass` | `NO` | Usar esta contraseña para descomprimir el update.
 `pre_update_script` | `NO` | El script ingresado se ejecutara antes del proceso de update.
 `post_update_script` | `NO` | El script ingresado se ejecutara después del proceso de update.
+`pre_update` | `NO` | El script ingresado se ejecutara antes del proceso de update.
+`post_update` | `NO` | El script ingresado se ejecutara después del proceso de update.
+`post_unpack` | `NO` | El script ingresado se ejecutara después del proceso de unpack.
 
 ## Estrategia usadas para la descarga
 
@@ -60,7 +63,7 @@ La herramienta soporta varios comandos y combinaciones. Estos son los mas usados
 * Actualizar una herramienta en particular
 
 ```bash
-updater.exe --update DIE
+updater.exe --update "Process Hacker 3"
 ```
 
 * Forzar Actualicion de una herramienta
