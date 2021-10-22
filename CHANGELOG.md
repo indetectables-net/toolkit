@@ -9,9 +9,10 @@
 ### Changed
 
 - Update updater to lastest version from https://github.com/xchwarze/universal-tool-updater
-- Update tools (04/07/2021)
 - Add PyInstxtractor to updater
 - Add IDR to updater
+- Update tools (22/10/2021)
+- Fix Process Hacker 3 regex
 
 ### Removed
 
