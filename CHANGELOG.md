@@ -13,6 +13,7 @@
 - Add IDR to updater
 - Update tools (22/10/2021)
 - Fix Process Hacker 3 regex
+- Add HxD updater post_unpack script
 
 ### Removed
 
