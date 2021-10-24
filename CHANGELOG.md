@@ -1,6 +1,6 @@
 # Changelog
 
-## 2021.6 - MASTER
+## 2021.6 - Oct 23, 2021
 
 ### Added
 
@@ -14,6 +14,7 @@
 - Update tools (22/10/2021)
 - Fix Process Hacker 3 regex
 - Add HxD updater post_unpack script
+- Fix GitHub regex
 
 ### Removed
 
