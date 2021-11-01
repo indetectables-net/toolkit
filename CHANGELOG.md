@@ -1,6 +1,13 @@
 # Changelog
 
-## 2021.6 - MASTER
+## 2021.7 - MASTER
+
+### Changed
+
+- Update tools (01/11/2021)
+- Fix Process Hacker 3 regex
+
+## 2021.6 - Oct 23, 2021
 
 ### Added
 
