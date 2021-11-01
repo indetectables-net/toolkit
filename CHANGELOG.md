@@ -1,13 +1,19 @@
 # Changelog
 
-## 2021.7 - MASTER
+## MASTER
 
 ### Changed
 
 - Update tools (01/11/2021)
 - Fix Process Hacker 3 regex
 
-## 2021.6 - Oct 23, 2021
+### Removed
+
+- Drop JAD support
+- Drop Stud PE support
+- Drop Flasm
+
+## 2021.10 - Oct 23, 2021
 
 ### Added
 
