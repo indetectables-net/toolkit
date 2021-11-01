@@ -6,6 +6,7 @@
 
 - Add dnSpyEx
 - Add Cutter
+- Add PE-sieve
 
 ### Changed
 
