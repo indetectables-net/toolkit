@@ -2,6 +2,10 @@
 
 ## MASTER
 
+### Added
+
+- Add dnSpyEx
+
 ### Changed
 
 - Update tools (01/11/2021)
@@ -9,9 +13,7 @@
 
 ### Removed
 
-- Drop JAD support
-- Drop Stud PE support
-- Drop Flasm
+- Drop dnSpy support
 
 ## 2021.10 - Oct 23, 2021
 
