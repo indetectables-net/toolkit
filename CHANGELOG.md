@@ -5,6 +5,7 @@
 ### Added
 
 - Add dnSpyEx
+- Add Cutter
 
 ### Changed
 
