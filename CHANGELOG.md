@@ -1,6 +1,6 @@
 # Changelog
 
-## MASTER
+## 2022.2 - Feb 2, 2022
 
 ### Added
 
