@@ -10,8 +10,11 @@
 
 ### Changed
 
-- Update tools (01/11/2021)
+- Update tools (05/02/2022)
 - Fix Process Hacker 3 regex
+- Fix APKEasyTool updater config
+- Update updater version
+- Add MultiMon to updater
 
 ### Removed
 
