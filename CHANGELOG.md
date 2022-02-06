@@ -13,7 +13,7 @@
 - Update tools (05/02/2022)
 - Fix Process Hacker 3 regex
 - Fix APKEasyTool updater config
-- Update updater version
+- Update updater to latest version (v1.5.1)
 - Add MultiMon to updater
 
 ### Removed
@@ -28,7 +28,7 @@
 
 ### Changed
 
-- Update updater to lastest version from https://github.com/xchwarze/universal-tool-updater
+- Update updater to latest version from https://github.com/xchwarze/universal-tool-updater
 - Add PyInstxtractor to updater
 - Add IDR to updater
 - Update tools (22/10/2021)
