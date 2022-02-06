@@ -23,10 +23,15 @@ By default, it is configured as an example so that the user quickly understands 
 ```ini
 [DIE]
 folder = Analysis\DIE
-url = https://github.com/horsicq/DIE-engine
+url = horsicq/DIE-engine
 from = github
-re_version = <span class="css-truncate-target" [^>]*>(.*?)</span>
-re_download = "(.*?/die_win64_portable_(?:\S+).zip)"
+re_download = die_win64_portable_(?:\S+).zip
+
+[Portmon]
+folder = Monitor\Portmon
+url = https://docs.microsoft.com/en-us/sysinternals/downloads/portmon
+update_url = https://download.sysinternals.com/files/PortMon.zip
+re_version = <h1 [^>]*>Portmon for Windows v(.*?)</h1>
 ```
 
 The values used for configuration are:
@@ -52,7 +57,7 @@ Combining the use of `update_url` and `re_download` the following download strat
 1. Using only `update_url` it downloads directly without any extra processing.
 2. Using only `re_download` you get the download link on the web from `url`.
 3. When using both parameters, the result of `re_download` is concatenated with `update_url`.
-This is useful for fixing Github or Sourceforge download links.
+This is useful for fixing GitHub or Sourceforge download links.
 
 ## Examples
 
@@ -74,6 +79,18 @@ updater.exe --force --update DIE
 
 ```bash
 updater.exe --disable-folder-clean --disable-repack
+```
+
+## Use with GitHub Api
+
+GitHub download are performed by default scraping data, but for a more robust operation it is recommended to do it using the GitHub api.
+To do this, follow these steps:
+
+1. Generate our token from https://github.com/settings/tokens by clicking on Generate new token.
+2. Run the updater with the following commands 
+
+```bash
+updater.exe --update-default-params --use-github-api your_github_token
 ```
 
 ## Use with scheduled tasks

@@ -3,7 +3,7 @@
 # Copyright (C) 2021 DSR! <xchwarze@gmail.com>
 # Released under the terms of the MIT License
 # Developed for Python 3.6+
-# pip install requests py7zr
+# pip install requests py7zr rarfile colorama tqdm
 
 import argparse
 import configparser
@@ -14,8 +14,13 @@ import shutil
 import pathlib
 import zipfile
 import py7zr
-import time
+import rarfile
 import subprocess
+import signal
+import sys
+import colorama
+import tqdm
+import urllib
 
 
 # Helpers functions
@@ -27,28 +32,40 @@ def get_filename_from_url(url):
     if scheme_removed.find('/') == -1:
         return ''
 
-    return os.path.basename(scheme_removed)
+    return pathlib.Path(scheme_removed).name
 
 
 def cleanup_folder(path):
-    for file in os.listdir(path):
-        full_path = os.path.join(path, file)
-        if os.path.isdir(full_path):
-            shutil.rmtree(full_path)
+    for file in pathlib.Path(path).iterdir():
+        if file.is_dir():
+            shutil.rmtree(file)
         else:
-            os.remove(full_path)
+            file.unlink()
 
 
-def download(url, download_file_path):
+def download(url, file_path, progress_bar_desc, disable_progress_bar=False):
     file_response = requests.get(url, allow_redirects=True, stream=True)
     file_response.raise_for_status()
 
     # for debug redirects
-    #print('DEBUG: download url "{0}"'.format(file_response.url))
+    # print('DEBUG: download url "{0}"'.format(file_response.url))
 
-    with open(download_file_path, 'wb') as handle:
+    total_length = int(file_response.headers.get('content-length', 0))
+    with open(file_path, 'wb') as handle, tqdm.tqdm(
+            disable=disable_progress_bar,
+            colour='green',
+            ncols=100,
+            desc=progress_bar_desc,
+            total=total_length,
+            unit='iB',
+            unit_scale=True,
+            unit_divisor=1024,
+    ) as bar:
         for block in file_response.iter_content(1024):
-            handle.write(block)
+            size = handle.write(block)
+            bar.update(size)
+
+    bar.close()
 
 
 def unpack(file_path, file_ext, unpack_path, file_pass):
@@ -57,6 +74,12 @@ def unpack(file_path, file_ext, unpack_path, file_pass):
             file_pass = bytes(file_pass, 'utf-8')
 
         with zipfile.ZipFile(file_path, 'r') as compressed:
+            compressed.extractall(unpack_path, pwd=file_pass)
+
+    elif file_ext == '.rar':
+        # downlad first "UnRAR for Windows" from https://www.rarlab.com/rar_add.htm
+        # https://www.rarlab.com/rar/unrarw32.exe
+        with rarfile.RarFile(file_path, 'r') as compressed:
             compressed.extractall(unpack_path, pwd=file_pass)
 
     elif file_ext == '.7z':
@@ -68,227 +91,432 @@ def unpack(file_path, file_ext, unpack_path, file_pass):
         shutil.copy(file_path, unpack_path)
 
 
-# Steps
-def handle_updates(update_list, force_download, no_repack, no_clean):
-    # create updates folder if dont exist
-    if not os.path.exists(updates_path):
-        os.mkdir(updates_path)
-
-    for ini_name in update_list:
-        try:
-            update_tool(ini_name, force_download, no_repack, no_clean)
-        except Exception as exception:
-            print(exception)
-
-    cleanup_folder(updates_path)
-    time.sleep(5)
+def save_config_to_file(config, config_file_name):
+    with open(config_file_name, 'w') as config_file:
+        config.write(config_file)
 
 
-def update_tool(name, force_download, no_repack, no_clean):
-    # execute custom pre update script
-    exec_update_script(name, 'pre_update')
+# Main Updater class
+class Updater:
+    def __init__(self, config, config_file_name, force_download, disable_repack, disable_clean, disable_progress,
+                 save_format_type, use_github_api):
+        self.name = ''
+        self.config = config
+        self.config_file_name = config_file_name
+        self.force_download = force_download
+        self.disable_repack = disable_repack
+        self.disable_clean = disable_clean
+        self.disable_progress = disable_progress
+        self.save_format_type = save_format_type
+        self.script_path = os.fsdecode(os.getcwdb())
+        self.update_folder_path = pathlib.Path(self.script_path).joinpath('updates')
+        self.use_github_api = use_github_api
+        self.re_github_version = '\/releases\/tag\/(\S+)"'
+        self.re_github_download = '"(.*?/{0})"'
 
-    # generate download url
-    from_url = config.get(name, 'from', fallback='web')
-    web_url = config.get(name, 'url')
-    if from_url == 'github':
-        web_url = '{0}/releases/latest'.format(web_url)
+    def _check_version_from_web(self, html, re_version):
+        local_version = self.config.get(self.name, 'local_version', fallback='0')
+        html_regex_version = re.findall(re_version, html)
 
-    # load html
-    html_response = requests.get(web_url)
-    html_response.raise_for_status()
+        if not html_regex_version:
+            raise Exception(colorama.Fore.RED + '{0}: re_version regex not match'.format(self.name))
 
-    # regex shit
-    latest_version = check_version(name, html_response.text, force_download)
-    update_download_url = get_download_url(name, html_response.text, from_url)
+        if not self.force_download and local_version == html_regex_version[0]:
+            raise Exception('{0}: {1} is the latest version'.format(self.name, local_version))
 
-    # download
-    download_file_name = get_filename_from_url(update_download_url)
-    download_file_path = os.path.join(updates_path, download_file_name)
-    print('{0}: downloading update "{1}"'.format(name, download_file_name))
-    cleanup_folder(updates_path)
-    download(update_download_url, download_file_path)
-    file_info = os.path.splitext(download_file_path)
+        print('{0}: updated from {1} --> {2}'.format(self.name, local_version, html_regex_version[0]))
 
-    # processing file
-    print('{0}: processing file'.format(name))
-    update_file_pass = config.get(name, 'update_file_pass', fallback=None)
-    unpack_path = os.path.join(updates_path, file_info[0])
-    unpack(download_file_path, file_info[1], unpack_path, update_file_pass)
-    exec_update_script(name, 'post_unpack')
-    repack(name, unpack_path, latest_version, no_repack, no_clean)
+        return html_regex_version[0]
 
-    # update complete
-    bump_version(name, latest_version)
-    exec_update_script(name, 'post_update')
-    print('{0}: update complete'.format(name))
+    def _get_download_url_from_web(self, html, html_url, update_url, re_download):
+        # case 2: if update_url is not set, scrape the link from html
+        if re_download:
+            html_regex_download = re.findall(re_download, html)
+            if not html_regex_download:
+                raise Exception(colorama.Fore.RED + '{0}: re_download regex not match'.format(self.name))
 
+            # check if valid url
+            download_url_parse = urllib.parse.urlparse(html_regex_download[0])
 
-def check_version(name, html, force_download):
-    # https://api.github.com/repos/horsicq/DIE-engine/releases/latest
-    # python -c 'import json,sys;obj=json.load(sys.stdin);print obj["assets"][0]["browser_download_url"];'
-    local_version = config.get(name, 'local_version', fallback='0')
-    re_version = config.get(name, 're_version')
-    html_regex_version = re.findall(re_version, html)
+            # case 3: if update_url and re_download is set.... generate download link
+            if update_url:
+                update_url = '{0}{1}'.format(update_url, html_regex_download[0])
+            elif download_url_parse.scheme == '':
+                html_url_parse_fix = urllib.parse.urlparse(html_url)
+                update_url = '{0}://{1}/{2}'.format(html_url_parse_fix.scheme, html_url_parse_fix.netloc, html_regex_download[0])
+            else:
+                update_url = html_regex_download[0]
 
-    if not html_regex_version:
-        raise Exception('{0}: re_version regex not match'.format(name))
+        # case 1: if update_url is set... download it!
+        if not update_url:
+            raise Exception(colorama.Fore.RED + '{0}: update_url not generated!'.format(self.name))
 
-    if not force_download and local_version == html_regex_version[0]:
-        raise Exception('{0}: {1} is the latest version'.format(name, local_version))
+        return update_url
 
-    print('{0}: updated from {1} --> {2}'.format(name, local_version, html_regex_version[0]))
+    def _scrape_web(self, url, update_url, re_version, re_download):
+        # load html
+        html_response = requests.get(url)
+        html_response.raise_for_status()
 
-    return html_regex_version[0]
+        # regex shit
+        return {
+            'download_version': self._check_version_from_web(html_response.text, re_version),
+            'download_url': self._get_download_url_from_web(html_response.text, url, update_url, re_download),
+        }
 
+    def _check_version_from_github(self, json):
+        local_version = self.config.get(self.name, 'local_version', fallback='0')
 
-def get_download_url(name, html, from_url):
-    update_download_url = config.get(name, 'update_url', fallback=None)
-    re_download = config.get(name, 're_download', fallback=None)
+        if not self.force_download and local_version == json['tag_name']:
+            raise Exception('{0}: {1} is the latest version'.format(self.name, local_version))
 
-    # fix github url
-    if from_url == 'github':
-        update_download_url = 'https://github.com'
+        print('{0}: updated from {1} --> {2}'.format(self.name, local_version, json['tag_name']))
 
-    # case 2: if update_url is not set, scrape the link from html
-    if re_download:
-        html_regex_download = re.findall(re_download, html)
-        if not html_regex_download:
-            raise Exception('{0}: re_download regex not match'.format(name))
+        return json['tag_name']
 
-        # case 3: if update_url and re_download is set.... generate download link
-        if update_download_url:
-            update_download_url = '{0}{1}'.format(update_download_url, html_regex_download[0])
+    def _get_download_url_from_github(self, json, re_download):
+        if not re_download:
+            raise Exception(colorama.Fore.RED + '{0}: re_download regex not set'.format(self.name))
+
+        update_url = None
+        for attachment in json['assets']:
+            html_regex_download = re.findall(re_download, attachment['browser_download_url'])
+            if html_regex_download:
+                update_url = attachment['browser_download_url']
+                break
+
+        if not update_url:
+            raise Exception(colorama.Fore.RED + '{0}: re_download regex not match'.format(self.name))
+
+        return update_url
+
+    def _scrape_github(self, repo_path, re_download):
+        if self.use_github_api:
+            return self._scrape_github_api(repo_path, re_download)
+
+        repo_url = 'https://github.com/{0}/releases/latest'.format(repo_path)
+        re_download = self.re_github_download.format(re_download)
+
+        return self._scrape_web(repo_url, '', self.re_github_version, re_download)
+
+    def _scrape_github_api(self, repo_path, re_download):
+        repo_url = 'https://api.github.com/repos/{0}/releases/latest'.format(repo_path)
+
+        # load json
+        html_response = requests.get(repo_url, headers={'Authorization': f'token {self.use_github_api}'})
+        html_response.raise_for_status()
+        json_response = html_response.json()
+
+        # regex shit
+        return {
+            'download_version': self._check_version_from_github(json_response),
+            'download_url': self._get_download_url_from_github(json_response, re_download),
+        }
+
+    def _repack_save_compress_name(self, name, version):
+        pack_name = '{0} - {1}.7z'.format(name, version)
+        if self.save_format_type == 'version':
+            pack_name = '{0}.7z'.format(version)
+        elif self.save_format_type == 'name':
+            pack_name = '{0}.7z'.format(name)
+
+        return pack_name
+
+    def _repack(self, unpack_path, version):
+        tool_unpack_path = unpack_path
+
+        # dirty hack for correct folders structure
+        folder_list = os.listdir(tool_unpack_path)
+        folder_sample = pathlib.Path(tool_unpack_path).joinpath(folder_list[0])
+        if len(folder_list) == 1 & os.path.isdir(folder_sample):
+            tool_unpack_path = folder_sample
+
+        # update tool
+        tool_folder = self.config.get(self.name, 'folder')
+        if not pathlib.Path(tool_folder).is_absolute():
+            tool_folder = pathlib.Path.resolve(pathlib.Path(self.script_path).joinpath(tool_folder))
+
+        print('{0}: saving to folder {1}'.format(self.name, tool_folder))
+        pathlib.Path(tool_folder).mkdir(parents=True, exist_ok=True)
+
+        if not self.disable_clean:
+            cleanup_folder(tool_folder)
+
+        if self.disable_repack:
+            shutil.copytree(tool_unpack_path, tool_folder, copy_function=shutil.copy, dirs_exist_ok=True)
         else:
-            update_download_url = html_regex_download[0]
+            save_compress_name = self._repack_save_compress_name(self.name, version)
+            tool_repack_path = pathlib.Path(pathlib.Path(unpack_path).parent).joinpath(save_compress_name)
 
-    # case 1: if update_url is set... download it!
-    if not update_download_url:
-        raise Exception('{0}: update_download_url not generated!'.format(name))
+            with py7zr.SevenZipFile(tool_repack_path, 'w') as archive:
+                archive.writeall(tool_unpack_path, arcname='')
 
-    return update_download_url
+            shutil.copy(tool_repack_path, tool_folder)
 
+        return {
+            'tool_name': self.name,
+            'tool_folder': str(tool_folder),
+            'save_compress_name': '' if self.disable_repack else save_compress_name,
+        }
 
-def repack(name, unpack_path, version, no_repack, no_clean):
-    tool_unpack_path = unpack_path
+    def _bump_version(self, latest_version):
+        self.config.set(self.name, 'local_version', latest_version)
+        save_config_to_file(self.config, self.config_file_name)
 
-    # dirty hack for correct folders structure
-    folder_list = os.listdir(tool_unpack_path)
-    folder_sample = os.path.join(tool_unpack_path, folder_list[0])
-    if len(folder_list) == 1 & os.path.isdir(folder_sample):
-        tool_unpack_path = folder_sample
+    def _exec_update_script(self, script_type):
+        script = self.config.get(self.name, script_type, fallback=None)
+        if script:
+            print('{0}: exec {1} "{2}"'.format(self.name, script_type, script))
+            print(colorama.Fore.BLUE + '------------------------------')
+            subprocess.run(script)
+            print(colorama.Fore.BLUE + '------------------------------')
 
-    # update tool
-    tool_folder = config.get(name, 'folder')
-    if not pathlib.Path(tool_folder).is_absolute():
-        tool_folder = os.path.join(current_path, tool_folder)
+    def _exec_global_update_script(self, processing_info):
+        script = self.config.get('Updater', 'global_post_update', fallback=None)
+        if script:
+            print('{0}: exec global script "{1}"'.format(self.name, script))
+            subprocess.run([
+                script,
+                processing_info['tool_name'],
+                processing_info['tool_folder'],
+                processing_info['save_compress_name'],
+            ])
 
-    print('{0}: saved to {1}'.format(name, tool_folder))
-    pathlib.Path(tool_folder).mkdir(parents=True, exist_ok=True)
+    def _scrape_step(self):
+        tool_url = self.config.get(self.name, 'url', fallback=None)
+        update_url = self.config.get(self.name, 'update_url', fallback=None)
+        re_download = self.config.get(self.name, 're_download', fallback=None)
+        re_version = self.config.get(self.name, 're_version', fallback=None)
 
-    if not no_clean:
-        cleanup_folder(tool_folder)
+        # case for don't process "Updater" tool
+        if not tool_url:
+            raise Exception()
 
-    if no_repack:
-        shutil.copytree(tool_unpack_path, tool_folder, copy_function=shutil.copy, dirs_exist_ok=True)
-    else:
-        tool_name = '{0} - {1}.7z'.format(name, version)
-        tool_repack_path = os.path.join(os.path.dirname(unpack_path), tool_name)
+        from_url = self.config.get(self.name, 'from', fallback='web')
+        if from_url == 'github':
+            return self._scrape_github(tool_url, re_download)
 
-        with py7zr.SevenZipFile(tool_repack_path, 'w') as archive:
-            archive.writeall(tool_unpack_path, arcname='')
+        return self._scrape_web(tool_url, update_url, re_version, re_download)
 
-        shutil.copy(tool_repack_path, tool_folder)
+    def _download_step(self, download_url):
+        # create updates folder if don't exist
+        if not pathlib.Path.exists(self.update_folder_path):
+            pathlib.Path.mkdir(self.update_folder_path)
 
+        # download
+        self.cleanup_update_folder()
+        file_name = get_filename_from_url(download_url)
+        file_path = pathlib.Path(self.update_folder_path).joinpath(file_name)
 
-def bump_version(name, latest_version):
-    config.set(name, 'local_version', latest_version)
-    with open('tools.ini', 'w') as configfile:
-        config.write(configfile)
+        print('{0}: downloading update "{1}"'.format(self.name, file_name))
 
+        try:
+            download(
+                url=download_url,
+                file_path=file_path,
+                progress_bar_desc=self.name,
+                disable_progress_bar=self.disable_progress,
+            )
+        except Exception as exception:
+            print(colorama.Fore.RED + '{0}: download url {1}'.format(self.name, download_url))
+            raise Exception(colorama.Fore.RED + '{0}: Error {1}'.format(self.name, exception))
 
-def exec_update_script(name, script_type):
-    script = config.get(name, script_type, fallback=None)
-    if script:
-        print('{0}: exec {1} "{2}"'.format(name, script_type, script))
-        subprocess.run(script)
+        return file_path
+
+    def _processing_step(self, file_path, download_version):
+        file_ext = pathlib.Path(file_path).suffix
+        update_folder = str(file_path).replace(file_ext, '')
+
+        update_file_pass = self.config.get(self.name, 'update_file_pass', fallback=None)
+        unpack_path = pathlib.Path(self.update_folder_path).joinpath(update_folder)
+        unpack(file_path, file_ext, unpack_path, update_file_pass)
+
+        self._exec_update_script('post_unpack')
+
+        return self._repack(unpack_path, download_version)
+
+    def update(self, name):
+        self.name = name
+
+        # execute custom pre update script
+        self._exec_update_script('pre_update')
+
+        # generate download url
+        scrape_data = self._scrape_step()
+
+        # download
+        update_file_path = self._download_step(scrape_data['download_url'])
+
+        # processing file
+        processing_info = self._processing_step(update_file_path, scrape_data['download_version'])
+
+        # update complete
+        self._bump_version(scrape_data['download_version'])
+        self._exec_update_script('post_update')
+        self._exec_global_update_script(processing_info)
+        print('{0}: update complete'.format(self.name))
+
+    def cleanup_update_folder(self):
+        cleanup_folder(self.update_folder_path)
 
 
 # Implementation
-def print_banner():
-    print("""
-    ____          __     __            __        __    __         
-   /  _/___  ____/ /__  / /____  _____/ /_____ _/ /_  / /__  _____
-   / // __ \/ __  / _ \/ __/ _ \/ ___/ __/ __ `/ __ \/ / _ \/ ___/
- _/ // / / / /_/ /  __/ /_/  __/ /__/ /_/ /_/ / /_/ / /  __(__  ) 
-/___/_/ /_/\__,_/\___/\__/\___/\___/\__/\__,_/_.___/_/\___/____/  
+class Setup:
+    def __init__(self):
+        self.version = '1.5.0'
+        self.arguments = {}
+        self.config = configparser.ConfigParser()
+        self.default_config = {}
+        self.config_file_name = 'tools.ini'
 
-Universal Tool Updater - by DSR!
-https://github.com/xchwarze/universal-tool-updater
-""")
+    def print_banner(self):
+        print(colorama.Fore.YELLOW + """
+     ____          __     __            __        __    __         
+    /  _/___  ____/ /__  / /____  _____/ /_____ _/ /_  / /__  _____
+    / // __ \/ __  / _ \/ __/ _ \/ ___/ __/ __ `/ __ \/ / _ \/ ___/
+  _/ // / / / /_/ /  __/ /_/  __/ /__/ /_/ /_/ / /_/ / /  __(__  ) 
+ /___/_/ /_/\__,_/\___/\__/\___/\___/\__/\__,_/_.___/_/\___/____/  
+    
+ Universal Tool Updater - by DSR!
+ https://github.com/xchwarze/universal-tool-updater
+    """)
 
-def init_argparse():
-    parser = argparse.ArgumentParser(
-        usage="%(prog)s [ARGUMENTS]",
-    )
-    parser.add_argument(
-        "-v",
-        "--version",
-        action="version",
-        version="version 1.4.0"
-    )
-    parser.add_argument(
-        "-u",
-        "--update",
-        dest='update',
-        help="update tools (default: all)",
-        nargs="*"
-    )
-    parser.add_argument(
-        "-dfc",
-        "--disable-folder-clean",
-        dest='disable_folder_clean',
-        help="disable tool folder clean (default: no_disable_folder_clean)",
-        action=argparse.BooleanOptionalAction
-    )
-    parser.add_argument(
-        "-dr",
-        "--disable-repack",
-        dest='disable_repack',
-        help="disable tool repack (default: no_disable_repack)",
-        action=argparse.BooleanOptionalAction
-    )
-    parser.add_argument(
-        "-f",
-        "--force",
-        dest='force',
-        help="force download (default: no_force)",
-        action=argparse.BooleanOptionalAction
-    )
+    def exit_handler(self, signal, frame):
+        print(colorama.Fore.YELLOW + 'SIGINT or CTRL-C detected. Exiting gracefully')
+        sys.exit(0)
 
-    return parser
+    def get_argparse_default(self, option, default, is_bool=True):
+        if is_bool:
+            #return value.lower() in ('true', '1', 'yes', 'on')
+            return self.config.getboolean('Updater', option, fallback=default)
 
+        return self.config.get('Updater', option, fallback=default)
 
-def main():
-    print_banner()
+    def init_argparse(self):
+        parser = argparse.ArgumentParser(
+            usage='%(prog)s [ARGUMENTS]',
+        )
+        parser.add_argument(
+            '-v',
+            '--version',
+            action='version',
+            version='Version: {0}'.format(self.version)
+        )
+        parser.add_argument(
+            '-u',
+            '--update',
+            dest='update',
+            help='update tools (default: all)',
+            nargs='*'
+        )
+        parser.add_argument(
+            '-dfc',
+            '--disable-folder-clean',
+            dest='disable_clean',
+            help='disable tool folder clean (default: false)',
+            action=argparse.BooleanOptionalAction,
+            default=self.get_argparse_default('disable_clean', False)
+        )
+        parser.add_argument(
+            '-dr',
+            '--disable-repack',
+            dest='disable_repack',
+            help='disable tool repack (default: false)',
+            action=argparse.BooleanOptionalAction,
+            default=self.get_argparse_default('disable_repack', False)
+        )
+        parser.add_argument(
+            '-dpb',
+            '--disable-progress-bar',
+            dest='disable_progress',
+            help='disable download progress bar (default: false)',
+            action=argparse.BooleanOptionalAction,
+            default=self.get_argparse_default('disable_progress', False)
+        )
+        parser.add_argument(
+            '-sft',
+            '--save-format-type',
+            dest='save_format_type',
+            help='compress save format name (default: full)',
+            choices=['full', 'version', 'name'],
+            default=self.get_argparse_default('save_format_type', 'full', False)
+        )
+        parser.add_argument(
+            '-f',
+            '--force',
+            dest='force_download',
+            help='force download (default: false)',
+            action=argparse.BooleanOptionalAction,
+            default=False
+        )
+        parser.add_argument(
+            '-uga',
+            '--use-github-api',
+            dest='use_github_api',
+            help='use github api with this token (default: false)',
+            default=self.get_argparse_default('use_github_api', '', False)
+        )
+        parser.add_argument(
+            '-udp',
+            '--update-default-params',
+            dest='update_default_params',
+            help='update default params (default: false)',
+            action=argparse.BooleanOptionalAction,
+            default=False
+        )
 
-    parser = init_argparse()
-    args = parser.parse_args()
-    update_list = args.update
-    if not args.update:
-        update_list = config.sections()
+        self.arguments = parser.parse_args()
 
-    handle_updates(
-        update_list = update_list,
-        force_download = args.force,
-        no_repack = args.disable_repack,
-        no_clean = args.disable_folder_clean
-    )
+    def update_default_params(self):
+        if not self.arguments.update_default_params:
+            return False
+
+        self.config.set('Updater', 'disable_clean', str(self.arguments.disable_clean))
+        self.config.set('Updater', 'disable_repack', str(self.arguments.disable_repack))
+        self.config.set('Updater', 'disable_progress', str(self.arguments.disable_progress))
+        self.config.set('Updater', 'save_format_type', self.arguments.save_format_type)
+        self.config.set('Updater', 'use_github_api', self.arguments.use_github_api)
+
+        save_config_to_file(self.config, self.config_file_name)
+        print(colorama.Fore.GREEN + 'Update default params successful')
+
+    def handle_updates(self):
+        update_list = self.arguments.update
+        if not update_list:
+            update_list = self.config.sections()
+
+        updater = Updater(
+            config=self.config,
+            config_file_name=self.config_file_name,
+            force_download=self.arguments.force_download,
+            disable_repack=self.arguments.disable_repack,
+            disable_clean=self.arguments.disable_clean,
+            disable_progress=self.arguments.disable_progress,
+            save_format_type=self.arguments.save_format_type,
+            use_github_api=self.arguments.use_github_api,
+        )
+
+        for ini_name in update_list:
+            try:
+                updater.update(ini_name)
+            except Exception as exception:
+                print(exception)
+
+        updater.cleanup_update_folder()
+
+    def main(self):
+        colorama.init(autoreset=True)
+        signal.signal(signal.SIGINT, self.exit_handler)
+
+        self.print_banner()
+
+        self.config.read(self.config_file_name)
+        self.init_argparse()
+        self.update_default_params()
+
+        self.handle_updates()
 
 
 # se fini
-current_path = os.fsdecode(os.getcwdb())
-updates_path = os.path.join(current_path, 'updates')
-config = configparser.ConfigParser()
-config.read('tools.ini')
-main()
+if __name__ == '__main__':
+    Setup().main()
