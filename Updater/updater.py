@@ -213,6 +213,24 @@ class Updater:
             'download_url': self._get_download_url_from_github(json_response, re_download),
         }
 
+    def _unpack(self, file_path):
+        file_ext = pathlib.Path(file_path).suffix
+        update_folder = str(file_path).replace(file_ext, '')
+
+        update_file_pass = self.config.get(self.name, 'update_file_pass', fallback=None)
+        unpack_path = pathlib.Path(self.update_folder_path).joinpath(update_folder)
+        unpack(file_path, file_ext, unpack_path, update_file_pass)
+
+        # dirty hack for correct compress inside compress...
+        folder_list = os.listdir(unpack_path)
+        folder_sample = pathlib.Path(unpack_path).joinpath(folder_list[0])
+        file_ext = pathlib.Path(folder_sample).suffix
+        if len(folder_list) == 1 & (file_ext in ['.zip', '.rar', '.7z']):
+            unpack(folder_sample, file_ext, unpack_path, None)
+            os.remove(folder_sample)
+
+        return unpack_path
+
     def _repack_save_compress_name(self, name, version):
         pack_name = '{0} - {1}.7z'.format(name, version)
         if self.save_format_type == 'version':
@@ -243,6 +261,7 @@ class Updater:
             cleanup_folder(tool_folder)
 
         if self.disable_repack:
+            save_compress_name = ''
             shutil.copytree(tool_unpack_path, tool_folder, copy_function=shutil.copy, dirs_exist_ok=True)
         else:
             save_compress_name = self._repack_save_compress_name(self.name, version)
@@ -256,7 +275,7 @@ class Updater:
         return {
             'tool_name': self.name,
             'tool_folder': str(tool_folder),
-            'save_compress_name': '' if self.disable_repack else save_compress_name,
+            'save_compress_name': save_compress_name,
         }
 
     def _bump_version(self, latest_version):
@@ -324,13 +343,7 @@ class Updater:
         return file_path
 
     def _processing_step(self, file_path, download_version):
-        file_ext = pathlib.Path(file_path).suffix
-        update_folder = str(file_path).replace(file_ext, '')
-
-        update_file_pass = self.config.get(self.name, 'update_file_pass', fallback=None)
-        unpack_path = pathlib.Path(self.update_folder_path).joinpath(update_folder)
-        unpack(file_path, file_ext, unpack_path, update_file_pass)
-
+        unpack_path = self._unpack(file_path)
         self._exec_update_script('post_unpack')
 
         return self._repack(unpack_path, download_version)
@@ -363,7 +376,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.5.0'
+        self.version = '1.5.1'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
