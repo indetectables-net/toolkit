@@ -7,13 +7,23 @@ Es el complemento ideal para ser usado con para empezar con los [manuales](https
 
 ## Instalación
 
-Puede clonar el repo con [git](https://git-scm.com/download/win) o simplemente bajarlo desde descargar.
+1. Puede clonar el repositorio con [git](https://git-scm.com/download/win), bajarlo desde descargar o simplemente bajar las versiones estables desde la seccion de [Release](https://github.com/indetectables-net/toolkit/releases).
 
 ```bash
 git clone https://github.com/indetectables-net/toolkit
 ```
 
+2. Una vez descargado puedes actualizar las herramientas con el Updater que desarrollamos para esto.
+El mismo está en la carpeta Updater.
+
+## Herramientas
+
+El toolkit está compuesto por 75 herramientas que cubren todo lo que podemos necesitar para la reversa y el análisis.
+Las herramientas están todas descargadas de sus páginas oficiales pero de todas formas se recomienda usarlas con cautela, en especial las que las paginas oficiales son hilos en foros y cosas por el estilo.
+
+
 ## Contribuciones
+
 Los pull requests son bienvenidos. Para cambios importantes abra primero un issue para analizarlo entre todos.
 
-Las herramientas están comprimidas con 7zip y el formato usado para los nombres es {nombre} - {version}.7z
+Las herramientas están comprimidas con 7zip y el formato usado para los nombres es "{nombre} - {version}.7z"
