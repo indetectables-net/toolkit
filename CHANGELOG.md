@@ -4,6 +4,22 @@
 
 ### Added
 
+- TBD
+
+### Changed
+
+- Fix IDR install
+- Fix Recaf download name
+- Fix JADX download name
+
+### Removed
+
+- Drop RDG Packer Detector (replaced by DIE)
+
+## 2022.2 - Feb 2, 2022
+
+### Added
+
 - Add dnSpyEx
 - Add Cutter
 - Add PE-sieve
@@ -18,7 +34,7 @@
 
 ### Removed
 
-- Drop dnSpy support
+- Drop dnSpy support (replaced by dnSpyEx)
 
 ## 2021.10 - Oct 23, 2021
 
@@ -38,9 +54,9 @@
 
 ### Removed
 
-- Drop JAD support
-- Drop Stud PE support
-- Drop Flasm
+- Drop JAD support (replaced by Recaf)
+- Drop Stud PE support (replaced by ExeinfoPe)
+- Drop Flasm 
 
 ## 2021.5 - May 24, 2021
 
