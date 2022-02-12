@@ -1,4 +1,5 @@
 @ECHO OFF
+echo "Fix IDR folder structure"
 cd "updates\master\IDR-master"
 del *.cpp
 del *.dfm
