@@ -1,5 +1,5 @@
 @ECHO OFF
-echo "Fix x64dbg folder structure"
+echo Fix x64dbg folder structure
 cd "updates\download"
 
 SET src_folder=release
