@@ -5,6 +5,10 @@
 ### Added
 
 - Add Updater auto-config-tools exe
+- Add Updater Task Schedule example
+- Add HashMyFiles
+- Add Threadtear
+- Add Hollows Hunter
 
 ### Changed
 
@@ -19,6 +23,8 @@
 ### Removed
 
 - Drop RDG Packer Detector (replaced by DIE)
+- Drop HashCalc (replaced by HashMyFiles)
+- Drop Process Hacker 2 (replaced by Process Hacker 3)
 
 ## 2022.2 - Feb 2, 2022
 
