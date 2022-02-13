@@ -1,6 +1,6 @@
 ; general options
 name "auto-config-tools"
-Icon "favicon.ico"
+Icon "appicon.ico"
 SilentInstall silent
 OutFile "auto-config-tools.exe"
 RequestExecutionLevel user
