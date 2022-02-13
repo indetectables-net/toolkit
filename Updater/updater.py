@@ -376,7 +376,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.5.1'
+        self.version = '1.5.2'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
@@ -520,6 +520,7 @@ class Setup:
     def main(self):
         colorama.init(autoreset=True)
         signal.signal(signal.SIGINT, self.exit_handler)
+        os.chdir(os.path.dirname(sys.argv[0]))
 
         self.print_banner()
 
