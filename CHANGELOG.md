@@ -1,16 +1,20 @@
 # Changelog
 
-## 2022.2 - Feb 2, 2022
+## MASTER
 
 ### Added
 
-- TBD
+- Add Updater auto-config-tools exe
 
 ### Changed
 
+- Fix x64dbg install
 - Fix IDR install
 - Fix Recaf download name
 - Fix JADX download name
+- Fix w32Dasm uncompress structure
+- Fix update via last commit regex
+- Delete NFO-Tools sub folder
 
 ### Removed
 
