@@ -520,7 +520,11 @@ class Setup:
     def main(self):
         colorama.init(autoreset=True)
         signal.signal(signal.SIGINT, self.exit_handler)
-        os.chdir(os.path.dirname(sys.argv[0]))
+
+        # Fix current dir bug
+        current_dir = os.path.dirname(sys.argv[0])
+        if current_dir:
+            os.chdir(current_dir)
 
         self.print_banner()
 
