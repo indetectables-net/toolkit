@@ -7,6 +7,7 @@
 - Add SendTo+
 - Add Updater auto-config-tools exe
 - Add Updater Task Schedule example
+- Add Installer generator code
 - Add HashMyFiles
 - Add Threadtear
 - Add Hollows Hunter 
