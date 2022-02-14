@@ -4,11 +4,12 @@
 
 ### Added
 
+- Add SendTo+
 - Add Updater auto-config-tools exe
 - Add Updater Task Schedule example
 - Add HashMyFiles
 - Add Threadtear
-- Add Hollows Hunter
+- Add Hollows Hunter 
 
 ### Changed
 
@@ -19,6 +20,7 @@
 - Fix w32Dasm uncompress structure
 - Fix update via last commit regex
 - Delete NFO-Tools sub folder
+- Change project structure
 
 ### Removed
 
