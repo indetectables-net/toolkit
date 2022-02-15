@@ -13,6 +13,7 @@
 AppId={{1FF89DD9-2D8E-4959-B670-2344285F456B}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
+VersionInfoVersion={#MyAppVersion}
 AppVerName={#MyAppName} - {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
@@ -34,44 +35,48 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 
 [Components]
-Name: "Analysis"; Description: "Analysis tools"; Types: full;
+Name: "analysis"; Description: "Analysis tools"; Types: full;
 #include "sections\analysis.iss"
 
 [Components]
-Name: "Decompilers"; Description: "Decompilers"; Types: full;
+Name: "decompilers"; Description: "Decompilers"; Types: full;
 #include "sections\decompilers.iss"
 
 [Components]
-Name: "Dissasembler"; Description: "Dissasembler"; Types: full;
+Name: "dissasembler"; Description: "Dissasembler"; Types: full;
 #include "sections\dissasembler.iss"
 
 [Components]
-Name: "HEXEditor"; Description: "Hex editors"; Types: full;
+Name: "hexeditor"; Description: "Hex editors"; Types: full;
 #include "sections\hex-editor.iss"
 
 [Components]
-Name: "Monitor"; Description: "Monitor tools"; Types: full;
+Name: "monitor"; Description: "Monitor tools"; Types: full;
 #include "sections\monitor.iss"
 
 [Components]
-Name: "Other"; Description: "Other tools"; Types: full;
+Name: "other"; Description: "Other tools"; Types: full;
 #include "sections\other.iss"
 
 [Components]
-Name: "RootkitsDetector"; Description: "Rootkits Detector"; Types: full;
+Name: "rootkitsdetector"; Description: "Rootkits Detector"; Types: full;
 #include "sections\rootkits-detector.iss"
 
 [Components]
-Name: "UnPacking"; Description: "UnPacking"; Types: full;
+Name: "unpacking"; Description: "UnPacking"; Types: full;
 #include "sections\unpacking.iss"
 
 [Components]
-Name: "Updater"; Description: "Tools auto updater"; Types: full;
+Name: "updater"; Description: "Tools auto updater"; Types: full;
 #include "sections\updater.iss"
+
+[Components]
+Name: "extras"; Description: "Extras"; Types: full;
+#include "sections\extras.iss"
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
-; Extras
+; Misc
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Add docs
@@ -85,34 +90,21 @@ Name: "{userdesktop}\{#MyAppName}\Explore all tools"; Filename: "{#MyAppToolsFol
 Name: "{group}\{#MyAppName}\Explore all tools"; Filename: "{#MyAppToolsFolder}";
 
 
-; SendTo+ shortcuts
+; hstart
+[Files]
+Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\";
+
+
+; SendTo+
 [Files]
 Source: "{#MySrcDir}\bin\sendto\*"; Destdir: "{#MyAppBinsFolder}\sendto\";
-Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\";
 
 [Icons]
 ; x64
-Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: Is64BitInstallMode
 Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: Is64BitInstallMode
 
 ; x32
-Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: not Is64BitInstallMode
 Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: not Is64BitInstallMode
-
-; Add SendTo+ to right click menu
-; this code need to run with admin priv!
-[Registry]
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: none; ValueName: ""; ValueData: ""; Flags: uninsdeletekey
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: ""; ValueData: "Indetectables Toolkit"; Flags: uninsdeletekey
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "Icon"; ValueData: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Flags: uninsdeletekey
-;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorBefore"; ValueData: ""; Flags: uninsdeletekey
-;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorAfter"; ValueData: ""; Flags: uninsdeletekey
-
-; x64
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string; ValueName: ""; ValueData: """{#MyAppBinsFolder}\hstart\hstart64.exe"" /SHELL /D=""{#MyAppBinsFolder}\sendto"" """"{#MyAppBinsFolder}\sendto\sendto_x64.exe"" ""%1"""""; Flags: uninsdeletekey; Check: Is64BitInstallMode
-
-; x32
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string; ValueName: ""; ValueData: """{#MyAppBinsFolder}\hstart\hstart.exe"" /SHELL /D=""{#MyAppBinsFolder}\sendto"" """"{#MyAppBinsFolder}\sendto\sendto_x86.exe"" ""%1"""""; Flags: uninsdeletekey; Check: not Is64BitInstallMode
 
 
 ; Force delete all files
