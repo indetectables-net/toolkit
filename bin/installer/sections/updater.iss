@@ -26,7 +26,8 @@ Filename: "{#MyAppBinsFolder}\auto-config-tools\auto-config-tools.exe"; Paramete
 Name: "updater\task"; Description: "Add Updater Task Schedule"; Types: full compact; 
 
 [Run]
-Filename: "{sys}\schtasks.exe"; Parameters: "/CREATE /SC WEEKLY /TN 'IndetectablesToolkit_Updater' /TR '{#MyAppBinsFolder}\updater\hstart.exe /NOCONSOLE {#MyAppBinsFolder}\updater\updater.exe'"; Flags: runhidden;
+Filename: "{sys}\schtasks.exe"; Parameters: "/Delete /TN IndetectablesToolkit_Updater /F"; Flags: runhidden;
+Filename: "{sys}\schtasks.exe"; Parameters: "/CREATE /SC WEEKLY /TN IndetectablesToolkit_Updater /TR ""'{#MyAppBinsFolder}\hstart\hstart.exe' /NOCONSOLE '{#MyAppBinsFolder}\updater\updater.exe'"""; Flags: runhidden;
 
 [UninstallRun]
-Filename: "{sys}\schtasks.exe"; Parameters: "/Delete /TN 'IndetectablesToolkit_Updater' /F"; Flags: runhidden
+Filename: "{#MyAppBinsFolder}\hstart\hstart.exe"; Parameters: "/ELEVATE ""{sys}\schtasks.exe /Delete /TN IndetectablesToolkit_Updater /F"""; Flags: runhidden

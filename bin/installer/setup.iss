@@ -20,8 +20,9 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-PrivilegesRequiredOverridesAllowed=dialog
-OutputBaseFilename=Toolkit_{#MyAppVersion}_setup
+PrivilegesRequired=admin
+;PrivilegesRequiredOverridesAllowed=dialog
+OutputBaseFilename=Toolkit_{#MyAppVersion}_Setup
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
@@ -77,14 +78,17 @@ Name: "Updater"; Description: "Tools auto updater"; Types: full;
 [Files]
 Source: "{#MySrcDir}\*.md"; Destdir: "{app}";
 
+
 ; Shortcut to program's folder
 [Icons]
 Name: "{userdesktop}\{#MyAppName}\Explore all tools"; Filename: "{#MyAppToolsFolder}"
 Name: "{group}\{#MyAppName}\Explore all tools"; Filename: "{#MyAppToolsFolder}";
 
+
 ; SendTo+ shortcuts
 [Files]
 Source: "{#MySrcDir}\bin\sendto\*"; Destdir: "{#MyAppBinsFolder}\sendto\";
+Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\";
 
 [Icons]
 ; x64
@@ -95,13 +99,23 @@ Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\se
 Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: not Is64BitInstallMode
 Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: not Is64BitInstallMode
 
+; Add SendTo+ to right click menu
+; this code need to run with admin priv!
+[Registry]
+Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: none; ValueName: ""; ValueData: ""; Flags: uninsdeletekey
+Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: ""; ValueData: "Indetectables Toolkit"; Flags: uninsdeletekey
+Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "Icon"; ValueData: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Flags: uninsdeletekey
+;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorBefore"; ValueData: ""; Flags: uninsdeletekey
+;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorAfter"; ValueData: ""; Flags: uninsdeletekey
+
+; x64
+Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string; ValueName: ""; ValueData: """{#MyAppBinsFolder}\hstart\hstart64.exe"" /SHELL /D=""{#MyAppBinsFolder}\sendto"" """"{#MyAppBinsFolder}\sendto\sendto_x64.exe"" ""%1"""""; Flags: uninsdeletekey; Check: Is64BitInstallMode
+
+; x32
+Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string; ValueName: ""; ValueData: """{#MyAppBinsFolder}\hstart\hstart.exe"" /SHELL /D=""{#MyAppBinsFolder}\sendto"" """"{#MyAppBinsFolder}\sendto\sendto_x86.exe"" ""%1"""""; Flags: uninsdeletekey; Check: not Is64BitInstallMode
+
+
 ; Force delete all files
 [UninstallDelete]
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\Analysis"
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\Decompilers"
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\Dissasembler"
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\HEX Editor"
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\Monitor"
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\Other"
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\Rootkits Detector"
-Type: filesandordirs; Name: "{#MyAppToolsFolder}\UnPacking"
+Type: filesandordirs; Name: "{#MyAppToolsFolder}"
+Type: filesandordirs; Name: "{#MyAppBinsFolder}"
