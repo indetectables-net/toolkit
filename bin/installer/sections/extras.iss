@@ -39,7 +39,7 @@ Name: "extras\choco"; Description: "Install Chocolatey package manager"; ExtraDi
 Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Components: "extras\choco"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Run]
-Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javase"; Flags: waituntilidle;
+Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javase"; Flags: shellexec waituntilterminated;
 
 
 
@@ -48,4 +48,4 @@ Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\
 Name: "extras\javase"; Description: "Install Java 8 Runtime Environment (via Chocolatey)"; ExtraDiskSpaceRequired: 220200960; Types: full compact; 
 
 [Run]
-Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install jre8"; Components: "extras\javase"; Flags: waituntilterminated;
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install jre8"; Components: "extras\javase"; Flags: shellexec waituntilterminated;
