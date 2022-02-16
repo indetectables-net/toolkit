@@ -30,7 +30,6 @@ def component_name(name):
     return re.sub('[^a-zA-Z0-9 \n]', '', name).replace(' ', '').lower()
 
 
-
 class GenerateInstall:
     def __init__(self):
         self.base_path = ''
@@ -85,7 +84,7 @@ class GenerateInstall:
             'gmer', 'sysinspector',
 
             # unpacking
-            'qunpack', 'rl!depacker', 'uniextract',  'XVolkolak',
+            'qunpack', 'rl!depacker', 'uniextract', 'xvolkolak',
         ]
         self.disable_unpack = [
             # decompilers
@@ -135,7 +134,7 @@ class GenerateInstall:
                 self.section_list.append('')
                 self.section_list.append('')
 
-    def iterate_tool(self, folder_path, is_sub_folder = False):
+    def iterate_tool(self, folder_path, is_sub_folder=False):
         # unpack
         for item in folder_path.glob('*.7z'):
             self.iterate_tool_unpack(item, folder_path)

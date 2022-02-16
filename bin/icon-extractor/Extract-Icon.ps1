@@ -6,11 +6,13 @@
 [CmdletBinding(SupportsShouldProcess)]
 Param(
     [Parameter(Position = 0, Mandatory,HelpMessage = "Specify the path to the file.")]
-    [ValidateScript({Test-Path $_})]
+    #[ValidateScript({Test-Path $_})]
+    [ValidateNotNullOrEmpty()]
     [string]$Path,
 
     [Parameter(HelpMessage = "Specify the folder to save the file.")]
-    [ValidateScript({Test-Path $_})]
+    #[ValidateScript({Test-Path $_})]
+    [ValidateNotNullOrEmpty()]
     [string]$Destination = ".",
 
     [parameter(HelpMessage = "Specify an alternate base name for the new image file. Otherwise, the source name will be used.")]

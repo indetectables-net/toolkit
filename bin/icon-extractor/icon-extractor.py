@@ -8,7 +8,6 @@
 import argparse
 import pathlib
 import os
-import re
 import py7zr
 import subprocess
 import colorama
@@ -16,7 +15,8 @@ import colorama
 
 class IconExtractor:
     def __init__(self):
-        self.base_path = ''
+        self.script_path = os.getcwd()
+        self.output_path = f'{self.script_path}\\output'
         self.section_name = ''
         self.tool_name = ''
         self.fix_tool_exe_list = {
@@ -44,21 +44,31 @@ class IconExtractor:
             'de4dot': ['de4dot.exe'],
             'netunpack': ['netunpack.exe'],
         }
+        self.disable_unpack = [
+            # decompilers
+            'graywolf - 1.83.7z',
+
+            # dissasembler
+            '[++] w32dasm - 8.93.7z', '[10] w32dasm - 8.93.7z', '[original] w32dasm - 8.93.7z',
+
+            # unpacking
+            'qunpack - 2.2.7z', 'qunpack - 3.4.7z', 'qunpack - src.7z',
+        ]
 
     # script steps
     def iterate_sections(self, folder_path):
         valid_folders = [
-            'analysis', 'decompilers', 'dissasembler', 'hex editor',
-            'monitor', 'other', 'rootkits detector', 'unpacking'
+            #'analysis', 'decompilers', 'dissasembler', 'hex editor',
+            #'monitor', 'other', 'rootkits detector', 'unpacking'
+            'dissasembler'
         ]
-        self.base_path = folder_path
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir() & (item.name.lower() in valid_folders):
                 self.section_name = item.name
                 self.iterate_folder(item)
 
     def iterate_folder(self, folder_path):
-        # TODO create section sub folder
+        pathlib.Path(f'{self.output_path}\\{self.section_name}').mkdir(exist_ok=True)
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir():
                 print(colorama.Fore.YELLOW + f'[+] Process: {item.name}')
@@ -112,18 +122,17 @@ class IconExtractor:
         return exe_list_len
 
     def iterate_tool_exe_gen(self, exe_path):
-        # TODO save program icon
         print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(exe_path).name)}"')
         tool_exe_path = str(exe_path)
-        subprocess.run(
-            #%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe
-            "powershell.exe" .
-            " -ExecutionPolicy Bypass" .
-            " \"{$binPath}\Extract-Icon.ps1\"" .
-            " -Path \"'{$fileinfo->getPathname()}'\"" .
-            " -Destination \"'{$outputPath}'\"" .
-            " -verbose",
-        )
+        arguments = 'powershell.exe ' \
+            '-ExecutionPolicy Bypass ' \
+            f'"{self.script_path}\\Extract-Icon.ps1" ' \
+            f'-Path "{tool_exe_path}" ' \
+            f'-Destination "{self.output_path}\\{self.section_name}" '
+            # '-verbose '
+
+        print(arguments)
+        subprocess.run(arguments, shell=True)
 
     def iterate_tool_jar(self, folder_path):
         jar_list = list(folder_path.glob('*.jar'))
@@ -145,6 +154,11 @@ class IconExtractor:
     def main(self):
         colorama.init(autoreset=True)
 
+        #current_dir = os.path.dirname(sys.argv[0])
+        #if current_dir:
+        #    os.chdir(current_dir)
+        os.chdir(os.getcwd())
+
         parser = argparse.ArgumentParser(
             usage='%(prog)s [ARGUMENTS]',
         )
@@ -163,10 +177,10 @@ class IconExtractor:
             print(colorama.Fore.RED + 'toolkit_folder is not a valid folder')
             return 0
 
-        # TODO create main ouput dir
+        pathlib.Path(self.output_path).mkdir(exist_ok=True)
         self.iterate_sections(toolkit_folder)
 
 
 # se fini
 if __name__ == '__main__':
-    GenerateInstall().main()
+    IconExtractor().main()
