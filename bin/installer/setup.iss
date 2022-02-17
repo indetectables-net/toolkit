@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Indetectables Toolkit"
-#define MyAppVersion "2022.3"
+#define MyAppVersion "2022.2"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
@@ -87,7 +87,7 @@ Source: "{#MySrcDir}\*.md"; Destdir: "{app}";
 
 ; Assets
 [Files]
-Source: "{#MySrcDir}\assets\*"; Destdir: "{app}\assets\";
+Source: "{#MySrcDir}\assets\icons\*"; Destdir: "{app}\assets\icons\";
 
 
 ; Shortcut to program's folder

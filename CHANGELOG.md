@@ -14,6 +14,9 @@
 - Add HashMyFiles
 - Add Threadtear
 - Add Hollows Hunter 
+- Add dnSpyEx
+- Add Cutter
+- Add PE-sieve
 
 ### Changed
 
@@ -25,23 +28,6 @@
 - Fix update via last commit regex
 - Delete NFO-Tools sub folder
 - Change project structure
-
-### Removed
-
-- Drop RDG Packer Detector (replaced by DIE)
-- Drop HashCalc (replaced by HashMyFiles)
-- Drop Process Hacker 2 (replaced by Process Hacker 3)
-
-## 2022.2 - Feb 2, 2022
-
-### Added
-
-- Add dnSpyEx
-- Add Cutter
-- Add PE-sieve
-
-### Changed
-
 - Update tools (05/02/2022)
 - Fix Process Hacker 3 regex
 - Fix APKEasyTool updater config
@@ -50,6 +36,9 @@
 
 ### Removed
 
+- Drop RDG Packer Detector (replaced by DIE)
+- Drop HashCalc (replaced by HashMyFiles)
+- Drop Process Hacker 2 (replaced by Process Hacker 3)
 - Drop dnSpy support (replaced by dnSpyEx)
 
 ## 2021.10 - Oct 23, 2021

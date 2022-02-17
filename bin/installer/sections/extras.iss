@@ -44,7 +44,7 @@ Name: "extras\choco"; Description: "Install Chocolatey package manager"; ExtraDi
 Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Components: "extras\choco"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Run]
-Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javase or extras\python or decompilers\ghidra"; Flags: shellexec waituntilterminated;
+Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javase or extras\python"; Flags: shellexec waituntilterminated;
 
 
 
