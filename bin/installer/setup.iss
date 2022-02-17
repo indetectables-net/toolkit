@@ -7,6 +7,7 @@
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
 #define MyAppBinsFolder "{app}\bin"
+#define MyAppToolsIconsFolder "{app}\assets\icons"
 #define MySrcDir "D:\code\indetectables\toolkit_prod"
 
 [Setup]
@@ -82,6 +83,11 @@ Name: "extras"; Description: "Extras"; Types: full;
 ; Add docs
 [Files]
 Source: "{#MySrcDir}\*.md"; Destdir: "{app}";
+
+
+; Assets
+[Files]
+Source: "{#MySrcDir}\assets\*"; Destdir: "{app}\assets\";
 
 
 ; Shortcut to program's folder

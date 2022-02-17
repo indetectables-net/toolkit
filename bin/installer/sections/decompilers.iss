@@ -123,8 +123,8 @@ Name: "decompilers\javarecaf"; Description: "[JAVA] Recaf"; Types: full compact;
 Source: "{#MySrcDir}\toolkit\Decompilers\[JAVA] Recaf\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf"; Components: "decompilers\javarecaf"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[JAVA] Recaf"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf\recaf-J8-jar-with-dependencies.jar"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf"; Components: "decompilers\javarecaf"; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[JAVA] Recaf"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf\recaf-J8-jar-with-dependencies.jar"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf"; Components: "decompilers\javarecaf"; 
+Name: "{group}\{#MyAppName}\[JAVA] Recaf"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf\recaf-J8-jar-with-dependencies.jar"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf"; IconFilename: "{#MyAppToolsIconsFolder}\recaf.ico"; Components: "decompilers\javarecaf"; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[JAVA] Recaf"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf\recaf-J8-jar-with-dependencies.jar"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf"; IconFilename: "{#MyAppToolsIconsFolder}\recaf.ico"; Components: "decompilers\javarecaf"; 
 
 
 

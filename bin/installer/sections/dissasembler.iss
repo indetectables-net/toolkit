@@ -75,3 +75,15 @@ Name: "{group}\{#MyAppName}\x64dbg"; Filename: "{#MyAppToolsFolder}\Dissasembler
 Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\x64dbg"; Filename: "{#MyAppToolsFolder}\Dissasembler\x64dbg\x96dbg.exe"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\x64dbg"; Components: "dissasembler\x64dbg"; 
 
 
+
+; Install Ghidra via Chocolatey
+;[Components]
+;Name: "decompilers\ghidra"; Description: "Install Ghidra (via Chocolatey)"; ExtraDiskSpaceRequired: 1310720000; Types: full; 
+;
+;[Run]
+;Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y ghidra --install-arguments=""'/DIR={#MyAppToolsFolder}\Decompilers\Ghidra'"""; Components: "decompilers\ghidra"; Flags: shellexec waituntilterminated;
+;
+;[Icons]
+;Name: "{group}\{#MyAppName}\Ghidra"; Filename: "{#MyAppToolsFolder}\Decompilers\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"; Components: "decompilers\ghidra"; 
+;Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\Ghidra"; Filename: "{#MyAppToolsFolder}\Decompilers\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"; Components: "decompilers\ghidra"; 
+

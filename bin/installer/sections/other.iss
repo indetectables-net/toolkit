@@ -243,8 +243,8 @@ Name: "other\threadtear"; Description: "Threadtear"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\Threadtear\*"; DestDir: "{#MyAppToolsFolder}\Other\Threadtear"; Components: "other\threadtear"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; Components: "other\threadtear"; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; Components: "other\threadtear"; 
+Name: "{group}\{#MyAppName}\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; IconFilename: "{#MyAppToolsIconsFolder}\threadtear.ico"; Components: "other\threadtear"; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; IconFilename: "{#MyAppToolsIconsFolder}\threadtear.ico"; Components: "other\threadtear"; 
 
 
 

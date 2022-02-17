@@ -12,6 +12,7 @@ Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppB
 
 
 ; Add SendTo+ to context menu
+; from https://www.online-tech-tips.com/computer-tips/windows-right-click-context-menu/
 [Components]
 Name: "extras\contextmenu"; Description: "Add toolkit menu to context menu"; Types: full compact; 
 
@@ -31,6 +32,10 @@ Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string;
 
 
 
+;;;;;;;;;;;;;;;;;;;;;;;;
+; Chocolatey packages
+;;;;;;;;;;;;;;;;;;;;;;;;
+
 ; Install Choco
 [Components]
 Name: "extras\choco"; Description: "Install Chocolatey package manager"; ExtraDiskSpaceRequired: 16777216; Types: full compact; 
@@ -39,7 +44,7 @@ Name: "extras\choco"; Description: "Install Chocolatey package manager"; ExtraDi
 Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Components: "extras\choco"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Run]
-Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javase"; Flags: shellexec waituntilterminated;
+Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javase or extras\python or decompilers\ghidra"; Flags: shellexec waituntilterminated;
 
 
 
@@ -48,4 +53,14 @@ Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\
 Name: "extras\javase"; Description: "Install Java 8 Runtime Environment (via Chocolatey)"; ExtraDiskSpaceRequired: 220200960; Types: full compact; 
 
 [Run]
-Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install jre8"; Components: "extras\javase"; Flags: shellexec waituntilterminated;
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y jre8"; Components: "extras\javase"; Flags: shellexec waituntilterminated;
+
+
+
+; Install Python
+[Components]
+Name: "extras\python"; Description: "Install Python 3.x (via Chocolatey)"; ExtraDiskSpaceRequired: 104857600; Types: full compact; 
+
+[Run]
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y python"; Components: "extras\python"; Flags: shellexec waituntilterminated;
+
