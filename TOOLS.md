@@ -3,10 +3,10 @@
 1. [Analysis](#analysis)
 1. [Decompilers](#decompilers)
 1. [Dissasembler](#dissasembler)
-1. [Hex editor](#hex editor)
+1. [Hex editor](#hex-editor)
 1. [Monitor](#monitor)
 1. [Other](#other)
-1. [Rootkits detector](#rootkits detector)
+1. [Rootkits detector](#rootkits-detector)
 1. [Unpacking](#unpacking)
 
 
@@ -163,7 +163,7 @@
 
 ### HxD
 ***Web:*** https://mh-nexus.de/en/hxd <br/>
-***Developer:*** Maël Hörz <br/>
+***Developer:*** MaÃ«l HÃ¶rz <br/>
 ***Description:*** HxD Hex Editor <br/>
 
 ### ImHex
