@@ -7,6 +7,9 @@
 - Add SendTo+
 - Add Updater auto-config-tools exe
 - Add Updater Task Schedule example
+- Add Chocolatey package manager *Only in installer **Optional
+- Add Java 8 Runtime Environment *Only in installer **Optional
+- Add Python *Only in installer **Optional
 - Add Installer generator code
 - Add HashMyFiles
 - Add Threadtear
