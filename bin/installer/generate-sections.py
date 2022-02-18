@@ -108,6 +108,12 @@ class GenerateInstall:
     def absolute_to_local_path(self, path):
         return str(path).replace(f'{str(self.base_path)}\\', '')
 
+    def get_tool_icon(self):
+        tool_name_list = self.tool_name.split()
+        name = tool_name_list[1].lower() if self.tool_name[0] == '[' else self.tool_name.lower()
+
+        return f'{{#MyAppToolsIconsFolder}}\\{name}.ico'
+
     def iss_types(self, name):
         if name.lower() in self.compact_tool_list:
             return 'full compact'
@@ -214,10 +220,11 @@ class GenerateInstall:
 
         # iss variables
         iss_name = f'{self.tool_name} x64' if pe_data['is_x64'] else self.tool_name
-        iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
         iss_filename = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(exe_path)}'
         iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
         iss_components = f'{component_name(self.section_name)}\\{component_name(self.tool_name)}'
+        iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
+        iss_icon = f'IconFilename: "{self.get_tool_icon()}";' if pe_data['is_cli'] else ''
 
         if pe_data['is_x64']:
             print(colorama.Fore.MAGENTA + f'      [!] x64 exe')
@@ -236,14 +243,16 @@ class GenerateInstall:
             f'Filename: "{iss_filename}"; '
             f'WorkingDir: "{iss_working_dir}"; '
             f'Components: "{iss_components}"; '
-            f'{iss_check}'
+            f'{iss_check} '
+            f'{iss_icon} '
         )
         self.section_list.append(
             f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{iss_name}"; '
             f'Filename: "{iss_filename}"; '
             f'WorkingDir: "{iss_working_dir}"; '
             f'Components: "{iss_components}"; '
-            f'{iss_check}'
+            f'{iss_check} '
+            f'{iss_icon} '
         )
         self.section_list.append('')
 
@@ -280,7 +289,7 @@ class GenerateInstall:
             f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
             f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
             f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
-            # f'IconFilename: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}\\icon.ico";'
+            f'IconFilename: "{self.get_tool_icon()}";'
         )
         self.section_list.append(
             f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{self.tool_name}"; '
@@ -288,7 +297,7 @@ class GenerateInstall:
             f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
             f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
             f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
-            # f'IconFilename: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}\\icon.ico";'
+            f'IconFilename: "{self.get_tool_icon()}";'
         )
         self.section_list.append('')
 

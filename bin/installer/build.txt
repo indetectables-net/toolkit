@@ -1,0 +1,230 @@
+Microsoft Windows [Version 10.0.19043.1526]
+(c) Microsoft Corporation. All rights reserved.
+
+D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f D:\code\indetectables\toolkit_prod\toolkit
+[+] Process: CAPA
+   [*] Adding: "capa.exe"
+      [!] x64 exe
+      [!] CLI exe
+[+] Process: DIE
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "die.exe"
+[+] Process: ExeinfoPe
+   [*] Adding: "exeinfope.exe"
+[+] Process: PE-Bear
+   [*] Adding: "PE-bear.exe"
+      [!] x64 exe
+[+] Process: PEiD
+   [*] Adding: "PEiD.exe"
+[+] Process: PEStudio
+   [*] Adding: "pestudio.exe"
+      [!] x64 exe
+[+] Process: ProtectionID
+   [*] Adding: "Protection_ID.eXe"
+[+] Process: XAPKDetector
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "xapkd.exe"
+[+] Process: XELFViewer
+   [*] Adding: "xelfviewer.exe"
+[+] Process: XPEViewer
+   [*] Adding: "xpeviewer.exe"
+[+] Process: [ANDROID] JADX
+   [*] Adding: "jadx-gui.exe"
+[+] Process: [AUTOIT] Exe2Aut
+   [*] Adding: "Exe2Aut.exe"
+[+] Process: [AUTOIT] MyAutToExe
+   [*] Adding: "myAutToExe.exe"
+[+] Process: [DELPHI] Dede
+   [*] Adding: "DeDe.exe"
+[+] Process: [DELPHI] IDR
+   [*] Adding: "Idr.exe"
+[+] Process: [DOTNET] dnSpyEx
+   [*] Adding: "dnSpy.exe"
+      [!] x64 exe
+[+] Process: [DOTNET] GrayWolf
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"
+   [*] Adding: "GrayWolf_188.exe"
+[+] Process: [DOTNET] ILSpy
+   [*] Adding: "ILSpy.exe"
+[+] Process: [JAVA] JD-GUI
+   [*] Adding: "jd-gui.exe"
+[+] Process: [JAVA] Recaf
+   [*] Adding: "recaf-J8-jar-with-dependencies.jar"
+[+] Process: [PYTHON] PyInstxtractor
+[+] Process: [VB] P-Code-ExDec
+   [*] Adding: "exdec.exe"
+[+] Process: BDASM
+   [*] Adding: "bdasm.exe"
+[+] Process: Cutter
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "cutter.exe"
+      [!] x64 exe
+[+] Process: Immunity Debugger
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "ImmunityDebugger.exe"
+[+] Process: OllyDbg 1.10
+   [*] Adding: "OLLYDBG.EXE"
+[+] Process: w32Dasm
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Dissasembler\w32Dasm\[bradpach] w32Dasm - 8.93"
+   [*] Adding: "W32DSM89.EXE"
+[+] Process: x64dbg
+   [*] Adding: "x96dbg.exe"
+[+] Process: HxD
+   [*] Adding: "HxD32.exe"
+   [*] Adding: "HxD64.exe"
+      [!] x64 exe
+[+] Process: ImHex
+   [*] Adding: "imhex.exe"
+      [!] x64 exe
+[+] Process: REHex
+   [*] Adding: "rehex.exe"
+      [!] x64 exe
+[+] Process: WinHex
+   [*] Adding: "winhex.exe"
+[+] Process: Api Monitor
+   [*] Adding: "apimonitor-x64.exe"
+      [!] x64 exe
+   [*] Adding: "apimonitor-x86.exe"
+[+] Process: Autoruns
+   [*] Adding: "Autoruns.exe"
+   [*] Adding: "Autoruns64.exe"
+      [!] x64 exe
+[+] Process: CurrPorts
+   [*] Adding: "cports.exe"
+[+] Process: HollowsHunter
+   [*] Adding: "hollows_hunter.exe"
+      [!] x64 exe
+      [!] CLI exe
+[+] Process: MultiMon
+   [*] Adding: "MultiMon.exe"
+[+] Process: PE-sieve
+   [*] Adding: "pe-sieve.exe"
+      [!] x64 exe
+      [!] CLI exe
+[+] Process: Portmon
+   [*] Adding: "portmon.exe"
+[+] Process: Process Explorer
+   [*] Adding: "procexp.exe"
+   [*] Adding: "procexp64.exe"
+      [!] x64 exe
+[+] Process: Process Hacker 3
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Monitor\Process Hacker 3\32bit"
+   [*] Adding: "ProcessHacker.exe"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Monitor\Process Hacker 3\64bit"
+   [*] Adding: "ProcessHacker.exe"
+      [!] x64 exe
+[+] Process: Procmon
+   [*] Adding: "Procmon.exe"
+   [*] Adding: "Procmon64.exe"
+      [!] x64 exe
+[+] Process: RegShot
+   [*] Adding: "Regshot-x64-ANSI.exe"
+      [!] x64 exe
+   [*] Adding: "Regshot-x86-ANSI.exe"
+[+] Process: SysAnalyzer
+   [*] Adding: "sysAnalyzer.exe"
+[+] Process: TCPView
+   [*] Adding: "tcpview.exe"
+   [*] Adding: "tcpview64.exe"
+      [!] x64 exe
+[+] Process: APKEasyTool
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "apkeasytool.exe"
+[+] Process: ApkStudio
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "ApkStudio.exe"
+      [!] x64 exe
+[+] Process: ASCII Art Generator
+   [*] Adding: "AAG.exe"
+[+] Process: AstroGrep
+   [*] Adding: "AstroGrep.exe"
+[+] Process: AVFucker
+   [*] Adding: "AVFucker.exe"
+[+] Process: Cool Beans NFO Creator
+   [*] Adding: "coolnfo.exe"
+[+] Process: FLOSS
+   [*] Adding: "floss.exe"
+      [!] x64 exe
+      [!] CLI exe
+[+] Process: HashMyFiles
+   [*] Adding: "HashMyFiles.exe"
+[+] Process: ImpREC
+   [*] Adding: "ImportREC.exe"
+[+] Process: Indetectables Offset Locator
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "Indetectables Offset Locator.exe"
+[+] Process: NFO Maker
+   [*] Adding: "nfomaker.exe"
+[+] Process: ProcDOT
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Other\ProcDOT\win32"
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "procdot.exe"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Other\ProcDOT\win64"
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "procdot.exe"
+      [!] x64 exe
+[+] Process: Process-Dump
+   [*] Adding: "pd32.exe"
+      [!] CLI exe
+   [*] Adding: "pd64.exe"
+      [!] x64 exe
+      [!] CLI exe
+[+] Process: Resource Hacker
+   [*] Adding: "ResourceHacker.exe"
+[+] Process: Scylla
+   [*] Adding: "Scylla_x64.exe"
+      [!] x64 exe
+   [*] Adding: "Scylla_x86.exe"
+[+] Process: ShowString
+   [*] Adding: "ShowString.exe"
+[+] Process: Strings
+   [*] Adding: "strings.exe"
+      [!] CLI exe
+   [*] Adding: "strings64.exe"
+      [!] x64 exe
+      [!] CLI exe
+[+] Process: Threadtear
+   [*] Adding: "threadtear-gui-all.jar"
+[+] Process: VirusTotalUploader
+   [*] Adding: "uploader.exe"
+[+] Process: XOpCodeCalc
+   [*] Adding: "xocalc.exe"
+      [!] x64 exe
+[+] Process: GMER
+   [*] Adding: "gmer.exe"
+[+] Process: Sysinspector
+   [*] Adding: "sysinspector_nt64_esn.exe"
+      [!] x64 exe
+[+] Process: Windows Kernel Explorer
+   [*] Adding: "WKE64.exe"
+      [!] x64 exe
+[+] Process: De4Dot
+   [*] Adding: "de4dot-x64.exe"
+      [!] x64 exe
+      [!] CLI exe
+   [*] Adding: "de4dot.exe"
+      [!] CLI exe
+[+] Process: GUnPacker
+   [*] Adding: "GUnPacker v0.5.exe"
+[+] Process: NETUnpack
+   [*] Adding: "NETUnpack-64.exe"
+      [!] x64 exe
+   [*] Adding: "NETUnpack.exe"
+[+] Process: QUnpack
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\UnPacking\QUnpack\QUnpack - 4.3"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack32"
+   [*] Adding: "Explorer.exe"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"
+   [*] Adding: "Explorer.exe"
+      [!] x64 exe
+[+] Process: RL!dePacker
+   [*] Adding: "RL!dePacker.exe"
+[+] Process: UniExtract
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "UniExtract.exe"
+[+] Process: VM Unpacker
+   [*] Adding: "VMUnpacker.exe"
+[+] Process: XVolkolak
+   [*] Adding: "xvlk.exe"
+
+[+] Generate cli register code
