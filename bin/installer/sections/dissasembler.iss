@@ -86,4 +86,3 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\x64dbg"; Filename: "{#MyApp
 ;[Icons]
 ;Name: "{group}\{#MyAppName}\Ghidra"; Filename: "{#MyAppToolsFolder}\Decompilers\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"; Components: "decompilers\ghidra"; 
 ;Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\Ghidra"; Filename: "{#MyAppToolsFolder}\Decompilers\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"; Components: "decompilers\ghidra"; 
-

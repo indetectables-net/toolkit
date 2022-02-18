@@ -84,8 +84,8 @@ Name: "other\floss"; Description: "FLOSS"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\FLOSS\*"; DestDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\FLOSS x64"; Filename: "{#MyAppToolsFolder}\Other\FLOSS\floss.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Check: Is64BitInstallMode;
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\FLOSS x64"; Filename: "{#MyAppToolsFolder}\Other\FLOSS\floss.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Check: Is64BitInstallMode;
+Name: "{group}\{#MyAppName}\FLOSS x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\FLOSS\floss.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\FLOSS x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\FLOSS\floss.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Check: Is64BitInstallMode;
 
 
 
@@ -166,12 +166,12 @@ Name: "other\processdump"; Description: "Process-Dump"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\Process-Dump\*"; DestDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Process-Dump"; Filename: "{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump"; Filename: "{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; 
+Name: "{group}\{#MyAppName}\Process-Dump"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Process-Dump x64"; Filename: "{#MyAppToolsFolder}\Other\Process-Dump\pd64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Check: Is64BitInstallMode;
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump x64"; Filename: "{#MyAppToolsFolder}\Other\Process-Dump\pd64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Check: Is64BitInstallMode;
+Name: "{group}\{#MyAppName}\Process-Dump x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Process-Dump\pd64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Process-Dump\pd64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Check: Is64BitInstallMode;
 
 
 
@@ -226,12 +226,12 @@ Name: "other\strings"; Description: "Strings"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\Strings\*"; DestDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Strings"; Filename: "{#MyAppToolsFolder}\Other\Strings\strings.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Strings"; Filename: "{#MyAppToolsFolder}\Other\Strings\strings.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; 
+Name: "{group}\{#MyAppName}\Strings"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Strings\strings.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Strings"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Strings\strings.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Strings x64"; Filename: "{#MyAppToolsFolder}\Other\Strings\strings64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Check: Is64BitInstallMode;
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Strings x64"; Filename: "{#MyAppToolsFolder}\Other\Strings\strings64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Check: Is64BitInstallMode;
+Name: "{group}\{#MyAppName}\Strings x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Strings\strings64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Strings x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Other\Strings\strings64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Check: Is64BitInstallMode;
 
 
 
@@ -243,8 +243,8 @@ Name: "other\threadtear"; Description: "Threadtear"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\Threadtear\*"; DestDir: "{#MyAppToolsFolder}\Other\Threadtear"; Components: "other\threadtear"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; IconFilename: "{#MyAppToolsIconsFolder}\threadtear.ico"; Components: "other\threadtear"; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; IconFilename: "{#MyAppToolsIconsFolder}\threadtear.ico"; Components: "other\threadtear"; 
+Name: "{group}\{#MyAppName}\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; Components: "other\threadtear"; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Threadtear"; Filename: "{#MyAppToolsFolder}\Other\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Other\Threadtear"; Components: "other\threadtear"; 
 
 
 

@@ -6,12 +6,12 @@ Name: "unpacking\de4dot"; Description: "De4Dot"; Types: full;
 Source: "{#MySrcDir}\toolkit\UnPacking\De4Dot\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\De4Dot x64"; Filename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Check: Is64BitInstallMode;
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot x64"; Filename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Check: Is64BitInstallMode;
+Name: "{group}\{#MyAppName}\De4Dot x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Check: Is64BitInstallMode;
 
 [Icons]
-Name: "{group}\{#MyAppName}\De4Dot"; Filename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot"; Filename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; 
+Name: "{group}\{#MyAppName}\De4Dot"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; 
 
 
 
@@ -103,7 +103,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\VM Unpacker"; Filename: "{#MyA
 
 ; XVolkolak
 [Components]
-Name: "unpacking\xvolkolak"; Description: "XVolkolak"; Types: full; 
+Name: "unpacking\xvolkolak"; Description: "XVolkolak"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\XVolkolak\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\XVolkolak"; Components: "unpacking\xvolkolak"; Flags: ignoreversion recursesubdirs createallsubdirs; 

@@ -117,3 +117,7 @@ Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\se
 [UninstallDelete]
 Type: filesandordirs; Name: "{#MyAppToolsFolder}"
 Type: filesandordirs; Name: "{#MyAppBinsFolder}"
+
+
+; Cli programs register/unregister
+#include "sections\cli.iss"

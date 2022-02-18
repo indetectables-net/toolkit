@@ -6,8 +6,8 @@ Name: "analysis\capa"; Description: "CAPA"; Types: full;
 Source: "{#MySrcDir}\toolkit\Analysis\CAPA\*"; DestDir: "{#MyAppToolsFolder}\Analysis\CAPA"; Components: "analysis\capa"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\CAPA x64"; Filename: "{#MyAppToolsFolder}\Analysis\CAPA\capa.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\CAPA"; Components: "analysis\capa"; Check: Is64BitInstallMode;
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\CAPA x64"; Filename: "{#MyAppToolsFolder}\Analysis\CAPA\capa.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\CAPA"; Components: "analysis\capa"; Check: Is64BitInstallMode;
+Name: "{group}\{#MyAppName}\CAPA x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Analysis\CAPA\capa.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\CAPA"; Components: "analysis\capa"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\CAPA x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Analysis\CAPA\capa.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\CAPA"; Components: "analysis\capa"; Check: Is64BitInstallMode;
 
 
 

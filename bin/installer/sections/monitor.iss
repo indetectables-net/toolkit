@@ -53,8 +53,8 @@ Name: "monitor\hollowshunter"; Description: "HollowsHunter"; Types: full;
 Source: "{#MySrcDir}\toolkit\Monitor\HollowsHunter\*"; DestDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\HollowsHunter x64"; Filename: "{#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Check: Is64BitInstallMode;
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\HollowsHunter x64"; Filename: "{#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Check: Is64BitInstallMode;
+Name: "{group}\{#MyAppName}\HollowsHunter x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\HollowsHunter x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Check: Is64BitInstallMode;
 
 
 
@@ -79,8 +79,8 @@ Name: "monitor\pesieve"; Description: "PE-sieve"; Types: full;
 Source: "{#MySrcDir}\toolkit\Monitor\PE-sieve\*"; DestDir: "{#MyAppToolsFolder}\Monitor\PE-sieve"; Components: "monitor\pesieve"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\PE-sieve x64"; Filename: "{#MyAppToolsFolder}\Monitor\PE-sieve\pe-sieve.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\PE-sieve"; Components: "monitor\pesieve"; Check: Is64BitInstallMode;
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\PE-sieve x64"; Filename: "{#MyAppToolsFolder}\Monitor\PE-sieve\pe-sieve.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\PE-sieve"; Components: "monitor\pesieve"; Check: Is64BitInstallMode;
+Name: "{group}\{#MyAppName}\PE-sieve x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Monitor\PE-sieve\pe-sieve.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\PE-sieve"; Components: "monitor\pesieve"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\PE-sieve x64"; Filename: "{sys}\cmd.exe /K {#MyAppToolsFolder}\Monitor\PE-sieve\pe-sieve.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\PE-sieve"; Components: "monitor\pesieve"; Check: Is64BitInstallMode;
 
 
 

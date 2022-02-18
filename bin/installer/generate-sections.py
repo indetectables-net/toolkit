@@ -3,27 +3,33 @@
 # Copyright (C) 2022 DSR! <xchwarze@gmail.com>
 # Released under the terms of the MIT License
 # Developed for Python 3.6+
-# pip install py7zr pywin32 colorama
+# pip install py7zr pefile colorama
 
 import argparse
 import pathlib
 import os
 import re
 import py7zr
-import win32file
+import pefile
 import colorama
 
 
-def is_64bit_pe(name, file_path):
-    try:
-        is_64bit = win32file.GetBinaryType(str(file_path)) == 6
-    except:
-        is_64bit = False
+def get_pe_info(file_path):
+    IMAGE_FILE_MACHINE_AMD64 = 34404
+    IMAGE_SUBSYSTEM_WINDOWS_CUI = 3
 
-    return {
-        'name': f'{name} x64' if is_64bit else name,
-        'check': 'Check: Is64BitInstallMode;' if is_64bit else '',
-    }
+    try:
+        pe = pefile.PE(file_path, fast_load=True)
+
+        return {
+            # https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#machine-types
+            'is_x64': pe.FILE_HEADER.Machine == IMAGE_FILE_MACHINE_AMD64,
+
+            # https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#windows-subsystem
+            'is_cli': pe.OPTIONAL_HEADER.Subsystem == IMAGE_SUBSYSTEM_WINDOWS_CUI,
+        }
+    except:
+        return False
 
 
 def component_name(name):
@@ -36,6 +42,7 @@ class GenerateInstall:
         self.section_name = ''
         self.tool_name = ''
         self.section_list = []
+        self.cli_list = []
         self.fix_tool_exe_list = {
             # fix to support main executable
             '[dotnet] dnspyex': ['dnspy.exe'],
@@ -202,26 +209,53 @@ class GenerateInstall:
 
     def iterate_tool_exe_gen(self, exe_path):
         print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(exe_path).name)}"')
-        tool_exe_path = self.absolute_to_local_path(exe_path)
         working_dir = str(pathlib.Path(exe_path).parent)
-        pe_data = is_64bit_pe(self.tool_name, exe_path)
+        pe_data = get_pe_info(exe_path)
+
+        # iss variables
+        iss_name = f'{self.tool_name} x64' if pe_data['is_x64'] else self.tool_name
+        iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
+        iss_filename = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(exe_path)}'
+        iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
+        iss_components = f'{component_name(self.section_name)}\\{component_name(self.tool_name)}'
+
+        if pe_data['is_x64']:
+            print(colorama.Fore.MAGENTA + f'      [!] x64 exe')
+
+        if pe_data['is_cli']:
+            print(colorama.Fore.MAGENTA + f'      [!] CLI exe')
+            iss_filename = f'{{sys}}\\cmd.exe /K {iss_filename}'
+            self.cli_list_append(
+                iss_components,
+                f'\\{self.absolute_to_local_path(working_dir)}',
+            )
 
         self.section_list.append('[Icons]')
         self.section_list.append(
-            f'Name: "{{group}}\\{{#MyAppName}}\\{pe_data["name"]}"; '
-            f'Filename: "{{#MyAppToolsFolder}}\\{tool_exe_path}"; '
-            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
-            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
-            f'{pe_data["check"]}'
+            f'Name: "{{group}}\\{{#MyAppName}}\\{iss_name}"; '
+            f'Filename: "{iss_filename}"; '
+            f'WorkingDir: "{iss_working_dir}"; '
+            f'Components: "{iss_components}"; '
+            f'{iss_check}'
         )
         self.section_list.append(
-            f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{pe_data["name"]}"; '
-            f'Filename: "{{#MyAppToolsFolder}}\\{tool_exe_path}"; '
-            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
-            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
-            f'{pe_data["check"]}'
+            f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{iss_name}"; '
+            f'Filename: "{iss_filename}"; '
+            f'WorkingDir: "{iss_working_dir}"; '
+            f'Components: "{iss_components}"; '
+            f'{iss_check}'
         )
         self.section_list.append('')
+
+    def cli_list_append(self, component, working_dir):
+        for item in self.cli_list:
+            if item['component'] == component:
+                return False
+
+        self.cli_list.append({
+            'component': component,
+            'working_dir': working_dir,
+        })
 
     def iterate_tool_jar(self, folder_path):
         jar_list = list(folder_path.glob('*.jar'))
@@ -258,6 +292,42 @@ class GenerateInstall:
         )
         self.section_list.append('')
 
+    def cli_env_extra_code(self):
+        print('')
+        print(colorama.Fore.YELLOW + f'[+] Generate cli register code')
+
+        lines_list = []
+
+        # install hook
+        lines_list.append('procedure CurStepChanged(CurStep: TSetupStep);')
+        lines_list.append('begin')
+        lines_list.append('    if CurStep = ssPostInstall then')
+        lines_list.append('    begin')
+
+        for item in self.cli_list:
+            lines_list.append(f'        if WizardIsComponentSelected("{item["component"]}") then EnvAddPath(ExpandConstant("{{#MyAppToolsFolder}}") + "{item["working_dir"]}");')
+
+        lines_list.append('    end')
+        lines_list.append('end;')
+        lines_list.append('')
+
+        # uninstall hook
+        lines_list.append('procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);')
+        lines_list.append('begin')
+        lines_list.append('    if CurUninstallStep = usPostUninstall then')
+        lines_list.append('    begin')
+
+        for item in self.cli_list:
+            lines_list.append(f'        EnvRemovePath(ExpandConstant("{{#MyAppToolsFolder}}") + "{item["working_dir"]}");')
+
+        lines_list.append('    end')
+        lines_list.append('end;')
+        lines_list.append('')
+
+        # save
+        with open('sections\\cli.iss', 'a') as file:
+            file.writelines('\n'.join(lines_list))
+
     def main(self):
         colorama.init(autoreset=True)
 
@@ -280,6 +350,7 @@ class GenerateInstall:
             return 0
 
         self.iterate_sections(toolkit_folder)
+        self.cli_env_extra_code()
 
 
 # se fini
