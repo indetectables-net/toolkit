@@ -3,13 +3,14 @@
 # Copyright (C) 2022 DSR! <xchwarze@gmail.com>
 # Released under the terms of the MIT License
 # Developed for Python 3.6+
-# pip install py7zr colorama
+# pip install colorama
 
 import argparse
 import pathlib
 import os
-import py7zr
 import subprocess
+import tempfile
+import shutil
 import colorama
 
 
@@ -44,23 +45,12 @@ class IconExtractor:
             'de4dot': ['de4dot.exe'],
             'netunpack': ['netunpack.exe'],
         }
-        self.disable_unpack = [
-            # decompilers
-            'graywolf - 1.83.7z',
-
-            # dissasembler
-            '[++] w32dasm - 8.93.7z', '[10] w32dasm - 8.93.7z', '[original] w32dasm - 8.93.7z',
-
-            # unpacking
-            'qunpack - 2.2.7z', 'qunpack - 3.4.7z', 'qunpack - src.7z',
-        ]
 
     # script steps
     def iterate_sections(self, folder_path):
         valid_folders = [
-            #'analysis', 'decompilers', 'dissasembler', 'hex editor',
-            #'monitor', 'other', 'rootkits detector', 'unpacking'
-            'dissasembler'
+            'analysis', 'decompilers', 'dissasembler', 'hex editor',
+            'monitor', 'other', 'rootkits detector', 'unpacking'
         ]
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir() & (item.name.lower() in valid_folders):
@@ -76,10 +66,6 @@ class IconExtractor:
                 self.iterate_tool(item)
 
     def iterate_tool(self, folder_path, is_sub_folder = False):
-        # unpack
-        for item in folder_path.glob('*.7z'):
-            self.iterate_tool_unpack(item, folder_path)
-
         # generate executable info
         tool_exe_total = self.iterate_tool_exe(folder_path)
         tool_jar_total = self.iterate_tool_jar(folder_path)
@@ -89,18 +75,6 @@ class IconExtractor:
             if item.is_dir() & (tool_exe_total == 0) & (tool_jar_total == 0):
                 print(colorama.Fore.MAGENTA + f'   [!] Iterate sub folder: "{item}"')
                 self.iterate_tool(item, True)
-
-    def iterate_tool_unpack(self, file_path, folder_path):
-        if file_path.name.lower() not in self.disable_unpack:
-            if len(os.listdir(folder_path)) > 1:
-                # In addition to creating the new directory, change the path of the folder_path
-                folder_path = pathlib.Path(folder_path).joinpath(file_path.stem)
-                pathlib.Path(folder_path).mkdir(exist_ok=True)
-
-            with py7zr.SevenZipFile(file_path, 'r') as compressed:
-                compressed.extractall(folder_path)
-
-            file_path.unlink()
 
     def iterate_tool_exe(self, folder_path):
         is_first_set = False
@@ -124,15 +98,19 @@ class IconExtractor:
     def iterate_tool_exe_gen(self, exe_path):
         print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(exe_path).name)}"')
         tool_exe_path = str(exe_path)
+
+        temp_path = os.path.join(tempfile.gettempdir(), exe_path.name)
+        shutil.copy2(tool_exe_path, temp_path)
+
         arguments = 'powershell.exe ' \
             '-ExecutionPolicy Bypass ' \
-            f'"{self.script_path}\\Extract-Icon.ps1" ' \
-            f'-Path "{tool_exe_path}" ' \
-            f'-Destination "{self.output_path}\\{self.section_name}" '
-            # '-verbose '
+            f'"{self.script_path}\\extract-icon.ps1" ' \
+            f'-Path "{temp_path}" ' \
+            f'-Destination "{self.output_path}\\{self.section_name}" ' \
+            '-verbose '
 
-        print(arguments)
         subprocess.run(arguments, shell=True)
+        os.remove(temp_path)
 
     def iterate_tool_jar(self, folder_path):
         jar_list = list(folder_path.glob('*.jar'))
@@ -147,16 +125,10 @@ class IconExtractor:
 
     def iterate_tool_jar_gen(self, jar_path):
         # TODO
-        # print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(jar_path).name)}"')
-        # tool_jar_path = srt(jar_path)
         print(colorama.Fore.RED + f'   [!!!] Add manually this icon: "{str(pathlib.Path(jar_path).name)}"')
 
     def main(self):
         colorama.init(autoreset=True)
-
-        #current_dir = os.path.dirname(sys.argv[0])
-        #if current_dir:
-        #    os.chdir(current_dir)
         os.chdir(os.getcwd())
 
         parser = argparse.ArgumentParser(
