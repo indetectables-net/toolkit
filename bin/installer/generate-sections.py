@@ -223,15 +223,16 @@ class GenerateInstall:
         iss_filename = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(exe_path)}'
         iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
         iss_components = f'{component_name(self.section_name)}\\{component_name(self.tool_name)}'
+        iss_parameters = f'Parameters: "/K ""{iss_filename}""";' if pe_data['is_cli'] else ''
+        iss_icon = f'IconFilename: "{iss_filename}";' if pe_data['is_cli'] else ''
         iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
-        iss_icon = f'IconFilename: "{self.get_tool_icon()}";' if pe_data['is_cli'] else ''
 
         if pe_data['is_x64']:
             print(colorama.Fore.MAGENTA + f'      [!] x64 exe')
 
         if pe_data['is_cli']:
             print(colorama.Fore.MAGENTA + f'      [!] CLI exe')
-            iss_filename = f'{{sys}}\\cmd.exe /K {iss_filename}'
+            iss_filename = f'{{sys}}\\cmd.exe'
             self.cli_list_append(
                 iss_components,
                 f'\\{self.absolute_to_local_path(working_dir)}',
@@ -243,16 +244,18 @@ class GenerateInstall:
             f'Filename: "{iss_filename}"; '
             f'WorkingDir: "{iss_working_dir}"; '
             f'Components: "{iss_components}"; '
-            f'{iss_check} '
+            f'{iss_parameters} '
             f'{iss_icon} '
+            f'{iss_check} '
         )
         self.section_list.append(
             f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{iss_name}"; '
             f'Filename: "{iss_filename}"; '
             f'WorkingDir: "{iss_working_dir}"; '
             f'Components: "{iss_components}"; '
-            f'{iss_check} '
+            f'{iss_parameters} '
             f'{iss_icon} '
+            f'{iss_check} '
         )
         self.section_list.append('')
 

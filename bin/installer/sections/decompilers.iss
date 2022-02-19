@@ -6,8 +6,8 @@ Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full comp
 Source: "{#MySrcDir}\toolkit\Decompilers\[ANDROID] JADX\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX"; Components: "decompilers\androidjadx"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[ANDROID] JADX"; Filename: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX\jadx-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX"; Components: "decompilers\androidjadx";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[ANDROID] JADX"; Filename: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX\jadx-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX"; Components: "decompilers\androidjadx";   
+Name: "{group}\{#MyAppName}\[ANDROID] JADX"; Filename: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX\jadx-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX"; Components: "decompilers\androidjadx";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[ANDROID] JADX"; Filename: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX\jadx-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX"; Components: "decompilers\androidjadx";    
 
 
 
@@ -19,8 +19,8 @@ Name: "decompilers\autoitexe2aut"; Description: "[AUTOIT] Exe2Aut"; Types: full;
 Source: "{#MySrcDir}\toolkit\Decompilers\[AUTOIT] Exe2Aut\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut"; Components: "decompilers\autoitexe2aut"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[AUTOIT] Exe2Aut"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut\Exe2Aut.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut"; Components: "decompilers\autoitexe2aut";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] Exe2Aut"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut\Exe2Aut.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut"; Components: "decompilers\autoitexe2aut";   
+Name: "{group}\{#MyAppName}\[AUTOIT] Exe2Aut"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut\Exe2Aut.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut"; Components: "decompilers\autoitexe2aut";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] Exe2Aut"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut\Exe2Aut.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut"; Components: "decompilers\autoitexe2aut";    
 
 
 
@@ -32,8 +32,8 @@ Name: "decompilers\autoitmyauttoexe"; Description: "[AUTOIT] MyAutToExe"; Types:
 Source: "{#MySrcDir}\toolkit\Decompilers\[AUTOIT] MyAutToExe\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe"; Components: "decompilers\autoitmyauttoexe"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[AUTOIT] MyAutToExe"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe\myAutToExe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe"; Components: "decompilers\autoitmyauttoexe";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] MyAutToExe"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe\myAutToExe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe"; Components: "decompilers\autoitmyauttoexe";   
+Name: "{group}\{#MyAppName}\[AUTOIT] MyAutToExe"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe\myAutToExe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe"; Components: "decompilers\autoitmyauttoexe";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] MyAutToExe"; Filename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe\myAutToExe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe"; Components: "decompilers\autoitmyauttoexe";    
 
 
 
@@ -45,8 +45,8 @@ Name: "decompilers\delphidede"; Description: "[DELPHI] Dede"; Types: full;
 Source: "{#MySrcDir}\toolkit\Decompilers\[DELPHI] Dede\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede"; Components: "decompilers\delphidede"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[DELPHI] Dede"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede\DeDe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede"; Components: "decompilers\delphidede";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DELPHI] Dede"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede\DeDe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede"; Components: "decompilers\delphidede";   
+Name: "{group}\{#MyAppName}\[DELPHI] Dede"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede\DeDe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede"; Components: "decompilers\delphidede";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DELPHI] Dede"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede\DeDe.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede"; Components: "decompilers\delphidede";    
 
 
 
@@ -58,8 +58,8 @@ Name: "decompilers\delphiidr"; Description: "[DELPHI] IDR"; Types: full;
 Source: "{#MySrcDir}\toolkit\Decompilers\[DELPHI] IDR\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR"; Components: "decompilers\delphiidr"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[DELPHI] IDR"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR\Idr.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR"; Components: "decompilers\delphiidr";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DELPHI] IDR"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR\Idr.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR"; Components: "decompilers\delphiidr";   
+Name: "{group}\{#MyAppName}\[DELPHI] IDR"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR\Idr.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR"; Components: "decompilers\delphiidr";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DELPHI] IDR"; Filename: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR\Idr.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR"; Components: "decompilers\delphiidr";    
 
 
 
@@ -71,8 +71,8 @@ Name: "decompilers\dotnetdnspyex"; Description: "[DOTNET] dnSpyEx"; Types: full;
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] dnSpyEx\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[DOTNET] dnSpyEx x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx\dnSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex"; Check: Is64BitInstallMode;  
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] dnSpyEx x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx\dnSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex"; Check: Is64BitInstallMode;  
+Name: "{group}\{#MyAppName}\[DOTNET] dnSpyEx x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx\dnSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] dnSpyEx x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx\dnSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex";   Check: Is64BitInstallMode; 
 
 
 
@@ -84,8 +84,8 @@ Name: "decompilers\dotnetgraywolf"; Description: "[DOTNET] GrayWolf"; Types: ful
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] GrayWolf\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf"; Components: "decompilers\dotnetgraywolf"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[DOTNET] GrayWolf"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88\GrayWolf_188.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"; Components: "decompilers\dotnetgraywolf";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] GrayWolf"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88\GrayWolf_188.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"; Components: "decompilers\dotnetgraywolf";   
+Name: "{group}\{#MyAppName}\[DOTNET] GrayWolf"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88\GrayWolf_188.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"; Components: "decompilers\dotnetgraywolf";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] GrayWolf"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88\GrayWolf_188.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"; Components: "decompilers\dotnetgraywolf";    
 
 
 
@@ -97,8 +97,8 @@ Name: "decompilers\dotnetilspy"; Description: "[DOTNET] ILSpy"; Types: full comp
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] ILSpy\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[DOTNET] ILSpy"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] ILSpy"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";   
+Name: "{group}\{#MyAppName}\[DOTNET] ILSpy"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] ILSpy"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";    
 
 
 
@@ -110,8 +110,8 @@ Name: "decompilers\javajdgui"; Description: "[JAVA] JD-GUI"; Types: full;
 Source: "{#MySrcDir}\toolkit\Decompilers\[JAVA] JD-GUI\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI"; Components: "decompilers\javajdgui"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[JAVA] JD-GUI"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI\jd-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI"; Components: "decompilers\javajdgui";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[JAVA] JD-GUI"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI\jd-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI"; Components: "decompilers\javajdgui";   
+Name: "{group}\{#MyAppName}\[JAVA] JD-GUI"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI\jd-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI"; Components: "decompilers\javajdgui";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[JAVA] JD-GUI"; Filename: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI\jd-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI"; Components: "decompilers\javajdgui";    
 
 
 
@@ -145,7 +145,7 @@ Name: "decompilers\vbpcodeexdec"; Description: "[VB] P-Code-ExDec"; Types: full;
 Source: "{#MySrcDir}\toolkit\Decompilers\[VB] P-Code-ExDec\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[VB] P-Code-ExDec"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec\exdec.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec";   
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[VB] P-Code-ExDec"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec\exdec.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec";   
+Name: "{group}\{#MyAppName}\[VB] P-Code-ExDec"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec\exdec.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[VB] P-Code-ExDec"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec\exdec.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec";    
 
 

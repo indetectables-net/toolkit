@@ -1,4 +1,7 @@
 ; Cli programs register/unregister
+[Tasks]
+Name: "cli\envpath"; Description: "Add cli programs routes to env path (need logging in again!)"; Components: "analysis\capa or monitor\hollowshunter or monitor\pesieve or other\floss or other\processdump or other\strings or unpacking\de4dot";
+
 [Code]
 procedure EnvAddPath(Path: string);
 var
