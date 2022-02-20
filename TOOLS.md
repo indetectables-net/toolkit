@@ -14,52 +14,52 @@
 
 ### CAPA
 ***Web:*** https://github.com/fireeye/capa <br/>
-***Developer:*** https://github.com/mandiant <br/>
-***Description:*** capa detects capabilities in executable files. You run it against a PE, ELF, or shellcode file and it tells you what it thinks the program can do. For example, it might suggest that the file is a backdoor, is capable of installing services, or relies on HTTP to communicate. <br/>
+***Developer:*** mandiant - www.mandiant.com <br/>
+***Description:*** Capa detects capabilities in executable files. You run it against a PE, ELF, or shellcode file and it tells you what it thinks the program can do. For example, it might suggest that the file is a backdoor, is capable of installing services, or relies on HTTP to communicate. <br/>
 
 ### DIE
 ***Web:*** https://github.com/horsicq/DIE-engine <br/>
-***Developer:*** Both DIE & DIE-Engine are developed by https://github.com/horsicq. <br/>
+***Developer:*** horsicq <br/>
 ***Description:*** Detect It Easy, or abbreviated "DIE" is a program for determining types of files. DIE-Engine is a Graphical User Interface for DIE.  <br/>
 
 ### ExeinfoPe
 ***Web:*** https://github.com/ExeinfoASL/ASL <br/>
-***Developer:*** A.S.L Software <br/>
+***Developer:*** ASL - http://www.exeinfo.byethost18.com <br/>
 ***Description:*** ExEinfo PE detects packers, obfuscators, compilers & protectors. <br/>
 
 ### PE-Bear
 ***Web:*** https://github.com/hasherezade/pe-bear-releases <br/>
-***Developer:*** https://github.com/hasherezade <br/>
+***Developer:*** hasherezade <br/>
 ***Description:*** PE-bear is a freeware reversing tool for PE files. Its objective is to deliver fast and flexible “first view” for malware analysts, stable and capable to handle malformed PE files. <br/>
 
 ### PEiD
-***Web:*** https://appnee.com/peid/ (official website discontinued) <br/>
+***Web:*** https://appnee.com/peid/ (closed) <br/>
 ***Developer:*** snaker <br/>
 ***Description:*** PEiD (short for PE iDentifier) is a well-known professional, extensible packer/cryptor/compiler detecting tool. It’s so powerful that it can detect the types/signatures of almost any PE file packing tools (at present, the number has been more than 600 kinds) <br/>
 
 ### PEStudio
 ***Web:*** https://www.winitor.com/download <br/>
-***Developer:*** www.winitor.com <br/>
+***Developer:*** winitor <br/>
 ***Description:*** The goal of pestudio is to spot artifacts of executable files in order to ease and accelerate Malware Initial Assessment. The tool is used by Computer Emergency Response Teams (CERT), Security Operations Centers (SOC) and Digital-Forensic Labs worldwide. <br/>
 
 ### ProtectionID
 ***Web:*** The official site is down forever. You can check the Wayback Machine here: https://web.archive.org/web/20210331144912/https://protectionid.net/ <br/>
-***Developer:*** [PiD Team] (CDKiller/TippeX) <br/>
+***Developer:*** CDKiller & TippeX <br/>
 ***Description:*** PiD Team's Protection ID started as a PC game protection detector, and quickly became a swiss-army knife to detect packers & .NET protections.<br/>
 
 ### XAPKDetector
 ***Web:*** https://github.com/horsicq/XAPKDetector <br/>
-***Developer:*** https://github.com/horsicq <br/>
+***Developer:*** horsicq <br/>
 ***Description:*** This tool shows information about build tools, libraries and protection of APK/DEX files. Has heuristic capabilities, and runs in Win/MacOS/Linux. <br/>
 
 ### XELFViewer
 ***Web:*** https://github.com/horsicq/XELFViewer <br/>
-***Developer:*** https://github.com/horsicq <br/>
+***Developer:*** horsicq <br/>
 ***Description:*** This is an ELF file viewer/editor for Windows, Linux and MacOS. <br/>
 
 ### XPEViewer
 ***Web:*** https://github.com/horsicq/XPEViewer <br/>
-***Developer:*** https://github.com/horsicq <br/>
+***Developer:*** horsicq <br/>
 ***Description:*** This tool is a PE file viewer/editor for Windows, Linux and MacOS. <br/>
 
 
@@ -67,16 +67,18 @@
 
 ### [ANDROID] JADX
 ***Web:*** https://github.com/skylot/jadx <br/>
-***Developer:*** https://github.com/skylot <br/>
+***Developer:*** skylot <br/>
 ***Description:*** Dex to Java decompiler: command line and GUI tools for producing Java source code from Android Dex and Apk files <br/>
 
 ### [AUTOIT] Exe2Aut
-***Web:*** https://files.planet-dl.org/Cw2k/MyAutToExe/index.html <br/>
+***Web:*** www.exe2aut.com <br/>
 ***Developer:*** ??? <br/>
-***Description:*** ??? <br/>
+***Description:*** Exe2Aut is designed to be the easiest to use and most versatile
+decompiler for compiled AutoIt3 scripts one could think of. Exe2Aut is even capable of decompiling
+executables that have been packed and protected using AutoIt3Camo, Themida, Armadillo, Safengine and so forth due to its low level nature. <br/>
 
 ### [AUTOIT] MyAutToExe
-***Web:*** ??? <br/>
+***Web:*** https://files.planet-dl.org/Cw2k/MyAutToExe/index.html <br/>
 ***Developer:*** CW2K@gmx.de <br/>
 ***Description:*** Decompiles 'compiled' AutoIT Exe files. <br/>
 
@@ -87,7 +89,7 @@
 
 ### [DELPHI] IDR
 ***Web:*** https://github.com/crypto2011/IDR <br/>
-***Developer:*** ??? <br/>
+***Developer:*** crypto2011 <br/>
 ***Description:*** Interactive Delphi Reconstructor <br/>
 
 ### [DOTNET] dnSpyEx
@@ -112,7 +114,7 @@
 
 ### [JAVA] Recaf
 ***Web:*** https://github.com/Col-E/Recaf <br/>
-***Developer:*** ??? <br/>
+***Developer:*** Matt Coley (Col-E) <br/>
 ***Description:*** ??? <br/>
 
 ### [PYTHON] PyInstxtractor
@@ -144,14 +146,14 @@
 ***Description:*** Immunity Debugger, 32-bit analysing debugger <br/>
 
 ### OllyDbg 1.10
-***Web:*** ??? <br/>
-***Developer:*** ??? <br/>
-***Description:*** allyDbg, 32-bit analysing debugger <br/>
+***Web:*** https://www.ollydbg.de <br/>
+***Developer:*** Oleh Yuschuk <br/>
+***Description:*** OllyDbg is an x86 debugger that emphasizes binary code analysis, which is useful when source code is not available. It traces registers, recognizes procedures, API calls, switches, tables, constants and strings, as well as locates routines from object files and libraries. It has a user friendly interface, and its functionality can be extended by third-party plugins. <br/>
 
 ### w32Dasm
 ***Web:*** ??? <br/>
 ***Developer:*** URSoft <br/>
-***Description:*** W32Dasm for Windows <br/>
+***Description:*** W32DASM was an excellent 16/32 bit disassembler for Windows <br/>
 
 ### x64dbg
 ***Web:*** https://sourceforge.net/projects/x64dbg <br/>
@@ -233,20 +235,17 @@
 ***Web:*** https://docs.microsoft.com/en-us/sysinternals/downloads/procmon <br/>
 ***Developer:*** Sysinternals <br/>
 ***Description:*** Process Monitor <br/>
-***Web:*** https://docs.microsoft.com/en-us/sysinternals/downloads/procmon <br/>
-***Developer:*** Sysinternals <br/>
-***Description:*** Process Monitor <br/>
 
 ### RegShot
 ***Web:*** https://github.com/Seabreg/Regshot <br/>
-***Developer:*** https://github.com/Seabreg <br/>
+***Developer:*** Seabreg <br/>
 ***Description:*** Regshot is a small, free and open-source registry compare utility that allows you to quickly
 take a snapshot of your registry and then compare it with a second one - done after doing
 system changes or installing a new software product. <br/>
 
 ### SysAnalyzer
 ***Web:*** https://github.com/dzzie/SysAnalyzer <br/>
-***Developer:*** https://github.com/dzzie <br/>
+***Developer:*** dzzie <br/>
 ***Description:*** SysAnalyzer is an application that was designed to give malcode analysts an 
 automated tool to quickly collect, compare, and report on the actions a 
 binary took while running on the system. <br/>
@@ -291,7 +290,7 @@ binary took while running on the system. <br/>
 
 ### FLOSS
 ***Web:*** https://github.com/fireeye/flare-floss <br/>
-***Developer:*** https://github.com/mandiant <br/>
+***Developer:*** mandiant <br/>
 ***Description:*** The FLARE Obfuscated String Solver (FLOSS, formerly FireEye Labs Obfuscated String Solver) uses advanced static analysis techniques to automatically deobfuscate strings from malware binaries. You can use it just like strings.exe to enhance basic static analysis of unknown binaries. <br/>
 
 ### HashMyFiles
@@ -346,7 +345,7 @@ binary took while running on the system. <br/>
 
 ### Threadtear
 ***Web:*** https://github.com/GraxCode/threadtear <br/>
-***Developer:*** https://github.com/GraxCode <br/>
+***Developer:*** GraxCode <br/>
 ***Description:*** Threadtear is a multifunctional deobfuscation tool for java. Android application support is coming soon (Currently working on a dalvik to java converter). Suitable for easier code analysis without worrying too much about obfuscation. <br/>
 
 ### VirusTotalUploader
@@ -356,7 +355,7 @@ binary took while running on the system. <br/>
 
 ### XOpCodeCalc
 ***Web:*** https://github.com/horsicq/XOpcodeCalc <br/>
-***Developer:*** https://github.com/horsicq <br/>
+***Developer:*** horsicq <br/>
 ***Description:*** This tool is an x86/64 Opcode calculator. The program works on macOS, Linux and Windows. <br/>
 
 
@@ -374,7 +373,7 @@ binary took while running on the system. <br/>
 
 ### Windows Kernel Explorer
 ***Web:*** https://github.com/AxtMueller/Windows-Kernel-Explorer <br/>
-***Developer:*** https://github.com/AxtMueller <br/>
+***Developer:*** AxtMueller <br/>
 ***Description:*** Windows Kernel Explorer (you can simply call it as "WKE") is a free but powerful kernel research tool. It supports from Windows XP to Windows 11. Compared with WIN64AST and PCHunter, WKE can run on the latest Windows 11 without updating binary files. <br/>
 
 
@@ -382,7 +381,7 @@ binary took while running on the system. <br/>
 
 ### De4Dot
 ***Web:*** https://github.com/de4dot/de4dot <br/>
-***Developer:*** https://github.com/de4dot <br/>
+***Developer:*** de4dot <br/>
 ***Description:*** e4dot is an open source .NET deobfuscator and unpacker written in C#. It will try its best to restore a packed and obfuscated assembly to almost the original assembly. <br/>
 
 ### GUnPacker
@@ -391,23 +390,23 @@ binary took while running on the system. <br/>
 ***Description:*** ??? <br/>
 
 ### NETUnpack
-***Web:*** https://www.nulled.to/topic/71-netunpack/ <br/>
+***Web:*** ??? <br/>
 ***Developer:*** NTCore <br/>
 ***Description:*** .NET Generic Unpacker <br/>
 
 ### QUnpack
-***Web:*** https://github.com/andrasq/node-qunpack <br/>
-***Developer:*** https://github.com/andrasq <br/>
-***Description:*** QUnpack decodes a binary string into numbers and strings according to the specified format. This implementation is a javascript-only mostly compatible work-alike of PERL and PHP unpack(). <br/>
+***Web:*** http://qunpack.ahteam.org <br/>
+***Developer:*** Archer <br/>
+***Description:*** Generic unpacker <br/>
 
 ### RL!dePacker
 ***Web:*** Offline as of now - see developer website, or better yet, google a bit. <br/>
-***Developer:*** https://github.com/peekair/Ap0x <br/>
+***Developer:*** Ap0x <br/>
 ***Description:*** RL!dePacker is a renowned, generic unpacker. <br/>
 
 ### UniExtract
 ***Web:*** https://github.com/Bioruebe/UniExtract2 <br/>
-***Developer:*** https://github.com/Bioruebe <br/>
+***Developer:*** Bioruebe <br/>
 ***Description:*** Universal Extractor 2 is a tool designed to extract files from any type of extractable file. <br/>
 
 ### VM Unpacker
@@ -417,5 +416,5 @@ binary took while running on the system. <br/>
 
 ### XVolkolak
 ***Web:*** http://n10info.blogspot.com/2018/07/xvolkolak-021.html <br/>
-***Developer:*** https://github.com/horsicq <br/>
+***Developer:*** horsicq <br/>
 ***Description:*** XVolkolak is an unpacker emulator. <br/>
