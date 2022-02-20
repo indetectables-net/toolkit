@@ -282,8 +282,8 @@ binary took while running on the system. <br/>
 ***Description:*** AstroGrep is a Microsoft Windows GUI File Searching (grep) utility. Its features include regular expressions, versatile printing options, stores most recent used paths and has a "context" feature which is very nice for looking at source code. <br/>
 
 ### AVFucker
-***Web:*** https://marcoramilli.com/2010/01/02/avfucker-new-version/ <br/>
-***Developer:*** Marco Ramilli <br/>
+***Web:*** www.indetectables.net <br/>
+***Developer:*** Sr Sombrero <br/>
 ***Description:*** AVFucker is a tool that helps you evade Antivirus using the “replace byte signature” techniques. <br/>
 
 ### Cool Beans NFO Creator
@@ -307,8 +307,8 @@ binary took while running on the system. <br/>
 ***Description:*** ImpRec is a very handy tool that can be used to repair/reconstruct the import table for packed programs.  <br/>
 
 ### Indetectables Offset Locator
-***Web:*** https://www.indetectables.net/viewtopic.php?t=29725&sid=d42f7cab211096f4f52fef67efc9b538 <br/>
-***Developer:*** Mingo, yorll, metal <br/>
+***Web:*** https://www.indetectables.net/viewtopic.php?t=29725 <br/>
+***Developer:*** Mingo, Yorll & Metal <br/>
 ***Description:*** This is a classic, great tool to clean AV signatures in executables. <br/>
 
 ### NFO Maker
@@ -365,19 +365,21 @@ binary took while running on the system. <br/>
 ## Rootkits Detector
 
 ### GMER
-***Web:*** http://www.gmer.net <br/>
+***Web:*** www.gmer.net <br/>
 ***Developer:*** The GMER dev team. <br/>
-***Description:*** GMER is an application that detects and removes rootkits. <br/>
+***Description:*** GMER is an application that detects and removes rootkits.
+It scans for: hidden processes, hidden threads, hidden modules, hidden services, hidden files, hidden disk sectors (MBR), hidden Alternate Data Streams, 
+hidden registry keys, drivers hooking SSDT, drivers hooking IDT, drivers hooking IRP calls and inline hooks <br/>
 
 ### Sysinspector
 ***Web:*** https://www.eset.com/int/support/sysinspector/ <br/>
 ***Developer:*** ESET <br/>
-***Description:*** SET SysInspector scans your operating system and captures details such as running processes, registry content, startup items and network connections. ESET SysInspector is a convenient utility for the toolbox of every IT expert and first responder. <br/>
+***Description:*** SysInspector scans your operating system and captures details such as running processes, registry content, startup items and network connections. ESET SysInspector is a convenient utility for the toolbox of every IT expert and first responder. <br/>
 
 ### Windows Kernel Explorer
 ***Web:*** https://github.com/AxtMueller/Windows-Kernel-Explorer <br/>
 ***Developer:*** AxtMueller <br/>
-***Description:*** Windows Kernel Explorer (you can simply call it as "WKE") is a free but powerful kernel research tool. It supports from Windows XP to Windows 11. Compared with WIN64AST and PCHunter, WKE can run on the latest Windows 11 without updating binary files. <br/>
+***Description:*** Windows Kernel Explorer is a free but powerful kernel research tool. It supports from Windows XP to Windows 11. Compared with WIN64AST and PCHunter, WKE can run on the latest Windows 11 without updating binary files. <br/>
 
 
 ## UnPacking
