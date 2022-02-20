@@ -33,7 +33,7 @@
 ***Description:*** PE-bear is a freeware reversing tool for PE files. Its objective is to deliver fast and flexible “first view” for malware analysts, stable and capable to handle malformed PE files. <br/>
 
 ### PEiD
-***Web:*** https://appnee.com/peid/ (closed) <br/>
+***Web:*** www.peid.info (closed) <br/>
 ***Developer:*** snaker <br/>
 ***Description:*** PEiD (short for PE iDentifier) is a well-known professional, extensible packer/cryptor/compiler detecting tool. It’s so powerful that it can detect the types/signatures of almost any PE file packing tools (at present, the number has been more than 600 kinds) <br/>
 
@@ -131,19 +131,19 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ## Dissasembler
 
 ### BDASM
-***Web:*** ??? <br/>
-***Developer:*** ??? <br/>
-***Description:*** BDASM MFC Application <br/>
+***Web:*** www.bsasm.com (closed) <br/>
+***Developer:*** Manuel Jiménez <br/>
+***Description:*** BDASM is a multi-cpu, multi format file disassembler for Windows. Currently it supports ELF, X-Box, PE and raw binary files. The CPU support includes the Intel x86 16/32bits processor family up to SSE2 instructions, and PowerPc 603,604 32bits CPUs. <br/>
 
 ### Cutter
 ***Web:*** https://github.com/rizinorg/cutter <br/>
-***Developer:*** ??? <br/>
-***Description:*** ??? <br/>
+***Developer:*** https://rizin.re <br/>
+***Description:*** Cutter is a free and open-source reverse engineering platform powered by Rizin (fork of the radare2 reverse engineering framework). It aims at being an advanced and customizable reverse engineering platform while keeping the user experience in mind. Cutter is created by reverse engineers for reverse engineers. <br/>
 
 ### Immunity Debugger
-***Web:*** ??? <br/>
-***Developer:*** ??? <br/>
-***Description:*** Immunity Debugger, 32-bit analysing debugger <br/>
+***Web:*** https://www.immunityinc.com/products/debugger/ <br/>
+***Developer:*** Immunity <br/>
+***Description:*** Immunity Debugger is a powerful new way to write exploits, analyze malware, and reverse engineer binary files. It builds on a solid user interface with function graphing, the industry's first heap analysis tool built specifically for heap creation, and a large and well supported Python API for easy extensibility. <br/>
 
 ### OllyDbg 1.10
 ***Web:*** https://www.ollydbg.de <br/>
@@ -151,14 +151,15 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Description:*** OllyDbg is an x86 debugger that emphasizes binary code analysis, which is useful when source code is not available. It traces registers, recognizes procedures, API calls, switches, tables, constants and strings, as well as locates routines from object files and libraries. It has a user friendly interface, and its functionality can be extended by third-party plugins. <br/>
 
 ### w32Dasm
-***Web:*** ??? <br/>
-***Developer:*** URSoft <br/>
-***Description:*** W32DASM was an excellent 16/32 bit disassembler for Windows <br/>
+***Web:*** http://members.home.net/w32dasm/ (closed) <br/>
+***Developer:*** URSoftware <br/>
+***Description:*** W32DASM is a disassembler: a tool made to translate machine language back into assembly language. It's ideal for those interested in reverse engineering, who want to take code apart and find out how it works. 
+Although W32DASM is ancient since hasn't received updates for a very long time (it's officially discontinued), it works without any trouble on Windows 10. <br/>
 
 ### x64dbg
-***Web:*** https://sourceforge.net/projects/x64dbg <br/>
-***Developer:*** ??? <br/>
-***Description:*** x64dbg <br/>
+***Web:*** www.x64dbg.com <br/>
+***Developer:*** Duncan Ogilvie (mrexodia) <br/>
+***Description:*** An open-source binary debugger for Windows, aimed at malware analysis and reverse engineering of executables you do not have the source code for. There are many features available and a comprehensive plugin system to add your own. <br/>
 
 
 ## HEX Editor
