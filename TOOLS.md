@@ -167,22 +167,24 @@ Although W32DASM is ancient since hasn't received updates for a very long time (
 ### HxD
 ***Web:*** https://mh-nexus.de/en/hxd <br/>
 ***Developer:*** Maël Hörz <br/>
-***Description:*** HxD Hex Editor <br/>
+***Description:*** HxD is a carefully designed and fast hex editor which, additionally to raw disk editing and modifying of main memory (RAM), handles files of any size.
+The easy to use interface offers features such as searching and replacing, exporting, checksums/digests, insertion of byte patterns, a file shredder, concatenation or splitting of files, statistics and much more. <br/>
 
 ### ImHex
 ***Web:*** https://github.com/WerWolv/ImHex <br/>
 ***Developer:*** WerWolv <br/>
-***Description:*** ImHex Hex Editor <br/>
+***Description:*** ImHex is a Hex Editor, a tool to display, decode and analyze binary data to reverse engineer their format, extract informations or patch values in them.
+What makes ImHex special is that it has many advanced features that can often only be found in paid applications. Such features are a completely custom binary template and pattern language to decode and highlight structures in the data, a graphical node-based data processor to pre-process values before they're displayed, a disassembler, diffing support, bookmarks and much much more. <br/>
 
 ### REHex
 ***Web:*** https://github.com/solemnwarning/rehex <br/>
-***Developer:*** ??? <br/>
-***Description:*** ??? <br/>
+***Developer:*** Daniel Collins (solemnwarning) <br/>
+***Description:*** A cross-platform (Windows, Linux, Mac) hex editor for reverse engineering, and everything else. <br/>
 
 ### WinHex
 ***Web:*** https://x-ways.net/winhex <br/>
 ***Developer:*** X-Ways Software Technology AG <br/>
-***Description:*** WinHex <br/>
+***Description:*** (DEPRECATED IN TOOLKIT - REMOVE THIS IN 2022.3) WinHex is in its core a universal hexadecimal editor, particularly helpful in the realm of computer forensics, data recovery, low-level data processing, and IT security. <br/>
 
 
 ## Monitor
