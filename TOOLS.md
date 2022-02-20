@@ -33,7 +33,7 @@
 ***Description:*** PE-bear is a freeware reversing tool for PE files. Its objective is to deliver fast and flexible “first view” for malware analysts, stable and capable to handle malformed PE files. <br/>
 
 ### PEiD
-***Web:*** https://appnee.com/peid/ (closed) <br/>
+***Web:*** www.peid.info (closed) <br/>
 ***Developer:*** snaker <br/>
 ***Description:*** PEiD (short for PE iDentifier) is a well-known professional, extensible packer/cryptor/compiler detecting tool. It’s so powerful that it can detect the types/signatures of almost any PE file packing tools (at present, the number has been more than 600 kinds) <br/>
 
@@ -82,12 +82,12 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** CW2K@gmx.de <br/>
 ***Description:*** Decompiles 'compiled' AutoIT Exe files. <br/>
 
-### [DELPHI] Dede - Delphi Decompiler
-***Web:*** https://github.com/Hanvdm/dedex <br/>
-***Developer:*** DaFixer (https://github.com/Hanvdm)<br/>
+### [DELPHI] Dede
+***Web:*** https://code.google.com/archive/p/dedex/ <br/>
+***Developer:*** DaFixer <br/>
 ***Description:*** DeDe is a very fast program that can analize executables compiled with Delphi 3,4,5,6, C++Builder and Kylix and give you all dfm files on the target, every published method in well-commented Assembler, and lots of other information.- <br/>
 
-### [DELPHI] IDR - Interactive Delphi Reconstructor
+### [DELPHI] IDR
 ***Web:*** https://github.com/crypto2011/IDR <br/>
 ***Developer:*** crypto2011 <br/>
 ***Description:*** IDR is a decompiler of executable files (EXE) and dynamic libraries (DLL), written in Delphi and executed in Windows32 environment, with the final aim of being capable to restore the most part of initial Delphi source codes from the compiled file. <br/>
@@ -114,7 +114,7 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 
 ### [JAVA] Recaf
 ***Web:*** https://github.com/Col-E/Recaf <br/>
-***Developer:*** Matt Coley "Col-E" (https://github.com/Col-E) <br/>
+***Developer:*** Matt Coley (Col-E) <br/>
 ***Description:*** An easy to use modern Java bytecode editor that abstracts away the complexities of Java programs. Recaf abstracts away constant pool, stack frames, wide instructions, and more. <br/>
 
 ### [PYTHON] PyInstxtractor
@@ -122,7 +122,6 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** https://github.com/extremecoders-re <br/>
 ***Description:*** is a Python script to extract the contents of a PyInstaller generated Windows executable file. The contents of the pyz file (usually pyc files) present inside the executable are also extracted. The header of the pyc files are automatically fixed so that a Python bytecode decompiler will recognize it. <br/>
 
-[//]: # (TODO)
 ### [VB] P-Code-ExDec
 ***Web:*** ??? <br/>
 ***Developer:*** ??? <br/>
@@ -167,16 +166,18 @@ Although W32DASM is ancient since hasn't received updates for a very long time (
 ### HxD
 ***Web:*** https://mh-nexus.de/en/hxd <br/>
 ***Developer:*** Maël Hörz <br/>
-***Description:*** HxD is a carefully designed and fast hex editor which, additionally to raw disk editing and modifying of main memory (RAM), handles files of any size. <br/>
+***Description:*** HxD is a carefully designed and fast hex editor which, additionally to raw disk editing and modifying of main memory (RAM), handles files of any size.
+The easy to use interface offers features such as searching and replacing, exporting, checksums/digests, insertion of byte patterns, a file shredder, concatenation or splitting of files, statistics and much more. <br/>
 
 ### ImHex
 ***Web:*** https://github.com/WerWolv/ImHex <br/>
 ***Developer:*** WerWolv <br/>
-***Description:*** A Hex Editor for Reverse Engineers, Programmers and people who value their retinas when working at 3 AM. <br/>
+***Description:*** ImHex is a Hex Editor, a tool to display, decode and analyze binary data to reverse engineer their format, extract informations or patch values in them.
+What makes ImHex special is that it has many advanced features that can often only be found in paid applications. Such features are a completely custom binary template and pattern language to decode and highlight structures in the data, a graphical node-based data processor to pre-process values before they're displayed, a disassembler, diffing support, bookmarks and much much more. <br/>
 
 ### REHex
 ***Web:*** https://github.com/solemnwarning/rehex <br/>
-***Developer:*** solemnwarning <br/>
+***Developer:*** Daniel Collins (solemnwarning) <br/>
 ***Description:*** A cross-platform (Windows, Linux, Mac) hex editor for reverse engineering, and everything else. <br/>
 
 ### WinHex
@@ -281,9 +282,9 @@ binary took while running on the system. <br/>
 ***Description:*** AstroGrep is a Microsoft Windows GUI File Searching (grep) utility. Its features include regular expressions, versatile printing options, stores most recent used paths and has a "context" feature which is very nice for looking at source code. <br/>
 
 ### AVFucker
-***Web:*** https://marcoramilli.com/2010/01/02/avfucker-new-version/ <br/>
-***Developer:*** Marco Ramilli <br/>
-***Description:*** AVFucker is a tool that helps you evade Antivirus using the “replace byte signature” techniques. <br/>
+***Web:*** www.indetectables.net <br/>
+***Developer:*** Sr Sombrero <br/>
+***Description:*** AVFucker is a tool that helps you evade Antivirus using the “replace byte signature” technique. <br/>
 
 ### Cool Beans NFO Creator
 ***Web:*** https://www.coolbeans.ws/nfocreator.shtml <br/>
@@ -306,11 +307,10 @@ binary took while running on the system. <br/>
 ***Description:*** ImpRec is a very handy tool that can be used to repair/reconstruct the import table for packed programs.  <br/>
 
 ### Indetectables Offset Locator
-***Web:*** https://www.indetectables.net/viewtopic.php?t=29725&sid=d42f7cab211096f4f52fef67efc9b538 <br/>
-***Developer:*** Mingo, yorll, metal <br/>
+***Web:*** https://www.indetectables.net/viewtopic.php?t=29725 <br/>
+***Developer:*** Mingo, Yorll & Metal <br/>
 ***Description:*** This is a classic, great tool to clean AV signatures in executables. <br/>
 
-[//]: # (This is a comment.)
 ### NFO Maker
 ***Web:*** ??? <br/>
 ***Developer:*** The Millenium Group <br/>
@@ -336,7 +336,6 @@ binary took while running on the system. <br/>
 ***Developer:*** The NtQuery team <br/>
 ***Description:*** Great tool for the purpose of rebuilding an Import Table. This is an alternative to ImpRec. <br/>
 
-[//]: # (TODO)
 ### ShowString
 ***Web:*** ??? <br/>
 ***Developer:*** ??? <br/>
@@ -366,19 +365,19 @@ binary took while running on the system. <br/>
 ## Rootkits Detector
 
 ### GMER
-***Web:*** http://www.gmer.net <br/>
+***Web:*** www.gmer.net <br/>
 ***Developer:*** The GMER dev team. <br/>
 ***Description:*** GMER is an application that detects and removes rootkits. <br/>
 
 ### Sysinspector
 ***Web:*** https://www.eset.com/int/support/sysinspector/ <br/>
 ***Developer:*** ESET <br/>
-***Description:*** SET SysInspector scans your operating system and captures details such as running processes, registry content, startup items and network connections. ESET SysInspector is a convenient utility for the toolbox of every IT expert and first responder. <br/>
+***Description:*** SysInspector scans your operating system and captures details such as running processes, registry content, startup items and network connections. ESET SysInspector is a convenient utility for the toolbox of every IT expert and first responder. <br/>
 
 ### Windows Kernel Explorer
 ***Web:*** https://github.com/AxtMueller/Windows-Kernel-Explorer <br/>
 ***Developer:*** AxtMueller <br/>
-***Description:*** Windows Kernel Explorer (you can simply call it as "WKE") is a free but powerful kernel research tool. It supports from Windows XP to Windows 11. Compared with WIN64AST and PCHunter, WKE can run on the latest Windows 11 without updating binary files. <br/>
+***Description:*** Windows Kernel Explorer is a free but powerful kernel research tool. It supports from Windows XP to Windows 11. Compared with WIN64AST and PCHunter, WKE can run on the latest Windows 11 without updating binary files. <br/>
 
 
 ## UnPacking
