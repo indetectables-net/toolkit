@@ -1,43 +1,40 @@
 # Indetectables Toolkit
 
-Esta compilación de herramientas está pensada para que sea útil al que se inicia y a los más avanzados, al que quiere entrar en el análisis de malware y también para los que quieren probar suerte en el mundo del cracking.
+This tool compilation is carefully crafted with the purpose of being useful both for the beginners and veterans from the malware analysis world. It has also proven useful for people trying their luck at the cracking underworld.
 
-Es el complemento ideal para ser usado con para empezar con los [manuales](https://github.com/indetectables-net/manuals) del sitio y para jugar con el mirror de las [teorias numeradas]( https://github.com/indetectables-net/teorias-numeradas).
+It's the ideal complement to be used with the [manuals](https://github.com/indetectables-net/manuals) from the site, and to play with the [numbered theories](https://github.com/indetectables-net/teorias-numeradas) mirror.
 
 ![](assets/demo.gif)
 
 
-## Ventajas
+## Advantages
 
-El pack está pensado para ser el más completo y robusto existente.
-Algunas de sus ventajas son:
+To be clear, this pack is thought to be the most complete and robust in existence. Some of the pros are:
 
-1. Contiene todas las herramientas básicas y no tan básicas que se puedan llegar a necesitar.
+1. It contains all the basic (and not so basic) tools that you might need in a real life scenario, be it a simple or a complex one.
 
-2. El pack está integrado con el actualizador universal que hicimos, gracias a ello logramos mantener de manera automática todas las herramientas.
+2. The pack is integrated with an Universal Updater made by us from scratch. Thanks to that, we get to mantain all the tools in an automated fashion.
 
-3. Es fácilmente ampliable y modificable. Solo tienes que actualizar el `bin\updater\tools.ini` para integrar las herramientas que usas al [actualizador](https://github.com/xchwarze/universal-tool-updater) y agregar los links de las mismas a `bin\sendto\sendto` para que aparezcan en los menús.
+3. It's really easy to expand and modify: you just have to update the file `bin\updater\tools.ini` to integrate the tools you use to the [updater](https://github.com/xchwarze/universal-tool-updater), and then add the links for your tools to `bin\sendto\sendto`, so they appear in the context menus.
 
-4. El instalador configura todo lo que podemos necesitar de manera automática. Desde las dependencias, variables de entorno y hasta nos puede agregar una tarea programada para que actualice automáticamente las herramientas semanalmente.
-
-
-## Instalación
-
-1. Puede clonar el repositorio con [git](https://git-scm.com/download/win), bajarlo desde [descargar](https://github.com/indetectables-net/toolkit/archive/refs/heads/master.zip) o simplemente bajar las versiones estables desde la seccion de [release](https://github.com/indetectables-net/toolkit/releases) donde también podemos encontrar el instalador.
-
-2. Una vez descargado puedes actualizar las herramientas con el actualizador que [desarrollamos para esto](https://github.com/xchwarze/universal-tool-updater). <br/>
-El mismo está en la carpeta `bin\updater\updater.exe`.
+4. The installer sets up everything we might need automatically - everything, from the dependencies to the environment variables, and it can even add a scheduled task to update the whole pack of tools weekly.
 
 
-## Herramientas
+## Installation
 
-El toolkit está compuesto por 75 herramientas que cubren todo lo que podemos necesitar para la reversa y el análisis. <br/>
-Las herramientas están todas descargadas de sus páginas oficiales pero de todas formas se recomienda usarlas con cautela, en especial las que las paginas oficiales son hilos en foros y ese tipo de cosas. <br/>
-Para ver la lista completa de herramientas puedes [hacerlo aqui](TOOLS.md).
+1. You can clone the repository with [git](https://git-scm.com/download/win), or you can also [download it](https://github.com/indetectables-net/toolkit/archive/refs/heads/master.zip). Alternatively, you can simply download the stable versions from the [release section](https://github.com/indetectables-net/toolkit/releases), where you can also find the installer.
+
+2. Once downloaded, you can update the tools with the Universal Updater that we specifically [developed](https://github.com/xchwarze/universal-tool-updater) for that sole purpose. <br/>. 
+You will find the binary in the folder `bin\updater\updater.exe`.
 
 
-## Contribuciones
+## Tool set
 
-Los pull requests son bienvenidos. Para cambios importantes cree primero un issue para analizarlo entre todos.
+This toolkit is composed by 75 apps that cover everything we might need to perform reverse engineering and binary/malware analysis. <br/>
+Every tool has been downloaded from their original/official websites, but we still recommend you to use them with caution, specially those tools whose official pages are forum threads. Always exercise common sense. <br/>
+You can check the complete list of tools [here](TOOLS.md).
 
-Las herramientas están comprimidas con 7zip y el formato usado para los nombres es `{nombre} - {version}.7z`
+
+## About contributions
+
+Pull Requests are welcome. If you'd want to propose big changes, you should first create an Issue about it, so we all can analyze and discuss it. The tools are compressed with 7-zip, and the format used for nomenclature is `{name} - {version}.7z`
