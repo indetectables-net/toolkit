@@ -376,7 +376,7 @@ binary took while running on the system. <br/>
 
 ### Windows Kernel Explorer
 ***Web:*** https://github.com/AxtMueller/Windows-Kernel-Explorer <br/>
-***Developer:*** AxtMueller <br/>
+***Developer:***  Axt Müller (AxtMueller) <br/>
 ***Description:*** Windows Kernel Explorer is a free but powerful kernel research tool. It supports from Windows XP to Windows 11. Compared with WIN64AST and PCHunter, WKE can run on the latest Windows 11 without updating binary files. <br/>
 
 
@@ -385,25 +385,28 @@ binary took while running on the system. <br/>
 ### De4Dot
 ***Web:*** https://github.com/de4dot/de4dot <br/>
 ***Developer:*** de4dot <br/>
-***Description:*** de4dot is an open source .NET deobfuscator and unpacker written in C#. It will try its best to restore a packed and obfuscated assembly to almost the original assembly. <br/>
+***Description:*** de4dot is an open source .NET deobfuscator and unpacker written in C#. It will try its best to restore a packed and obfuscated assembly to almost the original assembly.
+Most of the obfuscation can be completely restored (eg. string encryption), but symbol renaming is impossible to restore since the original names aren't (usually) part of the obfuscated assembly.<br/>
 
 ### GUnPacker
-***Web:*** http://qunpack.ahteam.org/?p=327 (russian) <br/>
-***Developer:*** AHTeam <br/>
-***Description:*** This tool is a generic unpacker. It has two main functionalities: (A) OEP positioning, and (B) the dumped code and data can be used to repair the follow-up of a PE header. <br/>
+***Web:*** Unknown <br/>
+***Developer:*** Unknown <br/>
+***Description:*** This tool is a generic unpacker. It has two main functionalities: (A) OEP positioning, and (B) the dumped code and data can be used to repair the follow-up of a PE header.
+From Chinese developers. Competitor of Quick Unpack. <br/>
 
 ### NETUnpack
-***Web:*** https://ntcore.com <br/>
-***Developer:*** NTCore <br/>
+***Web:*** https://ntcore.com/?page_id=353 <br/>
+***Developer:*** Erik Pistelli (NTCore) <br/>
 ***Description:*** This is a program to dump .NET packed applications. Of course no serious .NET protection relies on packing. In fact, this software shows how easily you can unpack a protected assemly. <br/>
 
 ### QUnpack
-***Web:*** http://qunpack.ahteam.org (russian) <br/>
-***Developer:*** Archer <br/>
-***Description:*** Yet another generic unpacker. This one, dated from 2010, comes with the source code.  <br/>
+***Web:*** http://qunpack.ahteam.org <br/>
+***Developer:*** Archer & FEUERRADER <br/>
+***Description:*** The program is intended for a dynamic unpacking of binders, crypters, packers and protectors.
+QuickUnpack tries to bypass all possible scramblers/obfuscators and restores redirected import. From the version 1 the opportunity of unpacking dll is added. From the version 2 the attach process feature added which allows to use QuickUnpack as a dumper and import recoverer. Scripts are also supported from version 2 which allows unpacking of more complicated protections. Version 3 brought x64 support and hardware virtualization debugging engine. This makes QuickUnpack a unique software product which has no similar analogues in the world! <br/>
 
 ### RL!dePacker
-***Web:*** Offline as of now - see developer website, or better yet, google a bit. <br/>
+***Web:*** http://www.reversinglabs.com <br/>
 ***Developer:*** Ap0x <br/>
 ***Description:*** RL!dePacker is a renowned, generic unpacker. <br/>
 
@@ -418,6 +421,7 @@ binary took while running on the system. <br/>
 ***Description:*** This tool uses the technology of Virtual Machines. It can unpack various known & unknown shells. It is suitable for unpacking the shelled Trojan horse in virus analysis, and because all codes are run under the VM, they will not take any danger to your system. <br/>
 
 ### XVolkolak
-***Web:*** http://n10info.blogspot.com/2018/07/xvolkolak-021.html <br/>
-***Developer:*** Hors (https://github.com/horsicq) <br/>
-***Description:*** XVolkolak is an unpacker emulator. <br/>
+***Web:*** https://horsicq.github.io/ <br/>
+***Developer:*** Hors <br/>
+***Description:*** XVolkolak is an unpacker emulator. Unlike programs of this type, it does not use DebugAPI and other features of the operating system. Everything is emulated. You can safely unpack malware for further investigation without the risk of damaging the system.
+All machine instructions are not executed on a real processor, so unpacking occurs regardless of the processor type and the operating system. <br/>
