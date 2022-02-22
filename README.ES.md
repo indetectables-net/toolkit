@@ -1,3 +1,5 @@
+Español | [English](README.md)
+
 # Indetectables Toolkit
 
 Esta compilación de herramientas está pensada para que sea útil al que se inicia y a los más avanzados, al que quiere entrar en el análisis de malware y también para los que quieren probar suerte en el mundo del cracking.
