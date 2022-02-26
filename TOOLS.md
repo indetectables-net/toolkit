@@ -404,7 +404,7 @@ From Chinese developers. Competitor of Quick Unpack. <br/>
 ***Description:*** The program is intended for a dynamic unpacking of binders, crypters, packers and protectors.
 QuickUnpack tries to bypass all possible scramblers/obfuscators and restores redirected import. From the version 1 the opportunity of unpacking dll is added. From the version 2 the attach process feature added which allows to use QuickUnpack as a dumper and import recoverer. Scripts are also supported from version 2 which allows unpacking of more complicated protections. Version 3 brought x64 support and hardware virtualization debugging engine. This makes QuickUnpack a unique software product which has no similar analogues in the world! <br/>
 
-### RL!dePacker
+### RL!dePacker (with unpack SDK)
 ***Web:*** http://www.reversinglabs.com <br/>
 ***Developer:*** Ap0x <br/>
 ***Description:*** Reversing Labs RL!dePacker has a build in option to detect OEP. However this option does not work with VB (always use FindOEP! function with VB applications and Force to manual OEP?) and some packers. So if RL!dePacker can not unpack the file use FindOEP! function to detect correct OEP, but use it only as a second resort since it can be jammed! <br/>
