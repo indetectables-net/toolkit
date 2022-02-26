@@ -32,7 +32,7 @@
 ***Developer:*** hasherezade <br/>
 ***Description:*** PE-bear is a freeware reversing tool for PE files. Its objective is to deliver fast and flexible “first view” for malware analysts, stable and capable to handle malformed PE files. <br/>
 
-### PEiD
+### PEiD (with plugins and databases)
 ***Web:*** www.peid.info (closed) <br/>
 ***Developer:*** snaker <br/>
 ***Description:*** PEiD (short for PE iDentifier) is a well-known professional, extensible packer/cryptor/compiler detecting tool. It’s so powerful that it can detect the types/signatures of almost any PE file packing tools (at present, the number has been more than 600 kinds) <br/>
@@ -122,7 +122,7 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** https://github.com/extremecoders-re <br/>
 ***Description:*** is a Python script to extract the contents of a PyInstaller generated Windows executable file. The contents of the pyz file (usually pyc files) present inside the executable are also extracted. The header of the pyc files are automatically fixed so that a Python bytecode decompiler will recognize it. <br/>
 
-### [VB] P-Code-ExDec
+### [VB] P-Code-ExDec (DEPRECATED)
 ***Web:*** ??? <br/>
 ***Developer:*** ??? <br/>
 ***Description:*** ??? <br/>
@@ -180,7 +180,7 @@ What makes ImHex special is that it has many advanced features that can often on
 ***Developer:*** Daniel Collins (solemnwarning) <br/>
 ***Description:*** A cross-platform (Windows, Linux, Mac) hex editor for reverse engineering, and everything else. <br/>
 
-### WinHex
+### WinHex (DEPRECATED)
 ***Web:*** https://x-ways.net/winhex <br/>
 ***Developer:*** X-Ways Software Technology AG <br/>
 ***Description:*** WinHex is in its core a universal hexadecimal editor, particularly helpful in the realm of computer forensics, data recovery, low-level data processing, and IT security. An advanced tool for everyday and emergency use: inspect and edit all kinds of files, recover deleted files or lost data. <br/>
@@ -270,8 +270,7 @@ binary took while running on the system. <br/>
 ***Developer:*** Vaibhav Pandey -aka- VPZ <br/>
 ***Description:*** Open-source, cross-platform Qt based IDE for reverse-engineering Android application packages. <br/>
 
-[//]: # (TODO)
-### ASCII Art Generator
+### ASCII Art Generator (DEPRECATED - Ascii Generator 2)
 ***Web:*** ??? <br/>
 ***Developer:*** ASCII Art Generator <br/>
 ***Description:*** ASCII Art Generator <br/>
@@ -301,8 +300,8 @@ binary took while running on the system. <br/>
 ***Developer:*** NirSoft <br/>
 ***Description:*** HashMyFiles is small utility that allows you to calculate the MD5 and SHA1 hashes of one or more files in your system. You can easily copy the MD5/SHA1 hashes list into the clipboard, or save them into text/html/xml file.  <br/>
 
-### ImpREC
-***Web:*** Offline since forever - use https://www.aldeid.com/wiki/ImpREC <br/>
+### ImpREC (with plugins)
+***Web:*** Unknown <br/>
 ***Developer:*** MackT/uCF <br/>
 ***Description:*** ImpRec is a very handy tool that can be used to repair/reconstruct the import table for packed programs.  <br/>
 
@@ -312,9 +311,9 @@ binary took while running on the system. <br/>
 ***Description:*** This is a classic, great tool to clean AV signatures in executables. <br/>
 
 ### NFO Maker
-***Web:*** ??? <br/>
-***Developer:*** The Millenium Group <br/>
-***Description:*** ??? <br/>
+***Web:*** Unknown <br/>
+***Developer:*** tHE EGOiSTE - The Millenium Group <br/>
+***Description:*** NFO Maker generator <br/>
 
 ### ProcDOT
 ***Web:*** https://www.procdot.com/downloadprocdotbinaries.htm <br/>
@@ -337,9 +336,9 @@ binary took while running on the system. <br/>
 ***Description:*** Great tool for the purpose of rebuilding an Import Table. This is an alternative to ImpRec. <br/>
 
 ### ShowString
-***Web:*** ??? <br/>
-***Developer:*** ??? <br/>
-***Description:*** ??? <br/>
+***Web:*** Unknown <br/>
+***Developer:*** figugegl <br/>
+***Description:*** This little tool shows all ASCII and UNICODE strings in a file. You can edit, copy, paste, sort, search and much more. <br/>
 
 ### Strings
 ***Web:*** https://docs.microsoft.com/en-us/sysinternals/downloads/strings <br/>
@@ -408,12 +407,14 @@ QuickUnpack tries to bypass all possible scramblers/obfuscators and restores red
 ### RL!dePacker
 ***Web:*** http://www.reversinglabs.com <br/>
 ***Developer:*** Ap0x <br/>
-***Description:*** RL!dePacker is a renowned, generic unpacker. <br/>
+***Description:*** Reversing Labs RL!dePacker has a build in option to detect OEP. However this option does not work with VB (always use FindOEP! function with VB applications and Force to manual OEP?) and some packers. So if RL!dePacker can not unpack the file use FindOEP! function to detect correct OEP, but use it only as a second resort since it can be jammed! <br/>
+Generic unpacker can unpack ONLY packers that do not use IAT redirection, that don’t steal APIs and which fill out IAT table in correct order. All ordinals that can be converted to API names are converted, others are inserted into IAT as ordinals! <br/>
 
 ### UniExtract
 ***Web:*** https://github.com/Bioruebe/UniExtract2 <br/>
 ***Developer:*** Bioruebe <br/>
 ***Description:*** Universal Extractor 2 is a tool designed to extract files from any type of extractable file. <br/>
+Unlike most archiving programs, UniExtract is not limited to **standard archives** such as `.zip` and `.rar`. It can also deal with **application installers**, **disk images** and even **game archives** and other **multimedia files**. An overview of supported file types can be found [here](https://github.com/Bioruebe/UniExtract2/blob/master/docs/FORMATS.md)
 
 ### VM Unpacker
 ***Web:*** http://www.leechermods.com/2010/01/vmunpacker-16-latest-version.html (unofficial) <br/>
