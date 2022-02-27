@@ -119,13 +119,14 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 
 ### [PYTHON] PyInstxtractor
 ***Web:*** https://github.com/extremecoders-re/pyinstxtractor <br/>
-***Developer:*** https://github.com/extremecoders-re <br/>
-***Description:*** is a Python script to extract the contents of a PyInstaller generated Windows executable file. The contents of the pyz file (usually pyc files) present inside the executable are also extracted. The header of the pyc files are automatically fixed so that a Python bytecode decompiler will recognize it. <br/>
+***Developer:*** extremecoders-re <br/>
+***Description:*** Python script to extract the contents of a PyInstaller generated Windows executable file. The contents of the pyz file (usually pyc files) present inside the executable are also extracted. The header of the pyc files are automatically fixed so that a Python bytecode decompiler will recognize it. <br/>
 
-### [VB] P-Code-ExDec (DEPRECATED)
-***Web:*** ??? <br/>
-***Developer:*** ??? <br/>
-***Description:*** ??? <br/>
+### [VB] VB Decompiler
+***Web:*** https://www.vb-decompiler.org <br/>
+***Developer:*** DotFix Software <br/>
+***Description:*** VB Decompiler is an advanced tool that can decompile programs (EXE, DLL, or OCX) written in Visual Basic 5.0/6.0 and disassemble programs based on .NET technology. As you know, programs written in Visual Basic can be compiled to interpreted p-code or to native code, and a .NET assembly is always compiled to Microsoft intermediate language (MSIL). <br/>
+
 
 ## Dissasembler
 
@@ -144,12 +145,12 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** Immunity <br/>
 ***Description:*** Immunity Debugger is a powerful new way to write exploits, analyze malware, and reverse engineer binary files. It builds on a solid user interface with function graphing, the industry's first heap analysis tool built specifically for heap creation, and a large and well supported Python API for easy extensibility. <br/>
 
-### OllyDbg 1.10
+### OllyDbg 1.10 (with plugins and scripts)
 ***Web:*** https://www.ollydbg.de <br/>
 ***Developer:*** Oleh Yuschuk <br/>
 ***Description:*** OllyDbg is an x86 debugger that emphasizes binary code analysis, which is useful when source code is not available. It traces registers, recognizes procedures, API calls, switches, tables, constants and strings, as well as locates routines from object files and libraries. It has a user friendly interface, and its functionality can be extended by third-party plugins. <br/>
 
-### w32Dasm
+### w32Dasm (with all versions)
 ***Web:*** http://members.home.net/w32dasm/ (closed) <br/>
 ***Developer:*** URSoftware <br/>
 ***Description:*** W32DASM is a disassembler: a tool made to translate machine language back into assembly language. It's ideal for those interested in reverse engineering, who want to take code apart and find out how it works. 
@@ -179,11 +180,6 @@ What makes ImHex special is that it has many advanced features that can often on
 ***Web:*** https://github.com/solemnwarning/rehex <br/>
 ***Developer:*** Daniel Collins (solemnwarning) <br/>
 ***Description:*** A cross-platform (Windows, Linux, Mac) hex editor for reverse engineering, and everything else. <br/>
-
-### WinHex (DEPRECATED)
-***Web:*** https://x-ways.net/winhex <br/>
-***Developer:*** X-Ways Software Technology AG <br/>
-***Description:*** WinHex is in its core a universal hexadecimal editor, particularly helpful in the realm of computer forensics, data recovery, low-level data processing, and IT security. An advanced tool for everyday and emergency use: inspect and edit all kinds of files, recover deleted files or lost data. <br/>
 
 
 ## Monitor
@@ -270,10 +266,11 @@ binary took while running on the system. <br/>
 ***Developer:*** Vaibhav Pandey -aka- VPZ <br/>
 ***Description:*** Open-source, cross-platform Qt based IDE for reverse-engineering Android application packages. <br/>
 
-### ASCII Art Generator (DEPRECATED - Ascii Generator 2)
-***Web:*** ??? <br/>
-***Developer:*** ASCII Art Generator <br/>
-***Description:*** ASCII Art Generator <br/>
+### Ascii Generator 2
+***Web:*** https://ascgendotnet.jmsoftware.co.uk <br/>
+***Developer:*** Jonathan Mathews <br/>
+***Description:*** Ascii Generator 2 (Ascgen2) is an advanced and open-source Windows application to convert images into high quality ASCII art – text that accurately represents the original image. <br/>
+It is the first and only program of its kind to support output for display in variable width fonts, with real-time output adjustment and much more. <br/>
 
 ### AstroGrep
 ***Web:*** https://sourceforge.net/projects/astrogrep <br/>
@@ -294,6 +291,11 @@ binary took while running on the system. <br/>
 ***Web:*** https://github.com/fireeye/flare-floss <br/>
 ***Developer:*** mandiant <br/>
 ***Description:*** The FLARE Obfuscated String Solver (FLOSS, formerly FireEye Labs Obfuscated String Solver) uses advanced static analysis techniques to automatically deobfuscate strings from malware binaries. You can use it just like strings.exe to enhance basic static analysis of unknown binaries. <br/>
+
+### HashCalc
+***Web:*** https://www.slavasoft.com/hashcalc/ <br/>
+***Developer:*** SlavaSoft <br/>
+***Description:*** A fast and easy-to-use calculator that allows to compute message digests, checksums and HMACs for files, as well as for text and hex strings. It offers a choice of 13 of the most popular hash and checksum algorithms for calculations.  <br/>
 
 ### HashMyFiles
 ***Web:*** https://www.nirsoft.net/utils/hash_my_files.html <br/>

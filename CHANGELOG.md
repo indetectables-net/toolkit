@@ -1,5 +1,26 @@
 # Changelog
 
+
+## MASTER
+
+### Added
+
+- Add w32Dasm 8.93 HiEndsoft version
+- Add HashCalc again
+- Add Ascii Generator 2
+- Add VB Decompiler
+
+### Changed
+
+- Cleanup
+
+### Removed
+
+- Drop WinHex
+- Drop ASCII Art Generator (replaced by Ascii Generator 2)
+- Drop P-Code-ExDec (replaced by VB Decompiler)
+
+
 ## 2022.2 - Feb 17, 2022
 
 ### Added
@@ -39,7 +60,8 @@
 - Drop RDG Packer Detector (replaced by DIE)
 - Drop HashCalc (replaced by HashMyFiles)
 - Drop Process Hacker 2 (replaced by Process Hacker 3)
-- Drop dnSpy support (replaced by dnSpyEx)
+- Drop dnSpy (replaced by dnSpyEx)
+
 
 ## 2021.10 - Oct 23, 2021
 
@@ -63,6 +85,7 @@
 - Drop Stud PE support (replaced by ExeinfoPe)
 - Drop Flasm 
 
+
 ## 2021.5 - May 24, 2021
 
 ### Added
@@ -82,6 +105,7 @@
 - Fixed x64dbg updater url (use sourceforge 302 response url)
 - Add command line support in updater
 - Update tools (24/05/2021)
+
 
 ## 2021.3 - Mar 31, 2021
 
@@ -108,6 +132,7 @@
 - Fix updater FileNotFoundError
 - Change QUnpack version
 
+
 ## 2021.2 - Feb 10, 2021
 
 ### Added
@@ -117,6 +142,7 @@
 ### Changed
 
 - Migrate to 7zip
+
 
 ## 2020.10 - Oct 16, 2020
 
@@ -128,6 +154,7 @@
 
 - Update tools
 
+
 ## 2020.7 - Jul 13, 2020
 
 ### Added
@@ -137,6 +164,7 @@
 ### Changed
 
 - Update tools
+
 
 ## 2020.5 - May 17, 2020
 
@@ -148,6 +176,7 @@
 ### Changed
 
 - Update tools
+
 
 ## 2020.2 - Feb 17, 2020
 
