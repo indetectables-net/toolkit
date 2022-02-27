@@ -99,6 +99,10 @@ class GenerateInstall:
 
             # dissasembler
             '[++] w32dasm - 8.93.7z', '[10] w32dasm - 8.93.7z', '[original] w32dasm - 8.93.7z',
+            '[bradpach] w32dasm - 8.93.7z',
+
+            # patcher
+            'at4re patcher - 0.6.3.7z', 'skins.7z',
 
             # unpacking
             'qunpack - 2.2.7z', 'qunpack - 3.4.7z', 'qunpack - src.7z',
@@ -123,8 +127,8 @@ class GenerateInstall:
     # script steps
     def iterate_sections(self, folder_path):
         valid_folders = [
-            'analysis', 'decompilers', 'dissasembler', 'hex editor',
-            'monitor', 'other', 'rootkits detector', 'unpacking'
+            'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
+            'nfomaker', 'other', 'patcher', 'rootkits detector', 'unpacking'
         ]
         self.base_path = folder_path
         for item in pathlib.Path(folder_path).iterdir():

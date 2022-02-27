@@ -58,8 +58,8 @@ class DocsGenerator:
         self.tool_name = ''
         self.tool_processed = 0
         self.valid_folders = [
-            'analysis', 'decompilers', 'dissasembler', 'hex editor',
-            'monitor', 'other', 'rootkits detector', 'unpacking'
+            'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
+            'nfomaker', 'other', 'patcher', 'rootkits detector', 'unpacking'
         ]
         self.fix_tool_exe_list = {
             # fix to support main executable
