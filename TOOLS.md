@@ -5,7 +5,9 @@
 1. [Dissasembler](#dissasembler)
 1. [Hex editor](#hex-editor)
 1. [Monitor](#monitor)
+1. [NFOMaker](#nfomaker)
 1. [Other](#other)
+1. [Patcher](#patcher)
 1. [Rootkits detector](#rootkits-detector)
 1. [Unpacking](#unpacking)
 
@@ -254,6 +256,25 @@ binary took while running on the system. <br/>
 ***Description:*** TCPView is a Windows program that will show you detailed listings of all TCP and UDP endpoints on your system, including the local and remote addresses and state of TCP connections. <br/>
 
 
+## NFOMaker
+
+### Ascii Generator 2
+***Web:*** https://ascgendotnet.jmsoftware.co.uk <br/>
+***Developer:*** Jonathan Mathews <br/>
+***Description:*** Ascii Generator 2 (Ascgen2) is an advanced and open-source Windows application to convert images into high quality ASCII art – text that accurately represents the original image. <br/>
+It is the first and only program of its kind to support output for display in variable width fonts, with real-time output adjustment and much more. <br/>
+
+### Cool Beans NFO Creator
+***Web:*** https://www.coolbeans.ws/nfocreator.shtml <br/>
+***Developer:*** Cool Beans Software <br/>
+***Description:*** Cool Beans NFO Creator is a small program that generates detailed .nfo text files based on nearly fifty user-input fields. <br/>
+
+### NFO Maker
+***Web:*** Unknown <br/>
+***Developer:*** tHE EGOiSTE - The Millenium Group <br/>
+***Description:*** NFO Maker generator <br/>
+
+
 ## Other
 
 ### APKEasyTool
@@ -266,12 +287,6 @@ binary took while running on the system. <br/>
 ***Developer:*** Vaibhav Pandey -aka- VPZ <br/>
 ***Description:*** Open-source, cross-platform Qt based IDE for reverse-engineering Android application packages. <br/>
 
-### Ascii Generator 2
-***Web:*** https://ascgendotnet.jmsoftware.co.uk <br/>
-***Developer:*** Jonathan Mathews <br/>
-***Description:*** Ascii Generator 2 (Ascgen2) is an advanced and open-source Windows application to convert images into high quality ASCII art – text that accurately represents the original image. <br/>
-It is the first and only program of its kind to support output for display in variable width fonts, with real-time output adjustment and much more. <br/>
-
 ### AstroGrep
 ***Web:*** https://sourceforge.net/projects/astrogrep <br/>
 ***Developer:*** AstroComma Inc. <br/>
@@ -281,11 +296,6 @@ It is the first and only program of its kind to support output for display in va
 ***Web:*** www.indetectables.net <br/>
 ***Developer:*** Sr Sombrero <br/>
 ***Description:*** AVFucker is a tool that helps you evade Antivirus using the “replace byte signature” technique. <br/>
-
-### Cool Beans NFO Creator
-***Web:*** https://www.coolbeans.ws/nfocreator.shtml <br/>
-***Developer:*** Cool Beans Software <br/>
-***Description:*** Cool Beans NFO Creator is a small program that generates detailed .nfo text files based on nearly fifty user-input fields. <br/>
 
 ### FLOSS
 ***Web:*** https://github.com/fireeye/flare-floss <br/>
@@ -311,11 +321,6 @@ It is the first and only program of its kind to support output for display in va
 ***Web:*** https://www.indetectables.net/viewtopic.php?t=29725 <br/>
 ***Developer:*** Mingo, Yorll & Metal <br/>
 ***Description:*** This is a classic, great tool to clean AV signatures in executables. <br/>
-
-### NFO Maker
-***Web:*** Unknown <br/>
-***Developer:*** tHE EGOiSTE - The Millenium Group <br/>
-***Description:*** NFO Maker generator <br/>
 
 ### ProcDOT
 ***Web:*** https://www.procdot.com/downloadprocdotbinaries.htm <br/>
@@ -361,6 +366,24 @@ It is the first and only program of its kind to support output for display in va
 ***Web:*** https://github.com/horsicq/XOpcodeCalc <br/>
 ***Developer:*** Hors <br/>
 ***Description:*** This tool is an x86/64 Opcode calculator. The program works on macOS, Linux and Windows. <br/>
+
+
+## Patcher
+
+### AT4RE Patcher
+***Web:*** https://www.at4re.net/f/thread-54.html <br/>
+***Developer:*** Agmcz & Sn!per X <br/>
+***Description:*** Patch generator. Currently the most complete and best that can be used. <br/>
+
+### dUP
+***Web:*** https://web.archive.org/web/20120327143407/http://diablo2oo2.cjb.net:80/ <br/>
+***Developer:*** diablo2oo2 <br/>
+***Description:*** dUP 2 is a freeware patch generator which can build a small standalone patcher executable for microsoft windows systems. <br/>
+
+### uPPP
+***Web:*** https://forum.tuts4you.com/forum/120-uppp/ <br/>
+***Developer:*** Ufo-Pu55y <br/>
+***Description:*** Another patch generator. Requires .NET Runtime 2.0 for the GUI. <br/>
 
 
 ## Rootkits Detector

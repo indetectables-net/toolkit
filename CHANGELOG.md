@@ -9,6 +9,9 @@
 - Add HashCalc again
 - Add Ascii Generator 2
 - Add VB Decompiler
+- Add AT4RE Patcher
+- Add dUP
+- Add uPPP
 
 ### Changed
 
