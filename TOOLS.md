@@ -35,7 +35,7 @@
 ***Description:*** PE-bear is a freeware reversing tool for PE files. Its objective is to deliver fast and flexible “first view” for malware analysts, stable and capable to handle malformed PE files. <br/>
 
 ### PEiD (with plugins and databases)
-***Web:*** www.peid.info (closed) <br/>
+***Web:*** https://web.archive.org/web/20110924071419/http://www.peid.info/ <br/>
 ***Developer:*** snaker <br/>
 ***Description:*** PEiD (short for PE iDentifier) is a well-known professional, extensible packer/cryptor/compiler detecting tool. It’s so powerful that it can detect the types/signatures of almost any PE file packing tools (at present, the number has been more than 600 kinds) <br/>
 
@@ -45,9 +45,9 @@
 ***Description:*** The goal of pestudio is to spot artifacts of executable files in order to ease and accelerate Malware Initial Assessment. The tool is used by Computer Emergency Response Teams (CERT), Security Operations Centers (SOC) and Digital-Forensic Labs worldwide. <br/>
 
 ### ProtectionID
-***Web:*** The official site is down forever. You can check the Wayback Machine here: https://web.archive.org/web/20210331144912/https://protectionid.net/ <br/>
+***Web:*** https://web.archive.org/web/20210331144912/https://protectionid.net/ <br/>
 ***Developer:*** CDKiller & TippeX <br/>
-***Description:*** PiD Team's Protection ID started as a PC game protection detector, and quickly became a swiss-army knife to detect packers & .NET protections.<br/>
+***Description:*** PiD Team's Protection ID started as a PC game protection detector, and quickly became a swiss-army knife to detect packers & .NET protections. <br/>
 
 ### XAPKDetector
 ***Web:*** https://github.com/horsicq/XAPKDetector <br/>
@@ -100,18 +100,18 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Description:*** dnSpy is a debugger and .NET assembly editor. You can use it to edit and debug assemblies even if you don't have any source code available. <br/>
 
 ### [DOTNET] GrayWolf
-***Web:*** Currently offline <br/>
+***Web:*** https://web.archive.org/web/20181114171712/http://www.digitalbodyguard.com/graywolf.html <br/>
 ***Developer:*** DigitalBodyGuard <br/>
 ***Description:*** GrayWolf is a reverse engineering tool focused on .NET Framework Applications. It can de-obfuscate binaries, live-edit IL, add payloads, edit attributes, and copy strong names signing on EXE/DLL. <br/>
 
 ### [DOTNET] ILSpy
 ***Web:*** https://github.com/icsharpcode/ILSpy <br/>
-***Developer:*** ic#code (https://github.com/icsharpcode) <br/>
+***Developer:*** ic#code <br/>
 ***Description:*** ILSpy is the open-source .NET assembly browser and decompiler. <br/>
 
 ### [JAVA] JD-GUI
 ***Web:*** https://github.com/java-decompiler/jd-gui <br/>
-***Developer:*** the Java Decompiler dev team (https://github.com/java-decompiler) <br/>
+***Developer:*** the Java Decompiler dev team <br/>
 ***Description:*** This is a standalone graphical utility that displays Java sources from CLASS files. <br/>
 
 ### [JAVA] Recaf
