@@ -15,7 +15,10 @@
 
 ### Changed
 
-- Cleanup
+- Clean ShowString folder
+- Clean RL!dePacker folder
+- Update ImpREC to 1.7f
+- Update tools (28/02/2022)
 
 ### Removed
 
