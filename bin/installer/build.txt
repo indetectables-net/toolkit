@@ -1,7 +1,7 @@
-Microsoft Windows [Version 10.0.19043.1526]
+Microsoft Windows [Version 10.0.19042.1466]
 (c) Microsoft Corporation. All rights reserved.
 
-D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f D:\code\indetectables\toolkit_prod\toolkit
+D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\toolkit
 [+] Process: CAPA
    [*] Adding: "capa.exe"
       [!] x64 exe
@@ -42,7 +42,7 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
    [*] Adding: "dnSpy.exe"
       [!] x64 exe
 [+] Process: [DOTNET] GrayWolf
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"
    [*] Adding: "GrayWolf_188.exe"
 [+] Process: [DOTNET] ILSpy
    [*] Adding: "ILSpy.exe"
@@ -51,8 +51,8 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
 [+] Process: [JAVA] Recaf
    [*] Adding: "recaf-J8-jar-with-dependencies.jar"
 [+] Process: [PYTHON] PyInstxtractor
-[+] Process: [VB] P-Code-ExDec
-   [*] Adding: "exdec.exe"
+[+] Process: [VB] VB Decompiler
+   [*] Adding: "VB Decompiler.exe"
 [+] Process: BDASM
    [*] Adding: "bdasm.exe"
 [+] Process: Cutter
@@ -65,7 +65,7 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
 [+] Process: OllyDbg 1.10
    [*] Adding: "OLLYDBG.EXE"
 [+] Process: w32Dasm
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Dissasembler\w32Dasm\[bradpach] w32Dasm - 8.93"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93"
    [*] Adding: "W32DSM89.EXE"
 [+] Process: x64dbg
    [*] Adding: "x96dbg.exe"
@@ -79,8 +79,6 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
 [+] Process: REHex
    [*] Adding: "rehex.exe"
       [!] x64 exe
-[+] Process: WinHex
-   [*] Adding: "winhex.exe"
 [+] Process: Api Monitor
    [*] Adding: "apimonitor-x64.exe"
       [!] x64 exe
@@ -108,9 +106,9 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
    [*] Adding: "procexp64.exe"
       [!] x64 exe
 [+] Process: Process Hacker 3
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Monitor\Process Hacker 3\32bit"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Monitor\Process Hacker 3\32bit"
    [*] Adding: "ProcessHacker.exe"
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Monitor\Process Hacker 3\64bit"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Monitor\Process Hacker 3\64bit"
    [*] Adding: "ProcessHacker.exe"
       [!] x64 exe
 [+] Process: Procmon
@@ -127,6 +125,12 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
    [*] Adding: "tcpview.exe"
    [*] Adding: "tcpview64.exe"
       [!] x64 exe
+[+] Process: Ascii Generator 2
+   [*] Adding: "Ascgen2.exe"
+[+] Process: Cool Beans NFO Creator
+   [*] Adding: "coolnfo.exe"
+[+] Process: NFO Maker
+   [*] Adding: "nfomaker.exe"
 [+] Process: APKEasyTool
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "apkeasytool.exe"
@@ -134,18 +138,16 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "ApkStudio.exe"
       [!] x64 exe
-[+] Process: ASCII Art Generator
-   [*] Adding: "AAG.exe"
 [+] Process: AstroGrep
    [*] Adding: "AstroGrep.exe"
 [+] Process: AVFucker
    [*] Adding: "AVFucker.exe"
-[+] Process: Cool Beans NFO Creator
-   [*] Adding: "coolnfo.exe"
 [+] Process: FLOSS
    [*] Adding: "floss.exe"
       [!] x64 exe
       [!] CLI exe
+[+] Process: HashCalc
+   [*] Adding: "HashCalc.exe"
 [+] Process: HashMyFiles
    [*] Adding: "HashMyFiles.exe"
 [+] Process: ImpREC
@@ -153,13 +155,11 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
 [+] Process: Indetectables Offset Locator
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "Indetectables Offset Locator.exe"
-[+] Process: NFO Maker
-   [*] Adding: "nfomaker.exe"
 [+] Process: ProcDOT
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Other\ProcDOT\win32"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Other\ProcDOT\win32"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "procdot.exe"
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\Other\ProcDOT\win64"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Other\ProcDOT\win64"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "procdot.exe"
       [!] x64 exe
@@ -176,7 +176,7 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
       [!] x64 exe
    [*] Adding: "Scylla_x86.exe"
 [+] Process: ShowString
-   [*] Adding: "ShowString.exe"
+   [*] Adding: "showstring.exe"
 [+] Process: Strings
    [*] Adding: "strings.exe"
       [!] CLI exe
@@ -190,6 +190,16 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
 [+] Process: XOpCodeCalc
    [*] Adding: "xocalc.exe"
       [!] x64 exe
+[+] Process: AT4RE Patcher
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Patcher\AT4RE Patcher\AT4RE Patcher - 0.7.6"
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "AT4RE Patcher.exe"
+[+] Process: dUP
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Patcher\dUP\dUP - 2.26.1"
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "dup2.exe"
+[+] Process: uPPP
+   [*] Adding: "uPPP.exe"
 [+] Process: GMER
    [*] Adding: "gmer.exe"
 [+] Process: Sysinspector
@@ -211,10 +221,10 @@ D:\code\indetectables\toolkit_prod\bin\installer>python generate-sections.py -f 
       [!] x64 exe
    [*] Adding: "NETUnpack.exe"
 [+] Process: QUnpack
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\UnPacking\QUnpack\QUnpack - 4.3"
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack32"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack32"
    [*] Adding: "Explorer.exe"
-   [!] Iterate sub folder: "D:\code\indetectables\toolkit_prod\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"
+   [!] Iterate sub folder: "D:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"
    [*] Adding: "Explorer.exe"
       [!] x64 exe
 [+] Process: RL!dePacker

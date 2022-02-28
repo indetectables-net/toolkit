@@ -24,19 +24,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ApkStudio x64"; Filename: "{#MyApp
 
 
 
-; ASCII Art Generator
-[Components]
-Name: "other\asciiartgenerator"; Description: "ASCII Art Generator"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Other\ASCII Art Generator\*"; DestDir: "{#MyAppToolsFolder}\Other\ASCII Art Generator"; Components: "other\asciiartgenerator"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\ASCII Art Generator"; Filename: "{#MyAppToolsFolder}\Other\ASCII Art Generator\AAG.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ASCII Art Generator"; Components: "other\asciiartgenerator";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ASCII Art Generator"; Filename: "{#MyAppToolsFolder}\Other\ASCII Art Generator\AAG.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ASCII Art Generator"; Components: "other\asciiartgenerator";    
-
-
-
 ; AstroGrep
 [Components]
 Name: "other\astrogrep"; Description: "AstroGrep"; Types: full; 
@@ -63,19 +50,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AVFucker"; Filename: "{#MyAppTools
 
 
 
-; Cool Beans NFO Creator
-[Components]
-Name: "other\coolbeansnfocreator"; Description: "Cool Beans NFO Creator"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Other\Cool Beans NFO Creator\*"; DestDir: "{#MyAppToolsFolder}\Other\Cool Beans NFO Creator"; Components: "other\coolbeansnfocreator"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\Cool Beans NFO Creator"; Filename: "{#MyAppToolsFolder}\Other\Cool Beans NFO Creator\coolnfo.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Cool Beans NFO Creator"; Components: "other\coolbeansnfocreator";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Cool Beans NFO Creator"; Filename: "{#MyAppToolsFolder}\Other\Cool Beans NFO Creator\coolnfo.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Cool Beans NFO Creator"; Components: "other\coolbeansnfocreator";    
-
-
-
 ; FLOSS
 [Components]
 Name: "other\floss"; Description: "FLOSS"; Types: full; 
@@ -86,6 +60,19 @@ Source: "{#MySrcDir}\toolkit\Other\FLOSS\*"; DestDir: "{#MyAppToolsFolder}\Other
 [Icons]
 Name: "{group}\{#MyAppName}\FLOSS x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Parameters: "/K ""{#MyAppToolsFolder}\Other\FLOSS\floss.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\FLOSS\floss.exe"; Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\FLOSS x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Parameters: "/K ""{#MyAppToolsFolder}\Other\FLOSS\floss.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\FLOSS\floss.exe"; Check: Is64BitInstallMode; 
+
+
+
+; HashCalc
+[Components]
+Name: "other\hashcalc"; Description: "HashCalc"; Types: full compact; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\HashCalc\*"; DestDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\HashCalc"; Filename: "{#MyAppToolsFolder}\Other\HashCalc\HashCalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashCalc"; Filename: "{#MyAppToolsFolder}\Other\HashCalc\HashCalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc";    
 
 
 
@@ -125,19 +112,6 @@ Source: "{#MySrcDir}\toolkit\Other\Indetectables Offset Locator\*"; DestDir: "{#
 [Icons]
 Name: "{group}\{#MyAppName}\Indetectables Offset Locator"; Filename: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator\Indetectables Offset Locator.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Indetectables Offset Locator"; Filename: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator\Indetectables Offset Locator.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator";    
-
-
-
-; NFO Maker
-[Components]
-Name: "other\nfomaker"; Description: "NFO Maker"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Other\NFO Maker\*"; DestDir: "{#MyAppToolsFolder}\Other\NFO Maker"; Components: "other\nfomaker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\NFO Maker"; Filename: "{#MyAppToolsFolder}\Other\NFO Maker\nfomaker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\NFO Maker"; Components: "other\nfomaker";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\NFO Maker"; Filename: "{#MyAppToolsFolder}\Other\NFO Maker\nfomaker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\NFO Maker"; Components: "other\nfomaker";    
 
 
 
@@ -213,8 +187,8 @@ Name: "other\showstring"; Description: "ShowString"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\ShowString\*"; DestDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\ShowString.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\ShowString.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";    
+Name: "{group}\{#MyAppName}\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\showstring.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\showstring.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";    
 
 
 

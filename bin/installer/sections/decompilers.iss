@@ -137,15 +137,15 @@ Source: "{#MySrcDir}\toolkit\Decompilers\[PYTHON] PyInstxtractor\*"; DestDir: "{
 
 
 
-; [VB] P-Code-ExDec
+; [VB] VB Decompiler
 [Components]
-Name: "decompilers\vbpcodeexdec"; Description: "[VB] P-Code-ExDec"; Types: full; 
+Name: "decompilers\vbvbdecompiler"; Description: "[VB] VB Decompiler"; Types: full; 
 
 [Files]
-Source: "{#MySrcDir}\toolkit\Decompilers\[VB] P-Code-ExDec\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+Source: "{#MySrcDir}\toolkit\Decompilers\[VB] VB Decompiler\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[VB] P-Code-ExDec"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec\exdec.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[VB] P-Code-ExDec"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec\exdec.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] P-Code-ExDec"; Components: "decompilers\vbpcodeexdec";    
+Name: "{group}\{#MyAppName}\[VB] VB Decompiler"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler\VB Decompiler.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[VB] VB Decompiler"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler\VB Decompiler.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler";    
 
 

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Indetectables Toolkit"
-#define MyAppVersion "2022.2"
+#define MyAppVersion "2022.3"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
@@ -56,8 +56,16 @@ Name: "monitor"; Description: "Monitor tools"; Types: full;
 #include "sections\monitor.iss"
 
 [Components]
+Name: "nfomaker"; Description: "NFOMaker"; Types: full;
+#include "sections\nfomaker.iss"
+
+[Components]
 Name: "other"; Description: "Other tools"; Types: full;
 #include "sections\other.iss"
+
+[Components]
+Name: "patcher"; Description: "Patcher"; Types: full;
+#include "sections\patcher.iss"
 
 [Components]
 Name: "rootkitsdetector"; Description: "Rootkits Detector"; Types: full;

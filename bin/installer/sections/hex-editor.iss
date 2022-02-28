@@ -40,16 +40,3 @@ Name: "{group}\{#MyAppName}\REHex x64"; Filename: "{#MyAppToolsFolder}\HEX Edito
 Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\REHex x64"; Filename: "{#MyAppToolsFolder}\HEX Editor\REHex\rehex.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\REHex"; Components: "hexeditor\rehex";   Check: Is64BitInstallMode; 
 
 
-
-; WinHex
-[Components]
-Name: "hexeditor\winhex"; Description: "WinHex"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\HEX Editor\WinHex\*"; DestDir: "{#MyAppToolsFolder}\HEX Editor\WinHex"; Components: "hexeditor\winhex"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\WinHex"; Filename: "{#MyAppToolsFolder}\HEX Editor\WinHex\winhex.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\WinHex"; Components: "hexeditor\winhex";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\WinHex"; Filename: "{#MyAppToolsFolder}\HEX Editor\WinHex\winhex.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\WinHex"; Components: "hexeditor\winhex";    
-
-

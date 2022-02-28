@@ -58,8 +58,8 @@ Name: "dissasembler\w32dasm"; Description: "w32Dasm"; Types: full;
 Source: "{#MySrcDir}\toolkit\Dissasembler\w32Dasm\*"; DestDir: "{#MyAppToolsFolder}\Dissasembler\w32Dasm"; Components: "dissasembler\w32dasm"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\w32Dasm"; Filename: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[bradpach] w32Dasm - 8.93\W32DSM89.EXE"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[bradpach] w32Dasm - 8.93"; Components: "dissasembler\w32dasm";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\w32Dasm"; Filename: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[bradpach] w32Dasm - 8.93\W32DSM89.EXE"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[bradpach] w32Dasm - 8.93"; Components: "dissasembler\w32dasm";    
+Name: "{group}\{#MyAppName}\w32Dasm"; Filename: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93\W32DSM89.EXE"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93"; Components: "dissasembler\w32dasm";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\w32Dasm"; Filename: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93\W32DSM89.EXE"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93"; Components: "dissasembler\w32dasm";    
 
 
 
