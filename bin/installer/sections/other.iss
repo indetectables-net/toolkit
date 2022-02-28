@@ -97,8 +97,8 @@ Name: "other\imprec"; Description: "ImpREC"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\ImpREC\*"; DestDir: "{#MyAppToolsFolder}\Other\ImpREC"; Components: "other\imprec"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC"; Components: "other\imprec";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC"; Components: "other\imprec";    
+Name: "{group}\{#MyAppName}\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f"; Components: "other\imprec";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f"; Components: "other\imprec";    
 
 
 

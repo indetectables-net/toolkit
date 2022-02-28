@@ -88,16 +88,16 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\UniExtract"; Filename: "{#MyAp
 
 
 
-; VM Unpacker
+; VMUnpacker
 [Components]
-Name: "unpacking\vmunpacker"; Description: "VM Unpacker"; Types: full; 
+Name: "unpacking\vmunpacker"; Description: "VMUnpacker"; Types: full; 
 
 [Files]
-Source: "{#MySrcDir}\toolkit\UnPacking\VM Unpacker\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\VM Unpacker"; Components: "unpacking\vmunpacker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+Source: "{#MySrcDir}\toolkit\UnPacking\VMUnpacker\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\VMUnpacker"; Components: "unpacking\vmunpacker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\VM Unpacker"; Filename: "{#MyAppToolsFolder}\UnPacking\VM Unpacker\VMUnpacker.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VM Unpacker"; Components: "unpacking\vmunpacker";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\VM Unpacker"; Filename: "{#MyAppToolsFolder}\UnPacking\VM Unpacker\VMUnpacker.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VM Unpacker"; Components: "unpacking\vmunpacker";    
+Name: "{group}\{#MyAppName}\VMUnpacker"; Filename: "{#MyAppToolsFolder}\UnPacking\VMUnpacker\VMUnpacker - 1.6\VMUnpacker.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VMUnpacker\VMUnpacker - 1.6"; Components: "unpacking\vmunpacker";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\VMUnpacker"; Filename: "{#MyAppToolsFolder}\UnPacking\VMUnpacker\VMUnpacker - 1.6\VMUnpacker.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VMUnpacker\VMUnpacker - 1.6"; Components: "unpacking\vmunpacker";    
 
 
 

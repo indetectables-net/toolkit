@@ -76,3 +76,5 @@ begin
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\UnPacking\De4Dot');
     end
 end;
+
+
