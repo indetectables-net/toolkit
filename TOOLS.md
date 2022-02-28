@@ -441,9 +441,9 @@ Generic unpacker can unpack ONLY packers that do not use IAT redirection, that d
 ***Description:*** Universal Extractor 2 is a tool designed to extract files from any type of extractable file. <br/>
 Unlike most archiving programs, UniExtract is not limited to **standard archives** such as `.zip` and `.rar`. It can also deal with **application installers**, **disk images** and even **game archives** and other **multimedia files**. An overview of supported file types can be found [here](https://github.com/Bioruebe/UniExtract2/blob/master/docs/FORMATS.md)
 
-### VM Unpacker
-***Web:*** http://www.leechermods.com/2010/01/vmunpacker-16-latest-version.html (unofficial) <br/>
-***Developer:*** YingCracker <br/>
+### VMUnpacker (with all versions)
+***Web:*** https://web.archive.org/web/20080318210939/http://dswlab.com/d3.html <br/>
+***Developer:*** dswlab <br/>
 ***Description:*** This tool uses the technology of Virtual Machines. It can unpack various known & unknown shells. It is suitable for unpacking the shelled Trojan horse in virus analysis, and because all codes are run under the VM, they will not take any danger to your system. <br/>
 
 ### XVolkolak
