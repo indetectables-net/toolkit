@@ -65,7 +65,6 @@ class DocsGenerator:
             # fix to support main executable
             '[dotnet] dnspyex': ['dnspy.exe'],
             'ollydbg 1.10': ['ollydbg.exe'],
-            'winhex': ['winhex.exe'],
             'astrogrep': ['astrogrep.exe'],
             'rl!depacker': ['rl!depacker.exe'],
 
@@ -74,7 +73,6 @@ class DocsGenerator:
             'api monitor': ['apimonitor-x86.exe'],
             'autoruns': ['autoruns.exe'],
             'process explorer': ['procexp.exe'],
-            'process hacker 2': ['processhacker.exe'],
             'process hacker 3': ['processhacker.exe'],
             'procmon': ['procmon.exe', 'procmon64.exe'],
             'regshot': ['regshot-x86-ansi.exe'],

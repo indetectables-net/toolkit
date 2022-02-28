@@ -33,7 +33,7 @@ def get_pe_info(file_path):
 
 
 def component_name(name):
-    return re.sub('[^a-zA-Z0-9 \n]', '', name).replace(' ', '').lower()
+    return re.sub('[^a-zA-Z0-9]', '', name).lower()
 
 
 class GenerateInstall:
@@ -47,7 +47,6 @@ class GenerateInstall:
             # fix to support main executable
             '[dotnet] dnspyex': ['dnspy.exe'],
             'ollydbg 1.10': ['ollydbg.exe'],
-            'winhex': ['winhex.exe'],
             'astrogrep': ['astrogrep.exe'],
             'rl!depacker': ['rl!depacker.exe'],
 
@@ -56,7 +55,6 @@ class GenerateInstall:
             'api monitor': ['apimonitor-x86.exe', 'apimonitor-x64.exe'],
             'autoruns': ['autoruns.exe', 'autoruns64.exe'],
             'process explorer': ['procexp.exe', 'procexp64.exe'],
-            'process hacker 2': ['processhacker.exe'],
             'process hacker 3': ['processhacker.exe'],
             'procmon': ['procmon.exe', 'procmon64.exe'],
             'regshot': ['regshot-x86-ansi.exe', 'regshot-x64-ansi.exe'],
@@ -101,11 +99,15 @@ class GenerateInstall:
             '[++] w32dasm - 8.93.7z', '[10] w32dasm - 8.93.7z', '[original] w32dasm - 8.93.7z',
             '[bradpach] w32dasm - 8.93.7z',
 
+            # other
+            'imprec - 1.7e.7z',
+
             # patcher
             'at4re patcher - 0.6.3.7z', 'skins.7z',
 
             # unpacking
             'qunpack - 2.2.7z', 'qunpack - 3.4.7z', 'qunpack - src.7z',
+            'vmunpacker - 1.2.7z', 'vmunpacker - 1.3.7z',
         ]
 
     # helpers
