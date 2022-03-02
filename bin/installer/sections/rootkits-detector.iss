@@ -19,8 +19,8 @@ Name: "rootkitsdetector\sysinspector"; Description: "Sysinspector"; Types: full 
 Source: "{#MySrcDir}\toolkit\Rootkits Detector\Sysinspector\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64_esn.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64_esn.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
+Name: "{group}\{#MyAppName}\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64_enu.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64_enu.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
 
 
 
