@@ -1,7 +1,7 @@
 # Changelog
 
 
-## 2022.3 - Feb 28, 2022
+## 2022.3 - Mar 2, 2022
 
 ### Added
 
@@ -19,6 +19,7 @@
 - Clean RL!dePacker folder
 - Update ImpREC to 1.7f
 - Update tools (28/02/2022)
+- Fix Sysinspector version
 
 ### Removed
 
