@@ -91,6 +91,7 @@ Name: "extras"; Description: "Extras"; Types: full;
 ; Add docs
 [Files]
 Source: "{#MySrcDir}\*.md"; Destdir: "{app}";
+Source: "{#MySrcDir}\*.html"; Destdir: "{app}";
 
 
 ; Assets
