@@ -10,8 +10,8 @@ Name: "{group}\{#MyAppName}\Api Monitor x64"; Filename: "{#MyAppToolsFolder}\Mon
 Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Api Monitor x64"; Filename: "{#MyAppToolsFolder}\Monitor\Api Monitor\apimonitor-x64.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Api Monitor"; Components: "monitor\apimonitor";   Check: Is64BitInstallMode; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Api Monitor"; Filename: "{#MyAppToolsFolder}\Monitor\Api Monitor\apimonitor-x86.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Api Monitor"; Components: "monitor\apimonitor";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Api Monitor"; Filename: "{#MyAppToolsFolder}\Monitor\Api Monitor\apimonitor-x86.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Api Monitor"; Components: "monitor\apimonitor";    
+Name: "{group}\{#MyAppName}\Api Monitor"; Filename: "{#MyAppToolsFolder}\Monitor\Api Monitor\apimonitor-x86.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Api Monitor"; Components: "monitor\apimonitor";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Api Monitor"; Filename: "{#MyAppToolsFolder}\Monitor\Api Monitor\apimonitor-x86.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Api Monitor"; Components: "monitor\apimonitor";   Check: not Is64BitInstallMode; 
 
 
 
@@ -40,8 +40,8 @@ Name: "monitor\currports"; Description: "CurrPorts"; Types: full;
 Source: "{#MySrcDir}\toolkit\Monitor\CurrPorts\*"; DestDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\CurrPorts"; Filename: "{#MyAppToolsFolder}\Monitor\CurrPorts\cports.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\CurrPorts"; Filename: "{#MyAppToolsFolder}\Monitor\CurrPorts\cports.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports";   Check: not Is64BitInstallMode; 
+Name: "{group}\{#MyAppName}\CurrPorts"; Filename: "{#MyAppToolsFolder}\Monitor\CurrPorts\cports.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\CurrPorts"; Filename: "{#MyAppToolsFolder}\Monitor\CurrPorts\cports.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports";    
 
 
 
@@ -66,8 +66,8 @@ Name: "monitor\multimon"; Description: "MultiMon"; Types: full;
 Source: "{#MySrcDir}\toolkit\Monitor\MultiMon\*"; DestDir: "{#MyAppToolsFolder}\Monitor\MultiMon"; Components: "monitor\multimon"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\MultiMon"; Filename: "{#MyAppToolsFolder}\Monitor\MultiMon\MultiMon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\MultiMon"; Components: "monitor\multimon";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\MultiMon"; Filename: "{#MyAppToolsFolder}\Monitor\MultiMon\MultiMon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\MultiMon"; Components: "monitor\multimon";   Check: not Is64BitInstallMode; 
+Name: "{group}\{#MyAppName}\MultiMon"; Filename: "{#MyAppToolsFolder}\Monitor\MultiMon\MultiMon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\MultiMon"; Components: "monitor\multimon";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\MultiMon"; Filename: "{#MyAppToolsFolder}\Monitor\MultiMon\MultiMon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\MultiMon"; Components: "monitor\multimon";    
 
 
 
@@ -92,8 +92,8 @@ Name: "monitor\portmon"; Description: "Portmon"; Types: full;
 Source: "{#MySrcDir}\toolkit\Monitor\Portmon\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Portmon"; Components: "monitor\portmon"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Portmon"; Filename: "{#MyAppToolsFolder}\Monitor\Portmon\portmon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Portmon"; Components: "monitor\portmon";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Portmon"; Filename: "{#MyAppToolsFolder}\Monitor\Portmon\portmon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Portmon"; Components: "monitor\portmon";   Check: not Is64BitInstallMode; 
+Name: "{group}\{#MyAppName}\Portmon"; Filename: "{#MyAppToolsFolder}\Monitor\Portmon\portmon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Portmon"; Components: "monitor\portmon";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Portmon"; Filename: "{#MyAppToolsFolder}\Monitor\Portmon\portmon.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Portmon"; Components: "monitor\portmon";    
 
 
 

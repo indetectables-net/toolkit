@@ -68,7 +68,20 @@ class GenerateInstall:
             'netunpack': ['netunpack.exe', 'netunpack-64.exe'],
         }
         self.fix_tool_exe_link_creation = [
-            'api monitor', 'scylla', 'netunpack', 'qunpack',
+            # analysis
+            'die', 'xapkdetector',
+
+            # dissasembler
+            'immunity debugger', 'ollydbg 1.10',
+
+            # other
+            'apkeasytool', 'astrogrep', 'indetectables offset locator',
+
+            # patcher
+            'at4re patcher', 'dup',
+
+            # unpacking
+            'netunpack', 'qunpack', 'uniextract',
         ]
         self.compact_tool_list = [
             # analysis
@@ -206,24 +219,25 @@ class GenerateInstall:
 
     def iterate_tool_exe(self, folder_path):
         is_first_set = False
+        force_link_creation = self.tool_name.lower() in self.fix_tool_exe_link_creation
         exe_list_len = len(list(folder_path.glob('*.exe')))
         for item in folder_path.glob('*.exe'):
             if exe_list_len > 1:
                 if self.tool_name.lower() in self.fix_tool_exe_list.keys():
                     if item.name.lower() in self.fix_tool_exe_list[self.tool_name.lower()]:
-                        self.iterate_tool_exe_gen(item)
+                        self.iterate_tool_exe_gen(item, force_link_creation)
 
                 elif not is_first_set:
                     print(colorama.Fore.MAGENTA + f'   [!!!] Find multiple exes. Grabbing the first!')
                     is_first_set = True
-                    self.iterate_tool_exe_gen(item)
+                    self.iterate_tool_exe_gen(item, force_link_creation)
 
             else:
-                self.iterate_tool_exe_gen(item)
+                self.iterate_tool_exe_gen(item, True)
 
         return exe_list_len
 
-    def iterate_tool_exe_gen(self, exe_path):
+    def iterate_tool_exe_gen(self, exe_path, force_link_creation = False):
         print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(exe_path).name)}"')
         working_dir = str(pathlib.Path(exe_path).parent)
         pe_data = get_pe_info(exe_path)
@@ -237,7 +251,7 @@ class GenerateInstall:
         iss_icon = f'IconFilename: "{iss_filename}";' if pe_data['is_cli'] else ''
         iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else 'Check: not Is64BitInstallMode;'
 
-        if self.tool_name.lower() in self.fix_tool_exe_link_creation:
+        if force_link_creation:
             print(colorama.Fore.MAGENTA + f'      [!] force link creation')
             iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
 

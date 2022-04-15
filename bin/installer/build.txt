@@ -4,57 +4,77 @@ Microsoft Windows [Version 10.0.19043.1645]
 D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\code\indetectables\toolkit\toolkit
 [+] Process: CAPA
    [*] Adding: "capa.exe"
+      [!] force link creation
       [!] x64 exe
       [!] CLI exe
 [+] Process: DIE
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "die.exe"
+      [!] force link creation
 [+] Process: ExeinfoPe
    [*] Adding: "exeinfope.exe"
+      [!] force link creation
 [+] Process: PE-Bear
    [*] Adding: "PE-bear.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: PEiD
    [*] Adding: "PEiD.exe"
+      [!] force link creation
 [+] Process: PEStudio
    [*] Adding: "pestudio.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: ProtectionID
    [*] Adding: "Protection_ID.eXe"
+      [!] force link creation
 [+] Process: XAPKDetector
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "xapkd.exe"
+      [!] force link creation
 [+] Process: XELFViewer
    [*] Adding: "xelfviewer.exe"
+      [!] force link creation
 [+] Process: XPEViewer
    [*] Adding: "xpeviewer.exe"
+      [!] force link creation
 [+] Process: [ANDROID] JADX
    [*] Adding: "jadx-gui.exe"
+      [!] force link creation
 [+] Process: [AUTOIT] Exe2Aut
    [*] Adding: "Exe2Aut.exe"
+      [!] force link creation
 [+] Process: [AUTOIT] MyAutToExe
    [*] Adding: "myAutToExe.exe"
+      [!] force link creation
 [+] Process: [DELPHI] Dede
    [*] Adding: "DeDe.exe"
+      [!] force link creation
 [+] Process: [DELPHI] IDR
    [*] Adding: "Idr.exe"
+      [!] force link creation
 [+] Process: [DOTNET] dnSpyEx
    [*] Adding: "dnSpy.exe"
       [!] x64 exe
 [+] Process: [DOTNET] GrayWolf
    [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"
    [*] Adding: "GrayWolf_188.exe"
+      [!] force link creation
 [+] Process: [DOTNET] ILSpy
    [*] Adding: "ILSpy.exe"
+      [!] force link creation
 [+] Process: [JAVA] JD-GUI
    [*] Adding: "jd-gui.exe"
+      [!] force link creation
 [+] Process: [JAVA] Recaf
    [*] Adding: "recaf-J8-jar-with-dependencies.jar"
 [+] Process: [PYTHON] PyInstxtractor
 [+] Process: [VB] VB Decompiler
    [*] Adding: "VB Decompiler.exe"
+      [!] force link creation
 [+] Process: BDASM
    [*] Adding: "bdasm.exe"
+      [!] force link creation
 [+] Process: Cutter
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "cutter.exe"
@@ -62,47 +82,56 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
 [+] Process: Immunity Debugger
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "ImmunityDebugger.exe"
+      [!] force link creation
 [+] Process: OllyDbg 1.10
    [*] Adding: "OLLYDBG.EXE"
+      [!] force link creation
 [+] Process: w32Dasm
    [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93"
    [*] Adding: "W32DSM89.EXE"
+      [!] force link creation
 [+] Process: x64dbg
    [*] Adding: "x96dbg.exe"
+      [!] force link creation
 [+] Process: HxD
    [*] Adding: "HxD32.exe"
    [*] Adding: "HxD64.exe"
       [!] x64 exe
 [+] Process: ImHex
    [*] Adding: "imhex.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: REHex
    [*] Adding: "rehex.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: Api Monitor
    [*] Adding: "apimonitor-x64.exe"
-      [!] force link creation
       [!] x64 exe
    [*] Adding: "apimonitor-x86.exe"
-      [!] force link creation
 [+] Process: Autoruns
    [*] Adding: "Autoruns.exe"
    [*] Adding: "Autoruns64.exe"
       [!] x64 exe
 [+] Process: CurrPorts
    [*] Adding: "cports.exe"
+      [!] force link creation
 [+] Process: HollowsHunter
    [*] Adding: "hollows_hunter.exe"
+      [!] force link creation
       [!] x64 exe
       [!] CLI exe
 [+] Process: MultiMon
    [*] Adding: "MultiMon.exe"
+      [!] force link creation
 [+] Process: PE-sieve
    [*] Adding: "pe-sieve.exe"
+      [!] force link creation
       [!] x64 exe
       [!] CLI exe
 [+] Process: Portmon
    [*] Adding: "portmon.exe"
+      [!] force link creation
 [+] Process: Process Explorer
    [*] Adding: "procexp.exe"
    [*] Adding: "procexp64.exe"
@@ -129,35 +158,46 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
       [!] x64 exe
 [+] Process: Ascii Generator 2
    [*] Adding: "Ascgen2.exe"
+      [!] force link creation
 [+] Process: Cool Beans NFO Creator
    [*] Adding: "coolnfo.exe"
+      [!] force link creation
 [+] Process: NFO Maker
    [*] Adding: "nfomaker.exe"
+      [!] force link creation
 [+] Process: APKEasyTool
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "apkeasytool.exe"
+      [!] force link creation
 [+] Process: ApkStudio
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "ApkStudio.exe"
       [!] x64 exe
 [+] Process: AstroGrep
    [*] Adding: "AstroGrep.exe"
+      [!] force link creation
 [+] Process: AVFucker
    [*] Adding: "AVFucker.exe"
+      [!] force link creation
 [+] Process: FLOSS
    [*] Adding: "floss.exe"
+      [!] force link creation
       [!] x64 exe
       [!] CLI exe
 [+] Process: HashCalc
    [*] Adding: "HashCalc.exe"
+      [!] force link creation
 [+] Process: HashMyFiles
    [*] Adding: "HashMyFiles.exe"
+      [!] force link creation
 [+] Process: ImpREC
    [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Other\ImpREC\ImpREC - 1.7f"
    [*] Adding: "ImportREC.exe"
+      [!] force link creation
 [+] Process: Indetectables Offset Locator
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "Indetectables Offset Locator.exe"
+      [!] force link creation
 [+] Process: ProcDOT
    [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Other\ProcDOT\win32"
    [!!!] Find multiple exes. Grabbing the first!
@@ -174,14 +214,14 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
       [!] CLI exe
 [+] Process: Resource Hacker
    [*] Adding: "ResourceHacker.exe"
+      [!] force link creation
 [+] Process: Scylla
    [*] Adding: "Scylla_x64.exe"
-      [!] force link creation
       [!] x64 exe
    [*] Adding: "Scylla_x86.exe"
-      [!] force link creation
 [+] Process: ShowString
    [*] Adding: "showstring.exe"
+      [!] force link creation
 [+] Process: Strings
    [*] Adding: "strings.exe"
       [!] CLI exe
@@ -192,26 +232,34 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
    [*] Adding: "threadtear-gui-all.jar"
 [+] Process: VirusTotalUploader
    [*] Adding: "uploader.exe"
+      [!] force link creation
 [+] Process: XOpCodeCalc
    [*] Adding: "xocalc.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: AT4RE Patcher
    [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Patcher\AT4RE Patcher\AT4RE Patcher - 0.7.6"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "AT4RE Patcher.exe"
+      [!] force link creation
 [+] Process: dUP
    [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Patcher\dUP\dUP - 2.26.1"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "dup2.exe"
+      [!] force link creation
 [+] Process: uPPP
    [*] Adding: "uPPP.exe"
+      [!] force link creation
 [+] Process: GMER
    [*] Adding: "gmer.exe"
+      [!] force link creation
 [+] Process: Sysinspector
    [*] Adding: "sysinspector_nt64_enu.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: Windows Kernel Explorer
    [*] Adding: "WKE64.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: De4Dot
    [*] Adding: "de4dot-x64.exe"
@@ -221,6 +269,7 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
       [!] CLI exe
 [+] Process: GUnPacker
    [*] Adding: "GUnPacker v0.5.exe"
+      [!] force link creation
 [+] Process: NETUnpack
    [*] Adding: "NETUnpack-64.exe"
       [!] force link creation
@@ -238,13 +287,17 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
       [!] x64 exe
 [+] Process: RL!dePacker
    [*] Adding: "RL!dePacker.exe"
+      [!] force link creation
 [+] Process: UniExtract
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "UniExtract.exe"
+      [!] force link creation
 [+] Process: VMUnpacker
    [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\UnPacking\VMUnpacker\VMUnpacker - 1.6"
    [*] Adding: "VMUnpacker.exe"
+      [!] force link creation
 [+] Process: XVolkolak
    [*] Adding: "xvlk.exe"
+      [!] force link creation
 
 [+] Generate cli register code
