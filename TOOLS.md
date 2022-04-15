@@ -74,7 +74,7 @@
 
 ### [AUTOIT] Exe2Aut
 ***Web:*** www.exe2aut.com <br/>
-***Developer:*** ??? <br/>
+***Developer:*** Unknown <br/>
 ***Description:*** Exe2Aut is designed to be the easiest to use and most versatile
 decompiler for compiled AutoIt3 scripts one could think of. Exe2Aut is even capable of decompiling
 executables that have been packed and protected using AutoIt3Camo, Themida, Armadillo, Safengine and so forth due to its low level nature. <br/>
