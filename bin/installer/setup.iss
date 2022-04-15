@@ -8,7 +8,8 @@
 #define MyAppToolsFolder "{app}\toolkit"
 #define MyAppBinsFolder "{app}\bin"
 #define MyAppToolsIconsFolder "{app}\assets\icons"
-#define MySrcDir "D:\code\toolkit"
+#define MySrcDir "D:\code\indetectables\toolkit"
+#define MyOutputDir "D:\code\indetectables"
 
 [Setup]
 AppId={{1FF89DD9-2D8E-4959-B670-2344285F456B}
@@ -30,6 +31,7 @@ SolidCompression=yes
 WizardStyle=modern
 ArchitecturesInstallIn64BitMode=x64
 SetupIconFile="{#MySrcDir}\bin\sendto\toolkit.ico"
+OutputDir={#MyOutputDir}
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
