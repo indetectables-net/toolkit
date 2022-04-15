@@ -19,8 +19,8 @@ Name: "analysis\die"; Description: "DIE"; Types: full compact;
 Source: "{#MySrcDir}\toolkit\Analysis\DIE\*"; DestDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\DIE"; Filename: "{#MyAppToolsFolder}\Analysis\DIE\die.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\DIE"; Filename: "{#MyAppToolsFolder}\Analysis\DIE\die.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die";    
+Name: "{group}\{#MyAppName}\DIE"; Filename: "{#MyAppToolsFolder}\Analysis\DIE\die.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\DIE"; Filename: "{#MyAppToolsFolder}\Analysis\DIE\die.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die";   Check: not Is64BitInstallMode; 
 
 
 
@@ -32,8 +32,8 @@ Name: "analysis\exeinfope"; Description: "ExeinfoPe"; Types: full compact;
 Source: "{#MySrcDir}\toolkit\Analysis\ExeinfoPe\*"; DestDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\ExeinfoPe"; Filename: "{#MyAppToolsFolder}\Analysis\ExeinfoPe\exeinfope.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeinfoPe"; Filename: "{#MyAppToolsFolder}\Analysis\ExeinfoPe\exeinfope.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope";    
+Name: "{group}\{#MyAppName}\ExeinfoPe"; Filename: "{#MyAppToolsFolder}\Analysis\ExeinfoPe\exeinfope.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeinfoPe"; Filename: "{#MyAppToolsFolder}\Analysis\ExeinfoPe\exeinfope.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope";   Check: not Is64BitInstallMode; 
 
 
 
@@ -58,8 +58,8 @@ Name: "analysis\peid"; Description: "PEiD"; Types: full;
 Source: "{#MySrcDir}\toolkit\Analysis\PEiD\*"; DestDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\PEiD"; Filename: "{#MyAppToolsFolder}\Analysis\PEiD\PEiD.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PEiD"; Filename: "{#MyAppToolsFolder}\Analysis\PEiD\PEiD.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid";    
+Name: "{group}\{#MyAppName}\PEiD"; Filename: "{#MyAppToolsFolder}\Analysis\PEiD\PEiD.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PEiD"; Filename: "{#MyAppToolsFolder}\Analysis\PEiD\PEiD.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid";   Check: not Is64BitInstallMode; 
 
 
 
@@ -84,8 +84,8 @@ Name: "analysis\protectionid"; Description: "ProtectionID"; Types: full;
 Source: "{#MySrcDir}\toolkit\Analysis\ProtectionID\*"; DestDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\ProtectionID"; Filename: "{#MyAppToolsFolder}\Analysis\ProtectionID\Protection_ID.eXe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ProtectionID"; Filename: "{#MyAppToolsFolder}\Analysis\ProtectionID\Protection_ID.eXe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid";    
+Name: "{group}\{#MyAppName}\ProtectionID"; Filename: "{#MyAppToolsFolder}\Analysis\ProtectionID\Protection_ID.eXe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ProtectionID"; Filename: "{#MyAppToolsFolder}\Analysis\ProtectionID\Protection_ID.eXe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid";   Check: not Is64BitInstallMode; 
 
 
 
@@ -97,8 +97,8 @@ Name: "analysis\xapkdetector"; Description: "XAPKDetector"; Types: full;
 Source: "{#MySrcDir}\toolkit\Analysis\XAPKDetector\*"; DestDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\XAPKDetector"; Filename: "{#MyAppToolsFolder}\Analysis\XAPKDetector\xapkd.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XAPKDetector"; Filename: "{#MyAppToolsFolder}\Analysis\XAPKDetector\xapkd.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector";    
+Name: "{group}\{#MyAppName}\XAPKDetector"; Filename: "{#MyAppToolsFolder}\Analysis\XAPKDetector\xapkd.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XAPKDetector"; Filename: "{#MyAppToolsFolder}\Analysis\XAPKDetector\xapkd.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector";   Check: not Is64BitInstallMode; 
 
 
 
@@ -110,8 +110,8 @@ Name: "analysis\xelfviewer"; Description: "XELFViewer"; Types: full;
 Source: "{#MySrcDir}\toolkit\Analysis\XELFViewer\*"; DestDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\xelfviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\xelfviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer";    
+Name: "{group}\{#MyAppName}\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\xelfviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\xelfviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer";   Check: not Is64BitInstallMode; 
 
 
 
@@ -123,7 +123,7 @@ Name: "analysis\xpeviewer"; Description: "XPEViewer"; Types: full;
 Source: "{#MySrcDir}\toolkit\Analysis\XPEViewer\*"; DestDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\XPEViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XPEViewer\xpeviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XPEViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XPEViewer\xpeviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer";    
+Name: "{group}\{#MyAppName}\XPEViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XPEViewer\xpeviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XPEViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XPEViewer\xpeviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer";   Check: not Is64BitInstallMode; 
 
 

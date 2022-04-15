@@ -1,7 +1,7 @@
-Microsoft Windows [Version 10.0.19042.1466]
+Microsoft Windows [Version 10.0.19043.1645]
 (c) Microsoft Corporation. All rights reserved.
 
-D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\toolkit
+D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\code\indetectables\toolkit\toolkit
 [+] Process: CAPA
    [*] Adding: "capa.exe"
       [!] x64 exe
@@ -42,7 +42,7 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
    [*] Adding: "dnSpy.exe"
       [!] x64 exe
 [+] Process: [DOTNET] GrayWolf
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"
    [*] Adding: "GrayWolf_188.exe"
 [+] Process: [DOTNET] ILSpy
    [*] Adding: "ILSpy.exe"
@@ -65,7 +65,7 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
 [+] Process: OllyDbg 1.10
    [*] Adding: "OLLYDBG.EXE"
 [+] Process: w32Dasm
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93"
    [*] Adding: "W32DSM89.EXE"
 [+] Process: x64dbg
    [*] Adding: "x96dbg.exe"
@@ -81,8 +81,10 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
       [!] x64 exe
 [+] Process: Api Monitor
    [*] Adding: "apimonitor-x64.exe"
+      [!] force link creation
       [!] x64 exe
    [*] Adding: "apimonitor-x86.exe"
+      [!] force link creation
 [+] Process: Autoruns
    [*] Adding: "Autoruns.exe"
    [*] Adding: "Autoruns64.exe"
@@ -106,9 +108,9 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
    [*] Adding: "procexp64.exe"
       [!] x64 exe
 [+] Process: Process Hacker 3
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Monitor\Process Hacker 3\32bit"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Monitor\Process Hacker 3\32bit"
    [*] Adding: "ProcessHacker.exe"
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Monitor\Process Hacker 3\64bit"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Monitor\Process Hacker 3\64bit"
    [*] Adding: "ProcessHacker.exe"
       [!] x64 exe
 [+] Process: Procmon
@@ -151,15 +153,16 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
 [+] Process: HashMyFiles
    [*] Adding: "HashMyFiles.exe"
 [+] Process: ImpREC
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Other\ImpREC\ImpREC - 1.7f"
    [*] Adding: "ImportREC.exe"
 [+] Process: Indetectables Offset Locator
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "Indetectables Offset Locator.exe"
 [+] Process: ProcDOT
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Other\ProcDOT\win32"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Other\ProcDOT\win32"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "procdot.exe"
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Other\ProcDOT\win64"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Other\ProcDOT\win64"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "procdot.exe"
       [!] x64 exe
@@ -173,8 +176,10 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
    [*] Adding: "ResourceHacker.exe"
 [+] Process: Scylla
    [*] Adding: "Scylla_x64.exe"
+      [!] force link creation
       [!] x64 exe
    [*] Adding: "Scylla_x86.exe"
+      [!] force link creation
 [+] Process: ShowString
    [*] Adding: "showstring.exe"
 [+] Process: Strings
@@ -191,11 +196,11 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
    [*] Adding: "xocalc.exe"
       [!] x64 exe
 [+] Process: AT4RE Patcher
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Patcher\AT4RE Patcher\AT4RE Patcher - 0.7.6"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Patcher\AT4RE Patcher\AT4RE Patcher - 0.7.6"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "AT4RE Patcher.exe"
 [+] Process: dUP
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\Patcher\dUP\dUP - 2.26.1"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\Patcher\dUP\dUP - 2.26.1"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "dup2.exe"
 [+] Process: uPPP
@@ -203,7 +208,7 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
 [+] Process: GMER
    [*] Adding: "gmer.exe"
 [+] Process: Sysinspector
-   [*] Adding: "sysinspector_nt64_esn.exe"
+   [*] Adding: "sysinspector_nt64_enu.exe"
       [!] x64 exe
 [+] Process: Windows Kernel Explorer
    [*] Adding: "WKE64.exe"
@@ -218,21 +223,26 @@ D:\code\toolkit\bin\installer>python generate-sections.py -f D:\code\toolkit\too
    [*] Adding: "GUnPacker v0.5.exe"
 [+] Process: NETUnpack
    [*] Adding: "NETUnpack-64.exe"
+      [!] force link creation
       [!] x64 exe
    [*] Adding: "NETUnpack.exe"
+      [!] force link creation
 [+] Process: QUnpack
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3"
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack32"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3"
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack32"
    [*] Adding: "Explorer.exe"
-   [!] Iterate sub folder: "D:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"
+      [!] force link creation
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"
    [*] Adding: "Explorer.exe"
+      [!] force link creation
       [!] x64 exe
 [+] Process: RL!dePacker
    [*] Adding: "RL!dePacker.exe"
 [+] Process: UniExtract
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "UniExtract.exe"
-[+] Process: VM Unpacker
+[+] Process: VMUnpacker
+   [!] Iterate sub folder: "D:\code\indetectables\toolkit\toolkit\UnPacking\VMUnpacker\VMUnpacker - 1.6"
    [*] Adding: "VMUnpacker.exe"
 [+] Process: XVolkolak
    [*] Adding: "xvlk.exe"

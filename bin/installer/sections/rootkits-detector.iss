@@ -6,8 +6,8 @@ Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact;
 Source: "{#MySrcDir}\toolkit\Rootkits Detector\GMER\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\GMER"; Components: "rootkitsdetector\gmer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\GMER"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\GMER\gmer.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\GMER"; Components: "rootkitsdetector\gmer";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\GMER"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\GMER\gmer.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\GMER"; Components: "rootkitsdetector\gmer";    
+Name: "{group}\{#MyAppName}\GMER"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\GMER\gmer.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\GMER"; Components: "rootkitsdetector\gmer";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\GMER"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\GMER\gmer.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\GMER"; Components: "rootkitsdetector\gmer";   Check: not Is64BitInstallMode; 
 
 
 

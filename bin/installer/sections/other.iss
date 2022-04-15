@@ -6,8 +6,8 @@ Name: "other\apkeasytool"; Description: "APKEasyTool"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\APKEasyTool\*"; DestDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\APKEasyTool"; Filename: "{#MyAppToolsFolder}\Other\APKEasyTool\apkeasytool.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\APKEasyTool"; Filename: "{#MyAppToolsFolder}\Other\APKEasyTool\apkeasytool.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool";    
+Name: "{group}\{#MyAppName}\APKEasyTool"; Filename: "{#MyAppToolsFolder}\Other\APKEasyTool\apkeasytool.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\APKEasyTool"; Filename: "{#MyAppToolsFolder}\Other\APKEasyTool\apkeasytool.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool";   Check: not Is64BitInstallMode; 
 
 
 
@@ -32,8 +32,8 @@ Name: "other\astrogrep"; Description: "AstroGrep"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\AstroGrep\*"; DestDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\AstroGrep"; Filename: "{#MyAppToolsFolder}\Other\AstroGrep\AstroGrep.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AstroGrep"; Filename: "{#MyAppToolsFolder}\Other\AstroGrep\AstroGrep.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep";    
+Name: "{group}\{#MyAppName}\AstroGrep"; Filename: "{#MyAppToolsFolder}\Other\AstroGrep\AstroGrep.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AstroGrep"; Filename: "{#MyAppToolsFolder}\Other\AstroGrep\AstroGrep.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep";   Check: not Is64BitInstallMode; 
 
 
 
@@ -45,8 +45,8 @@ Name: "other\avfucker"; Description: "AVFucker"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\AVFucker\*"; DestDir: "{#MyAppToolsFolder}\Other\AVFucker"; Components: "other\avfucker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\AVFucker"; Filename: "{#MyAppToolsFolder}\Other\AVFucker\AVFucker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AVFucker"; Components: "other\avfucker";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AVFucker"; Filename: "{#MyAppToolsFolder}\Other\AVFucker\AVFucker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AVFucker"; Components: "other\avfucker";    
+Name: "{group}\{#MyAppName}\AVFucker"; Filename: "{#MyAppToolsFolder}\Other\AVFucker\AVFucker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AVFucker"; Components: "other\avfucker";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AVFucker"; Filename: "{#MyAppToolsFolder}\Other\AVFucker\AVFucker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AVFucker"; Components: "other\avfucker";   Check: not Is64BitInstallMode; 
 
 
 
@@ -71,8 +71,8 @@ Name: "other\hashcalc"; Description: "HashCalc"; Types: full compact;
 Source: "{#MySrcDir}\toolkit\Other\HashCalc\*"; DestDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\HashCalc"; Filename: "{#MyAppToolsFolder}\Other\HashCalc\HashCalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashCalc"; Filename: "{#MyAppToolsFolder}\Other\HashCalc\HashCalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc";    
+Name: "{group}\{#MyAppName}\HashCalc"; Filename: "{#MyAppToolsFolder}\Other\HashCalc\HashCalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashCalc"; Filename: "{#MyAppToolsFolder}\Other\HashCalc\HashCalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc";   Check: not Is64BitInstallMode; 
 
 
 
@@ -84,8 +84,8 @@ Name: "other\hashmyfiles"; Description: "HashMyFiles"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\HashMyFiles\*"; DestDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";    
+Name: "{group}\{#MyAppName}\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";   Check: not Is64BitInstallMode; 
 
 
 
@@ -97,8 +97,8 @@ Name: "other\imprec"; Description: "ImpREC"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\ImpREC\*"; DestDir: "{#MyAppToolsFolder}\Other\ImpREC"; Components: "other\imprec"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f"; Components: "other\imprec";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f"; Components: "other\imprec";    
+Name: "{group}\{#MyAppName}\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f"; Components: "other\imprec";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ImpREC"; Filename: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f\ImportREC.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ImpREC\ImpREC - 1.7f"; Components: "other\imprec";   Check: not Is64BitInstallMode; 
 
 
 
@@ -110,8 +110,8 @@ Name: "other\indetectablesoffsetlocator"; Description: "Indetectables Offset Loc
 Source: "{#MySrcDir}\toolkit\Other\Indetectables Offset Locator\*"; DestDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Indetectables Offset Locator"; Filename: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator\Indetectables Offset Locator.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Indetectables Offset Locator"; Filename: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator\Indetectables Offset Locator.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator";    
+Name: "{group}\{#MyAppName}\Indetectables Offset Locator"; Filename: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator\Indetectables Offset Locator.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Indetectables Offset Locator"; Filename: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator\Indetectables Offset Locator.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator";   Check: not Is64BitInstallMode; 
 
 
 
@@ -123,8 +123,8 @@ Name: "other\procdot"; Description: "ProcDOT"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\ProcDOT\*"; DestDir: "{#MyAppToolsFolder}\Other\ProcDOT"; Components: "other\procdot"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";    
+Name: "{group}\{#MyAppName}\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";   Check: not Is64BitInstallMode; 
 
 [Icons]
 Name: "{group}\{#MyAppName}\ProcDOT x64"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win64\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win64"; Components: "other\procdot";   Check: Is64BitInstallMode; 
@@ -140,8 +140,8 @@ Name: "other\processdump"; Description: "Process-Dump"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\Process-Dump\*"; DestDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe";  
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe";  
+Name: "{group}\{#MyAppName}\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"; Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Process-Dump\pd32.exe"; Check: not Is64BitInstallMode; 
 
 [Icons]
 Name: "{group}\{#MyAppName}\Process-Dump x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Process-Dump\pd64.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Process-Dump\pd64.exe"; Check: Is64BitInstallMode; 
@@ -157,8 +157,8 @@ Name: "other\resourcehacker"; Description: "Resource Hacker"; Types: full compac
 Source: "{#MySrcDir}\toolkit\Other\Resource Hacker\*"; DestDir: "{#MyAppToolsFolder}\Other\Resource Hacker"; Components: "other\resourcehacker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Resource Hacker"; Filename: "{#MyAppToolsFolder}\Other\Resource Hacker\ResourceHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Resource Hacker"; Components: "other\resourcehacker";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Resource Hacker"; Filename: "{#MyAppToolsFolder}\Other\Resource Hacker\ResourceHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Resource Hacker"; Components: "other\resourcehacker";    
+Name: "{group}\{#MyAppName}\Resource Hacker"; Filename: "{#MyAppToolsFolder}\Other\Resource Hacker\ResourceHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Resource Hacker"; Components: "other\resourcehacker";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Resource Hacker"; Filename: "{#MyAppToolsFolder}\Other\Resource Hacker\ResourceHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Resource Hacker"; Components: "other\resourcehacker";   Check: not Is64BitInstallMode; 
 
 
 
@@ -187,8 +187,8 @@ Name: "other\showstring"; Description: "ShowString"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\ShowString\*"; DestDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\showstring.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\showstring.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";    
+Name: "{group}\{#MyAppName}\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\showstring.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ShowString"; Filename: "{#MyAppToolsFolder}\Other\ShowString\showstring.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring";   Check: not Is64BitInstallMode; 
 
 
 
@@ -200,8 +200,8 @@ Name: "other\strings"; Description: "Strings"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\Strings\*"; DestDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\Strings"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Strings\strings.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Strings\strings.exe";  
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Strings"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Strings\strings.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Strings\strings.exe";  
+Name: "{group}\{#MyAppName}\Strings"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Strings\strings.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Strings\strings.exe"; Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Strings"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Strings\strings.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Strings\strings.exe"; Check: not Is64BitInstallMode; 
 
 [Icons]
 Name: "{group}\{#MyAppName}\Strings x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Parameters: "/K ""{#MyAppToolsFolder}\Other\Strings\strings64.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\Strings\strings64.exe"; Check: Is64BitInstallMode; 
@@ -230,8 +230,8 @@ Name: "other\virustotaluploader"; Description: "VirusTotalUploader"; Types: full
 Source: "{#MySrcDir}\toolkit\Other\VirusTotalUploader\*"; DestDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";    
+Name: "{group}\{#MyAppName}\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";   Check: not Is64BitInstallMode; 
 
 
 
