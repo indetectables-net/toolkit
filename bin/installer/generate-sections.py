@@ -335,7 +335,7 @@ class GenerateInstall:
         lines_list.append('    begin')
 
         for item in self.cli_list:
-            lines_list.append(f'        if WizardIsComponentSelected("{item["component"]}") then EnvAddPath(ExpandConstant("{{#MyAppToolsFolder}}") + "{item["working_dir"]}");')
+            lines_list.append(f'        if WizardIsComponentSelected(\'{item["component"]}\') then EnvAddPath(ExpandConstant(\'{{#MyAppToolsFolder}}\') + \'{item["working_dir"]}\');')
 
         lines_list.append('    end')
         lines_list.append('end;')
@@ -348,7 +348,7 @@ class GenerateInstall:
         lines_list.append('    begin')
 
         for item in self.cli_list:
-            lines_list.append(f'        EnvRemovePath(ExpandConstant("{{#MyAppToolsFolder}}") + "{item["working_dir"]}");')
+            lines_list.append(f'        EnvRemovePath(ExpandConstant(\'{{#MyAppToolsFolder}}\') + \'{item["working_dir"]}\');')
 
         lines_list.append('    end')
         lines_list.append('end;')
