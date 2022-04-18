@@ -1,10 +1,12 @@
+Español | [English](README.md)
+
 # Universal Tool Updater
 
 Esta herramienta está pensada para remediar el tedioso proceso de mantener actualizadas las herramientas que usamos para trabajar a diario.
 
 Es el complemento inevitable del [toolkit](https://github.com/indetectables-net/toolkit) del sitio.
 
-![Imagen](https://i.imgur.com/o3vuUC5.png)
+![](assets/demo.gif)
 
 ## Instalación
 
@@ -36,21 +38,22 @@ re_version = <h1 [^>]*>Portmon for Windows v(.*?)</h1>
 
 Los valores utilizados para la configuración son:
 
-Nombre | Obligatorio | Descripción
------|------|-------------
-`folder` | `SI` | Carpeta donde se guardara la herramienta. Si no existe la misma se creara.
-`url` | `SI` | Web que se usara para realizar los chequeos con las regex.
-`from` | `NO` | Indica la estrategia usada para el update. Los valores admitidos por el momento son: `web` o `github`.
-`local_version` | `NO` | Versión descargada actualmente. Este valor se actualizara con cada update.
-`re_version` | `NO` | Regex usado para comprobar si hay nuevas versiones en la web de `url`.
-`re_download` | `NO` | Regex usado para obtener el link de descarga en la web de `url`.
-`update_url` | `NO` | URL de descarga del update. Ver estrategia usadas para la descarga.
-`update_file_pass` | `NO` | Usar esta contraseña para descomprimir el update.
-`pre_update_script` | `NO` | El script ingresado se ejecutara antes del proceso de update.
-`post_update_script` | `NO` | El script ingresado se ejecutara después del proceso de update.
-`pre_update` | `NO` | El script ingresado se ejecutara antes del proceso de update.
-`post_update` | `NO` | El script ingresado se ejecutara después del proceso de update.
-`post_unpack` | `NO` | El script ingresado se ejecutara después del proceso de unpack.
+| Nombre               | Obligatorio | Descripción                                                                                            |
+|----------------------|-------------|--------------------------------------------------------------------------------------------------------|
+| `folder`             | `SI`        | Carpeta donde se guardara la herramienta. Si no existe la misma se creara.                             |
+| `url`                | `SI`        | Web que se usara para realizar los chequeos con las regex.                                             |
+| `from`               | `NO`        | Indica la estrategia usada para el update. Los valores admitidos por el momento son: `web` o `github`. |
+| `local_version`      | `NO`        | Versión descargada actualmente. Este valor se actualizara con cada update.                             |
+| `re_version`         | `NO`        | Regex usado para comprobar si hay nuevas versiones en la web de `url`.                                 |
+| `re_download`        | `NO`        | Regex usado para obtener el link de descarga en la web de `url`.                                       |
+| `update_url`         | `NO`        | URL de descarga del update. Ver estrategia usadas para la descarga.                                    |
+| `update_file_pass`   | `NO`        | Usar esta contraseña para descomprimir el update.                                                      |
+| `merge`              | `NO`        | Fusionar versión nueva con la local.                                                                   |
+| `pre_update_script`  | `NO`        | El script ingresado se ejecutara antes del proceso de update.                                          |
+| `post_update_script` | `NO`        | El script ingresado se ejecutara después del proceso de update.                                        |
+| `pre_update`         | `NO`        | El script ingresado se ejecutara antes del proceso de update.                                          |
+| `post_update`        | `NO`        | El script ingresado se ejecutara después del proceso de update.                                        |
+| `post_unpack`        | `NO`        | El script ingresado se ejecutara después del proceso de unpack.                                        |
 
 ## Estrategia usadas para la descarga
 
@@ -102,7 +105,6 @@ updater.exe --update-default-params --use-github-api your_github_token
 "[How to create an automated task](https://www.windowscentral.com/how-create-automated-task-using-task-scheduler-windows-10)" and 
 "[Prevent command window appearing](https://pureinfotech.com/prevent-command-window-appearing-scheduled-tasks-windows-10/)"
 
-
 ```bash
 # execute in elevated command prompt
 SCHTASKS /CREATE /SC DAILY /TN "ToolkitUpdater" /TR "D:\code\toolkit\Updater\custom-task.bat" /ST 14:00
@@ -113,4 +115,11 @@ SCHTASKS /CREATE /SC DAILY /TN "ToolkitUpdater" /TR "D:\code\toolkit\Updater\cus
 ```bash
 # execute in elevated command prompt
 SCHTASKS /DELETE /TN "ToolkitUpdater"
+```
+
+## Compilar a exe
+
+```bash
+pip install pyinstaller
+pyinstaller --onefile updater.py --icon=appicon.ico
 ```

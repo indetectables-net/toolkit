@@ -98,14 +98,17 @@ def save_config_to_file(config, config_file_name):
 
 # Main Updater class
 class Updater:
-    def __init__(self, config, config_file_name, force_download, disable_repack, disable_clean, disable_progress,
-                 save_format_type, use_github_api):
+    def __init__(
+            self, config, config_file_name, force_download, disable_repack, disable_clean,
+            disable_install_check, disable_progress, save_format_type, use_github_api,
+    ):
         self.name = ''
         self.config = config
         self.config_file_name = config_file_name
         self.force_download = force_download
         self.disable_repack = disable_repack
         self.disable_clean = disable_clean
+        self.disable_install_check = disable_install_check
         self.disable_progress = disable_progress
         self.save_format_type = save_format_type
         self.script_path = os.fsdecode(os.getcwdb())
@@ -231,6 +234,20 @@ class Updater:
 
         return unpack_path
 
+    def _save(self, use_merge, tool_folder_path, tool_unpack_path):
+        print('{0}: saving to folder {1}'.format(self.name, tool_folder_path))
+
+        if not self.disable_clean and not use_merge:
+            cleanup_folder(tool_folder_path)
+
+        shutil.copytree(tool_unpack_path, tool_folder_path, copy_function=shutil.copy, dirs_exist_ok=True)
+
+        return {
+            'tool_name': self.name,
+            'tool_folder': str(tool_folder_path),
+            'save_compress_name': '',
+        }
+
     def _repack_save_compress_name(self, name, version):
         pack_name = '{0} - {1}.7z'.format(name, version)
         if self.save_format_type == 'version':
@@ -240,42 +257,72 @@ class Updater:
 
         return pack_name
 
-    def _repack(self, unpack_path, version):
-        tool_unpack_path = unpack_path
+    def _repack_merge(self, tool_folder_path, tool_unpack_path):
+        # checks and preparation
+        old_version = self.config.get(self.name, 'local_version', fallback='0')
+        old_compress_name = self._repack_save_compress_name(self.name, old_version)
+        old_tool_compress_path = tool_folder_path.joinpath(old_compress_name)
+        if not old_tool_compress_path.exists():
+            return False
 
+        print('{0}: merging with "{1}"'.format(self.name, old_compress_name))
+
+        # unpack old version
+        old_tool_unpack_folder = str(old_compress_name).replace('.7z', '')
+        old_tool_unpack_path = pathlib.Path(self.update_folder_path).joinpath(old_tool_unpack_folder)
+        unpack(old_tool_compress_path, '.7z', old_tool_unpack_path, None)
+
+        # merge
+        shutil.copytree(tool_unpack_path, old_tool_unpack_path, copy_function=shutil.copy, dirs_exist_ok=True)
+        shutil.rmtree(tool_unpack_path)
+        shutil.move(old_tool_unpack_path, tool_unpack_path, copy_function=shutil.copy)
+
+    def _repack(self, use_merge, tool_folder_path, tool_unpack_path, unpack_folder_path, version):
+        if use_merge:
+            self._repack_merge(tool_folder_path, tool_unpack_path)
+
+        print('{0}: saving to folder {1}'.format(self.name, tool_folder_path))
+
+        if not self.disable_clean:
+            cleanup_folder(tool_folder_path)
+
+        save_compress_name = self._repack_save_compress_name(self.name, version)
+        tool_repack_path = pathlib.Path(pathlib.Path(unpack_folder_path).parent).joinpath(save_compress_name)
+
+        with py7zr.SevenZipFile(tool_repack_path, 'w') as archive:
+            archive.writeall(tool_unpack_path, arcname='')
+
+        shutil.copy(tool_repack_path, tool_folder_path)
+
+        return {
+            'tool_name': self.name,
+            'tool_folder': str(tool_folder_path),
+            'save_compress_name': save_compress_name,
+        }
+
+    def _tool_install_path(self):
+        tool_folder_path = self.config.get(self.name, 'folder')
+        if not pathlib.Path(tool_folder_path).is_absolute():
+            tool_folder_path = pathlib.Path.resolve(
+                pathlib.Path(self.script_path).joinpath(tool_folder_path)
+            )
+
+        return tool_folder_path
+
+    def _processing_tool(self, tool_unpack_path):
         # dirty hack for correct folders structure
         folder_list = os.listdir(tool_unpack_path)
         folder_sample = pathlib.Path(tool_unpack_path).joinpath(folder_list[0])
         if len(folder_list) == 1 & os.path.isdir(folder_sample):
             tool_unpack_path = folder_sample
 
-        # update tool
-        tool_folder = self.config.get(self.name, 'folder')
-        if not pathlib.Path(tool_folder).is_absolute():
-            tool_folder = pathlib.Path.resolve(pathlib.Path(self.script_path).joinpath(tool_folder))
-
-        print('{0}: saving to folder {1}'.format(self.name, tool_folder))
-        pathlib.Path(tool_folder).mkdir(parents=True, exist_ok=True)
-
-        if not self.disable_clean:
-            cleanup_folder(tool_folder)
-
-        if self.disable_repack:
-            save_compress_name = ''
-            shutil.copytree(tool_unpack_path, tool_folder, copy_function=shutil.copy, dirs_exist_ok=True)
-        else:
-            save_compress_name = self._repack_save_compress_name(self.name, version)
-            tool_repack_path = pathlib.Path(pathlib.Path(unpack_path).parent).joinpath(save_compress_name)
-
-            with py7zr.SevenZipFile(tool_repack_path, 'w') as archive:
-                archive.writeall(tool_unpack_path, arcname='')
-
-            shutil.copy(tool_repack_path, tool_folder)
+        # tool folder
+        tool_folder_path = self._tool_install_path()
+        pathlib.Path(tool_folder_path).mkdir(parents=True, exist_ok=True)
 
         return {
-            'tool_name': self.name,
-            'tool_folder': str(tool_folder),
-            'save_compress_name': save_compress_name,
+            'folder_path': tool_folder_path,
+            'unpack_path': tool_unpack_path,
         }
 
     def _bump_version(self, latest_version):
@@ -343,13 +390,36 @@ class Updater:
         return file_path
 
     def _processing_step(self, file_path, download_version):
-        unpack_path = self._unpack(file_path)
+        unpack_folder_path = self._unpack(file_path)
         self._exec_update_script('post_unpack')
 
-        return self._repack(unpack_path, download_version)
+        use_merge = self.config.get(self.name, 'merge', fallback=None)
+        tool = self._processing_tool(unpack_folder_path)
+        if self.disable_repack:
+            return self._save(
+                use_merge=use_merge,
+                tool_folder_path=tool['folder_path'],
+                tool_unpack_path=tool['unpack_path'],
+            )
+        else:
+            return self._repack(
+                use_merge=use_merge,
+                tool_folder_path=tool['folder_path'],
+                tool_unpack_path=tool['unpack_path'],
+                unpack_folder_path=unpack_folder_path,
+                version=download_version,
+            )
+
+    def _check_tool_installed(self):
+        tool_folder_path = self._tool_install_path()
+        if not tool_folder_path.exists() and not self.disable_install_check:
+            raise Exception('{0}: The program was not found'.format(self.name))
 
     def update(self, name):
         self.name = name
+
+        # check if installed
+        self._check_tool_installed()
 
         # execute custom pre update script
         self._exec_update_script('pre_update')
@@ -376,7 +446,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.5.2'
+        self.version = '1.6.0'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
@@ -426,7 +496,7 @@ class Setup:
             '-dfc',
             '--disable-folder-clean',
             dest='disable_clean',
-            help='disable tool folder clean (default: false)',
+            help='disable tool folder clean',
             action=argparse.BooleanOptionalAction,
             default=self.get_argparse_default('disable_clean', False)
         )
@@ -434,15 +504,23 @@ class Setup:
             '-dr',
             '--disable-repack',
             dest='disable_repack',
-            help='disable tool repack (default: false)',
+            help='disable tool repack',
             action=argparse.BooleanOptionalAction,
             default=self.get_argparse_default('disable_repack', False)
+        )
+        parser.add_argument(
+            '-dic',
+            '--disable-install-check',
+            dest='disable_install_check',
+            help='disable tool install check',
+            action=argparse.BooleanOptionalAction,
+            default=self.get_argparse_default('disable_install_check', False)
         )
         parser.add_argument(
             '-dpb',
             '--disable-progress-bar',
             dest='disable_progress',
-            help='disable download progress bar (default: false)',
+            help='disable download progress bar',
             action=argparse.BooleanOptionalAction,
             default=self.get_argparse_default('disable_progress', False)
         )
@@ -450,7 +528,7 @@ class Setup:
             '-sft',
             '--save-format-type',
             dest='save_format_type',
-            help='compress save format name (default: full)',
+            help='compress save format name',
             choices=['full', 'version', 'name'],
             default=self.get_argparse_default('save_format_type', 'full', False)
         )
@@ -458,7 +536,7 @@ class Setup:
             '-f',
             '--force',
             dest='force_download',
-            help='force download (default: false)',
+            help='force download',
             action=argparse.BooleanOptionalAction,
             default=False
         )
@@ -466,14 +544,14 @@ class Setup:
             '-uga',
             '--use-github-api',
             dest='use_github_api',
-            help='use github api with this token (default: false)',
+            help='use github api with this token',
             default=self.get_argparse_default('use_github_api', '', False)
         )
         parser.add_argument(
             '-udp',
             '--update-default-params',
             dest='update_default_params',
-            help='update default params (default: false)',
+            help='update default params',
             action=argparse.BooleanOptionalAction,
             default=False
         )
@@ -486,6 +564,7 @@ class Setup:
 
         self.config.set('Updater', 'disable_clean', str(self.arguments.disable_clean))
         self.config.set('Updater', 'disable_repack', str(self.arguments.disable_repack))
+        self.config.set('Updater', 'disable_install_check', str(self.arguments.disable_install_check))
         self.config.set('Updater', 'disable_progress', str(self.arguments.disable_progress))
         self.config.set('Updater', 'save_format_type', self.arguments.save_format_type)
         self.config.set('Updater', 'use_github_api', self.arguments.use_github_api)
@@ -504,6 +583,7 @@ class Setup:
             force_download=self.arguments.force_download,
             disable_repack=self.arguments.disable_repack,
             disable_clean=self.arguments.disable_clean,
+            disable_install_check=self.arguments.disable_install_check,
             disable_progress=self.arguments.disable_progress,
             save_format_type=self.arguments.save_format_type,
             use_github_api=self.arguments.use_github_api,
@@ -521,7 +601,7 @@ class Setup:
         colorama.init(autoreset=True)
         signal.signal(signal.SIGINT, self.exit_handler)
 
-        # Fix current dir bug
+        # Fix updates "FileNotFoundError" in exe build
         current_dir = os.path.dirname(sys.argv[0])
         if current_dir:
             os.chdir(current_dir)
