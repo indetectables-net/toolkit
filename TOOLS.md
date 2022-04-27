@@ -14,6 +14,11 @@
 
 ## Analysis
 
+### 4n4lDetector
+***Web:*** https://github.com/4n0nym0us/4n4lDetector <br/>
+***Developer:*** 4n0nym0us <br/>
+***Description:*** 4n4lDetector is an analysis tool for Microsoft Windows executable files, libraries, drivers and mdumps for x86 and x64. As of v1.8 an extended use for analyzing anomalies in Linux ELF executables was also included. <br/>
+
 ### CAPA
 ***Web:*** https://github.com/fireeye/capa <br/>
 ***Developer:*** mandiant - www.mandiant.com <br/>

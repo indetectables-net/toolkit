@@ -1,6 +1,20 @@
 # Changelog
 
 
+## MASTER
+
+### Added
+
+- Add 4n4lDetector
+
+### Changed
+
+- Update updater script
+- Update tools (28/02/2022)
+- Changes in installer code
+- Other minor changes
+
+
 ## 2022.3 - Mar 2, 2022
 
 ### Added
