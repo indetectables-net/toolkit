@@ -29,6 +29,11 @@
 ***Developer:*** Hors <br/>
 ***Description:*** Detect It Easy, or abbreviated "DIE" is a program for determining types of files. DIE-Engine is a Graphical User Interface for DIE.  <br/>
 
+### Exe Explorer
+***Web:*** https://www.mitec.cz/exe.html <br/>
+***Developer:*** Michal Multi <br/>
+***Description:*** It reads and displays executable file properties and structure. It is compatible with PE32 (Portable Executable), PE32+ (64bit), NE (Windows 3.x New Executable) and VxD (Windows 9x Virtual Device Driver) file types. .NET executables are supported too. It contains powerful Resource Viewer that is able to abalyze and display al basic resouce types and some extra ones as JPEG, PNG, GIF, AVI, REGISTRY. <br/>
+
 ### ExeinfoPe
 ***Web:*** https://github.com/ExeinfoASL/ASL <br/>
 ***Developer:*** ASL - http://www.exeinfo.byethost18.com <br/>
