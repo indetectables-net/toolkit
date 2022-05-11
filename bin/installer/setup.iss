@@ -36,7 +36,8 @@ OutputDir={#MyOutputDir}
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
-Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl"
+Name: "catalan"; MessagesFile: "compiler:Languages\Catalan.isl"
+Name: "portuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
 [Components]
 Name: "analysis"; Description: "Analysis tools"; Types: full;
@@ -106,11 +107,6 @@ Source: "{#MySrcDir}\assets\icons\*"; Destdir: "{app}\assets\icons\";
 [Icons]
 Name: "{userdesktop}\{#MyAppName}\Explore all tools"; Filename: "{#MyAppToolsFolder}"
 Name: "{group}\{#MyAppName}\Explore all tools"; Filename: "{#MyAppToolsFolder}";
-
-
-; hstart
-[Files]
-Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\";
 
 
 ; SendTo+

@@ -5,6 +5,7 @@ Name: "updater\main"; Description: "Updater"; Types: full compact;
 [Files]
 Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 Source: "{#MySrcDir}\bin\auto-config-tools\*"; DestDir: "{#MyAppBinsFolder}\auto-config-tools"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
+Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
 Name: "{group}\{#MyAppName}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";

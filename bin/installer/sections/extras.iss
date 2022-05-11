@@ -57,14 +57,14 @@ Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y j
 
 ; Install Java JDK (for Ghidra!)
 [Components]
-Name: "extras\javajdk"; Description: "Install Java Temurin JDK 11 (via Chocolatey)"; ExtraDiskSpaceRequired: 315621376;
+Name: "extras\javajdk"; Description: "Install Java Temurin JDK 11 (via Chocolatey)"; ExtraDiskSpaceRequired: 315621376; Types: full; 
 
 [Run]
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y temurin11"; Components: "extras\javajdk"; Flags: shellexec waituntilterminated;
 
 ; Install Python
 [Components]
-Name: "extras\python"; Description: "Install Python 3 (via Chocolatey)"; ExtraDiskSpaceRequired: 104857600; Types: full compact; 
+Name: "extras\python"; Description: "Install Python 3 (via Chocolatey)"; ExtraDiskSpaceRequired: 104857600; Types: full; 
 
 [Run]
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y python"; Components: "extras\python"; Flags: shellexec waituntilterminated;

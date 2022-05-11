@@ -1,3 +1,16 @@
+; 4n4lDetector
+[Components]
+Name: "analysis\4n4ldetector"; Description: "4n4lDetector"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Analysis\4n4lDetector\*"; DestDir: "{#MyAppToolsFolder}\Analysis\4n4lDetector"; Components: "analysis\4n4ldetector"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\4n4lDetector"; Filename: "{#MyAppToolsFolder}\Analysis\4n4lDetector\4N4LDetector.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\4n4lDetector"; Components: "analysis\4n4ldetector";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\4n4lDetector"; Filename: "{#MyAppToolsFolder}\Analysis\4n4lDetector\4N4LDetector.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\4n4lDetector"; Components: "analysis\4n4ldetector";    
+
+
+
 ; CAPA
 [Components]
 Name: "analysis\capa"; Description: "CAPA"; Types: full; 
@@ -21,6 +34,19 @@ Source: "{#MySrcDir}\toolkit\Analysis\DIE\*"; DestDir: "{#MyAppToolsFolder}\Anal
 [Icons]
 Name: "{group}\{#MyAppName}\DIE"; Filename: "{#MyAppToolsFolder}\Analysis\DIE\die.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\DIE"; Filename: "{#MyAppToolsFolder}\Analysis\DIE\die.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die";    
+
+
+
+; ExeExplorer
+[Components]
+Name: "analysis\exeexplorer"; Description: "ExeExplorer"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Analysis\ExeExplorer\*"; DestDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\ExeExplorer"; Filename: "{#MyAppToolsFolder}\Analysis\ExeExplorer\EXE.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeExplorer"; Filename: "{#MyAppToolsFolder}\Analysis\ExeExplorer\EXE.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer";   Check: not Is64BitInstallMode; 
 
 
 
