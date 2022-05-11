@@ -6,11 +6,12 @@
 ### Added
 
 - Add 4n4lDetector
+- Add EXE Explorer
 
 ### Changed
 
 - Update updater script
-- Update tools (28/02/2022)
+- Update tools (11/05/2022)
 - Changes in installer code
 - Other minor changes
 
