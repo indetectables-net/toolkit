@@ -44,22 +44,27 @@ Name: "extras\choco"; Description: "Install Chocolatey package manager"; ExtraDi
 Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Components: "extras\choco"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Run]
-Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javase or extras\python"; Flags: shellexec waituntilterminated;
+Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javajre or extras\javajdk or extras\python"; Flags: shellexec waituntilterminated;
 
 
 
-; Install Java
+; Install Java JRE
 [Components]
-Name: "extras\javase"; Description: "Install Java 8 Runtime Environment (via Chocolatey)"; ExtraDiskSpaceRequired: 220200960; Types: full compact; 
+Name: "extras\javajre"; Description: "Install Java Oracle JRE 8 (via Chocolatey)"; ExtraDiskSpaceRequired: 220200960; Types: full compact; 
 
 [Run]
-Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y jre8"; Components: "extras\javase"; Flags: shellexec waituntilterminated;
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y jre8"; Components: "extras\javajre"; Flags: shellexec waituntilterminated;
 
+; Install Java JDK (for Ghidra!)
+[Components]
+Name: "extras\javajdk"; Description: "Install Java Temurin JDK 11 (via Chocolatey)"; ExtraDiskSpaceRequired: 315621376;
 
+[Run]
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y temurin11"; Components: "extras\javajdk"; Flags: shellexec waituntilterminated;
 
 ; Install Python
 [Components]
-Name: "extras\python"; Description: "Install Python 3.x (via Chocolatey)"; ExtraDiskSpaceRequired: 104857600; Types: full compact; 
+Name: "extras\python"; Description: "Install Python 3 (via Chocolatey)"; ExtraDiskSpaceRequired: 104857600; Types: full compact; 
 
 [Run]
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y python"; Components: "extras\python"; Flags: shellexec waituntilterminated;

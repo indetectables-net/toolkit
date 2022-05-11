@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Indetectables Toolkit"
-#define MyAppVersion "2022.4"
+#define MyAppVersion "2022.5"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
@@ -36,6 +36,7 @@ OutputDir={#MyOutputDir}
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
+Name: "portuguese"; MessagesFile: "compiler:Languages\Portuguese.isl"
 
 [Components]
 Name: "analysis"; Description: "Analysis tools"; Types: full;
