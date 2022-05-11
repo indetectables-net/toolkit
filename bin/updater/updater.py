@@ -198,6 +198,7 @@ class Updater:
             return self._scrape_github_api(repo_path, re_download)
 
         repo_url = 'https://github.com/{0}/releases/latest'.format(repo_path)
+        #repo_url = 'https://github.com/{0}/releases.atom'.format(repo_path)
         re_download = self.re_github_download.format(re_download)
 
         return self._scrape_web(repo_url, '', self.re_github_version, re_download)
@@ -446,7 +447,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.6.0'
+        self.version = '1.6.1'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
@@ -576,6 +577,10 @@ class Setup:
         update_list = self.arguments.update
         if not update_list:
             update_list = self.config.sections()
+
+            # 'Updater' is the config data of this script
+            if 'Updater' in update_list:
+                update_list.remove('Updater')
 
         updater = Updater(
             config=self.config,
