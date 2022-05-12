@@ -7,6 +7,7 @@
 
 - Add 4n4lDetector
 - Add EXE Explorer
+- New Toolkit Extra: Ghidra
 
 ### Changed
 
