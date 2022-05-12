@@ -195,13 +195,14 @@ class GenerateInstall:
             )
             self.section_list.append('')
 
-        # generate executable info
+        # generate tool info
         tool_exe_total = self.iterate_tool_exe(folder_path)
         tool_jar_total = self.iterate_tool_jar(folder_path)
+        tool_py_total = self.iterate_tool_py(folder_path)
 
         # iterate sub folders
         for item in pathlib.Path(folder_path).iterdir():
-            if item.is_dir() & (tool_exe_total == 0) & (tool_jar_total == 0):
+            if item.is_dir() & (tool_exe_total == 0) & (tool_jar_total == 0) & (tool_py_total == 0):
                 print(colorama.Fore.MAGENTA + f'   [!] Iterate sub folder: "{item}"')
                 self.iterate_tool(item, True)
 
@@ -326,6 +327,41 @@ class GenerateInstall:
             f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{self.tool_name}"; '
             # f'Filename: "java -jar {{#MyAppToolsFolder}}\\{tool_jar_path}"; '
             f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
+            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
+            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+            f'IconFilename: "{self.get_tool_icon()}";'
+        )
+        self.section_list.append('')
+
+    def iterate_tool_py(self, folder_path):
+        jar_list = list(folder_path.glob('*.py'))
+
+        # for now there is always 1
+        if len(jar_list) == 0:
+            return 0
+
+        self.iterate_tool_py_gen(jar_list[0])
+
+        return len(jar_list)
+
+    def iterate_tool_py_gen(self, py_path):
+        print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(py_path).name)}"')
+        tool_py_path = self.absolute_to_local_path(py_path)
+        working_dir = str(pathlib.Path(py_path).parent)
+
+        self.section_list.append('[Icons]')
+        self.section_list.append(
+            f'Name: "{{group}}\\{{#MyAppName}}\\{self.tool_name}"; '
+            f'Filename: "{{sys}}\\cmd.exe"; '
+            f'Parameters: "/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}"""; '
+            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
+            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+            f'IconFilename: "{self.get_tool_icon()}";'
+        )
+        self.section_list.append(
+            f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{self.tool_name}"; '
+            f'Filename: "{{sys}}\\cmd.exe"; '
+            f'Parameters: "/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}"""; '
             f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
             f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
             f'IconFilename: "{self.get_tool_icon()}";'
