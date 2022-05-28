@@ -30,7 +30,8 @@ Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 ArchitecturesInstallIn64BitMode=x64
-SetupIconFile="{#MySrcDir}\bin\sendto\toolkit.ico"
+SetupIconFile="{#MySrcDir}\assets\icons\toolkit.ico"
+UninstallDisplayIcon="{#MyAppToolsIconsFolder}\toolkit.ico"
 OutputDir={#MyOutputDir}
 
 [Languages]
@@ -115,10 +116,10 @@ Source: "{#MySrcDir}\bin\sendto\*"; Destdir: "{#MyAppBinsFolder}\sendto\";
 
 [Icons]
 ; x64
-Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: Is64BitInstallMode
+Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Check: Is64BitInstallMode
 
 ; x32
-Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Check: not Is64BitInstallMode
+Name: "{userdesktop}\{#MyAppName}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Check: not Is64BitInstallMode
 
 
 ; Force delete all files
