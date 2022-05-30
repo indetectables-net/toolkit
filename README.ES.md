@@ -25,7 +25,7 @@ Algunas de sus ventajas son:
 
 ## Instalación
 
-1. Puede clonar el repositorio con [git](https://git-scm.com/download/win), bajarlo desde [descargar](https://github.com/indetectables-net/toolkit/archive/refs/heads/master.zip) o simplemente bajar las versiones estables desde la seccion de [release](https://github.com/indetectables-net/toolkit/releases) donde también podemos encontrar el instalador.
+1. Simplemente baje las versiones estables desde la seccion de [release](https://github.com/indetectables-net/toolkit/releases) donde también podemos encontrar el instalador.
 
 2. Una vez descargado puedes actualizar las herramientas con el actualizador que [desarrollamos para esto](https://github.com/xchwarze/universal-tool-updater). <br/>
 El mismo está en la carpeta `bin\updater\updater.exe`.
