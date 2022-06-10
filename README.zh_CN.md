@@ -4,7 +4,7 @@
 # Indetectables工具包
 
 这个工具合集是精心制作的，目的是对恶意软件分析领域的初学者和老手都有用。它也被证明对那些破解underworld碰运气的人很有用。
-它是与[manuals](https://github.com/indetectables-net/manuals)网址一起使用的最佳互补，也是与[numbered theories](https://github.com/indetectables-net/teorias-numeradas) 镜像一起玩的最佳互补。
+它是与[manuals](https://github.com/indetectables-net/manuals)网址一起使用的最佳互补，也是与[numbered theories](https://github.com/indetectables-net/teorias-numeradas) 镜像一起合作的最佳互补。
 
 ![](assets/demo.gif)
 
