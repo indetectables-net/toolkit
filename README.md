@@ -1,4 +1,4 @@
-English | [Español](README.ES.md)| [简体中文](README.zh_CN.md)
+English | [Español](README.ES.md) | [简体中文](README.zh_CN.md)
 
 # Indetectables Toolkit
 
