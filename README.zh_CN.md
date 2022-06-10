@@ -24,14 +24,14 @@
 
 1. 您可以从[release section](https://github.com/indetectables-net/toolkit/releases)下载稳定版本，也可以在那里找到安装程序。
 
-2. 下载后，您可以使用我们专门为此目的 [开发](https://github.com/xchwarze/universal-tool-updater)通用更新程序 来更新这些工具。< br/>
+2. 下载后，您可以使用我们专门为此目的 [开发](https://github.com/xchwarze/universal-tool-updater)通用更新程序 来更新这些工具。<br/>
 您将在`bin\updater\updater.exe`文件夹中找到二进制文件。
 
 
 ## 工具集
 
 这个工具包由75个应用组成，涵盖了我们执行逆向工程和二进制/恶意软件分析可能需要的一切。 <br/>
-每个工具都是从他们的原发布地址/官网下载的，但是我们还是建议大家谨慎使用，尤其是那些官方页面是论坛线程的工具。经常运用常识。< br/>
+每个工具都是从他们的原发布地址/官网下载的，但是我们还是建议大家谨慎使用，尤其是那些官方页面是论坛线程的工具。经常运用常识。<br/>
 您可以在[here](TOOLS.md)查看完整的工具列表。
 
 
