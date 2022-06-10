@@ -1,4 +1,4 @@
-简体中文 |[English](README.md) |[Español](README.ES.md)
+简体中文 | [English](README.md) | [Español](README.ES.md)
 
 
 # Indetectables工具包
