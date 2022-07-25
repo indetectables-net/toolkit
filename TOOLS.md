@@ -377,6 +377,11 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** Hors <br/>
 ***Description:*** This tool is an x86/64 Opcode calculator. The program works on macOS, Linux and Windows. <br/>
 
+### x64dbg Plugin Manager
+***Web:*** https://github.com/horsicq/x64dbg-Plugin-Manager <br/>
+***Developer:*** Hors <br/>
+***Description:***  Plugin manager for x64dbg. <br/>
+
 
 ## Patcher
 
