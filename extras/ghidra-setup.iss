@@ -3,7 +3,7 @@
 
 #define MyAppName "Indetectables Toolkit Extras Ghidra"
 #define MyAppNameOriginal "Indetectables Toolkit"
-#define MyAppVersion "2022.5.1"
+#define MyAppVersion "2022.7"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"

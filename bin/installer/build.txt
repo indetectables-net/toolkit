@@ -1,7 +1,10 @@
-Microsoft Windows [Version 10.0.19043.1645]
+Microsoft Windows [Version 10.0.19043.1826]
 (c) Microsoft Corporation. All rights reserved.
 
 D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\code\indetectables\toolkit\toolkit
+[+] Process: 4n4lDetector
+   [*] Adding: "4N4LDetector.exe"
+      [!] force link creation
 [+] Process: CAPA
    [*] Adding: "capa.exe"
       [!] force link creation
@@ -11,6 +14,9 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "die.exe"
       [!] force link creation
+[+] Process: ExeExplorer
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "EXE.exe"
 [+] Process: ExeinfoPe
    [*] Adding: "exeinfope.exe"
       [!] force link creation
@@ -67,8 +73,9 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
    [*] Adding: "jd-gui.exe"
       [!] force link creation
 [+] Process: [JAVA] Recaf
-   [*] Adding: "recaf-J8-jar-with-dependencies.jar"
+   [*] Adding jar: "recaf-J8-jar-with-dependencies.jar"
 [+] Process: [PYTHON] PyInstxtractor
+   [*] Adding py: "pyinstxtractor.py"
 [+] Process: [VB] VB Decompiler
    [*] Adding: "VB Decompiler.exe"
       [!] force link creation
@@ -229,10 +236,13 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
       [!] x64 exe
       [!] CLI exe
 [+] Process: Threadtear
-   [*] Adding: "threadtear-gui-all.jar"
+   [*] Adding jar: "threadtear-gui-all.jar"
 [+] Process: VirusTotalUploader
    [*] Adding: "uploader.exe"
       [!] force link creation
+[+] Process: x64dbgPluginManager
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "x64plgmnr.exe"
 [+] Process: XOpCodeCalc
    [*] Adding: "xocalc.exe"
       [!] force link creation
@@ -301,3 +311,5 @@ D:\code\indetectables\toolkit\bin\installer>python generate-sections.py -f D:\co
       [!] force link creation
 
 [+] Generate cli register code
+
+D:\code\indetectables\toolkit\bin\installer>
