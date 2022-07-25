@@ -1,6 +1,18 @@
 # Changelog
 
 
+## 2022.7 - Jul 15, 2022
+
+### Added
+
+- Add x64dbgPluginManager
+
+### Changed
+
+- Update tools (25/07/2022)
+- Fix updater config for: PEStudio, Cutter and ImHex
+
+
 ## 2022.3 - May 11, 2022
 
 ### Added
