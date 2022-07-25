@@ -1,4 +1,4 @@
-English | [Español](README.ES.md)
+English | [Español](README.ES.md) | [简体中文](README.zh_CN.md)
 
 # Indetectables Toolkit
 
@@ -24,9 +24,9 @@ To be clear, this pack is thought to be the most complete and robust in existenc
 
 ## Installation
 
-1. You can clone the repository with [git](https://git-scm.com/download/win), or you can also [download it](https://github.com/indetectables-net/toolkit/archive/refs/heads/master.zip). Alternatively, you can simply download the stable versions from the [release section](https://github.com/indetectables-net/toolkit/releases), where you can also find the installer.
+1. You can simply download the stable versions from the [release section](https://github.com/indetectables-net/toolkit/releases), where you can also find the installer.
 
-2. Once downloaded, you can update the tools with the Universal Updater that we specifically [developed](https://github.com/xchwarze/universal-tool-updater) for that sole purpose. <br/>. 
+2. Once downloaded, you can update the tools with the Universal Updater that we specifically [developed](https://github.com/xchwarze/universal-tool-updater) for that sole purpose. <br/>
 You will find the binary in the folder `bin\updater\updater.exe`.
 
 

@@ -310,7 +310,7 @@ class GenerateInstall:
         return len(jar_list)
 
     def iterate_tool_jar_gen(self, jar_path):
-        print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(jar_path).name)}"')
+        print(colorama.Fore.GREEN + f'   [*] Adding jar: "{str(pathlib.Path(jar_path).name)}"')
         tool_jar_path = self.absolute_to_local_path(jar_path)
         working_dir = str(pathlib.Path(jar_path).parent)
 
@@ -334,18 +334,18 @@ class GenerateInstall:
         self.section_list.append('')
 
     def iterate_tool_py(self, folder_path):
-        jar_list = list(folder_path.glob('*.py'))
+        py_list = list(folder_path.glob('*.py'))
 
         # for now there is always 1
-        if len(jar_list) == 0:
+        if len(py_list) == 0:
             return 0
 
-        self.iterate_tool_py_gen(jar_list[0])
+        self.iterate_tool_py_gen(py_list[0])
 
-        return len(jar_list)
+        return len(py_list)
 
     def iterate_tool_py_gen(self, py_path):
-        print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(py_path).name)}"')
+        print(colorama.Fore.GREEN + f'   [*] Adding py: "{str(pathlib.Path(py_path).name)}"')
         tool_py_path = self.absolute_to_local_path(py_path)
         working_dir = str(pathlib.Path(py_path).parent)
 
