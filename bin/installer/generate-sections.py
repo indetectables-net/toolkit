@@ -85,38 +85,13 @@ class GenerateInstall:
         ]
         self.compact_tool_list = [
             # analysis
-            'die', 'exeinfope', 'pestudio',
-
-            # decompilers
-            '[android] jadx', '[dotnet] ilspy', '[java] recaf',
-
-            # dissasembler
-            'x64dbg',
-
-            # hex editor
-            'hxd', 'imhex',
-
-            # monitor
-            'process hacker 3', 'procmon', 'tcpview',
-
-            # other
-            'hashcalc', 'resource hacker', 'virustotaluploader',
-
-            # rootkits detector
-            'gmer', 'sysinspector',
-
-            # unpacking
-            'qunpack', 'rl!depacker', 'uniextract', 'xvolkolak',
-        ]
-        self.typical_tool_list = [
-            # analysis
-            'capa', 'die', 'exeinfope', 'pe-bear', 'pestudio', 'xapkdetector',
+            'capa', 'die', 'exeinfope', 'pestudio', 'xapkdetector',
 
             # decompilers
             '[android] jadx', '[dotnet] ilspy', '[java] jd-gui', '[java] recaf',
 
             # dissasembler
-            'cutter', 'x64dbg',
+            'x64dbg',
 
             # hex editor
             'hxd', 'imhex',
@@ -167,9 +142,6 @@ class GenerateInstall:
 
         if self.tool_name.lower() in self.compact_tool_list:
             types += ' compact'
-
-        if self.tool_name.lower() in self.typical_tool_list:
-            types += ' typical'
         
         return types
 
@@ -213,6 +185,7 @@ class GenerateInstall:
                 f'Name: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
                 f'Description: "{self.tool_name}"; '
                 f'Types: {self.iss_types()}; '
+                f'Flags: fixed; '
             )
             self.section_list.append('')
 

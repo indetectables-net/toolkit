@@ -1,6 +1,6 @@
 ; [ANDROID] JADX
 [Components]
-Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full compact typical; 
+Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full compact; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[ANDROID] JADX\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX"; Components: "decompilers\androidjadx"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -13,7 +13,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[ANDROID] JADX"; Filename: "
 
 ; [AUTOIT] Exe2Aut
 [Components]
-Name: "decompilers\autoitexe2aut"; Description: "[AUTOIT] Exe2Aut"; Types: full; 
+Name: "decompilers\autoitexe2aut"; Description: "[AUTOIT] Exe2Aut"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[AUTOIT] Exe2Aut\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] Exe2Aut"; Components: "decompilers\autoitexe2aut"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -26,7 +26,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] Exe2Aut"; Filename:
 
 ; [AUTOIT] MyAutToExe
 [Components]
-Name: "decompilers\autoitmyauttoexe"; Description: "[AUTOIT] MyAutToExe"; Types: full; 
+Name: "decompilers\autoitmyauttoexe"; Description: "[AUTOIT] MyAutToExe"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[AUTOIT] MyAutToExe\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] MyAutToExe"; Components: "decompilers\autoitmyauttoexe"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -39,7 +39,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] MyAutToExe"; Filena
 
 ; [DELPHI] Dede
 [Components]
-Name: "decompilers\delphidede"; Description: "[DELPHI] Dede"; Types: full; 
+Name: "decompilers\delphidede"; Description: "[DELPHI] Dede"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[DELPHI] Dede\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] Dede"; Components: "decompilers\delphidede"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -52,7 +52,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DELPHI] Dede"; Filename: "{
 
 ; [DELPHI] IDR
 [Components]
-Name: "decompilers\delphiidr"; Description: "[DELPHI] IDR"; Types: full; 
+Name: "decompilers\delphiidr"; Description: "[DELPHI] IDR"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[DELPHI] IDR\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DELPHI] IDR"; Components: "decompilers\delphiidr"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -65,7 +65,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DELPHI] IDR"; Filename: "{#
 
 ; [DOTNET] dnSpyEx
 [Components]
-Name: "decompilers\dotnetdnspyex"; Description: "[DOTNET] dnSpyEx"; Types: full; 
+Name: "decompilers\dotnetdnspyex"; Description: "[DOTNET] dnSpyEx"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] dnSpyEx\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -78,7 +78,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] dnSpyEx x64"; Filen
 
 ; [DOTNET] GrayWolf
 [Components]
-Name: "decompilers\dotnetgraywolf"; Description: "[DOTNET] GrayWolf"; Types: full; 
+Name: "decompilers\dotnetgraywolf"; Description: "[DOTNET] GrayWolf"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] GrayWolf\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] GrayWolf"; Components: "decompilers\dotnetgraywolf"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -91,7 +91,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] GrayWolf"; Filename
 
 ; [DOTNET] ILSpy
 [Components]
-Name: "decompilers\dotnetilspy"; Description: "[DOTNET] ILSpy"; Types: full compact typical; 
+Name: "decompilers\dotnetilspy"; Description: "[DOTNET] ILSpy"; Types: full compact; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] ILSpy\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -104,7 +104,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] ILSpy"; Filename: "
 
 ; [JAVA] JD-GUI
 [Components]
-Name: "decompilers\javajdgui"; Description: "[JAVA] JD-GUI"; Types: full typical; 
+Name: "decompilers\javajdgui"; Description: "[JAVA] JD-GUI"; Types: full compact; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[JAVA] JD-GUI\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI"; Components: "decompilers\javajdgui"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -117,7 +117,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[JAVA] JD-GUI"; Filename: "{
 
 ; [JAVA] Recaf
 [Components]
-Name: "decompilers\javarecaf"; Description: "[JAVA] Recaf"; Types: full compact typical; 
+Name: "decompilers\javarecaf"; Description: "[JAVA] Recaf"; Types: full compact; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[JAVA] Recaf\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf"; Components: "decompilers\javarecaf"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -130,7 +130,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[JAVA] Recaf"; Filename: "{#
 
 ; [PYTHON] PyInstxtractor
 [Components]
-Name: "decompilers\pythonpyinstxtractor"; Description: "[PYTHON] PyInstxtractor"; Types: full; 
+Name: "decompilers\pythonpyinstxtractor"; Description: "[PYTHON] PyInstxtractor"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[PYTHON] PyInstxtractor\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] PyInstxtractor"; Components: "decompilers\pythonpyinstxtractor"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -143,7 +143,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] PyInstxtractor"; Fi
 
 ; [VB] VB Decompiler
 [Components]
-Name: "decompilers\vbvbdecompiler"; Description: "[VB] VB Decompiler"; Types: full; 
+Name: "decompilers\vbvbdecompiler"; Description: "[VB] VB Decompiler"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[VB] VB Decompiler\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler"; Flags: ignoreversion recursesubdirs createallsubdirs; 

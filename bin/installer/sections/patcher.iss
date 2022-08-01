@@ -1,6 +1,6 @@
 ; AT4RE Patcher
 [Components]
-Name: "patcher\at4repatcher"; Description: "AT4RE Patcher"; Types: full; 
+Name: "patcher\at4repatcher"; Description: "AT4RE Patcher"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Patcher\AT4RE Patcher\*"; DestDir: "{#MyAppToolsFolder}\Patcher\AT4RE Patcher"; Components: "patcher\at4repatcher"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -13,7 +13,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Patcher\AT4RE Patcher"; Filename: "{#MyA
 
 ; dUP
 [Components]
-Name: "patcher\dup"; Description: "dUP"; Types: full; 
+Name: "patcher\dup"; Description: "dUP"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Patcher\dUP\*"; DestDir: "{#MyAppToolsFolder}\Patcher\dUP"; Components: "patcher\dup"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -26,7 +26,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Patcher\dUP"; Filename: "{#MyAppToolsFol
 
 ; uPPP
 [Components]
-Name: "patcher\uppp"; Description: "uPPP"; Types: full; 
+Name: "patcher\uppp"; Description: "uPPP"; Types: full; Flags: fixed; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Patcher\uPPP\*"; DestDir: "{#MyAppToolsFolder}\Patcher\uPPP"; Components: "patcher\uppp"; Flags: ignoreversion recursesubdirs createallsubdirs; 
