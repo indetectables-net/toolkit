@@ -32,7 +32,7 @@ You will find the binary in the folder `bin\updater\updater.exe`.
 
 ## Tool set
 
-This toolkit is composed by 75 apps that cover everything we might need to perform reverse engineering and binary/malware analysis. <br/>
+This toolkit is composed by +80 apps that cover everything we might need to perform reverse engineering and binary/malware analysis. <br/>
 Every tool has been downloaded from their original/official websites, but we still recommend you to use them with caution, specially those tools whose official pages are forum threads. Always exercise common sense. <br/>
 You can check the complete list of tools [here](TOOLS.md).
 
