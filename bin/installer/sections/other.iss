@@ -1,6 +1,6 @@
 ; APKEasyTool
 [Components]
-Name: "other\apkeasytool"; Description: "APKEasyTool"; Types: full; Flags: fixed; 
+Name: "other\apkeasytool"; Description: "APKEasyTool"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\APKEasyTool\*"; DestDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -13,7 +13,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\APKEasyTool"; Filename: "{#MyAppTo
 
 ; ApkStudio
 [Components]
-Name: "other\apkstudio"; Description: "ApkStudio"; Types: full compact; Flags: fixed; 
+Name: "other\apkstudio"; Description: "ApkStudio"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\ApkStudio\*"; DestDir: "{#MyAppToolsFolder}\Other\ApkStudio"; Components: "other\apkstudio"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -26,7 +26,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ApkStudio x64"; Filename: "{#MyApp
 
 ; AstroGrep
 [Components]
-Name: "other\astrogrep"; Description: "AstroGrep"; Types: full; Flags: fixed; 
+Name: "other\astrogrep"; Description: "AstroGrep"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\AstroGrep\*"; DestDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -39,7 +39,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AstroGrep"; Filename: "{#MyAppTool
 
 ; AVFucker
 [Components]
-Name: "other\avfucker"; Description: "AVFucker"; Types: full; Flags: fixed; 
+Name: "other\avfucker"; Description: "AVFucker"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\AVFucker\*"; DestDir: "{#MyAppToolsFolder}\Other\AVFucker"; Components: "other\avfucker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -52,7 +52,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AVFucker"; Filename: "{#MyAppTools
 
 ; FLOSS
 [Components]
-Name: "other\floss"; Description: "FLOSS"; Types: full compact; Flags: fixed; 
+Name: "other\floss"; Description: "FLOSS"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\FLOSS\*"; DestDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -65,7 +65,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\FLOSS x64"; Filename: "{sys}\cmd.e
 
 ; HashCalc
 [Components]
-Name: "other\hashcalc"; Description: "HashCalc"; Types: full compact; Flags: fixed; 
+Name: "other\hashcalc"; Description: "HashCalc"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\HashCalc\*"; DestDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -78,7 +78,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashCalc"; Filename: "{#MyAppTools
 
 ; HashMyFiles
 [Components]
-Name: "other\hashmyfiles"; Description: "HashMyFiles"; Types: full; Flags: fixed; 
+Name: "other\hashmyfiles"; Description: "HashMyFiles"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\HashMyFiles\*"; DestDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -91,7 +91,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashMyFiles"; Filename: "{#MyAppTo
 
 ; ImpREC
 [Components]
-Name: "other\imprec"; Description: "ImpREC"; Types: full; Flags: fixed; 
+Name: "other\imprec"; Description: "ImpREC"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\ImpREC\*"; DestDir: "{#MyAppToolsFolder}\Other\ImpREC"; Components: "other\imprec"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -104,7 +104,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ImpREC"; Filename: "{#MyAppToolsFo
 
 ; Indetectables Offset Locator
 [Components]
-Name: "other\indetectablesoffsetlocator"; Description: "Indetectables Offset Locator"; Types: full; Flags: fixed; 
+Name: "other\indetectablesoffsetlocator"; Description: "Indetectables Offset Locator"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Indetectables Offset Locator\*"; DestDir: "{#MyAppToolsFolder}\Other\Indetectables Offset Locator"; Components: "other\indetectablesoffsetlocator"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -117,7 +117,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Indetectables Offset Locator"; Fil
 
 ; ProcDOT
 [Components]
-Name: "other\procdot"; Description: "ProcDOT"; Types: full; Flags: fixed; 
+Name: "other\procdot"; Description: "ProcDOT"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\ProcDOT\*"; DestDir: "{#MyAppToolsFolder}\Other\ProcDOT"; Components: "other\procdot"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -134,7 +134,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT x64"; Filename: "{#MyAppTo
 
 ; Process-Dump
 [Components]
-Name: "other\processdump"; Description: "Process-Dump"; Types: full; Flags: fixed; 
+Name: "other\processdump"; Description: "Process-Dump"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Process-Dump\*"; DestDir: "{#MyAppToolsFolder}\Other\Process-Dump"; Components: "other\processdump"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -151,7 +151,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump x64"; Filename: "{sys
 
 ; Resource Hacker
 [Components]
-Name: "other\resourcehacker"; Description: "Resource Hacker"; Types: full compact; Flags: fixed; 
+Name: "other\resourcehacker"; Description: "Resource Hacker"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Resource Hacker\*"; DestDir: "{#MyAppToolsFolder}\Other\Resource Hacker"; Components: "other\resourcehacker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -164,7 +164,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Resource Hacker"; Filename: "{#MyA
 
 ; Scylla
 [Components]
-Name: "other\scylla"; Description: "Scylla"; Types: full compact; Flags: fixed; 
+Name: "other\scylla"; Description: "Scylla"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Scylla\*"; DestDir: "{#MyAppToolsFolder}\Other\Scylla"; Components: "other\scylla"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -181,7 +181,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Scylla"; Filename: "{#MyAppToolsFo
 
 ; ShowString
 [Components]
-Name: "other\showstring"; Description: "ShowString"; Types: full; Flags: fixed; 
+Name: "other\showstring"; Description: "ShowString"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\ShowString\*"; DestDir: "{#MyAppToolsFolder}\Other\ShowString"; Components: "other\showstring"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -194,7 +194,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ShowString"; Filename: "{#MyAppToo
 
 ; Strings
 [Components]
-Name: "other\strings"; Description: "Strings"; Types: full; Flags: fixed; 
+Name: "other\strings"; Description: "Strings"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Strings\*"; DestDir: "{#MyAppToolsFolder}\Other\Strings"; Components: "other\strings"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -211,7 +211,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Strings x64"; Filename: "{sys}\cmd
 
 ; Threadtear
 [Components]
-Name: "other\threadtear"; Description: "Threadtear"; Types: full; Flags: fixed; 
+Name: "other\threadtear"; Description: "Threadtear"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Threadtear\*"; DestDir: "{#MyAppToolsFolder}\Other\Threadtear"; Components: "other\threadtear"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -224,7 +224,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Threadtear"; Filename: "{#MyAppToo
 
 ; VirusTotalUploader
 [Components]
-Name: "other\virustotaluploader"; Description: "VirusTotalUploader"; Types: full compact; Flags: fixed; 
+Name: "other\virustotaluploader"; Description: "VirusTotalUploader"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\VirusTotalUploader\*"; DestDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -237,7 +237,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\VirusTotalUploader"; Filename: "{#
 
 ; x64dbgPluginManager
 [Components]
-Name: "other\x64dbgpluginmanager"; Description: "x64dbgPluginManager"; Types: full compact; Flags: fixed; 
+Name: "other\x64dbgpluginmanager"; Description: "x64dbgPluginManager"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\x64dbgPluginManager\*"; DestDir: "{#MyAppToolsFolder}\Other\x64dbgPluginManager"; Components: "other\x64dbgpluginmanager"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -250,7 +250,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\x64dbgPluginManager"; Filename: "{
 
 ; XOpCodeCalc
 [Components]
-Name: "other\xopcodecalc"; Description: "XOpCodeCalc"; Types: full; Flags: fixed; 
+Name: "other\xopcodecalc"; Description: "XOpCodeCalc"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\XOpCodeCalc\*"; DestDir: "{#MyAppToolsFolder}\Other\XOpCodeCalc"; Components: "other\xopcodecalc"; Flags: ignoreversion recursesubdirs createallsubdirs; 

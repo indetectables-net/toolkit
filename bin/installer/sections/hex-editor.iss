@@ -1,6 +1,6 @@
 ; HxD
 [Components]
-Name: "hexeditor\hxd"; Description: "HxD"; Types: full compact; Flags: fixed; 
+Name: "hexeditor\hxd"; Description: "HxD"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\HEX Editor\HxD\*"; DestDir: "{#MyAppToolsFolder}\HEX Editor\HxD"; Components: "hexeditor\hxd"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -17,7 +17,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\HxD x64"; Filename: "{#MyAppT
 
 ; ImHex
 [Components]
-Name: "hexeditor\imhex"; Description: "ImHex"; Types: full compact; Flags: fixed; 
+Name: "hexeditor\imhex"; Description: "ImHex"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\HEX Editor\ImHex\*"; DestDir: "{#MyAppToolsFolder}\HEX Editor\ImHex"; Components: "hexeditor\imhex"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -30,7 +30,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\ImHex x64"; Filename: "{#MyAp
 
 ; REHex
 [Components]
-Name: "hexeditor\rehex"; Description: "REHex"; Types: full; Flags: fixed; 
+Name: "hexeditor\rehex"; Description: "REHex"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\HEX Editor\REHex\*"; DestDir: "{#MyAppToolsFolder}\HEX Editor\REHex"; Components: "hexeditor\rehex"; Flags: ignoreversion recursesubdirs createallsubdirs; 

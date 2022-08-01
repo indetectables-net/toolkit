@@ -1,6 +1,6 @@
 ; Api Monitor
 [Components]
-Name: "monitor\apimonitor"; Description: "Api Monitor"; Types: full compact; Flags: fixed; 
+Name: "monitor\apimonitor"; Description: "Api Monitor"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Api Monitor\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Api Monitor"; Components: "monitor\apimonitor"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -17,7 +17,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Api Monitor"; Filename: "{#MyApp
 
 ; Autoruns
 [Components]
-Name: "monitor\autoruns"; Description: "Autoruns"; Types: full; Flags: fixed; 
+Name: "monitor\autoruns"; Description: "Autoruns"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Autoruns\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Autoruns"; Components: "monitor\autoruns"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -34,7 +34,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Autoruns x64"; Filename: "{#MyAp
 
 ; CurrPorts
 [Components]
-Name: "monitor\currports"; Description: "CurrPorts"; Types: full; Flags: fixed; 
+Name: "monitor\currports"; Description: "CurrPorts"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\CurrPorts\*"; DestDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -47,7 +47,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\CurrPorts"; Filename: "{#MyAppTo
 
 ; HollowsHunter
 [Components]
-Name: "monitor\hollowshunter"; Description: "HollowsHunter"; Types: full; Flags: fixed; 
+Name: "monitor\hollowshunter"; Description: "HollowsHunter"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\HollowsHunter\*"; DestDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -60,7 +60,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\HollowsHunter x64"; Filename: "{
 
 ; MultiMon
 [Components]
-Name: "monitor\multimon"; Description: "MultiMon"; Types: full; Flags: fixed; 
+Name: "monitor\multimon"; Description: "MultiMon"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\MultiMon\*"; DestDir: "{#MyAppToolsFolder}\Monitor\MultiMon"; Components: "monitor\multimon"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -73,7 +73,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\MultiMon"; Filename: "{#MyAppToo
 
 ; PE-sieve
 [Components]
-Name: "monitor\pesieve"; Description: "PE-sieve"; Types: full; Flags: fixed; 
+Name: "monitor\pesieve"; Description: "PE-sieve"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\PE-sieve\*"; DestDir: "{#MyAppToolsFolder}\Monitor\PE-sieve"; Components: "monitor\pesieve"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -86,7 +86,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\PE-sieve x64"; Filename: "{sys}\
 
 ; Portmon
 [Components]
-Name: "monitor\portmon"; Description: "Portmon"; Types: full; Flags: fixed; 
+Name: "monitor\portmon"; Description: "Portmon"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Portmon\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Portmon"; Components: "monitor\portmon"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -99,7 +99,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Portmon"; Filename: "{#MyAppTool
 
 ; Process Explorer
 [Components]
-Name: "monitor\processexplorer"; Description: "Process Explorer"; Types: full compact; Flags: fixed; 
+Name: "monitor\processexplorer"; Description: "Process Explorer"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Process Explorer\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Process Explorer"; Components: "monitor\processexplorer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -116,7 +116,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Process Explorer x64"; Filename:
 
 ; Process Hacker 3
 [Components]
-Name: "monitor\processhacker3"; Description: "Process Hacker 3"; Types: full compact; Flags: fixed; 
+Name: "monitor\processhacker3"; Description: "Process Hacker 3"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Process Hacker 3\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Process Hacker 3"; Components: "monitor\processhacker3"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -133,7 +133,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Process Hacker 3 x64"; Filename:
 
 ; Procmon
 [Components]
-Name: "monitor\procmon"; Description: "Procmon"; Types: full compact; Flags: fixed; 
+Name: "monitor\procmon"; Description: "Procmon"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Procmon\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Procmon"; Components: "monitor\procmon"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -150,7 +150,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Procmon x64"; Filename: "{#MyApp
 
 ; RegShot
 [Components]
-Name: "monitor\regshot"; Description: "RegShot"; Types: full; Flags: fixed; 
+Name: "monitor\regshot"; Description: "RegShot"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\RegShot\*"; DestDir: "{#MyAppToolsFolder}\Monitor\RegShot"; Components: "monitor\regshot"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -167,7 +167,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\RegShot"; Filename: "{#MyAppTool
 
 ; SysAnalyzer
 [Components]
-Name: "monitor\sysanalyzer"; Description: "SysAnalyzer"; Types: full; Flags: fixed; 
+Name: "monitor\sysanalyzer"; Description: "SysAnalyzer"; Types: full; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\SysAnalyzer\*"; DestDir: "{#MyAppToolsFolder}\Monitor\SysAnalyzer"; Components: "monitor\sysanalyzer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -180,7 +180,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\SysAnalyzer"; Filename: "{#MyApp
 
 ; TCPView
 [Components]
-Name: "monitor\tcpview"; Description: "TCPView"; Types: full compact; Flags: fixed; 
+Name: "monitor\tcpview"; Description: "TCPView"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\TCPView\*"; DestDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview"; Flags: ignoreversion recursesubdirs createallsubdirs; 

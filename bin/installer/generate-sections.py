@@ -185,7 +185,6 @@ class GenerateInstall:
                 f'Name: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
                 f'Description: "{self.tool_name}"; '
                 f'Types: {self.iss_types()}; '
-                f'Flags: fixed; '
             )
             self.section_list.append('')
 
