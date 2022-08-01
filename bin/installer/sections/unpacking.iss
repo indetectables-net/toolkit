@@ -47,7 +47,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\NETUnpack"; Filename: "{#MyApp
 
 ; QUnpack
 [Components]
-Name: "unpacking\qunpack"; Description: "QUnpack"; Types: full compact; 
+Name: "unpacking\qunpack"; Description: "QUnpack"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\QUnpack\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\QUnpack"; Components: "unpacking\qunpack"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -64,7 +64,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\QUnpack x64"; Filename: "{#MyA
 
 ; RL!dePacker
 [Components]
-Name: "unpacking\rldepacker"; Description: "RL!dePacker"; Types: full compact; 
+Name: "unpacking\rldepacker"; Description: "RL!dePacker"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\RL!dePacker\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\RL!dePacker"; Components: "unpacking\rldepacker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -77,7 +77,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\RL!dePacker"; Filename: "{#MyA
 
 ; UniExtract
 [Components]
-Name: "unpacking\uniextract"; Description: "UniExtract"; Types: full compact; 
+Name: "unpacking\uniextract"; Description: "UniExtract"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\UniExtract\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\UniExtract"; Components: "unpacking\uniextract"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -103,7 +103,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\VMUnpacker"; Filename: "{#MyAp
 
 ; XVolkolak
 [Components]
-Name: "unpacking\xvolkolak"; Description: "XVolkolak"; Types: full compact; 
+Name: "unpacking\xvolkolak"; Description: "XVolkolak"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\XVolkolak\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\XVolkolak"; Components: "unpacking\xvolkolak"; Flags: ignoreversion recursesubdirs createallsubdirs; 

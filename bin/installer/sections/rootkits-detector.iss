@@ -1,6 +1,6 @@
 ; GMER
 [Components]
-Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact; 
+Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Rootkits Detector\GMER\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\GMER"; Components: "rootkitsdetector\gmer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -13,7 +13,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\GMER"; Filename: "{#My
 
 ; Sysinspector
 [Components]
-Name: "rootkitsdetector\sysinspector"; Description: "Sysinspector"; Types: full compact; 
+Name: "rootkitsdetector\sysinspector"; Description: "Sysinspector"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Rootkits Detector\Sysinspector\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector"; Flags: ignoreversion recursesubdirs createallsubdirs; 

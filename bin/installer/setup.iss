@@ -40,6 +40,11 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "catalan"; MessagesFile: "compiler:Languages\Catalan.isl"
 Name: "portuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
+[Types]
+Name: "full"; Description: "Full installation"
+Name: "compact"; Description: "Compact installation"
+Name: "typical"; Description: "Typical installation"; Flags: iscustom
+
 [Components]
 Name: "analysis"; Description: "Analysis tools"; Types: full;
 #include "sections\analysis.iss"

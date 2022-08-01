@@ -1,6 +1,6 @@
 ; Api Monitor
 [Components]
-Name: "monitor\apimonitor"; Description: "Api Monitor"; Types: full; 
+Name: "monitor\apimonitor"; Description: "Api Monitor"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Api Monitor\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Api Monitor"; Components: "monitor\apimonitor"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -99,7 +99,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Portmon"; Filename: "{#MyAppTool
 
 ; Process Explorer
 [Components]
-Name: "monitor\processexplorer"; Description: "Process Explorer"; Types: full; 
+Name: "monitor\processexplorer"; Description: "Process Explorer"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Process Explorer\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Process Explorer"; Components: "monitor\processexplorer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -116,7 +116,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Process Explorer x64"; Filename:
 
 ; Process Hacker 3
 [Components]
-Name: "monitor\processhacker3"; Description: "Process Hacker 3"; Types: full compact; 
+Name: "monitor\processhacker3"; Description: "Process Hacker 3"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Process Hacker 3\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Process Hacker 3"; Components: "monitor\processhacker3"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -133,7 +133,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Process Hacker 3 x64"; Filename:
 
 ; Procmon
 [Components]
-Name: "monitor\procmon"; Description: "Procmon"; Types: full compact; 
+Name: "monitor\procmon"; Description: "Procmon"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\Procmon\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Procmon"; Components: "monitor\procmon"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -180,7 +180,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\SysAnalyzer"; Filename: "{#MyApp
 
 ; TCPView
 [Components]
-Name: "monitor\tcpview"; Description: "TCPView"; Types: full compact; 
+Name: "monitor\tcpview"; Description: "TCPView"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\TCPView\*"; DestDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview"; Flags: ignoreversion recursesubdirs createallsubdirs; 

@@ -88,7 +88,7 @@ class GenerateInstall:
             'die', 'exeinfope', 'pestudio',
 
             # decompilers
-            '[android] jadx', '[java] recaf', '[dotnet] ilspy',
+            '[android] jadx', '[dotnet] ilspy', '[java] recaf',
 
             # dissasembler
             'x64dbg',
@@ -101,6 +101,31 @@ class GenerateInstall:
 
             # other
             'hashcalc', 'resource hacker', 'virustotaluploader',
+
+            # rootkits detector
+            'gmer', 'sysinspector',
+
+            # unpacking
+            'qunpack', 'rl!depacker', 'uniextract', 'xvolkolak',
+        ]
+        self.typical_tool_list = [
+            # analysis
+            'capa', 'die', 'exeinfope', 'pe-bear', 'pestudio', 'xapkdetector',
+
+            # decompilers
+            '[android] jadx', '[dotnet] ilspy', '[java] jd-gui', '[java] recaf',
+
+            # dissasembler
+            'cutter', 'x64dbg',
+
+            # hex editor
+            'hxd', 'imhex',
+
+            # monitor
+            'api monitor', 'process explorer', 'process hacker 3', 'procmon', 'tcpview',
+
+            # other
+            'apkstudio', 'floss', 'hashcalc', 'resource hacker', 'scylla', 'virustotaluploader', 'x64dbgpluginmanager',
 
             # rootkits detector
             'gmer', 'sysinspector',
@@ -137,11 +162,16 @@ class GenerateInstall:
 
         return f'{{#MyAppToolsIconsFolder}}\\{name}.ico'
 
-    def iss_types(self, name):
-        if name.lower() in self.compact_tool_list:
-            return 'full compact'
+    def iss_types(self):
+        types = 'full'
 
-        return 'full'
+        if self.tool_name.lower() in self.compact_tool_list:
+            types += ' compact'
+
+        if self.tool_name.lower() in self.typical_tool_list:
+            types += ' typical'
+        
+        return types
 
     # script steps
     def iterate_sections(self, folder_path):
@@ -182,7 +212,7 @@ class GenerateInstall:
             self.section_list.append(
                 f'Name: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
                 f'Description: "{self.tool_name}"; '
-                f'Types: {self.iss_types(self.tool_name)}; '
+                f'Types: {self.iss_types()}; '
             )
             self.section_list.append('')
 

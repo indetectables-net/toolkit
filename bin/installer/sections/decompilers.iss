@@ -1,6 +1,6 @@
 ; [ANDROID] JADX
 [Components]
-Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full compact; 
+Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[ANDROID] JADX\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[ANDROID] JADX"; Components: "decompilers\androidjadx"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -91,7 +91,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] GrayWolf"; Filename
 
 ; [DOTNET] ILSpy
 [Components]
-Name: "decompilers\dotnetilspy"; Description: "[DOTNET] ILSpy"; Types: full compact; 
+Name: "decompilers\dotnetilspy"; Description: "[DOTNET] ILSpy"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] ILSpy\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -104,7 +104,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] ILSpy"; Filename: "
 
 ; [JAVA] JD-GUI
 [Components]
-Name: "decompilers\javajdgui"; Description: "[JAVA] JD-GUI"; Types: full; 
+Name: "decompilers\javajdgui"; Description: "[JAVA] JD-GUI"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[JAVA] JD-GUI\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] JD-GUI"; Components: "decompilers\javajdgui"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -117,7 +117,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[JAVA] JD-GUI"; Filename: "{
 
 ; [JAVA] Recaf
 [Components]
-Name: "decompilers\javarecaf"; Description: "[JAVA] Recaf"; Types: full compact; 
+Name: "decompilers\javarecaf"; Description: "[JAVA] Recaf"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Decompilers\[JAVA] Recaf\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[JAVA] Recaf"; Components: "decompilers\javarecaf"; Flags: ignoreversion recursesubdirs createallsubdirs; 

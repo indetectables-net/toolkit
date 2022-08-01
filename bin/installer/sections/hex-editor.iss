@@ -1,6 +1,6 @@
 ; HxD
 [Components]
-Name: "hexeditor\hxd"; Description: "HxD"; Types: full compact; 
+Name: "hexeditor\hxd"; Description: "HxD"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\HEX Editor\HxD\*"; DestDir: "{#MyAppToolsFolder}\HEX Editor\HxD"; Components: "hexeditor\hxd"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -17,7 +17,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\HxD x64"; Filename: "{#MyAppT
 
 ; ImHex
 [Components]
-Name: "hexeditor\imhex"; Description: "ImHex"; Types: full compact; 
+Name: "hexeditor\imhex"; Description: "ImHex"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\HEX Editor\ImHex\*"; DestDir: "{#MyAppToolsFolder}\HEX Editor\ImHex"; Components: "hexeditor\imhex"; Flags: ignoreversion recursesubdirs createallsubdirs; 

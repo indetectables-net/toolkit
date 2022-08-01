@@ -13,7 +13,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\APKEasyTool"; Filename: "{#MyAppTo
 
 ; ApkStudio
 [Components]
-Name: "other\apkstudio"; Description: "ApkStudio"; Types: full; 
+Name: "other\apkstudio"; Description: "ApkStudio"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\ApkStudio\*"; DestDir: "{#MyAppToolsFolder}\Other\ApkStudio"; Components: "other\apkstudio"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -52,7 +52,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AVFucker"; Filename: "{#MyAppTools
 
 ; FLOSS
 [Components]
-Name: "other\floss"; Description: "FLOSS"; Types: full; 
+Name: "other\floss"; Description: "FLOSS"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\FLOSS\*"; DestDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -65,7 +65,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\FLOSS x64"; Filename: "{sys}\cmd.e
 
 ; HashCalc
 [Components]
-Name: "other\hashcalc"; Description: "HashCalc"; Types: full compact; 
+Name: "other\hashcalc"; Description: "HashCalc"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\HashCalc\*"; DestDir: "{#MyAppToolsFolder}\Other\HashCalc"; Components: "other\hashcalc"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -151,7 +151,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Process-Dump x64"; Filename: "{sys
 
 ; Resource Hacker
 [Components]
-Name: "other\resourcehacker"; Description: "Resource Hacker"; Types: full compact; 
+Name: "other\resourcehacker"; Description: "Resource Hacker"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Resource Hacker\*"; DestDir: "{#MyAppToolsFolder}\Other\Resource Hacker"; Components: "other\resourcehacker"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -164,7 +164,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Resource Hacker"; Filename: "{#MyA
 
 ; Scylla
 [Components]
-Name: "other\scylla"; Description: "Scylla"; Types: full; 
+Name: "other\scylla"; Description: "Scylla"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\Scylla\*"; DestDir: "{#MyAppToolsFolder}\Other\Scylla"; Components: "other\scylla"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -224,7 +224,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\Threadtear"; Filename: "{#MyAppToo
 
 ; VirusTotalUploader
 [Components]
-Name: "other\virustotaluploader"; Description: "VirusTotalUploader"; Types: full compact; 
+Name: "other\virustotaluploader"; Description: "VirusTotalUploader"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\VirusTotalUploader\*"; DestDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -237,7 +237,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\VirusTotalUploader"; Filename: "{#
 
 ; x64dbgPluginManager
 [Components]
-Name: "other\x64dbgpluginmanager"; Description: "x64dbgPluginManager"; Types: full; 
+Name: "other\x64dbgpluginmanager"; Description: "x64dbgPluginManager"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Other\x64dbgPluginManager\*"; DestDir: "{#MyAppToolsFolder}\Other\x64dbgPluginManager"; Components: "other\x64dbgpluginmanager"; Flags: ignoreversion recursesubdirs createallsubdirs; 

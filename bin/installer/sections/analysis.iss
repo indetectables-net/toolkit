@@ -13,7 +13,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\4n4lDetector"; Filename: "{#MyA
 
 ; CAPA
 [Components]
-Name: "analysis\capa"; Description: "CAPA"; Types: full; 
+Name: "analysis\capa"; Description: "CAPA"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Analysis\CAPA\*"; DestDir: "{#MyAppToolsFolder}\Analysis\CAPA"; Components: "analysis\capa"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -26,7 +26,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\CAPA x64"; Filename: "{sys}\cmd
 
 ; DIE
 [Components]
-Name: "analysis\die"; Description: "DIE"; Types: full compact; 
+Name: "analysis\die"; Description: "DIE"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Analysis\DIE\*"; DestDir: "{#MyAppToolsFolder}\Analysis\DIE"; Components: "analysis\die"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -52,7 +52,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeExplorer"; Filename: "{#MyAp
 
 ; ExeinfoPe
 [Components]
-Name: "analysis\exeinfope"; Description: "ExeinfoPe"; Types: full compact; 
+Name: "analysis\exeinfope"; Description: "ExeinfoPe"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Analysis\ExeinfoPe\*"; DestDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -65,7 +65,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeinfoPe"; Filename: "{#MyAppT
 
 ; PE-Bear
 [Components]
-Name: "analysis\pebear"; Description: "PE-Bear"; Types: full; 
+Name: "analysis\pebear"; Description: "PE-Bear"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Analysis\PE-Bear\*"; DestDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -91,7 +91,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PEiD"; Filename: "{#MyAppToolsF
 
 ; PEStudio
 [Components]
-Name: "analysis\pestudio"; Description: "PEStudio"; Types: full compact; 
+Name: "analysis\pestudio"; Description: "PEStudio"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Analysis\PEStudio\*"; DestDir: "{#MyAppToolsFolder}\Analysis\PEStudio"; Components: "analysis\pestudio"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -117,7 +117,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ProtectionID"; Filename: "{#MyA
 
 ; XAPKDetector
 [Components]
-Name: "analysis\xapkdetector"; Description: "XAPKDetector"; Types: full; 
+Name: "analysis\xapkdetector"; Description: "XAPKDetector"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Analysis\XAPKDetector\*"; DestDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector"; Flags: ignoreversion recursesubdirs createallsubdirs; 

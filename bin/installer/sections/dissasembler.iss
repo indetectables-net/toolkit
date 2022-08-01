@@ -13,7 +13,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\BDASM"; Filename: "{#MyAppT
 
 ; Cutter
 [Components]
-Name: "dissasembler\cutter"; Description: "Cutter"; Types: full; 
+Name: "dissasembler\cutter"; Description: "Cutter"; Types: full typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Dissasembler\Cutter\*"; DestDir: "{#MyAppToolsFolder}\Dissasembler\Cutter"; Components: "dissasembler\cutter"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -65,7 +65,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\w32Dasm"; Filename: "{#MyAp
 
 ; x64dbg
 [Components]
-Name: "dissasembler\x64dbg"; Description: "x64dbg"; Types: full compact; 
+Name: "dissasembler\x64dbg"; Description: "x64dbg"; Types: full compact typical; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Dissasembler\x64dbg\*"; DestDir: "{#MyAppToolsFolder}\Dissasembler\x64dbg"; Components: "dissasembler\x64dbg"; Flags: ignoreversion recursesubdirs createallsubdirs; 
