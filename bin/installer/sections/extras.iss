@@ -4,10 +4,10 @@ Name: "extras\sendto"; Description: "Add toolkit menu to ""Send To"""; Types: fu
 
 [Icons]
 ; x64
-Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Components: "extras\sendto"; Check: Is64BitInstallMode;
+Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Components: "extras\sendto"; Check: Is64BitInstallMode;
 
 ; x32
-Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Components: "extras\sendto"; Check: not Is64BitInstallMode;
+Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Components: "extras\sendto"; Check: not Is64BitInstallMode;
 
 
 
@@ -20,7 +20,7 @@ Name: "extras\contextmenu"; Description: "Add toolkit menu to context menu"; Typ
 [Registry]
 Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: none; ValueName: ""; ValueData: ""; Components: "extras\contextmenu"; Flags: uninsdeletekey;
 Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: ""; ValueData: "Indetectables Toolkit"; Components: "extras\contextmenu"; Flags: uninsdeletekey;
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "Icon"; ValueData: "{#MyAppBinsFolder}\sendto\toolkit.ico"; Components: "extras\contextmenu"; Flags: uninsdeletekey;
+Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "Icon"; ValueData: "{#MyAppToolsIconsFolder}\toolkit.ico"; Components: "extras\contextmenu"; Flags: uninsdeletekey;
 ;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorBefore"; ValueData: ""; Components: "extras\contextmenu"; Flags: uninsdeletekey;
 ;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorAfter"; ValueData: ""; Components: "extras\contextmenu"; Flags: uninsdeletekey;
 

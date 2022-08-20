@@ -30,7 +30,7 @@ Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
 ArchitecturesInstallIn64BitMode=x64
-SetupIconFile="{#MySrcDir}\assets\icons\toolkit.ico"
+SetupIconFile="{#MyAppToolsIconsFolder}\toolkit.ico"
 UninstallDisplayIcon="{#MyAppToolsIconsFolder}\toolkit.ico"
 OutputDir={#MyOutputDir}
 
