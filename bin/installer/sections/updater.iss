@@ -37,7 +37,7 @@ Filename: "{#MyAppBinsFolder}\hstart\hstart.exe"; Parameters: "/ELEVATE ""{sys}\
 
 ; Execute updater on install finish
 [Components]
-Name: "updater\update"; Description: ""; Types: full compact; 
+Name: "updater\update"; Description: "Execute updater on install finish"; Types: full compact; 
 
 [Run]
 Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Components: "updater\update"; Description: "Execute updater on install finish"; Flags: postinstall nowait skipifsilent;
