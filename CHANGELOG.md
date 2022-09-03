@@ -1,6 +1,13 @@
 # Changelog
 
 
+## 2022.9 - Sep 3, 2022
+
+### Changed
+
+- Update tools (03/09/2022)
+- Exec updater on finish install
+
 ## 2022.7 - Jul 15, 2022
 
 ### Added
