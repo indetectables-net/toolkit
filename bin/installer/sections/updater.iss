@@ -32,3 +32,12 @@ Filename: "{sys}\schtasks.exe"; Parameters: "/CREATE /SC WEEKLY /TN Indetectable
 
 [UninstallRun]
 Filename: "{#MyAppBinsFolder}\hstart\hstart.exe"; Parameters: "/ELEVATE ""{sys}\schtasks.exe /Delete /TN IndetectablesToolkit_Updater /F"""; Components: "updater\task"; Flags: runhidden; 
+
+
+
+; Execute updater on install finish
+[Components]
+Name: "updater\update"; Description: "Execute updater on install finish"; Types: full compact; 
+
+[Run]
+Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Components: "updater\update"; Flags: postinstall;
