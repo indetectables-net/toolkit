@@ -243,8 +243,8 @@ Name: "other\x64dbgpluginmanager"; Description: "x64dbgPluginManager"; Types: fu
 Source: "{#MySrcDir}\toolkit\Other\x64dbgPluginManager\*"; DestDir: "{#MyAppToolsFolder}\Other\x64dbgPluginManager"; Components: "other\x64dbgpluginmanager"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Other\x64dbgPluginManager\x64plgmnr.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\x64dbgPluginManager"; Components: "other\x64dbgpluginmanager";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Other\x64dbgPluginManager\x64plgmnr.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\x64dbgPluginManager"; Components: "other\x64dbgpluginmanager";   Check: not Is64BitInstallMode; 
+Name: "{group}\{#MyAppName}\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Other\x64dbgPluginManager\x64plgmnr.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\x64dbgPluginManager"; Components: "other\x64dbgpluginmanager";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Other\x64dbgPluginManager\x64plgmnr.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\x64dbgPluginManager"; Components: "other\x64dbgpluginmanager";    
 
 
 
