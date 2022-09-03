@@ -75,7 +75,7 @@ class GenerateInstall:
             'immunity debugger', 'ollydbg 1.10',
 
             # other
-            'apkeasytool', 'astrogrep', 'indetectables offset locator',
+            'apkeasytool', 'astrogrep', 'indetectables offset locator', 'x64dbgpluginmanager',
 
             # patcher
             'at4re patcher', 'dup',
