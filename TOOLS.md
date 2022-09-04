@@ -94,6 +94,11 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** CW2K@gmx.de <br/>
 ***Description:*** Decompiles 'compiled' AutoIT Exe files. <br/>
 
+### [AUTOIT] UnAutoIt
+***Web:*** https://github.com/x0r19x91/UnAutoIt <br/>
+***Developer:*** x0r19x91 <br/>
+***Description:*** Decompiles AutoIt v3+ Exe files. <br/>
+
 ### [DELPHI] Dede
 ***Web:*** https://code.google.com/archive/p/dedex/ <br/>
 ***Developer:*** DaFixer <br/>
@@ -287,12 +292,12 @@ It is the first and only program of its kind to support output for display in va
 
 ## Other
 
-### APKEasyTool
+### Apk Easy Tool
 ***Web:*** https://forum.xda-developers.com/t/tool-windows-apk-easy-tool-v1-59-2-2021-04-03.3333960/ <br/>
 ***Developer:*** Evildog1 <br/>
 ***Description:*** Apk Easy Tool is a lightweight GUI application that enables you to manage, sign, compile and decompile the APK files for the apps you are working on. <br/>
 
-### ApkStudio
+### APK Studio
 ***Web:*** https://github.com/vaibhavpandeyvpz/apkstudio <br/>
 ***Developer:*** Vaibhav Pandey -aka- VPZ <br/>
 ***Description:*** Open-source, cross-platform Qt based IDE for reverse-engineering Android application packages. <br/>
@@ -337,10 +342,15 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** CERT.at <br/>
 ***Description:*** ProcDOT aids malware analysis via visual means, by correlating ProcMon and PCAP data and showing it as an interactive, animated graph. It also detects and shows Thread Injection, smartly follows algorithms, filters out noise, and correlates network events with the involved processes. <br/>
 
-### Process-Dump
+### Process Dump
 ***Web:*** http://split-code.com/processdump.html <br/>
 ***Developer:*** Split-Code <br/>
 ***Description:*** Process Dump is a Windows reverse-engineering tool to dump malware memory components back to disk for analysis. It uses an aggressive import reconstruction approach to make analysis easier, and supports 32 and 64 bit modules. <br/>
+
+### RawCap
+***Web:*** https://www.netresec.com/?page=RawCap <br/>
+***Developer:*** Netresec <br/>
+***Description:***  RawCap is a free command line network sniffer for Windows that uses raw sockets. Can sniff most interface types, including WiFi, WWAN (Mobile Broadband) and PPP interfaces. <br/>
 
 ### Resource Hacker
 ***Web:*** http://www.angusj.com/resourcehacker <br/>
@@ -367,7 +377,7 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** GraxCode <br/>
 ***Description:*** Threadtear is a multifunctional deobfuscation tool for java. Android application support is coming soon (Currently working on a dalvik to java converter). Suitable for easier code analysis without worrying too much about obfuscation. <br/>
 
-### VirusTotalUploader
+### VirusTotal Uploader
 ***Web:*** https://github.com/SamuelTulach/VirusTotalUploader <br/>
 ***Developer:*** Samuel Tulach <br/>
 ***Description:*** VirusTotal file uploader <br/>
@@ -450,7 +460,7 @@ QuickUnpack tries to bypass all possible scramblers/obfuscators and restores red
 ***Description:*** Reversing Labs RL!dePacker has a build in option to detect OEP. However this option does not work with VB (always use FindOEP! function with VB applications and Force to manual OEP?) and some packers. So if RL!dePacker can not unpack the file use FindOEP! function to detect correct OEP, but use it only as a second resort since it can be jammed! <br/>
 Generic unpacker can unpack ONLY packers that do not use IAT redirection, that don’t steal APIs and which fill out IAT table in correct order. All ordinals that can be converted to API names are converted, others are inserted into IAT as ordinals! <br/>
 
-### UniExtract
+### UniExtract 2
 ***Web:*** https://github.com/Bioruebe/UniExtract2 <br/>
 ***Developer:*** Bioruebe <br/>
 ***Description:*** Universal Extractor 2 is a tool designed to extract files from any type of extractable file. <br/>
