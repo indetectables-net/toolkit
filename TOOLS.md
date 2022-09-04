@@ -157,6 +157,11 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** https://rizin.re <br/>
 ***Description:*** Cutter is a free and open-source reverse engineering platform powered by Rizin (fork of the radare2 reverse engineering framework). It aims at being an advanced and customizable reverse engineering platform while keeping the user experience in mind. Cutter is created by reverse engineers for reverse engineers. <br/>
 
+### Ghidra
+***Web:*** https://ghidra-sre.org/ <br/>
+***Developer:*** NSA <br/>
+***Description:*** Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. This framework includes a suite of full-featured, high-end software analysis tools that enable users to analyze compiled code on a variety of platforms. <br/>
+
 ### Immunity Debugger
 ***Web:*** https://www.immunityinc.com/products/debugger/ <br/>
 ***Developer:*** Immunity <br/>
