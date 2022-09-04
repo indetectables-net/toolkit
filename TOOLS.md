@@ -83,7 +83,7 @@
 ***Description:*** Dex to Java decompiler: command line and GUI tools for producing Java source code from Android Dex and Apk files <br/>
 
 ### [AUTOIT] Exe2Aut
-***Web:*** www.exe2aut.com <br/>
+***Web:*** https://web.archive.org/web/20140403232237/https://exe2aut.com/ <br/>
 ***Developer:*** Unknown <br/>
 ***Description:*** Exe2Aut is designed to be the easiest to use and most versatile
 decompiler for compiled AutoIt3 scripts one could think of. Exe2Aut is even capable of decompiling
