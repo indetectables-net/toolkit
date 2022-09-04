@@ -48,6 +48,10 @@ Source: "{#MySrcDir}\toolkit\Decompilers\[AUTOIT] UnAutoIt\*"; DestDir: "{#MyApp
 Name: "{group}\{#MyAppName}\[AUTOIT] UnAutoIt x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt"; Components: "decompilers\autoitunautoit"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"; Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] UnAutoIt x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt"; Components: "decompilers\autoitunautoit"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"; Check: Is64BitInstallMode; 
 
+[Icons]
+Name: "{group}\{#MyAppName}\[AUTOIT] UnAutoIt"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt"; Components: "decompilers\autoitunautoit"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-i686.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-i686.exe"; Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] UnAutoIt"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt"; Components: "decompilers\autoitunautoit"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-i686.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-i686.exe"; Check: not Is64BitInstallMode; 
+
 
 
 ; [DELPHI] Dede
