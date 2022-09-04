@@ -54,10 +54,12 @@ begin
     if CurStep = ssPostInstall then
     begin
         if WizardIsComponentSelected('analysis\capa') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
+        if WizardIsComponentSelected('decompilers\autoitunautoit') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Decompilers\[AUTOIT] UnAutoIt');
         if WizardIsComponentSelected('monitor\hollowshunter') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\HollowsHunter');
         if WizardIsComponentSelected('monitor\pesieve') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         if WizardIsComponentSelected('other\floss') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         if WizardIsComponentSelected('other\processdump') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Process-Dump');
+        if WizardIsComponentSelected('other\rawcap') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\RawCap');
         if WizardIsComponentSelected('other\strings') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Strings');
         if WizardIsComponentSelected('unpacking\de4dot') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\UnPacking\De4Dot');
     end
@@ -68,10 +70,12 @@ begin
     if CurUninstallStep = usPostUninstall then
     begin
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
+        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Decompilers\[AUTOIT] UnAutoIt');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\HollowsHunter');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Process-Dump');
+        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\RawCap');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Strings');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\UnPacking\De4Dot');
     end

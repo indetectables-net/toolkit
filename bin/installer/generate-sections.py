@@ -52,6 +52,7 @@ class GenerateInstall:
             'rl!depacker': ['rl!depacker.exe'],
 
             # support also the x64 versions
+            '[AUTOIT] UnAutoIt': ['UnAutoIt-windows-i686.exe', 'UnAutoIt-windows-amd64.exe'],
             'hxd': ['hxd32.exe', 'hxd64.exe'],
             'api monitor': ['apimonitor-x86.exe', 'apimonitor-x64.exe'],
             'autoruns': ['autoruns.exe', 'autoruns64.exe'],

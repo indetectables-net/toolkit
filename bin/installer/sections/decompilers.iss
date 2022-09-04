@@ -37,6 +37,19 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] MyAutToExe"; Filena
 
 
 
+; [AUTOIT] UnAutoIt
+[Components]
+Name: "decompilers\autoitunautoit"; Description: "[AUTOIT] UnAutoIt"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Decompilers\[AUTOIT] UnAutoIt\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt"; Components: "decompilers\autoitunautoit"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\[AUTOIT] UnAutoIt x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt"; Components: "decompilers\autoitunautoit"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"; Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[AUTOIT] UnAutoIt x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt"; Components: "decompilers\autoitunautoit"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[AUTOIT] UnAutoIt\UnAutoIt-windows-amd64.exe"; Check: Is64BitInstallMode; 
+
+
+
 ; [DELPHI] Dede
 [Components]
 Name: "decompilers\delphidede"; Description: "[DELPHI] Dede"; Types: full; 
