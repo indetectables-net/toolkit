@@ -102,27 +102,28 @@ class Updater:
             self, config, config_file_name, force_download, disable_repack, disable_clean,
             disable_install_check, disable_progress, save_format_type, use_github_api,
     ):
-        self.name = ''
-        self.config = config
-        self.config_file_name = config_file_name
-        self.force_download = force_download
-        self.disable_repack = disable_repack
-        self.disable_clean = disable_clean
-        self.disable_install_check = disable_install_check
-        self.disable_progress = disable_progress
-        self.save_format_type = save_format_type
-        self.script_path = os.fsdecode(os.getcwdb())
-        self.update_folder_path = pathlib.Path(self.script_path).joinpath('updates')
-        self.use_github_api = use_github_api
-        self.re_github_version = '\/releases\/tag\/(\S+)"'
-        self.re_github_download = '"(.*?/{0})"'
+        self.name                   = ''
+        self.config                 = config
+        self.config_file_name       = config_file_name
+        self.force_download         = force_download
+        self.disable_repack         = disable_repack
+        self.disable_clean          = disable_clean
+        self.disable_install_check  = disable_install_check
+        self.disable_progress       = disable_progress
+        self.save_format_type       = save_format_type
+        self.script_path            = os.fsdecode(os.getcwdb())
+        self.update_folder_path     = pathlib.Path(self.script_path).joinpath('updates')
+        self.use_github_api         = use_github_api
+        self.re_github_version      = '\/releases\/tag\/(\S+)"'
+        self.re_github_download     = '"(.*?/{0})"'
+        self.request_user_agent     = 'curl/7.84.0'
 
     def _check_version_from_web(self, html, re_version):
         local_version = self.config.get(self.name, 'local_version', fallback='0')
         html_regex_version = re.findall(re_version, html)
 
         if not html_regex_version:
-            raise Exception(colorama.Fore.RED + '{0}: re_version regex not match'.format(self.name))
+            raise Exception(colorama.Fore.RED + '{0}: re_version regex not match ({1})'.format(self.name, re_version))
 
         if not self.force_download and local_version == html_regex_version[0]:
             raise Exception('{0}: {1} is the latest version'.format(self.name, local_version))
@@ -136,7 +137,7 @@ class Updater:
         if re_download:
             html_regex_download = re.findall(re_download, html)
             if not html_regex_download:
-                raise Exception(colorama.Fore.RED + '{0}: re_download regex not match'.format(self.name))
+                raise Exception(colorama.Fore.RED + '{0}: re_download regex not match ({1})'.format(self.name, re_download))
 
             # check if valid url
             download_url_parse = urllib.parse.urlparse(html_regex_download[0])
@@ -158,7 +159,8 @@ class Updater:
 
     def _scrape_web(self, url, update_url, re_version, re_download):
         # load html
-        html_response = requests.get(url)
+        headers={'User-Agent': self.request_user_agent}
+        html_response = requests.get(url, headers=headers)
         html_response.raise_for_status()
 
         # regex shit
@@ -189,7 +191,7 @@ class Updater:
                 break
 
         if not update_url:
-            raise Exception(colorama.Fore.RED + '{0}: re_download regex not match'.format(self.name))
+            raise Exception(colorama.Fore.RED + '{0}: re_download regex not match ({1})'.format(self.name, re_download))
 
         return update_url
 
@@ -197,17 +199,34 @@ class Updater:
         if self.use_github_api:
             return self._scrape_github_api(repo_path, re_download)
 
-        repo_url = 'https://github.com/{0}/releases/latest'.format(repo_path)
-        #repo_url = 'https://github.com/{0}/releases.atom'.format(repo_path)
-        re_download = self.re_github_download.format(re_download)
+        headers = {'User-Agent': self.request_user_agent}
 
-        return self._scrape_web(repo_url, '', self.re_github_version, re_download)
+        # load html
+        version_url = 'https://github.com/{0}/releases.atom'.format(repo_path)
+        version_html_response = requests.get(version_url, headers=headers)
+        version_html_response.raise_for_status()
+
+        download_version = self._check_version_from_web(version_html_response.text, self.re_github_version)
+
+        # load second html
+        download_url = 'https://github.com/{0}/releases/expanded_assets/{1}'.format(repo_path, download_version)
+        download_html_response = requests.get(download_url, headers=headers)
+        download_html_response.raise_for_status()
+
+        re_download = self.re_github_download.format(re_download)
+        download_url = self._get_download_url_from_web(download_html_response.text, version_url, '', re_download)
+
+        return {
+            'download_version': download_version,
+            'download_url': download_url,
+        }
 
     def _scrape_github_api(self, repo_path, re_download):
         repo_url = 'https://api.github.com/repos/{0}/releases/latest'.format(repo_path)
 
         # load json
-        html_response = requests.get(repo_url, headers={'Authorization': f'token {self.use_github_api}'})
+        headers = {'Authorization': f'token {self.use_github_api}'}
+        html_response = requests.get(repo_url, headers=headers)
         html_response.raise_for_status()
         json_response = html_response.json()
 
@@ -447,7 +466,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.6.1'
+        self.version = '1.7.0'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
