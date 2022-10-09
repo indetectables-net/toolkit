@@ -1,6 +1,15 @@
 # Changelog
 
 
+## 2022.10 - Oct 8, 2022
+
+### Changed
+
+- Update tools (08/10/2022)
+- Bump Universal Updater to 1.7.1
+- Add Universal Updater implementation to separate repo for use in updater
+
+
 ## 2022.9 - Sep 4, 2022
 
 ### Added
