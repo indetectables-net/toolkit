@@ -1,6 +1,6 @@
 # -*- coding: utf-8  -*-
 #
-# Copyright (C) 2021 DSR! <xchwarze@gmail.com>
+# Copyright (C) 2021 - 2022 DSR! <xchwarze@gmail.com>
 # Released under the terms of the MIT License
 # Developed for Python 3.6+
 # pip install requests py7zr rarfile colorama tqdm
@@ -195,34 +195,35 @@ class Updater:
 
         return update_url
 
-    def _scrape_github(self, repo_path, re_download):
+    def _scrape_github(self, github_repo, update_url, re_download):
         if self.use_github_api:
-            return self._scrape_github_api(repo_path, re_download)
+            return self._scrape_github_api(github_repo, re_download)
 
         headers = {'User-Agent': self.request_user_agent}
 
         # load html
-        version_url = 'https://github.com/{0}/releases.atom'.format(repo_path)
+        version_url = 'https://github.com/{0}/releases.atom'.format(github_repo)
         version_html_response = requests.get(version_url, headers=headers)
         version_html_response.raise_for_status()
 
         download_version = self._check_version_from_web(version_html_response.text, self.re_github_version)
 
         # load second html
-        download_url = 'https://github.com/{0}/releases/expanded_assets/{1}'.format(repo_path, download_version)
-        download_html_response = requests.get(download_url, headers=headers)
-        download_html_response.raise_for_status()
+        if not update_url:
+            download_url = 'https://github.com/{0}/releases/expanded_assets/{1}'.format(github_repo, download_version)
+            download_html_response = requests.get(download_url, headers=headers)
+            download_html_response.raise_for_status()
 
-        re_download = self.re_github_download.format(re_download)
-        download_url = self._get_download_url_from_web(download_html_response.text, version_url, '', re_download)
+            re_download = self.re_github_download.format(re_download)
+            update_url = self._get_download_url_from_web(download_html_response.text, version_url, '', re_download)
 
         return {
             'download_version': download_version,
-            'download_url': download_url,
+            'download_url': update_url,
         }
 
-    def _scrape_github_api(self, repo_path, re_download):
-        repo_url = 'https://api.github.com/repos/{0}/releases/latest'.format(repo_path)
+    def _scrape_github_api(self, github_repo, update_url, re_download):
+        repo_url = 'https://api.github.com/repos/{0}/releases/latest'.format(github_repo)
 
         # load json
         headers = {'Authorization': f'token {self.use_github_api}'}
@@ -230,10 +231,13 @@ class Updater:
         html_response.raise_for_status()
         json_response = html_response.json()
 
+        if not update_url:
+            update_url = self._get_download_url_from_github(json_response, re_download)
+
         # regex shit
         return {
             'download_version': self._check_version_from_github(json_response),
-            'download_url': self._get_download_url_from_github(json_response, re_download),
+            'download_url': update_url,
         }
 
     def _unpack(self, file_path):
@@ -380,7 +384,7 @@ class Updater:
 
         from_url = self.config.get(self.name, 'from', fallback='web')
         if from_url == 'github':
-            return self._scrape_github(tool_url, re_download)
+            return self._scrape_github(tool_url, update_url, re_download)
 
         return self._scrape_web(tool_url, update_url, re_version, re_download)
 
@@ -414,8 +418,9 @@ class Updater:
         self._exec_update_script('post_unpack')
 
         use_merge = self.config.get(self.name, 'merge', fallback=None)
+        disable_repack = self.config.get(self.name, 'disable_repack', fallback=None)
         tool = self._processing_tool(unpack_folder_path)
-        if self.disable_repack:
+        if self.disable_repack or disable_repack:
             return self._save(
                 use_merge=use_merge,
                 tool_folder_path=tool['folder_path'],
@@ -466,7 +471,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.7.0'
+        self.version = '1.7.1'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
