@@ -45,8 +45,8 @@ Name: "decompilers\dotnetilspy"; Description: "[DOTNET] ILSpy"; Types: full comp
 Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] ILSpy\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\{#MyAppName}\[DOTNET] ILSpy"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] ILSpy"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";    
+Name: "{group}\{#MyAppName}\[DOTNET] ILSpy x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] ILSpy x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy\ILSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] ILSpy"; Components: "decompilers\dotnetilspy";   Check: Is64BitInstallMode; 
 
 
 
