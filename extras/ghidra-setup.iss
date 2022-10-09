@@ -9,8 +9,8 @@
 #define MyAppToolsFolder "{app}\toolkit"
 #define MyAppBinsFolder "{app}\bin"
 #define MyAppToolsIconsFolder "{app}\assets\icons"
-#define MySrcDir "D:\code\indetectables\toolkit"
-#define MyOutputDir "D:\code\indetectables"
+#define MySrcDir "C:\code\toolkit"
+#define MyOutputDir "C:\code"
 
 [Setup]
 AppId={{3F02E24E-404C-415F-A360-C52C612E5127}
