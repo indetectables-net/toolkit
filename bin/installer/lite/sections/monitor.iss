@@ -45,19 +45,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\CurrPorts"; Filename: "{#MyAppTo
 
 
 
-; HollowsHunter
-[Components]
-Name: "monitor\hollowshunter"; Description: "HollowsHunter"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Monitor\HollowsHunter\*"; DestDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\HollowsHunter x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Parameters: "/K ""{#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"""; IconFilename: "{#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"; Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\HollowsHunter x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\HollowsHunter"; Components: "monitor\hollowshunter"; Parameters: "/K ""{#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"""; IconFilename: "{#MyAppToolsFolder}\Monitor\HollowsHunter\hollows_hunter.exe"; Check: Is64BitInstallMode; 
-
-
-
 ; MultiMon
 [Components]
 Name: "monitor\multimon"; Description: "MultiMon"; Types: full; 

@@ -54,7 +54,6 @@ begin
     if CurStep = ssPostInstall then
     begin
         if WizardIsComponentSelected('analysis\capa') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
-        if WizardIsComponentSelected('monitor\hollowshunter') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\HollowsHunter');
         if WizardIsComponentSelected('monitor\pesieve') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         if WizardIsComponentSelected('other\floss') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         if WizardIsComponentSelected('other\processdump') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Process-Dump');
@@ -69,7 +68,6 @@ begin
     if CurUninstallStep = usPostUninstall then
     begin
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
-        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\HollowsHunter');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Process-Dump');

@@ -1,16 +1,3 @@
-; 4n4lDetector
-[Components]
-Name: "analysis\4n4ldetector"; Description: "4n4lDetector"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\4n4lDetector\*"; DestDir: "{#MyAppToolsFolder}\Analysis\4n4lDetector"; Components: "analysis\4n4ldetector"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\4n4lDetector"; Filename: "{#MyAppToolsFolder}\Analysis\4n4lDetector\4N4LDetector.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\4n4lDetector"; Components: "analysis\4n4ldetector";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\4n4lDetector"; Filename: "{#MyAppToolsFolder}\Analysis\4n4lDetector\4N4LDetector.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\4n4lDetector"; Components: "analysis\4n4ldetector";    
-
-
-
 ; CAPA
 [Components]
 Name: "analysis\capa"; Description: "CAPA"; Types: full compact; 
@@ -37,19 +24,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\DIE"; Filename: "{#MyAppToolsFo
 
 
 
-; ExeExplorer
-[Components]
-Name: "analysis\exeexplorer"; Description: "ExeExplorer"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\ExeExplorer\*"; DestDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\ExeExplorer"; Filename: "{#MyAppToolsFolder}\Analysis\ExeExplorer\EXE.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeExplorer"; Filename: "{#MyAppToolsFolder}\Analysis\ExeExplorer\EXE.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer";   Check: not Is64BitInstallMode; 
-
-
-
 ; ExeinfoPe
 [Components]
 Name: "analysis\exeinfope"; Description: "ExeinfoPe"; Types: full compact; 
@@ -60,19 +34,6 @@ Source: "{#MySrcDir}\toolkit\Analysis\ExeinfoPe\*"; DestDir: "{#MyAppToolsFolder
 [Icons]
 Name: "{group}\{#MyAppName}\ExeinfoPe"; Filename: "{#MyAppToolsFolder}\Analysis\ExeinfoPe\exeinfope.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeinfoPe"; Filename: "{#MyAppToolsFolder}\Analysis\ExeinfoPe\exeinfope.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeinfoPe"; Components: "analysis\exeinfope";    
-
-
-
-; PE-Bear
-[Components]
-Name: "analysis\pebear"; Description: "PE-Bear"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\PE-Bear\*"; DestDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\PE-Bear x64"; Filename: "{#MyAppToolsFolder}\Analysis\PE-Bear\PE-bear.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PE-Bear x64"; Filename: "{#MyAppToolsFolder}\Analysis\PE-Bear\PE-bear.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear";   Check: Is64BitInstallMode; 
 
 
 
@@ -99,19 +60,6 @@ Source: "{#MySrcDir}\toolkit\Analysis\XAPKDetector\*"; DestDir: "{#MyAppToolsFol
 [Icons]
 Name: "{group}\{#MyAppName}\XAPKDetector"; Filename: "{#MyAppToolsFolder}\Analysis\XAPKDetector\xapkd.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XAPKDetector"; Filename: "{#MyAppToolsFolder}\Analysis\XAPKDetector\xapkd.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XAPKDetector"; Components: "analysis\xapkdetector";    
-
-
-
-; XELFViewer
-[Components]
-Name: "analysis\xelfviewer"; Description: "XELFViewer"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\XELFViewer\*"; DestDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\xelfviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\xelfviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer";    
 
 
 

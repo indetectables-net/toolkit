@@ -11,19 +11,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ApkStudio x64"; Filename: "{#MyApp
 
 
 
-; AstroGrep
-[Components]
-Name: "other\astrogrep"; Description: "AstroGrep"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Other\AstroGrep\*"; DestDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\AstroGrep"; Filename: "{#MyAppToolsFolder}\Other\AstroGrep\AstroGrep.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\AstroGrep"; Filename: "{#MyAppToolsFolder}\Other\AstroGrep\AstroGrep.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\AstroGrep"; Components: "other\astrogrep";    
-
-
-
 ; FLOSS
 [Components]
 Name: "other\floss"; Description: "FLOSS"; Types: full compact; 
@@ -60,23 +47,6 @@ Source: "{#MySrcDir}\toolkit\Other\HashMyFiles\*"; DestDir: "{#MyAppToolsFolder}
 [Icons]
 Name: "{group}\{#MyAppName}\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";    
-
-
-
-; ProcDOT
-[Components]
-Name: "other\procdot"; Description: "ProcDOT"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Other\ProcDOT\*"; DestDir: "{#MyAppToolsFolder}\Other\ProcDOT"; Components: "other\procdot"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";   Check: not Is64BitInstallMode; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\ProcDOT x64"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win64\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win64"; Components: "other\procdot";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT x64"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win64\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win64"; Components: "other\procdot";   Check: Is64BitInstallMode; 
 
 
 

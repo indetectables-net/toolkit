@@ -24,19 +24,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DELPHI] IDR"; Filename: "{#
 
 
 
-; [DOTNET] dnSpyEx
-[Components]
-Name: "decompilers\dotnetdnspyex"; Description: "[DOTNET] dnSpyEx"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Decompilers\[DOTNET] dnSpyEx\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\[DOTNET] dnSpyEx x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx\dnSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[DOTNET] dnSpyEx x64"; Filename: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx\dnSpy.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[DOTNET] dnSpyEx"; Components: "decompilers\dotnetdnspyex";   Check: Is64BitInstallMode; 
-
-
-
 ; [DOTNET] ILSpy
 [Components]
 Name: "decompilers\dotnetilspy"; Description: "[DOTNET] ILSpy"; Types: full compact; 
