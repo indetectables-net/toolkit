@@ -57,7 +57,7 @@ class GenerateInstall:
             'api monitor': ['apimonitor-x86.exe', 'apimonitor-x64.exe'],
             'autoruns': ['autoruns.exe', 'autoruns64.exe'],
             'process explorer': ['procexp.exe', 'procexp64.exe'],
-            'process hacker 3': ['processhacker.exe'],
+            'system informer': ['systeminformer.exe'],
             'procmon': ['procmon.exe', 'procmon64.exe'],
             'regshot': ['regshot-x86-ansi.exe', 'regshot-x64-ansi.exe'],
             'sysanalyzer': ['sysanalyzer.exe', 'hxd64.exe'],
@@ -98,7 +98,7 @@ class GenerateInstall:
             'hxd', 'imhex',
 
             # monitor
-            'api monitor', 'process explorer', 'process hacker 3', 'procmon', 'tcpview',
+            'api monitor', 'process explorer', 'system informer', 'procmon', 'tcpview',
 
             # other
             'apkstudio', 'floss', 'hashcalc', 'resource hacker', 'scylla', 'virustotaluploader', 'x64dbgpluginmanager',

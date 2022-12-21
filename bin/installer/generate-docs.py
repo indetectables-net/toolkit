@@ -73,7 +73,7 @@ class DocsGenerator:
             'api monitor': ['apimonitor-x86.exe'],
             'autoruns': ['autoruns.exe'],
             'process explorer': ['procexp.exe'],
-            'process hacker 3': ['processhacker.exe'],
+            'system informer': ['systeminformer.exe'],
             'procmon': ['procmon.exe', 'procmon64.exe'],
             'regshot': ['regshot-x86-ansi.exe'],
             'sysanalyzer': ['sysanalyzer.exe'],
