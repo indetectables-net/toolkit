@@ -1,6 +1,18 @@
 # Changelog
 
 
+## MASTER
+
+### Added
+
+- Add GetSymbol
+
+### Changed
+
+- Rename "Process Hacker" to new name "System Informer"
+- Fix System Informer urls
+
+
 ## 2022.10 - Oct 8, 2022
 
 ### Changed

@@ -246,9 +246,9 @@ What makes ImHex special is that it has many advanced features that can often on
 ***Developer:*** Sysinternals <br/>
 ***Description:*** Ever wondered which program has a particular file or directory open? Now you can find out. Process Explorer shows you information about which handles and DLLs processes have opened or loaded. <br/>
 
-### Process Hacker 3
-***Web:*** https://processhacker.sourceforge.io <br/>
-***Developer:*** Process Hacker <br/>
+### System Informer (Process Hacker 3)
+***Web:*** https://systeminformer.sourceforge.io <br/>
+***Developer:*** System Informer <br/>
 ***Description:*** A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware. <br/>
 
 ### Procmon
