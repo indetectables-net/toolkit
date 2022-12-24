@@ -6,6 +6,7 @@
 ### Added
 
 - Add GetSymbol
+- Add DLest
 
 ### Changed
 
