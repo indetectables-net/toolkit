@@ -2,14 +2,14 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Indetectables Toolkit"
-#define MyAppVersion "2022.10"
+#define MyAppVersion "2022.12"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
 #define MyAppBinsFolder "{app}\bin"
 #define MyAppToolsIconsFolder "{app}\assets\icons"
-#define MySrcDir "C:\code\toolkit"
-#define MyOutputDir "C:\code"
+#define MySrcDir "C:\Users\DSR\Documents\GitHub\toolkit"
+#define MyOutputDir "C:\Users\DSR\Documents\GitHub"
 
 [Setup]
 AppId={{1FF89DD9-2D8E-4959-B670-2344285F456B}
