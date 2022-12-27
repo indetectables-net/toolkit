@@ -1,7 +1,7 @@
 # Changelog
 
 
-## MASTER
+## 2022.12 - Dec 27, 2022
 
 ### Added
 
@@ -15,6 +15,7 @@
 - Rename "Process Hacker" to new name "System Informer"
 - Fix System Informer urls
 - Fix IDR updater script
+- Add IDR KB for: 6, 7, 2005, 2006 and 2007
 - Add merge param to updater for: IDR, x64dbg, Cutter, Ghidra, HxD, REHex, ImHex, ApkStudio and APKEasyTool
 
 
