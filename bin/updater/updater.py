@@ -114,6 +114,9 @@ class Updater:
         self.script_path            = os.fsdecode(os.getcwdb())
         self.update_folder_path     = pathlib.Path(self.script_path).joinpath('updates')
         self.use_github_api         = use_github_api
+        self.github_version_check   = 'https://github.com/{0}/releases.atom'
+        self.github_files           = 'https://github.com/{0}/releases/expanded_assets/{1}'
+        self.github_api_files       = 'https://api.github.com/repos/{0}/releases/latest'
         self.re_github_version      = '\/releases\/tag\/(\S+)"'
         self.re_github_download     = '"(.*?/{0})"'
         self.request_user_agent     = 'curl/7.84.0'
@@ -202,7 +205,7 @@ class Updater:
         headers = {'User-Agent': self.request_user_agent}
 
         # load html
-        version_url = 'https://github.com/{0}/releases.atom'.format(github_repo)
+        version_url = self.github_version_check.format(github_repo)
         version_html_response = requests.get(version_url, headers=headers)
         version_html_response.raise_for_status()
 
@@ -210,7 +213,7 @@ class Updater:
 
         # load second html
         if not update_url:
-            download_url = 'https://github.com/{0}/releases/expanded_assets/{1}'.format(github_repo, download_version)
+            download_url = self.github_files.format(github_repo, download_version)
             download_html_response = requests.get(download_url, headers=headers)
             download_html_response.raise_for_status()
 
@@ -223,7 +226,7 @@ class Updater:
         }
 
     def _scrape_github_api(self, github_repo, update_url, re_download):
-        repo_url = 'https://api.github.com/repos/{0}/releases/latest'.format(github_repo)
+        repo_url = self.github_api_files.format(github_repo)
 
         # load json
         headers = {'Authorization': f'token {self.use_github_api}'}
@@ -362,7 +365,7 @@ class Updater:
             print(colorama.Fore.BLUE + '------------------------------')
 
     def _exec_global_update_script(self, processing_info):
-        script = self.config.get('Updater', 'global_post_update', fallback=None)
+        script = self.config.get('UpdaterConfig', 'global_post_update', fallback=None)
         if script:
             print('{0}: exec global script "{1}"'.format(self.name, script))
             subprocess.run([
@@ -471,7 +474,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.7.1'
+        self.version = '1.7.2'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
@@ -485,9 +488,9 @@ class Setup:
   _/ // / / / /_/ /  __/ /_/  __/ /__/ /_/ /_/ / /_/ / /  __(__  ) 
  /___/_/ /_/\__,_/\___/\__/\___/\___/\__/\__,_/_.___/_/\___/____/  
     
- Universal Tool Updater - by DSR!
+ Universal Tool Updater v{0} - by DSR!
  https://github.com/xchwarze/universal-tool-updater
-    """)
+    """.format(self.version))
 
     def exit_handler(self, signal, frame):
         print(colorama.Fore.YELLOW + 'SIGINT or CTRL-C detected. Exiting gracefully')
@@ -496,9 +499,9 @@ class Setup:
     def get_argparse_default(self, option, default, is_bool=True):
         if is_bool:
             #return value.lower() in ('true', '1', 'yes', 'on')
-            return self.config.getboolean('Updater', option, fallback=default)
+            return self.config.getboolean('UpdaterConfig', option, fallback=default)
 
-        return self.config.get('Updater', option, fallback=default)
+        return self.config.get('UpdaterConfig', option, fallback=default)
 
     def init_argparse(self):
         parser = argparse.ArgumentParser(
@@ -587,25 +590,17 @@ class Setup:
         if not self.arguments.update_default_params:
             return False
 
-        self.config.set('Updater', 'disable_clean', str(self.arguments.disable_clean))
-        self.config.set('Updater', 'disable_repack', str(self.arguments.disable_repack))
-        self.config.set('Updater', 'disable_install_check', str(self.arguments.disable_install_check))
-        self.config.set('Updater', 'disable_progress', str(self.arguments.disable_progress))
-        self.config.set('Updater', 'save_format_type', self.arguments.save_format_type)
-        self.config.set('Updater', 'use_github_api', self.arguments.use_github_api)
+        self.config.set('UpdaterConfig', 'disable_clean', str(self.arguments.disable_clean))
+        self.config.set('UpdaterConfig', 'disable_repack', str(self.arguments.disable_repack))
+        self.config.set('UpdaterConfig', 'disable_install_check', str(self.arguments.disable_install_check))
+        self.config.set('UpdaterConfig', 'disable_progress', str(self.arguments.disable_progress))
+        self.config.set('UpdaterConfig', 'save_format_type', self.arguments.save_format_type)
+        self.config.set('UpdaterConfig', 'use_github_api', self.arguments.use_github_api)
 
         save_config_to_file(self.config, self.config_file_name)
         print(colorama.Fore.GREEN + 'Update default params successful')
 
     def handle_updates(self):
-        update_list = self.arguments.update
-        if not update_list:
-            update_list = self.config.sections()
-
-            # 'Updater' is the config data of this script
-            if 'Updater' in update_list:
-                update_list.remove('Updater')
-
         updater = Updater(
             config=self.config,
             config_file_name=self.config_file_name,
@@ -618,6 +613,24 @@ class Setup:
             use_github_api=self.arguments.use_github_api,
         )
 
+        update_list = self.arguments.update
+        if not update_list:
+            update_list = self.config.sections()
+
+            # config data of this script
+            if 'UpdaterConfig' in update_list:
+                update_list.remove('UpdaterConfig')
+
+            # auto updater logic
+            if 'UpdaterAutoUpdater' in update_list:
+                update_list.remove('UpdaterAutoUpdater')
+
+                try:
+                    updater.update('UpdaterAutoUpdater')
+                except Exception as exception:
+                    print(exception)
+
+        # normal execution
         for ini_name in update_list:
             try:
                 updater.update(ini_name)
