@@ -114,23 +114,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Process Explorer x64"; Filename:
 
 
 
-; Process Hacker 3
-[Components]
-Name: "monitor\processhacker3"; Description: "Process Hacker 3"; Types: full compact; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Monitor\Process Hacker 3\*"; DestDir: "{#MyAppToolsFolder}\Monitor\Process Hacker 3"; Components: "monitor\processhacker3"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\Process Hacker 3"; Filename: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\32bit\ProcessHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\32bit"; Components: "monitor\processhacker3";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Process Hacker 3"; Filename: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\32bit\ProcessHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\32bit"; Components: "monitor\processhacker3";   Check: not Is64BitInstallMode; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\Process Hacker 3 x64"; Filename: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\64bit\ProcessHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\64bit"; Components: "monitor\processhacker3";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Process Hacker 3 x64"; Filename: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\64bit\ProcessHacker.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Process Hacker 3\64bit"; Components: "monitor\processhacker3";   Check: Is64BitInstallMode; 
-
-
-
 ; Procmon
 [Components]
 Name: "monitor\procmon"; Description: "Procmon"; Types: full compact; 
@@ -175,6 +158,23 @@ Source: "{#MySrcDir}\toolkit\Monitor\SysAnalyzer\*"; DestDir: "{#MyAppToolsFolde
 [Icons]
 Name: "{group}\{#MyAppName}\SysAnalyzer"; Filename: "{#MyAppToolsFolder}\Monitor\SysAnalyzer\sysAnalyzer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\SysAnalyzer"; Components: "monitor\sysanalyzer";   Check: not Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\SysAnalyzer"; Filename: "{#MyAppToolsFolder}\Monitor\SysAnalyzer\sysAnalyzer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\SysAnalyzer"; Components: "monitor\sysanalyzer";   Check: not Is64BitInstallMode; 
+
+
+
+; System Informer
+[Components]
+Name: "monitor\systeminformer"; Description: "System Informer"; Types: full compact; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Monitor\System Informer\*"; DestDir: "{#MyAppToolsFolder}\Monitor\System Informer"; Components: "monitor\systeminformer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\System Informer x64"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\amd64\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\amd64"; Components: "monitor\systeminformer";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\System Informer x64"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\amd64\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\amd64"; Components: "monitor\systeminformer";   Check: Is64BitInstallMode; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\System Informer"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\i386\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\i386"; Components: "monitor\systeminformer";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\System Informer"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\i386\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\i386"; Components: "monitor\systeminformer";   Check: not Is64BitInstallMode; 
 
 
 

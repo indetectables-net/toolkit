@@ -11,6 +11,19 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ApkStudio x64"; Filename: "{#MyApp
 
 
 
+; DLest
+[Components]
+Name: "other\dlest"; Description: "DLest"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\DLest\*"; DestDir: "{#MyAppToolsFolder}\Other\DLest"; Components: "other\dlest"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\DLest"; Filename: "{#MyAppToolsFolder}\Other\DLest\dlest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\DLest"; Components: "other\dlest";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\DLest"; Filename: "{#MyAppToolsFolder}\Other\DLest\dlest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\DLest"; Components: "other\dlest";   Check: not Is64BitInstallMode; 
+
+
+
 ; FLOSS
 [Components]
 Name: "other\floss"; Description: "FLOSS"; Types: full compact; 
@@ -21,6 +34,19 @@ Source: "{#MySrcDir}\toolkit\Other\FLOSS\*"; DestDir: "{#MyAppToolsFolder}\Other
 [Icons]
 Name: "{group}\{#MyAppName}\FLOSS x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Parameters: "/K ""{#MyAppToolsFolder}\Other\FLOSS\floss.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\FLOSS\floss.exe"; Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\FLOSS x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\FLOSS"; Components: "other\floss"; Parameters: "/K ""{#MyAppToolsFolder}\Other\FLOSS\floss.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\FLOSS\floss.exe"; Check: Is64BitInstallMode; 
+
+
+
+; GetSymbol
+[Components]
+Name: "other\getsymbol"; Description: "GetSymbol"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\GetSymbol\*"; DestDir: "{#MyAppToolsFolder}\Other\GetSymbol"; Components: "other\getsymbol"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\GetSymbol x64"; Filename: "{#MyAppToolsFolder}\Other\GetSymbol\GetSymbol.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\GetSymbol"; Components: "other\getsymbol";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\GetSymbol x64"; Filename: "{#MyAppToolsFolder}\Other\GetSymbol\GetSymbol.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\GetSymbol"; Components: "other\getsymbol";   Check: Is64BitInstallMode; 
 
 
 
