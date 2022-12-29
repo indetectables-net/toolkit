@@ -50,6 +50,8 @@ class GenerateInstall:
             'ollydbg 1.10': ['ollydbg.exe'],
             'astrogrep': ['astrogrep.exe'],
             'rl!depacker': ['rl!depacker.exe'],
+            'sysanalyzer': ['sysanalyzer.exe'],
+            'system informer': ['systeminformer.exe'],
 
             # support also the x64 versions
             '[autoit] unautoit': ['unautoit-windows-i686.exe', 'unautoit-windows-amd64.exe'],
@@ -57,10 +59,8 @@ class GenerateInstall:
             'api monitor': ['apimonitor-x86.exe', 'apimonitor-x64.exe'],
             'autoruns': ['autoruns.exe', 'autoruns64.exe'],
             'process explorer': ['procexp.exe', 'procexp64.exe'],
-            'system informer': ['systeminformer.exe'],
             'procmon': ['procmon.exe', 'procmon64.exe'],
             'regshot': ['regshot-x86-ansi.exe', 'regshot-x64-ansi.exe'],
-            'sysanalyzer': ['sysanalyzer.exe', 'hxd64.exe'],
             'tcpview': ['tcpview.exe', 'tcpview64.exe'],
             'process-dump': ['pd32.exe', 'pd64.exe'],
             'scylla': ['scylla_x86.exe', 'scylla_x64.exe'],
