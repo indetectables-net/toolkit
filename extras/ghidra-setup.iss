@@ -3,7 +3,7 @@
 
 #define MyAppName "Indetectables Toolkit Extras: Ghidra"
 #define MyAppNameOriginal "Indetectables Toolkit"
-#define MyAppVersion "2022.12"
+#define MyAppVersion "2022.12.1"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
@@ -66,8 +66,8 @@ Name: "{userdesktop}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBi
 
 ; Fix default update config
 [INI]
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: Updater; Key: disable_clean; String: True; Components: "updater\main"; 
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: Updater; Key: disable_repack; String: True; Components: "updater\main"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_clean; String: True; Components: "updater\main"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_repack; String: True; Components: "updater\main"; 
 
 
 

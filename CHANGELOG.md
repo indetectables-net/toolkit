@@ -1,6 +1,13 @@
 # Changelog
 
 
+## 2022.12.1 - Dec 29, 2022
+
+### Changed
+
+- Fix updater config
+
+
 ## 2022.12 - Dec 27, 2022
 
 ### Added

@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Indetectables Toolkit Lite"
-#define MyAppVersion "2022.12"
+#define MyAppVersion "2022.12.1"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"

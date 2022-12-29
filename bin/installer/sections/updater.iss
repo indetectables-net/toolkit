@@ -13,8 +13,8 @@ Name: "{userdesktop}\{#MyAppName}\Toolkit Updater"; Filename: "{#MyAppBinsFolder
 
 ; Fix default update config
 [INI]
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: Updater; Key: disable_clean; String: True; Components: "updater\main"; 
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: Updater; Key: disable_repack; String: True; Components: "updater\main"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_clean; String: True; Components: "updater\main"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_repack; String: True; Components: "updater\main"; 
 
 ; Clean dont selected tools in tools.ini
 [Run]
