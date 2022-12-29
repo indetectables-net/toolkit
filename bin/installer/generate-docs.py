@@ -67,8 +67,6 @@ class DocsGenerator:
             'ollydbg 1.10': ['ollydbg.exe'],
             'astrogrep': ['astrogrep.exe'],
             'rl!depacker': ['rl!depacker.exe'],
-
-            # support also the x64 versions
             'hxd': ['hxd32.exe'],
             'api monitor': ['apimonitor-x86.exe'],
             'autoruns': ['autoruns.exe'],
