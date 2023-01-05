@@ -1,7 +1,7 @@
 # Changelog
 
 
-## 2023.1.1 - Jan 5, 2023
+## 2023.1 - Jan 5, 2023
 
 ### Changed
 
