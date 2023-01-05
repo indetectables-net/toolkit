@@ -1,6 +1,13 @@
 # Changelog
 
 
+## 2023.1.1 - Jan 5, 2023
+
+### Changed
+
+- Update auto-config-tools config name section
+
+
 ## 2022.12.1 - Dec 29, 2022
 
 ### Changed
