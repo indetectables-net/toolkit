@@ -50,7 +50,7 @@ SectionEnd
 
 Function ReadSectionCallback
   ; analyze all except the updater config 
-  ${If} $9 != "Updater"
+  ${If} $9 != "UpdaterConfig"
     ReadINIStr $0 "$CONFIG_PATH" "$9" folder
     ;MessageBox MB_OK "$0"
 
