@@ -16,11 +16,10 @@ var CONFIG_PATH
 var UPDATE_FOLDER_PATH
 
 ; exe info
-VIProductVersion "1.0.0.0"
+VIProductVersion "1.1.0.0"
 VIAddVersionKey /LANG=1033 "ProductName" "auto-config-tools"
 VIAddVersionKey /LANG=1033 "FileDescription" "Indetectables Toolkit updater auto config tools.ini"
-VIAddVersionKey /LANG=1033 "FileVersion" "1.0.0.0"
-VIAddVersionKey /LANG=1033 "LegalCopyright" "2022"
+VIAddVersionKey /LANG=1033 "LegalCopyright" "2023"
 
 Function .onInit
   ; read exe params
