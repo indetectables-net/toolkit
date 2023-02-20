@@ -12,5 +12,5 @@ xcopy /Y /C updates\main\toolkit-updater-main\scripts scripts
 :: Run migrations
 bin\hpatchz.exe -f tools.ini migrations\2022.12.1.diff tools.ini
 
-:: Restrat updater
+:: Restart updater
 cmd /c updater.exe
