@@ -5,7 +5,7 @@ echo Update all Universal Update stuff and restart...
 taskkill /IM updater.exe /F
 
 :: Backup user tools.ini
-mv tools.ini tools.ini.old
+move tools.ini tools.ini.old
 
 :: Update files
 xcopy /Y /C updates\main\toolkit-updater-main .

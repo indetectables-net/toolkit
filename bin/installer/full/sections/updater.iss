@@ -4,7 +4,6 @@ Name: "updater\main"; Description: "Updater"; Types: full compact;
 
 [Files]
 Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
-Source: "{#MySrcDir}\bin\auto-config-tools\*"; DestDir: "{#MyAppBinsFolder}\auto-config-tools"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
@@ -18,7 +17,7 @@ Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: dis
 
 ; Clean dont selected tools in tools.ini
 [Run]
-Filename: "{#MyAppBinsFolder}\auto-config-tools\auto-config-tools.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: runhidden;
+Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: runhidden;
 
 
 

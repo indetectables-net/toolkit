@@ -57,7 +57,6 @@ Name: "updater\main"; Description: "Updater"; Types: full compact custom; Flags:
 
 [Files]
 Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
-Source: "{#MySrcDir}\bin\auto-config-tools\*"; DestDir: "{#MyAppBinsFolder}\auto-config-tools"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
@@ -98,7 +97,7 @@ Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y t
 Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u Ghidra -dic"; Flags: shellexec waituntilterminated;
 
 ; Clean dont selected tools in tools.ini
-Filename: "{#MyAppBinsFolder}\auto-config-tools\auto-config-tools.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater"; Flags: runhidden;
+Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater"; Flags: runhidden;
 
 
 [Icons]
