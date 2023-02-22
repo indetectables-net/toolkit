@@ -1,6 +1,20 @@
 # Changelog
 
 
+## MASTER
+
+### Added
+
+- Add auto-config-ini.exe (based on auto-config-tools.exe)
+
+### Changed
+
+- Fix ImHex re_download regex
+- Fix VirusTotalUploader re_download regex
+- Improvements in self updater of tools.ini 
+- Add SysAnalyzer to updater
+
+
 ## 2023.1 - Jan 5, 2023
 
 ### Changed
