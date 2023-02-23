@@ -62,26 +62,33 @@ Section ""
   ;MessageBox MB_OK "$CONFIG_PATH"
 
   ${If} $CHECK_TYPE == "sync"
+    Call ConfigSectionSync
     ${GetSectionNames} "$CONFIG_PATH" "ReadSectionSyncCallback"
   ${Else}
     ${GetSectionNames} "$CONFIG_PATH" "ReadSectionCleanCallback"
   ${EndIf}
 SectionEnd
 
-Function ReadSectionCleanCallback
-  ; analyze all except the updater config and updater self updater
-  ${If} $9 != "UpdaterConfig"
-  ${AndIf} $9 != "UpdaterAutoUpdater"
+Function ConfigSectionSync
+  ; sync "disable_clean" from old file to new
+  ReadINIStr $R0 "$OLD_CONFIG_PATH" "UpdaterConfig" "disable_clean"
+  WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "disable_clean" "$R0"
 
-    ; check if tool path exist in the system
-    ReadINIStr $R0 "$CONFIG_PATH" "$9" "folder"
-    IfFileExists "$UPDATE_FOLDER_PATH\$R0" +2 0
-    DeleteINISec "$CONFIG_PATH" "$9"
+  ; sync "disable_repack" from old file to new
+  ReadINIStr $R0 "$OLD_CONFIG_PATH" "UpdaterConfig" "disable_repack"
+  WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "disable_repack" "$R0"
 
-  ${EndIf}
- 
-  ; move on to the next
-  Push $0
+  ; sync "disable_progress" from old file to new
+  ReadINIStr $R0 "$OLD_CONFIG_PATH" "UpdaterConfig" "disable_progress"
+  WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "disable_progress" "$R0"
+
+  ; sync "save_format_type" from old file to new
+  ReadINIStr $R0 "$OLD_CONFIG_PATH" "UpdaterConfig" "save_format_type"
+  WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "save_format_type" "$R0"
+
+  ; sync "use_github_api" from old file to new
+  ReadINIStr $R0 "$OLD_CONFIG_PATH" "UpdaterConfig" "use_github_api"
+  WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "use_github_api" "$R0"
 FunctionEnd
 
 Function ReadSectionSyncCallback
@@ -94,10 +101,26 @@ Function ReadSectionSyncCallback
     WriteINIStr "$CONFIG_PATH" "$9" "local_version" "$R0"
 
     ; sync "merge" from old file to new
-    ReadINIStr $R1 "$OLD_CONFIG_PATH" "$9" "merge"
-    ${If} $R1 != ""
-      WriteINIStr "$CONFIG_PATH" "$9" "merge" "$R1"
+    ReadINIStr $R0 "$OLD_CONFIG_PATH" "$9" "merge"
+    ${If} $R0 != ""
+      WriteINIStr "$CONFIG_PATH" "$9" "merge" "$R0"
     ${EndIf}
+
+  ${EndIf}
+ 
+  ; move on to the next
+  Push $0
+FunctionEnd
+
+Function ReadSectionCleanCallback
+  ; analyze all except the updater config and updater self updater
+  ${If} $9 != "UpdaterConfig"
+  ${AndIf} $9 != "UpdaterAutoUpdater"
+
+    ; check if tool path exist in the system
+    ReadINIStr $R0 "$CONFIG_PATH" "$9" "folder"
+    IfFileExists "$UPDATE_FOLDER_PATH\$R0" +2 0
+    DeleteINISec "$CONFIG_PATH" "$9"
 
   ${EndIf}
  
