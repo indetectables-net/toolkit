@@ -14,6 +14,10 @@
 - Improvements in self updater of tools.ini 
 - Add SysAnalyzer to updater
 
+### Removed
+
+- Drop Immunity Debugger (last update 10 years ago...)
+
 
 ## 2023.1 - Jan 5, 2023
 

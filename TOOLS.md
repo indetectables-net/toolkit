@@ -162,11 +162,6 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** NSA <br/>
 ***Description:*** Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. This framework includes a suite of full-featured, high-end software analysis tools that enable users to analyze compiled code on a variety of platforms. <br/>
 
-### Immunity Debugger
-***Web:*** https://www.immunityinc.com/products/debugger/ <br/>
-***Developer:*** Immunity <br/>
-***Description:*** Immunity Debugger is a powerful new way to write exploits, analyze malware, and reverse engineer binary files. It builds on a solid user interface with function graphing, the industry's first heap analysis tool built specifically for heap creation, and a large and well supported Python API for easy extensibility. <br/>
-
 ### OllyDbg 1.10 (with plugins and scripts)
 ***Web:*** https://www.ollydbg.de <br/>
 ***Developer:*** Oleh Yuschuk <br/>
