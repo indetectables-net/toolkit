@@ -21,6 +21,7 @@ import sys
 import colorama
 import tqdm
 import urllib
+import binascii
 
 
 # Helpers functions
@@ -243,6 +244,38 @@ class Updater:
             'download_url': update_url,
         }
 
+    def _check_version_from_http(self, headers):
+        local_version = self.config.get(self.name, 'local_version', fallback='0')
+
+        remote_version = None
+        if 'last-modified' in headers:
+            input_bytes = headers['last-modified'].encode()
+            remote_version = str(binascii.crc32(input_bytes))
+        elif 'content-length' in headers:
+            print('{0}: using "content-length" as version number...'.format(self.name))
+            input_bytes = headers['content-length'].encode()
+            remote_version = str(binascii.crc32(input_bytes))
+        else:
+            raise Exception(colorama.Fore.RED + '{0}: no header is found with which to determine if there is an update'.format(self.name))
+
+        if not self.force_download and local_version == remote_version:
+            raise Exception('{0}: {1} is the latest version'.format(self.name, local_version))
+
+        print('{0}: updated from {1} --> {2}'.format(self.name, local_version, remote_version))
+
+        return remote_version
+
+    def _scrape_http(self, update_url):
+        # get http response
+        headers={'User-Agent': self.request_user_agent}
+        http_response = requests.head(update_url, headers=headers)
+        http_response.raise_for_status()
+
+        return {
+            'download_version': self._check_version_from_http(http_response.headers),
+            'download_url': update_url,
+        }
+
     def _unpack(self, file_path):
         file_ext = pathlib.Path(file_path).suffix
         update_folder = str(file_path).replace(file_ext, '')
@@ -380,14 +413,12 @@ class Updater:
         update_url = self.config.get(self.name, 'update_url', fallback=None)
         re_download = self.config.get(self.name, 're_download', fallback=None)
         re_version = self.config.get(self.name, 're_version', fallback=None)
-
-        # case for don't process "Updater" tool
-        if not tool_url:
-            raise Exception()
-
         from_url = self.config.get(self.name, 'from', fallback='web')
+
         if from_url == 'github':
             return self._scrape_github(tool_url, update_url, re_download)
+        elif from_url == 'http':
+            return self._scrape_http(update_url)
 
         return self._scrape_web(tool_url, update_url, re_version, re_download)
 
@@ -474,7 +505,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.7.2'
+        self.version = '1.8.0'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
