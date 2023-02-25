@@ -9,10 +9,13 @@
 
 ### Changed
 
+- Update tools (25/02/2023)
+- Bump Universal Updater to 1.8.0
 - Fix ImHex re_download regex
 - Fix VirusTotalUploader re_download regex
 - Improvements in self updater of tools.ini 
 - Add SysAnalyzer to updater
+- Add RawCap to updater
 
 ### Removed
 
