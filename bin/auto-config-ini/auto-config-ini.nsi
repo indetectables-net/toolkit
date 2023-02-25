@@ -34,7 +34,7 @@ Function .onInit
   ${If} $UPDATE_FOLDER_PATH == ""
     MessageBox MB_ICONEXCLAMATION "Missing default params:$\r \
       /FOLDER=[updater folder path]$\r \
-      /TYPE=[clean|sync]"
+      /TYPE=[clean|sync|toolkit]"
     Abort
   ${EndIf}
 
@@ -64,11 +64,14 @@ Section ""
   ${If} $CHECK_TYPE == "sync"
     Call ConfigSectionSync
     ${GetSectionNames} "$CONFIG_PATH" "ReadSectionSyncCallback"
+  ${ElseIf} $CHECK_TYPE == "toolkit"
+    Call ConfigToolkitDefault
   ${Else}
     ${GetSectionNames} "$CONFIG_PATH" "ReadSectionCleanCallback"
   ${EndIf}
 SectionEnd
 
+; Synchronizes the updater configuration with the one the user had on their machine
 Function ConfigSectionSync
   ; sync "disable_clean" from old file to new
   ReadINIStr $R0 "$OLD_CONFIG_PATH" "UpdaterConfig" "disable_clean"
@@ -91,6 +94,14 @@ Function ConfigSectionSync
   WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "use_github_api" "$R0"
 FunctionEnd
 
+; Set the default updater configuration within the toolkit
+Function ConfigToolkitDefault
+  ; this is the correct updater configuration for use in the toolkit
+  WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "disable_clean" "True"
+  WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "disable_repack" "True"
+FunctionEnd
+
+; Callback to synchronize the state of the tools
 Function ReadSectionSyncCallback
   ; analyze all except the updater config and updater self updater
   ${If} $9 != "UpdaterConfig"
@@ -112,6 +123,7 @@ Function ReadSectionSyncCallback
   Push $0
 FunctionEnd
 
+; Callback to eliminate the tools that are not installed in the system
 Function ReadSectionCleanCallback
   ; analyze all except the updater config and updater self updater
   ${If} $9 != "UpdaterConfig"
