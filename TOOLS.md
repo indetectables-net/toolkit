@@ -7,7 +7,7 @@
 1. [Monitor](#monitor)
 1. [NFOMaker](#nfomaker)
 1. [Other](#other)
-1. [Patcher](#patcher)
+1. [Reverse](#reverse)
 1. [Rootkits detector](#rootkits-detector)
 1. [Unpacking](#unpacking)
 
@@ -327,11 +327,6 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** NirSoft <br/>
 ***Description:*** HashMyFiles is small utility that allows you to calculate the MD5 and SHA1 hashes of one or more files in your system. You can easily copy the MD5/SHA1 hashes list into the clipboard, or save them into text/html/xml file.  <br/>
 
-### ImpREC (with plugins)
-***Web:*** Unknown <br/>
-***Developer:*** MackT/uCF <br/>
-***Description:*** ImpRec is a very handy tool that can be used to repair/reconstruct the import table for packed programs.  <br/>
-
 ### Indetectables Offset Locator
 ***Web:*** https://www.indetectables.net/viewtopic.php?t=29725 <br/>
 ***Developer:*** Mingo, Yorll & Metal <br/>
@@ -341,11 +336,6 @@ It is the first and only program of its kind to support output for display in va
 ***Web:*** https://www.procdot.com/downloadprocdotbinaries.htm <br/>
 ***Developer:*** CERT.at <br/>
 ***Description:*** ProcDOT aids malware analysis via visual means, by correlating ProcMon and PCAP data and showing it as an interactive, animated graph. It also detects and shows Thread Injection, smartly follows algorithms, filters out noise, and correlates network events with the involved processes. <br/>
-
-### Process Dump
-***Web:*** http://split-code.com/processdump.html <br/>
-***Developer:*** Split-Code <br/>
-***Description:*** Process Dump is a Windows reverse-engineering tool to dump malware memory components back to disk for analysis. It uses an aggressive import reconstruction approach to make analysis easier, and supports 32 and 64 bit modules. <br/>
 
 ### RawCap
 ***Web:*** https://www.netresec.com/?page=RawCap <br/>
@@ -357,11 +347,6 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** Angus Johnson <br/>
 ***Description:*** Resource Hacker is a resource editor for 32bit and 64bit Windows applications. It's both a resource compiler aand a decompiler, enabling viewing and editing resources in executables. <br/>
 
-### Scylla
-***Web:*** https://github.com/NtQuery/Scylla <br/>
-***Developer:*** The NtQuery team <br/>
-***Description:*** Great tool for the purpose of rebuilding an Import Table. This is an alternative to ImpRec. <br/>
-
 ### ShowString
 ***Web:*** Unknown <br/>
 ***Developer:*** figugegl <br/>
@@ -372,53 +357,88 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** Sysinternals <br/>
 ***Description:*** Search for ANSI and Unicode strings in binary images. <br/>
 
-### Threadtear
-***Web:*** https://github.com/GraxCode/threadtear <br/>
-***Developer:*** GraxCode <br/>
-***Description:*** Threadtear is a multifunctional deobfuscation tool for java. Android application support is coming soon (Currently working on a dalvik to java converter). Suitable for easier code analysis without worrying too much about obfuscation. <br/>
-
 ### VirusTotal Uploader
 ***Web:*** https://github.com/SamuelTulach/VirusTotalUploader <br/>
 ***Developer:*** Samuel Tulach <br/>
 ***Description:*** VirusTotal file uploader <br/>
 
-### XOpCodeCalc
-***Web:*** https://github.com/horsicq/XOpcodeCalc <br/>
-***Developer:*** Hors <br/>
-***Description:*** This tool is an x86/64 Opcode calculator. The program works on macOS, Linux and Windows. <br/>
 
-### x64dbg Plugin Manager
-***Web:*** https://github.com/horsicq/x64dbg-Plugin-Manager <br/>
-***Developer:*** Hors <br/>
-***Description:*** Plugin manager for x64dbg. <br/>
-
-### GetSymbol
-***Web:*** https://github.com/dbgsymbol/getsymbol <br/>
-***Developer:*** @Paul091_ <br/>
-***Description:*** Simple tool to download debugging symbols from Microsoft, Google, Mozilla and Citrix symbol servers for reverse engineers compatible with Windows 8.1, 10 and 11. <br/>
-
-### DLest
-***Web:*** https://github.com/DarkCoderSc/DLest <br/>
-***Developer:*** DarkCoderSc (Jean-Pierre LESUEUR) <br/>
-***Description:*** This powerful Microsoft Windows application is specifically designed to assist developers and malware analysts with the analysis and manipulation of exported functions in Portable Executable (PE) files, particularly DLLs. With DLest, you can easily enumerate exported functions using a variety of methods, including drag and drop, opening a folder, or recursively scanning a folder with regular expression filtering to only include PE files with specific export function names. <br/>
-
-
-## Patcher
+## Reverse
 
 ### AT4RE Patcher
 ***Web:*** https://www.at4re.net/f/thread-54.html <br/>
 ***Developer:*** Agmcz & Sn!per X <br/>
 ***Description:*** Patch generator. Currently the most complete and best that can be used. <br/>
 
+### CryptoTester
+***Web:*** https://github.com/Demonslay335/CryptoTester <br/>
+***Developer:*** Michael Gillespie <br/>
+***Description:*** A utility for playing with cryptography, geared towards ransomware analysis. <br/>
+
 ### dUP
 ***Web:*** https://web.archive.org/web/20120327143407/http://diablo2oo2.cjb.net:80/ <br/>
 ***Developer:*** diablo2oo2 <br/>
 ***Description:*** dUP 2 is a freeware patch generator which can build a small standalone patcher executable for microsoft windows systems. <br/>
 
+### DLest
+***Web:*** https://github.com/DarkCoderSc/DLest <br/>
+***Developer:*** DarkCoderSc (Jean-Pierre LESUEUR) <br/>
+***Description:*** This powerful Microsoft Windows application is specifically designed to assist developers and malware analysts with the analysis and manipulation of exported functions in Portable Executable (PE) files, particularly DLLs. With DLest, you can easily enumerate exported functions using a variety of methods, including drag and drop, opening a folder, or recursively scanning a folder with regular expression filtering to only include PE files with specific export function names. <br/>
+
+### ExtremeDumper
+***Web:*** https://github.com/wwh1004/ExtremeDumper <br/>
+***Developer:*** wwh1004 <br/>
+***Description:*** .NET Assembly Dumper <br/>
+
+### GetSymbol
+***Web:*** https://github.com/dbgsymbol/getsymbol <br/>
+***Developer:*** @Paul091_ <br/>
+***Description:*** Simple tool to download debugging symbols from Microsoft, Google, Mozilla and Citrix symbol servers for reverse engineers compatible with Windows 8.1, 10 and 11. <br/>
+
+### ImpREC (with plugins)
+***Web:*** Unknown <br/>
+***Developer:*** MackT/uCF <br/>
+***Description:*** ImpRec is a very handy tool that can be used to repair/reconstruct the import table for packed programs. <br/>
+
+### Keygener Assistant
+***Web:*** https://www.at4re.net/f/thread-47.html <br/>
+***Developer:*** Mr Paradox & dj-siba <br/>
+***Description:*** Convert, analyze, encrypt and process characters to and from an abundance of encodings and formats with this fully-featured calculator and processor. <br/>
+
+### Process Dump
+***Web:*** http://split-code.com/processdump.html <br/>
+***Developer:*** Split-Code <br/>
+***Description:*** Process Dump is a Windows reverse-engineering tool to dump malware memory components back to disk for analysis. It uses an aggressive import reconstruction approach to make analysis easier, and supports 32 and 64 bit modules. <br/>
+
+### Scylla
+***Web:*** https://github.com/NtQuery/Scylla <br/>
+***Developer:*** The NtQuery team <br/>
+***Description:*** Great tool for the purpose of rebuilding an Import Table. This is an alternative to ImpRec. <br/>
+
+### Threadtear
+***Web:*** https://github.com/GraxCode/threadtear <br/>
+***Developer:*** GraxCode <br/>
+***Description:*** Threadtear is a multifunctional deobfuscation tool for java. Android application support is coming soon (Currently working on a dalvik to java converter). Suitable for easier code analysis without worrying too much about obfuscation. <br/>
+
 ### uPPP
 ***Web:*** https://forum.tuts4you.com/forum/120-uppp/ <br/>
 ***Developer:*** Ufo-Pu55y <br/>
 ***Description:*** Another patch generator. Requires .NET Runtime 2.0 for the GUI. <br/>
+
+### WinAPI Search
+***Web:*** https://dennisbabkin.com/winapisearch/ <br/>
+***Developer:*** Dennis Babkin <br/>
+***Description:*** WinAPI Search app was designed primarily for Windows developers, researchers and malware reverse engineers. Its original goal was to provide a utility to search for Win32 functions by name, but this app later grew to include additional functionality. <br/>
+
+### x64dbg Plugin Manager
+***Web:*** https://github.com/horsicq/x64dbg-Plugin-Manager <br/>
+***Developer:*** Hors <br/>
+***Description:*** Plugin manager for x64dbg. <br/>
+
+### XOpCodeCalc
+***Web:*** https://github.com/horsicq/XOpcodeCalc <br/>
+***Developer:*** Hors <br/>
+***Description:*** This tool is an x86/64 Opcode calculator. The program works on macOS, Linux and Windows. <br/>
 
 
 ## Rootkits Detector
