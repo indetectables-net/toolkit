@@ -44,7 +44,7 @@
 ***Developer:*** hasherezade <br/>
 ***Description:*** PE-bear is a freeware reversing tool for PE files. Its objective is to deliver fast and flexible “first view” for malware analysts, stable and capable to handle malformed PE files. <br/>
 
-### PEiD (with plugins and databases)
+### PEiD (with plugins and databases) *Available using the extra called: Oldies*
 ***Web:*** https://web.archive.org/web/20110924071419/http://www.peid.info/ <br/>
 ***Developer:*** snaker <br/>
 ***Description:*** PEiD (short for PE iDentifier) is a well-known professional, extensible packer/cryptor/compiler detecting tool. It’s so powerful that it can detect the types/signatures of almost any PE file packing tools (at present, the number has been more than 600 kinds) <br/>
@@ -54,7 +54,7 @@
 ***Developer:*** winitor <br/>
 ***Description:*** The goal of pestudio is to spot artifacts of executable files in order to ease and accelerate Malware Initial Assessment. The tool is used by Computer Emergency Response Teams (CERT), Security Operations Centers (SOC) and Digital-Forensic Labs worldwide. <br/>
 
-### ProtectionID
+### ProtectionID *Available using the extra called: Oldies*
 ***Web:*** https://web.archive.org/web/20210331144912/https://protectionid.net/ <br/>
 ***Developer:*** CDKiller & TippeX <br/>
 ***Description:*** PiD Team's Protection ID started as a PC game protection detector, and quickly became a swiss-army knife to detect packers & .NET protections. <br/>
@@ -99,7 +99,7 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** x0r19x91 <br/>
 ***Description:*** Decompiles AutoIt v3+ Exe files. <br/>
 
-### [DELPHI] Dede
+### [DELPHI] Dede *Available using the extra called: Oldies*
 ***Web:*** https://code.google.com/archive/p/dedex/ <br/>
 ***Developer:*** DaFixer <br/>
 ***Description:*** DeDe is a very fast program that can analize executables compiled with Delphi 3,4,5,6, C++Builder and Kylix and give you all dfm files on the target, every published method in well-commented Assembler, and lots of other information.- <br/>
@@ -114,7 +114,7 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** dnSpy team <br/>
 ***Description:*** dnSpy is a debugger and .NET assembly editor. You can use it to edit and debug assemblies even if you don't have any source code available. <br/>
 
-### [DOTNET] GrayWolf
+### [DOTNET] GrayWolf *Available using the extra called: Oldies*
 ***Web:*** https://web.archive.org/web/20181114171712/http://www.digitalbodyguard.com/graywolf.html <br/>
 ***Developer:*** DigitalBodyGuard <br/>
 ***Description:*** GrayWolf is a reverse engineering tool focused on .NET Framework Applications. It can de-obfuscate binaries, live-edit IL, add payloads, edit attributes, and copy strong names signing on EXE/DLL. <br/>
@@ -147,7 +147,7 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 
 ## Dissasembler
 
-### BDASM
+### BDASM *Available using the extra called: Oldies*
 ***Web:*** www.bsasm.com (closed) <br/>
 ***Developer:*** Manuel Jiménez <br/>
 ***Description:*** BDASM is a multi-cpu, multi format file disassembler for Windows. Currently it supports ELF, X-Box, PE and raw binary files. The CPU support includes the Intel x86 16/32bits processor family up to SSE2 instructions, and PowerPc 603,604 32bits CPUs. <br/>
@@ -157,17 +157,17 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 ***Developer:*** https://rizin.re <br/>
 ***Description:*** Cutter is a free and open-source reverse engineering platform powered by Rizin (fork of the radare2 reverse engineering framework). It aims at being an advanced and customizable reverse engineering platform while keeping the user experience in mind. Cutter is created by reverse engineers for reverse engineers. <br/>
 
-### Ghidra
+### Ghidra *Available using the extra called: Ghidra*
 ***Web:*** https://ghidra-sre.org/ <br/>
 ***Developer:*** NSA <br/>
 ***Description:*** Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. This framework includes a suite of full-featured, high-end software analysis tools that enable users to analyze compiled code on a variety of platforms. <br/>
 
-### OllyDbg 1.10 (with plugins and scripts)
+### OllyDbg 1.10 (with plugins and scripts) *Available using the extra called: Oldies*
 ***Web:*** https://www.ollydbg.de <br/>
 ***Developer:*** Oleh Yuschuk <br/>
 ***Description:*** OllyDbg is an x86 debugger that emphasizes binary code analysis, which is useful when source code is not available. It traces registers, recognizes procedures, API calls, switches, tables, constants and strings, as well as locates routines from object files and libraries. It has a user friendly interface, and its functionality can be extended by third-party plugins. <br/>
 
-### w32Dasm (with all versions)
+### w32Dasm (with all versions) *Available using the extra called: Oldies*
 ***Web:*** http://members.home.net/w32dasm/ (closed) <br/>
 ***Developer:*** URSoftware <br/>
 ***Description:*** W32DASM is a disassembler: a tool made to translate machine language back into assembly language. It's ideal for those interested in reverse engineering, who want to take code apart and find out how it works. 
@@ -241,15 +241,15 @@ What makes ImHex special is that it has many advanced features that can often on
 ***Developer:*** Sysinternals <br/>
 ***Description:*** Ever wondered which program has a particular file or directory open? Now you can find out. Process Explorer shows you information about which handles and DLLs processes have opened or loaded. <br/>
 
-### System Informer (Process Hacker 3)
-***Web:*** https://systeminformer.sourceforge.io <br/>
-***Developer:*** System Informer <br/>
-***Description:*** A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware. <br/>
-
 ### Procmon
 ***Web:*** https://docs.microsoft.com/en-us/sysinternals/downloads/procmon <br/>
 ***Developer:*** Sysinternals <br/>
 ***Description:*** Process Monitor is an advanced monitoring tool for Windows that shows real-time file system, Registry and process/thread activity. It combines the features of two legacy Sysinternals utilities, Filemon and Regmon, and adds an extensive list of enhancements. <br/>
+
+### RegistryChangesView
+***Web:*** https://www.nirsoft.net/utils/registry_changes_view.html <br/>
+***Developer:*** NirSoft <br/>
+***Description:***  RegistryChangesView is a tool for Windows that allows you to take a snapshot of Windows Registry and later compare it with another Registry snapshots, with the current Registry or with Registry files stored in a shadow copy created by Windows. When comparing 2 Registry snapshots, you can see the exact changes made in the Registry between the 2 snapshots, and optionally export the Registry changes into a standard .reg file of RegEdit. <br/>
 
 ### RegShot
 ***Web:*** https://github.com/Seabreg/Regshot <br/>
@@ -264,6 +264,11 @@ system changes or installing a new software product. <br/>
 ***Description:*** SysAnalyzer is an application that was designed to give malcode analysts an 
 automated tool to quickly collect, compare, and report on the actions a 
 binary took while running on the system. <br/>
+
+### System Informer (Process Hacker 3)
+***Web:*** https://systeminformer.sourceforge.io <br/>
+***Developer:*** System Informer <br/>
+***Description:*** A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware. <br/>
 
 ### TCPView
 ***Web:*** https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview <br/>
@@ -307,7 +312,7 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** AstroComma Inc. <br/>
 ***Description:*** AstroGrep is a Microsoft Windows GUI File Searching (grep) utility. Its features include regular expressions, versatile printing options, stores most recent used paths and has a "context" feature which is very nice for looking at source code. <br/>
 
-### AVFucker
+### AVFucker *Available using the extra called: Oldies*
 ***Web:*** www.indetectables.net <br/>
 ***Developer:*** Sr Sombrero <br/>
 ***Description:*** AVFucker is a tool that helps you evade Antivirus using the “replace byte signature” technique. <br/>
@@ -317,17 +322,12 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** mandiant <br/>
 ***Description:*** The FLARE Obfuscated String Solver (FLOSS, formerly FireEye Labs Obfuscated String Solver) uses advanced static analysis techniques to automatically deobfuscate strings from malware binaries. You can use it just like strings.exe to enhance basic static analysis of unknown binaries. <br/>
 
-### HashCalc
-***Web:*** https://www.slavasoft.com/hashcalc/ <br/>
-***Developer:*** SlavaSoft <br/>
-***Description:*** A fast and easy-to-use calculator that allows to compute message digests, checksums and HMACs for files, as well as for text and hex strings. It offers a choice of 13 of the most popular hash and checksum algorithms for calculations.  <br/>
-
 ### HashMyFiles
 ***Web:*** https://www.nirsoft.net/utils/hash_my_files.html <br/>
 ***Developer:*** NirSoft <br/>
 ***Description:*** HashMyFiles is small utility that allows you to calculate the MD5 and SHA1 hashes of one or more files in your system. You can easily copy the MD5/SHA1 hashes list into the clipboard, or save them into text/html/xml file.  <br/>
 
-### Indetectables Offset Locator
+### Indetectables Offset Locator *Available using the extra called: Oldies*
 ***Web:*** https://www.indetectables.net/viewtopic.php?t=29725 <br/>
 ***Developer:*** Mingo, Yorll & Metal <br/>
 ***Description:*** This is a classic, great tool to clean AV signatures in executables. <br/>
@@ -347,7 +347,12 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** Angus Johnson <br/>
 ***Description:*** Resource Hacker is a resource editor for 32bit and 64bit Windows applications. It's both a resource compiler aand a decompiler, enabling viewing and editing resources in executables. <br/>
 
-### ShowString
+### RunAsDate
+***Web:*** https://www.nirsoft.net/utils/run_as_date.html <br/>
+***Developer:*** NirSoft <br/>
+***Description:*** RunAsDate is a small utility that allows you to run a program in the date and time that you specify. This utility doesn't change the current system date and time of your computer, but it only injects the date/time that you specify into the desired application. <br/>
+
+### ShowString *Available using the extra called: Oldies*
 ***Web:*** Unknown <br/>
 ***Developer:*** figugegl <br/>
 ***Description:*** This little tool shows all ASCII and UNICODE strings in a file. You can edit, copy, paste, sort, search and much more. <br/>
@@ -395,7 +400,7 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** @Paul091_ <br/>
 ***Description:*** Simple tool to download debugging symbols from Microsoft, Google, Mozilla and Citrix symbol servers for reverse engineers compatible with Windows 8.1, 10 and 11. <br/>
 
-### ImpREC (with plugins)
+### ImpREC (with plugins) *Available using the extra called: Oldies*
 ***Web:*** Unknown <br/>
 ***Developer:*** MackT/uCF <br/>
 ***Description:*** ImpRec is a very handy tool that can be used to repair/reconstruct the import table for packed programs. <br/>
@@ -467,13 +472,13 @@ It is the first and only program of its kind to support output for display in va
 ***Description:*** de4dot is an open source .NET deobfuscator and unpacker written in C#. It will try its best to restore a packed and obfuscated assembly to almost the original assembly.
 Most of the obfuscation can be completely restored (eg. string encryption), but symbol renaming is impossible to restore since the original names aren't (usually) part of the obfuscated assembly.<br/>
 
-### GUnPacker
+### GUnPacker *Available using the extra called: Oldies*
 ***Web:*** Unknown <br/>
 ***Developer:*** Unknown <br/>
 ***Description:*** This tool is a generic unpacker. It has two main functionalities: (A) OEP positioning, and (B) the dumped code and data can be used to repair the follow-up of a PE header.
 From Chinese developers. Competitor of Quick Unpack. <br/>
 
-### NETUnpack
+### NETUnpack *Available using the extra called: Oldies*
 ***Web:*** https://ntcore.com/?page_id=353 <br/>
 ***Developer:*** Erik Pistelli (NTCore) <br/>
 ***Description:*** This is a program to dump .NET packed applications. Of course no serious .NET protection relies on packing. In fact, this software shows how easily you can unpack a protected assemly. <br/>
@@ -484,7 +489,7 @@ From Chinese developers. Competitor of Quick Unpack. <br/>
 ***Description:*** The program is intended for a dynamic unpacking of binders, crypters, packers and protectors.
 QuickUnpack tries to bypass all possible scramblers/obfuscators and restores redirected import. From the version 1 the opportunity of unpacking dll is added. From the version 2 the attach process feature added which allows to use QuickUnpack as a dumper and import recoverer. Scripts are also supported from version 2 which allows unpacking of more complicated protections. Version 3 brought x64 support and hardware virtualization debugging engine. This makes QuickUnpack a unique software product which has no similar analogues in the world! <br/>
 
-### RL!dePacker (with unpack SDK)
+### RL!dePacker (with unpack SDK) *Available using the extra called: Oldies*
 ***Web:*** http://www.reversinglabs.com <br/>
 ***Developer:*** Ap0x <br/>
 ***Description:*** Reversing Labs RL!dePacker has a build in option to detect OEP. However this option does not work with VB (always use FindOEP! function with VB applications and Force to manual OEP?) and some packers. So if RL!dePacker can not unpack the file use FindOEP! function to detect correct OEP, but use it only as a second resort since it can be jammed! <br/>
@@ -496,7 +501,7 @@ Generic unpacker can unpack ONLY packers that do not use IAT redirection, that d
 ***Description:*** Universal Extractor 2 is a tool designed to extract files from any type of extractable file. <br/>
 Unlike most archiving programs, UniExtract is not limited to **standard archives** such as `.zip` and `.rar`. It can also deal with **application installers**, **disk images** and even **game archives** and other **multimedia files**. An overview of supported file types can be found [here](https://github.com/Bioruebe/UniExtract2/blob/master/docs/FORMATS.md)
 
-### VMUnpacker (with all versions)
+### VMUnpacker (with all versions) *Available using the extra called: Oldies*
 ***Web:*** https://web.archive.org/web/20080318210939/http://dswlab.com/d3.html <br/>
 ***Developer:*** dswlab <br/>
 ***Description:*** This tool uses the technology of Virtual Machines. It can unpack various known & unknown shells. It is suitable for unpacking the shelled Trojan horse in virus analysis, and because all codes are run under the VM, they will not take any danger to your system. <br/>
