@@ -44,6 +44,10 @@ class GenerateInstall:
         self.tool_name = ''
         self.section_list = []
         self.cli_list = []
+        self.valid_folders = [
+            'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
+            'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
+        ]
         self.fix_tool_exe_list = {
             # fix to support main executable
             '[dotnet] dnspyex': ['dnspy.exe'],
@@ -152,20 +156,22 @@ class GenerateInstall:
 
     # script steps
     def iterate_sections(self, folder_path):
-        valid_folders = [
-            'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
-            'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
-        ]
         self.base_path = folder_path
         for item in pathlib.Path(folder_path).iterdir():
-            if item.is_dir() & (item.name.lower() in valid_folders):
+            # check that the folder is valid for analysis
+            if item.is_dir() & (item.name.lower() in self.valid_folders):
+                print(colorama.Fore.WHITE + f'[*] Analyzing folder: {item.name}')
                 self.section_name = item.name
                 self.section_list = []
                 self.iterate_folder(item)
 
+                # generate the iss file with everything I processed
                 section_name = item.name.lower().replace(' ', '-')
                 with open(f'sections\\{section_name}.iss', 'w') as file:
                     file.writelines('\n'.join(self.section_list))
+
+                # I add a few line breaks to indicate in the summary that I have finished analyzing a section
+                print("\n")
 
     def iterate_folder(self, folder_path):
         for item in pathlib.Path(folder_path).iterdir():
