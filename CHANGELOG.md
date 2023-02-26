@@ -6,11 +6,17 @@
 ### Added
 
 - Add auto-config-ini.exe (based on auto-config-tools.exe)
+- Add WinAPI Search
+- Add ExtremeDumper
+- Add RegistryChangesView
+- Add RunAsDate
+- Add Keygener Assistant
+- Add CryptoTester
 
 ### Changed
 
-- Update tools (25/02/2023)
 - Bump Universal Updater to 1.8.0
+- Extract all old tools to new package
 - Fix ImHex re_download regex
 - Fix VirusTotalUploader re_download regex
 - Improvements in self updater of tools.ini 
