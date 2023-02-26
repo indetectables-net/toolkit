@@ -52,6 +52,7 @@ class GenerateInstall:
             'rl!depacker': ['rl!depacker.exe'],
             'sysanalyzer': ['sysanalyzer.exe'],
             'system informer': ['systeminformer.exe'],
+            'keygener assistant': ['keyassistant.exe'],
 
             # support also the x64 versions
             '[autoit] unautoit': ['unautoit-windows-i686.exe', 'unautoit-windows-amd64.exe'],
@@ -65,6 +66,9 @@ class GenerateInstall:
             'process-dump': ['pd32.exe', 'pd64.exe'],
             'scylla': ['scylla_x86.exe', 'scylla_x64.exe'],
             'strings': ['strings.exe', 'strings64.exe'],
+            'dlest': ['dlest32.exe', 'dlest64.exe'],
+            'extremedumper': ['extremedumper-x86.exe', 'extremedumper.exe'],
+            'winapi search': ['winapisearch32.exe', 'winapisearch64.exe'],
             'de4dot': ['de4dot.exe', 'de4dot-x64.exe'],
             'netunpack': ['netunpack.exe', 'netunpack-64.exe'],
         }
@@ -150,7 +154,7 @@ class GenerateInstall:
     def iterate_sections(self, folder_path):
         valid_folders = [
             'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
-            'nfomaker', 'other', 'patcher', 'rootkits detector', 'unpacking'
+            'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
         ]
         self.base_path = folder_path
         for item in pathlib.Path(folder_path).iterdir():
