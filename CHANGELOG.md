@@ -20,6 +20,7 @@
 - New Reverse catalog created to improve the ordering of tools
 - Fix ImHex re_download regex
 - Fix VirusTotalUploader re_download regex
+- Update Process-Dump download server
 - Improvements in self updater of tools.ini 
 - Add SysAnalyzer to updater
 - Add RawCap to updater
