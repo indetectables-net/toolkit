@@ -76,19 +76,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PE-Bear x64"; Filename: "{#MyAp
 
 
 
-; PEiD
-[Components]
-Name: "analysis\peid"; Description: "PEiD"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\PEiD\*"; DestDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\PEiD"; Filename: "{#MyAppToolsFolder}\Analysis\PEiD\PEiD.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PEiD"; Filename: "{#MyAppToolsFolder}\Analysis\PEiD\PEiD.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEiD"; Components: "analysis\peid";    
-
-
-
 ; PEStudio
 [Components]
 Name: "analysis\pestudio"; Description: "PEStudio"; Types: full compact; 
@@ -99,19 +86,6 @@ Source: "{#MySrcDir}\toolkit\Analysis\PEStudio\*"; DestDir: "{#MyAppToolsFolder}
 [Icons]
 Name: "{group}\{#MyAppName}\PEStudio x64"; Filename: "{#MyAppToolsFolder}\Analysis\PEStudio\pestudio.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEStudio"; Components: "analysis\pestudio";   Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PEStudio x64"; Filename: "{#MyAppToolsFolder}\Analysis\PEStudio\pestudio.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PEStudio"; Components: "analysis\pestudio";   Check: Is64BitInstallMode; 
-
-
-
-; ProtectionID
-[Components]
-Name: "analysis\protectionid"; Description: "ProtectionID"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\ProtectionID\*"; DestDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\{#MyAppName}\ProtectionID"; Filename: "{#MyAppToolsFolder}\Analysis\ProtectionID\Protection_ID.eXe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ProtectionID"; Filename: "{#MyAppToolsFolder}\Analysis\ProtectionID\Protection_ID.eXe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ProtectionID"; Components: "analysis\protectionid";    
 
 
 

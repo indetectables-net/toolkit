@@ -73,7 +73,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\MultiMon"; Filename: "{#MyAppToo
 
 ; PE-sieve
 [Components]
-Name: "monitor\pesieve"; Description: "PE-sieve"; Types: full; 
+Name: "monitor\pesieve"; Description: "PE-sieve"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Monitor\PE-sieve\*"; DestDir: "{#MyAppToolsFolder}\Monitor\PE-sieve"; Components: "monitor\pesieve"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -128,6 +128,19 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Procmon"; Filename: "{#MyAppTool
 [Icons]
 Name: "{group}\{#MyAppName}\Procmon x64"; Filename: "{#MyAppToolsFolder}\Monitor\Procmon\Procmon64.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Procmon"; Components: "monitor\procmon";   Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Procmon x64"; Filename: "{#MyAppToolsFolder}\Monitor\Procmon\Procmon64.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\Procmon"; Components: "monitor\procmon";   Check: Is64BitInstallMode; 
+
+
+
+; RegistryChangesView
+[Components]
+Name: "monitor\registrychangesview"; Description: "RegistryChangesView"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Monitor\RegistryChangesView\*"; DestDir: "{#MyAppToolsFolder}\Monitor\RegistryChangesView"; Components: "monitor\registrychangesview"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\{#MyAppName}\RegistryChangesView"; Filename: "{#MyAppToolsFolder}\Monitor\RegistryChangesView\RegistryChangesView.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\RegistryChangesView"; Components: "monitor\registrychangesview";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\RegistryChangesView"; Filename: "{#MyAppToolsFolder}\Monitor\RegistryChangesView\RegistryChangesView.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\RegistryChangesView"; Components: "monitor\registrychangesview";    
 
 
 

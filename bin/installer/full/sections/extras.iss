@@ -47,7 +47,6 @@ Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Componen
 Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javajre or extras\javajdk or extras\python"; Flags: shellexec waituntilterminated;
 
 
-
 ; Install Java JRE
 [Components]
 Name: "extras\javajre"; Description: "Install Java Oracle JRE 8 (via Chocolatey)"; ExtraDiskSpaceRequired: 220200960; Types: full compact; 
@@ -62,6 +61,7 @@ Name: "extras\javajdk"; Description: "Install Java Temurin JDK 11 (via Chocolate
 [Run]
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y temurin11"; Components: "extras\javajdk"; Flags: shellexec waituntilterminated;
 
+
 ; Install Python
 [Components]
 Name: "extras\python"; Description: "Install Python 3 (via Chocolatey)"; ExtraDiskSpaceRequired: 104857600; Types: full; 
@@ -69,3 +69,18 @@ Name: "extras\python"; Description: "Install Python 3 (via Chocolatey)"; ExtraDi
 [Run]
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y python"; Components: "extras\python"; Flags: shellexec waituntilterminated;
 
+
+; Install OpenHashTab
+[Components]
+Name: "extras\openhashtab"; Description: "Install OpenHashTab (via Chocolatey)"; ExtraDiskSpaceRequired: 6291456; Types: full; 
+
+[Run]
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y openhashtab"; Components: "extras\openhashtab"; Flags: shellexec waituntilterminated;
+
+
+; Install WinMerge
+[Components]
+Name: "extras\winmerge"; Description: "Install WinMerge (via Chocolatey)"; ExtraDiskSpaceRequired: 24117248; Types: full; 
+
+[Run]
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y winmerge"; Components: "extras\winmerge"; Flags: shellexec waituntilterminated;
