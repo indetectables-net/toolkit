@@ -112,13 +112,13 @@ class GenerateInstall:
             'apkstudio', 'floss', 'hashmyfiles', 'rawcap', 'resource hacker', 'virustotaluploader',
 
             # reverse
-            'cryptotester', 'getsymbol', 'scylla', 'winapi search' 'x64dbgpluginmanager',
+            'cryptotester', 'getsymbol', 'scylla', 'winapi search', 'x64dbgpluginmanager',
 
             # rootkits detector
             'gmer', 'sysinspector',
 
             # unpacking
-            'qunpack', 'uniextract', 'xvolkolak',
+            'uniextract', 'xvolkolak',
         ]
         self.disable_unpack = [
             # decompilers
