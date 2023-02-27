@@ -22,7 +22,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\{#MyAppNameOriginal}
+DefaultDirName={sd}\{#MyAppNameOriginal}
 DefaultGroupName={#MyAppNameOriginal}
 PrivilegesRequired=admin
 ;PrivilegesRequiredOverridesAllowed=dialog
@@ -42,15 +42,20 @@ Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "catalan"; MessagesFile: "compiler:Languages\Catalan.isl"
 Name: "portuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
 
+[CustomMessages]
+english.FolderValidationError=The toolkit was not found in the selected folder. You must install it before you can continue.
+spanish.FolderValidationError=No se ha encontrado el kit de herramientas en la carpeta seleccionada. Debe instalarlo antes de continuar.
+catalan.FolderValidationError=El conjunt d'eines no s'ha trobat a la carpeta seleccionada. Heu d'instal·lar-lo abans de poder continuar.
+portuguese.FolderValidationError=O conjunto de ferramentas não foi encontrado na pasta seleccionada. Deve ser instalado antes de poder continuar.
 
 
 [Components]
 Name: "ghidra"; Description: "Install Ghidra via Updater"; ExtraDiskSpaceRequired: 996147200; Types: full compact custom; Flags: fixed;
 
 
-
 [Components]
 Name: "updater"; Description: "Tools auto updater"; Types: full compact custom; Flags: fixed;
+
 
 ; Updater
 [Components]
@@ -70,9 +75,9 @@ Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: dis
 Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_repack; String: True; Components: "updater\main"; 
 
 
-
 [Components]
 Name: "extras"; Description: "Extras"; Types: full compact custom;
+
 
 ; Install Choco
 [Components]
@@ -92,7 +97,6 @@ Name: "extras\javajdk"; Description: "Install Java Temurin JDK 17+ (via Chocolat
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y temurin"; Components: "extras\javajdk"; Flags: shellexec waituntilterminated;
 
 
-
 ;;; etc
 [Run]
 Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u Ghidra -dic"; Flags: shellexec waituntilterminated;
@@ -100,18 +104,16 @@ Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u Ghidra -d
 ; Clean dont selected tools in tools.ini
 Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater"; Flags: runhidden;
 
-
 [Icons]
 Name: "{group}\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
 Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
-
 
 [code]
 function NextButtonClick(PageId: Integer): Boolean;
 begin
     Result := True;
     if (PageId = wpSelectDir) and not FileExists(ExpandConstant('{app}\CHANGELOG.md')) then begin
-        MsgBox('The toolkit was not found in the selected folder. You must install it before you can continue.', mbError, MB_OK);
+        MsgBox(ExpandConstant('{cm:FolderValidationError}'), mbError, MB_OK);
         Result := False;
         exit;
     end;

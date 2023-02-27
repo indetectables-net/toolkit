@@ -21,7 +21,7 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\{#MyAppNameOriginal}
+DefaultDirName={sd}\{#MyAppNameOriginal}
 DefaultGroupName={#MyAppNameOriginal}
 PrivilegesRequired=admin
 ;PrivilegesRequiredOverridesAllowed=dialog
@@ -40,6 +40,12 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "spanish"; MessagesFile: "compiler:Languages\Spanish.isl"
 Name: "catalan"; MessagesFile: "compiler:Languages\Catalan.isl"
 Name: "portuguese"; MessagesFile: "compiler:Languages\BrazilianPortuguese.isl"
+
+[CustomMessages]
+english.FolderValidationError=The toolkit was not found in the selected folder. You must install it before you can continue.
+spanish.FolderValidationError=No se ha encontrado el kit de herramientas en la carpeta seleccionada. Debe instalarlo antes de continuar.
+catalan.FolderValidationError=El conjunt d'eines no s'ha trobat a la carpeta seleccionada. Heu d'instal·lar-lo abans de poder continuar.
+portuguese.FolderValidationError=O conjunto de ferramentas não foi encontrado na pasta seleccionada. Deve ser instalado antes de poder continuar.
 
 [Components]
 Name: "analysis"; Description: "Analysis tools"; Types: full;
@@ -71,7 +77,7 @@ function NextButtonClick(PageId: Integer): Boolean;
 begin
     Result := True;
     if (PageId = wpSelectDir) and not FileExists(ExpandConstant('{app}\CHANGELOG.md')) then begin
-        MsgBox('The toolkit was not found in the selected folder. You must install it before you can continue.', mbError, MB_OK);
+        MsgBox(ExpandConstant('{cm:FolderValidationError}'), mbError, MB_OK);
         Result := False;
         exit;
     end;
