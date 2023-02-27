@@ -285,7 +285,7 @@ class GenerateInstall:
 
         self.section_list.append('[Icons]')
         self.section_list.append(
-            f'Name: "{{group}}\\{{#MyAppName}}\\{iss_name}"; '
+            f'Name: "{{group}}\\{iss_name}"; '
             f'Filename: "{iss_filename}"; '
             f'WorkingDir: "{iss_working_dir}"; '
             f'Components: "{iss_components}"; '
@@ -332,7 +332,7 @@ class GenerateInstall:
 
         self.section_list.append('[Icons]')
         self.section_list.append(
-            f'Name: "{{group}}\\{{#MyAppName}}\\{self.tool_name}"; '
+            f'Name: "{{group}}\\{self.tool_name}"; '
             # f'Filename: "java -jar {{#MyAppToolsFolder}}\\{tool_jar_path}"; '
             f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
             f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
@@ -367,7 +367,7 @@ class GenerateInstall:
 
         self.section_list.append('[Icons]')
         self.section_list.append(
-            f'Name: "{{group}}\\{{#MyAppName}}\\{self.tool_name}"; '
+            f'Name: "{{group}}\\{self.tool_name}"; '
             f'Filename: "{{sys}}\\cmd.exe"; '
             f'Parameters: "/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}"""; '
             f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
@@ -385,6 +385,10 @@ class GenerateInstall:
         self.section_list.append('')
 
     def cli_env_extra_code(self):
+        # first check if content exist
+        if len(self.cli_list) == 0:
+            return;
+
         print('')
         print(colorama.Fore.YELLOW + f'[+] Generate cli register code')
 
