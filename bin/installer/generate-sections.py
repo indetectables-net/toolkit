@@ -84,10 +84,10 @@ class GenerateInstall:
             'immunity debugger', 'ollydbg 1.10',
 
             # other
-            'apkeasytool', 'astrogrep', 'indetectables offset locator', 'x64dbgpluginmanager',
+            'apkeasytool', 'astrogrep', 'indetectables offset locator',
 
-            # patcher
-            'at4re patcher', 'dup',
+            # reverse
+            'at4re patcher', 'dlest', 'dup', 'extremedumper', 'x64dbgpluginmanager',
 
             # unpacking
             'netunpack', 'qunpack', 'uniextract',
@@ -106,16 +106,19 @@ class GenerateInstall:
             'hxd', 'imhex',
 
             # monitor
-            'api monitor', 'process explorer', 'system informer', 'procmon', 'tcpview',
+            'api monitor', 'pe-sieve', 'process explorer', 'system informer', 'procmon', 'tcpview',
 
             # other
-            'apkstudio', 'floss', 'hashcalc', 'resource hacker', 'scylla', 'virustotaluploader', 'x64dbgpluginmanager',
+            'apkstudio', 'floss', 'hashmyfiles', 'rawcap', 'resource hacker', 'virustotaluploader',
+
+            # reverse
+            'cryptotester', 'getsymbol', 'scylla', 'winapi search' 'x64dbgpluginmanager',
 
             # rootkits detector
             'gmer', 'sysinspector',
 
             # unpacking
-            'qunpack', 'rl!depacker', 'uniextract', 'xvolkolak',
+            'qunpack', 'uniextract', 'xvolkolak',
         ]
         self.disable_unpack = [
             # decompilers
