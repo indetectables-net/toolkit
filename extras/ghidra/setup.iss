@@ -3,14 +3,14 @@
 
 #define MyAppName "Indetectables Toolkit Extras: Ghidra"
 #define MyAppNameOriginal "Indetectables Toolkit"
-#define MyAppVersion "2023.1"
+#define MyAppVersion "2023.3"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
 #define MyAppBinsFolder "{app}\bin"
 #define MyAppToolsIconsFolder "{app}\assets\icons"
-#define MySrcDir "C:\Users\DSR\Documents\GitHub\toolkit"
-#define MyOutputDir "C:\Users\DSR\Documents\GitHub"
+#define MySrcDir "C:\code\toolkit"
+#define MyOutputDir "C:\code"
 
 [Setup]
 AppId={{3F02E24E-404C-415F-A360-C52C612E5127}
@@ -31,9 +31,10 @@ Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
 ArchitecturesInstallIn64BitMode=x64
-SetupIconFile="{#MySrcDir}\extras\icon.ico"
+SetupIconFile="{#MySrcDir}\extras\ghidra\icon.ico"
 OutputDir={#MyOutputDir}
 Uninstallable=no
+DirExistsWarning=no
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
@@ -60,7 +61,7 @@ Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Comp
 Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
-Name: "{group}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
+Name: "{group}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
 Name: "{userdesktop}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
 
 ; Fix default update config
@@ -101,5 +102,17 @@ Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FO
 
 
 [Icons]
-Name: "{group}\{#MyAppNameOriginal}\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
+Name: "{group}\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
 Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
+
+
+[code]
+function NextButtonClick(PageId: Integer): Boolean;
+begin
+    Result := True;
+    if (PageId = wpSelectDir) and not FileExists(ExpandConstant('{app}\CHANGELOG.md')) then begin
+        MsgBox('The toolkit was not found in the selected folder. You must install it before you can continue.', mbError, MB_OK);
+        Result := False;
+        exit;
+    end;
+end;
