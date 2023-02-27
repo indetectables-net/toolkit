@@ -5,6 +5,8 @@
 
 ### Added
 
+- Add OpenHashTab *Only in installer **Optional
+- Add WinMerge *Only in installer **Optional
 - Add auto-config-ini.exe (based on auto-config-tools.exe)
 - Add WinAPI Search
 - Add ExtremeDumper
