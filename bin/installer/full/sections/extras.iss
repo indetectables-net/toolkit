@@ -4,10 +4,10 @@ Name: "extras\sendto"; Description: "Add toolkit menu to ""Send To"""; Types: fu
 
 [Icons]
 ; x64
-Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Components: "extras\sendto"; Check: Is64BitInstallMode;
+Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppNameOriginal}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Components: "extras\sendto"; Check: Is64BitInstallMode;
 
 ; x32
-Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppName}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Components: "extras\sendto"; Check: not Is64BitInstallMode;
+Name: "{userappdata}\Microsoft\Windows\SendTo\{#MyAppNameOriginal}"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Components: "extras\sendto"; Check: not Is64BitInstallMode;
 
 
 

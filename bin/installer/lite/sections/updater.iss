@@ -7,8 +7,8 @@ Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Comp
 Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
-Name: "{group}\{#MyAppName}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
-Name: "{userdesktop}\{#MyAppName}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
+Name: "{group}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
+Name: "{userdesktop}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
 
 ; Fix default update config
 [INI]
