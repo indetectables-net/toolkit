@@ -20,6 +20,7 @@
 - Bump Universal Updater to 1.8.0
 - Extract all old tools to new package
 - New Reverse catalog created to improve the ordering of tools
+- Improvements in the installer code
 - Fix ImHex re_download regex
 - Fix VirusTotalUploader re_download regex
 - Update Process-Dump download server

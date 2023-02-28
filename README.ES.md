@@ -33,7 +33,7 @@ El mismo está en la carpeta `bin\updater\updater.exe`.
 
 ## Herramientas
 
-El toolkit está compuesto por +80 herramientas que cubren todo lo que podemos necesitar para la reversa y el análisis. <br/>
+El toolkit está compuesto por 91 herramientas que cubren todo lo que podemos necesitar para la reversa y el análisis. <br/>
 Las herramientas están todas descargadas de sus páginas oficiales pero de todas formas se recomienda usarlas con cautela, en especial las que las paginas oficiales son hilos en foros y ese tipo de cosas. <br/>
 Para ver la lista completa de herramientas puedes [hacerlo aqui](TOOLS.md).
 
