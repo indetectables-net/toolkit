@@ -158,7 +158,7 @@ class GenerateInstall:
         return types
 
     # script steps
-    def iterate_sections(self, folder_path):
+    def iterate_sections(self, folder_path, output_path):
         self.base_path = folder_path
         for item in pathlib.Path(folder_path).iterdir():
             # check that the folder is valid for analysis
@@ -170,7 +170,7 @@ class GenerateInstall:
 
                 # generate the iss file with everything I processed
                 section_name = item.name.lower().replace(' ', '-')
-                with open(f'sections\\{section_name}.iss', 'w') as file:
+                with open(f'{output_path}\\sections\\{section_name}.iss', 'w') as file:
                     file.writelines('\n'.join(self.section_list))
 
                 # I add a few line breaks to indicate in the summary that I have finished analyzing a section
@@ -384,7 +384,7 @@ class GenerateInstall:
         )
         self.section_list.append('')
 
-    def cli_env_extra_code(self):
+    def cli_env_extra_code(self, output_path):
         # first check if content exist
         if len(self.cli_list) == 0:
             return;
@@ -425,8 +425,8 @@ class GenerateInstall:
         lines_list.append('')
 
         # save
-        shutil.copy('sections\\cli.iss.base', 'sections\\cli.iss') 
-        with open('sections\\cli.iss', 'a') as file:
+        shutil.copy('cli.iss.base', f'{output_path}\\sections\\cli.iss') 
+        with open(f'{output_path}\\sections\\cli.iss', 'a') as file:
             file.writelines('\n'.join(lines_list))
 
     def main(self):
@@ -443,15 +443,28 @@ class GenerateInstall:
             type=pathlib.Path,
             required=True,
         )
+        parser.add_argument(
+            '-o',
+            '--output',
+            dest='output_folder',
+            help='path to output folder',
+            type=pathlib.Path,
+            required=True,
+        )
 
         arguments = parser.parse_args()
         toolkit_folder = arguments.toolkit_folder
+        output_folder = arguments.output_folder
         if not toolkit_folder.is_dir():
             print(colorama.Fore.RED + 'toolkit_folder is not a valid folder')
             return 0
 
-        self.iterate_sections(toolkit_folder)
-        self.cli_env_extra_code()
+        if not output_folder.is_dir():
+            print(colorama.Fore.RED + 'output_folder is not a valid folder')
+            return 0
+
+        self.iterate_sections(toolkit_folder, output_folder)
+        self.cli_env_extra_code(output_folder)
 
 
 # se fini
