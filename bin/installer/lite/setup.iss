@@ -2,14 +2,15 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Indetectables Toolkit Lite"
-#define MyAppVersion "2023.1"
+#define MyAppNameOriginal "Indetectables Toolkit"
+#define MyAppVersion "2023.3"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
 #define MyAppBinsFolder "{app}\bin"
 #define MyAppToolsIconsFolder "{app}\assets\icons"
-#define MySrcDir "C:\Users\DSR\Documents\GitHub\toolkit"
-#define MyOutputDir "C:\Users\DSR\Documents\GitHub"
+#define MySrcDir "C:\code\toolkit"
+#define MyOutputDir "C:\code"
 
 [Setup]
 AppId={{1FF89DD9-2D8E-4959-B670-2344285F456B}
@@ -21,8 +22,8 @@ AppPublisher={#MyAppPublisher}
 AppPublisherURL={#MyAppURL}
 AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
-DefaultDirName={autopf}\{#MyAppName}
-DefaultGroupName={#MyAppName}
+DefaultDirName={sd}\{#MyAppNameOriginal}
+DefaultGroupName={#MyAppNameOriginal}
 PrivilegesRequired=admin
 ;PrivilegesRequiredOverridesAllowed=dialog
 OutputBaseFilename=Toolkit_{#MyAppVersion}_Setup_lite
@@ -65,8 +66,8 @@ Name: "other"; Description: "Other tools"; Types: full;
 #include "sections\other.iss"
 
 [Components]
-Name: "patcher"; Description: "Patcher"; Types: full;
-#include "sections\patcher.iss"
+Name: "reverse"; Description: "Reverse"; Types: full;
+#include "sections\reverse.iss"
 
 [Components]
 Name: "unpacking"; Description: "UnPacking"; Types: full;
