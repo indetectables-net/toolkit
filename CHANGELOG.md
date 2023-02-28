@@ -1,7 +1,7 @@
 # Changelog
 
 
-## MASTER
+## 2023.3 - MASTER
 
 ### Added
 
@@ -29,7 +29,7 @@
 
 ### Removed
 
-- Drop Immunity Debugger (last update 10 years ago...)
+- Drop Immunity Debugger
 
 
 ## 2023.1 - Jan 5, 2023
