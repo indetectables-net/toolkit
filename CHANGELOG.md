@@ -1,7 +1,7 @@
 # Changelog
 
 
-## 2023.3 - MASTER
+## 2023.3 - Fri 3, 2023
 
 ### Added
 
@@ -17,6 +17,7 @@
 
 ### Changed
 
+- Update tools (01/03/2023)
 - Bump Universal Updater to 1.8.0
 - Extract all old tools to new package
 - New Reverse catalog created to improve the ordering of tools
@@ -31,6 +32,7 @@
 ### Removed
 
 - Drop Immunity Debugger
+- Drop ExeExplorer
 
 
 ## 2023.1 - Jan 5, 2023
