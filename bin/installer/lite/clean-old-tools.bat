@@ -4,7 +4,6 @@ cd "..\..\..\"
 
 :: Analysis
 RMDIR "toolkit\Analysis\4n4lDetector" /S /Q
-RMDIR "toolkit\Analysis\ExeExplorer" /S /Q
 RMDIR "toolkit\Analysis\XAPKDetector" /S /Q
 RMDIR "toolkit\Analysis\XPEViewer" /S /Q
 

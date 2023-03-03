@@ -1,7 +1,8 @@
 Microsoft Windows [Version 10.0.19045.2364]
 (c) Microsoft Corporation. All rights reserved.
 
-C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py -f C:\Users\DSR\Documents\GitHub\toolkit\toolkit
+C:\code\toolkit\bin\installer>python generate-sections.py -f C:\code\toolkit\toolkit -o C:\code\toolkit\bin\installer\full
+[*] Analyzing folder: Analysis
 [+] Process: 4n4lDetector
    [*] Adding: "4N4LDetector.exe"
       [!] force link creation
@@ -14,9 +15,6 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "die.exe"
       [!] force link creation
-[+] Process: ExeExplorer
-   [!!!] Find multiple exes. Grabbing the first!
-   [*] Adding: "EXE.exe"
 [+] Process: ExeinfoPe
    [*] Adding: "exeinfope.exe"
       [!] force link creation
@@ -24,16 +22,10 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
    [*] Adding: "PE-bear.exe"
       [!] force link creation
       [!] x64 exe
-[+] Process: PEiD
-   [*] Adding: "PEiD.exe"
-      [!] force link creation
 [+] Process: PEStudio
    [*] Adding: "pestudio.exe"
       [!] force link creation
       [!] x64 exe
-[+] Process: ProtectionID
-   [*] Adding: "Protection_ID.eXe"
-      [!] force link creation
 [+] Process: XAPKDetector
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "xapkd.exe"
@@ -44,6 +36,9 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
 [+] Process: XPEViewer
    [*] Adding: "xpeviewer.exe"
       [!] force link creation
+
+
+[*] Analyzing folder: Decompilers
 [+] Process: [ANDROID] JADX
    [*] Adding: "jadx-gui.exe"
       [!] force link creation
@@ -59,19 +54,12 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
       [!] CLI exe
    [*] Adding: "UnAutoIt-windows-i686.exe"
       [!] CLI exe
-[+] Process: [DELPHI] Dede
-   [*] Adding: "DeDe.exe"
-      [!] force link creation
 [+] Process: [DELPHI] IDR
    [*] Adding: "Idr.exe"
       [!] force link creation
 [+] Process: [DOTNET] dnSpyEx
    [*] Adding: "dnSpy.exe"
       [!] x64 exe
-[+] Process: [DOTNET] GrayWolf
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Decompilers\[DOTNET] GrayWolf\GrayWolf - 1.88"
-   [*] Adding: "GrayWolf_188.exe"
-      [!] force link creation
 [+] Process: [DOTNET] ILSpy
    [*] Adding: "ILSpy.exe"
       [!] force link creation
@@ -86,27 +74,19 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
 [+] Process: [VB] VB Decompiler
    [*] Adding: "VB Decompiler.exe"
       [!] force link creation
-[+] Process: BDASM
-   [*] Adding: "bdasm.exe"
-      [!] force link creation
+
+
+[*] Analyzing folder: Dissasembler
 [+] Process: Cutter
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "cutter.exe"
       [!] x64 exe
-[+] Process: Immunity Debugger
-   [!!!] Find multiple exes. Grabbing the first!
-   [*] Adding: "ImmunityDebugger.exe"
-      [!] force link creation
-[+] Process: OllyDbg 1.10
-   [*] Adding: "OLLYDBG.EXE"
-      [!] force link creation
-[+] Process: w32Dasm
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Dissasembler\w32Dasm\[HiEndsoft] w32Dasm - 8.93"
-   [*] Adding: "W32DSM89.EXE"
-      [!] force link creation
 [+] Process: x64dbg
    [*] Adding: "x96dbg.exe"
       [!] force link creation
+
+
+[*] Analyzing folder: HEX Editor
 [+] Process: HxD
    [*] Adding: "HxD32.exe"
    [*] Adding: "HxD64.exe"
@@ -119,6 +99,9 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
    [*] Adding: "rehex.exe"
       [!] force link creation
       [!] x64 exe
+
+
+[*] Analyzing folder: Monitor
 [+] Process: Api Monitor
    [*] Adding: "apimonitor-x64.exe"
       [!] x64 exe
@@ -154,6 +137,9 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
    [*] Adding: "Procmon.exe"
    [*] Adding: "Procmon64.exe"
       [!] x64 exe
+[+] Process: RegistryChangesView
+   [*] Adding: "RegistryChangesView.exe"
+      [!] force link creation
 [+] Process: RegShot
    [*] Adding: "Regshot-x64-ANSI.exe"
       [!] x64 exe
@@ -161,15 +147,18 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
 [+] Process: SysAnalyzer
    [*] Adding: "sysAnalyzer.exe"
 [+] Process: System Informer
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Monitor\System Informer\amd64"
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\Monitor\System Informer\amd64"
    [*] Adding: "SystemInformer.exe"
       [!] x64 exe
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Monitor\System Informer\i386"
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\Monitor\System Informer\i386"
    [*] Adding: "SystemInformer.exe"
 [+] Process: TCPView
    [*] Adding: "tcpview.exe"
    [*] Adding: "tcpview64.exe"
       [!] x64 exe
+
+
+[*] Analyzing folder: NFOMaker
 [+] Process: Ascii Generator 2
    [*] Adding: "Ascgen2.exe"
       [!] force link creation
@@ -179,6 +168,9 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
 [+] Process: NFO Maker
    [*] Adding: "nfomaker.exe"
       [!] force link creation
+
+
+[*] Analyzing folder: Other
 [+] Process: APKEasyTool
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "apkeasytool.exe"
@@ -190,49 +182,22 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
 [+] Process: AstroGrep
    [*] Adding: "AstroGrep.exe"
       [!] force link creation
-[+] Process: AVFucker
-   [*] Adding: "AVFucker.exe"
-      [!] force link creation
-[+] Process: DLest
-   [!!!] Find multiple exes. Grabbing the first!
-   [*] Adding: "dlest32.exe"
 [+] Process: FLOSS
    [*] Adding: "floss.exe"
       [!] force link creation
       [!] x64 exe
       [!] CLI exe
-[+] Process: GetSymbol
-   [*] Adding: "GetSymbol.exe"
-      [!] force link creation
-      [!] x64 exe
-[+] Process: HashCalc
-   [*] Adding: "HashCalc.exe"
-      [!] force link creation
 [+] Process: HashMyFiles
    [*] Adding: "HashMyFiles.exe"
       [!] force link creation
-[+] Process: ImpREC
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Other\ImpREC\ImpREC - 1.7f"
-   [*] Adding: "ImportREC.exe"
-      [!] force link creation
-[+] Process: Indetectables Offset Locator
-   [!!!] Find multiple exes. Grabbing the first!
-   [*] Adding: "Indetectables Offset Locator.exe"
-      [!] force link creation
 [+] Process: ProcDOT
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Other\ProcDOT\win32"
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\Other\ProcDOT\win32"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "procdot.exe"
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Other\ProcDOT\win64"
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\Other\ProcDOT\win64"
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "procdot.exe"
       [!] x64 exe
-[+] Process: Process-Dump
-   [*] Adding: "pd32.exe"
-      [!] CLI exe
-   [*] Adding: "pd64.exe"
-      [!] x64 exe
-      [!] CLI exe
 [+] Process: RawCap
    [*] Adding: "RawCap.exe"
       [!] force link creation
@@ -240,12 +205,8 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
 [+] Process: Resource Hacker
    [*] Adding: "ResourceHacker.exe"
       [!] force link creation
-[+] Process: Scylla
-   [*] Adding: "Scylla_x64.exe"
-      [!] x64 exe
-   [*] Adding: "Scylla_x86.exe"
-[+] Process: ShowString
-   [*] Adding: "showstring.exe"
+[+] Process: RunAsDate
+   [*] Adding: "RunAsDate.exe"
       [!] force link creation
 [+] Process: Strings
    [*] Adding: "strings.exe"
@@ -253,11 +214,61 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
    [*] Adding: "strings64.exe"
       [!] x64 exe
       [!] CLI exe
-[+] Process: Threadtear
-   [*] Adding jar: "threadtear-gui-all.jar"
 [+] Process: VirusTotalUploader
    [*] Adding: "uploader.exe"
       [!] force link creation
+
+
+[*] Analyzing folder: Reverse
+[+] Process: AT4RE Patcher
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\Reverse\AT4RE Patcher\AT4RE Patcher - 0.7.6"
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "AT4RE Patcher.exe"
+      [!] force link creation
+[+] Process: CryptoTester
+   [*] Adding: "CryptoTester.exe"
+      [!] force link creation
+[+] Process: DLest
+   [*] Adding: "dlest32.exe"
+      [!] force link creation
+   [*] Adding: "dlest64.exe"
+      [!] force link creation
+      [!] x64 exe
+[+] Process: dUP
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\Reverse\dUP\dUP - 2.26.1"
+   [!!!] Find multiple exes. Grabbing the first!
+   [*] Adding: "dup2.exe"
+      [!] force link creation
+[+] Process: ExtremeDumper
+   [*] Adding: "ExtremeDumper-x86.exe"
+      [!] force link creation
+      [!] CLI exe
+   [*] Adding: "ExtremeDumper.exe"
+      [!] force link creation
+      [!] CLI exe
+[+] Process: GetSymbol
+   [*] Adding: "GetSymbol.exe"
+      [!] force link creation
+      [!] x64 exe
+[+] Process: Keygener Assistant
+   [*] Adding: "keyAssistant.exe"
+[+] Process: Process-Dump
+   [*] Adding: "pd32.exe"
+      [!] force link creation
+      [!] CLI exe
+[+] Process: Scylla
+   [*] Adding: "Scylla_x64.exe"
+      [!] x64 exe
+   [*] Adding: "Scylla_x86.exe"
+[+] Process: Threadtear
+   [*] Adding jar: "threadtear-gui-all.jar"
+[+] Process: uPPP
+   [*] Adding: "uPPP.exe"
+      [!] force link creation
+[+] Process: WinAPI Search
+   [*] Adding: "WinApiSearch32.exe"
+   [*] Adding: "WinApiSearch64.exe"
+      [!] x64 exe
 [+] Process: x64dbgPluginManager
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "x64plgmnr.exe"
@@ -266,19 +277,9 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
    [*] Adding: "xocalc.exe"
       [!] force link creation
       [!] x64 exe
-[+] Process: AT4RE Patcher
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Patcher\AT4RE Patcher\AT4RE Patcher - 0.7.6"
-   [!!!] Find multiple exes. Grabbing the first!
-   [*] Adding: "AT4RE Patcher.exe"
-      [!] force link creation
-[+] Process: dUP
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\Patcher\dUP\dUP - 2.26.1"
-   [!!!] Find multiple exes. Grabbing the first!
-   [*] Adding: "dup2.exe"
-      [!] force link creation
-[+] Process: uPPP
-   [*] Adding: "uPPP.exe"
-      [!] force link creation
+
+
+[*] Analyzing folder: Rootkits Detector
 [+] Process: GMER
    [*] Adding: "gmer.exe"
       [!] force link creation
@@ -290,43 +291,32 @@ C:\Users\DSR\Documents\GitHub\toolkit\bin\installer>python generate-sections.py 
    [*] Adding: "WKE64.exe"
       [!] force link creation
       [!] x64 exe
+
+
+[*] Analyzing folder: UnPacking
 [+] Process: De4Dot
    [*] Adding: "de4dot-x64.exe"
       [!] x64 exe
       [!] CLI exe
    [*] Adding: "de4dot.exe"
       [!] CLI exe
-[+] Process: GUnPacker
-   [*] Adding: "GUnPacker v0.5.exe"
-      [!] force link creation
-[+] Process: NETUnpack
-   [*] Adding: "NETUnpack-64.exe"
-      [!] force link creation
-      [!] x64 exe
-   [*] Adding: "NETUnpack.exe"
-      [!] force link creation
 [+] Process: QUnpack
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3"
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack32"
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3"
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack32"
    [*] Adding: "Explorer.exe"
       [!] force link creation
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"
+   [!] Iterate sub folder: "C:\code\toolkit\toolkit\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"
    [*] Adding: "Explorer.exe"
       [!] force link creation
       [!] x64 exe
-[+] Process: RL!dePacker
-   [*] Adding: "RL!dePacker.exe"
-      [!] force link creation
 [+] Process: UniExtract
    [!!!] Find multiple exes. Grabbing the first!
    [*] Adding: "UniExtract.exe"
       [!] force link creation
-[+] Process: VMUnpacker
-   [!] Iterate sub folder: "C:\Users\DSR\Documents\GitHub\toolkit\toolkit\UnPacking\VMUnpacker\VMUnpacker - 1.6"
-   [*] Adding: "VMUnpacker.exe"
-      [!] force link creation
 [+] Process: XVolkolak
    [*] Adding: "xvlk.exe"
       [!] force link creation
+
+
 
 [+] Generate cli register code

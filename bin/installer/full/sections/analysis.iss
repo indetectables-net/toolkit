@@ -37,19 +37,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\DIE"; Filename: "{#MyAppToolsFo
 
 
 
-; ExeExplorer
-[Components]
-Name: "analysis\exeexplorer"; Description: "ExeExplorer"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\ExeExplorer\*"; DestDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\ExeExplorer"; Filename: "{#MyAppToolsFolder}\Analysis\ExeExplorer\EXE.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\ExeExplorer"; Filename: "{#MyAppToolsFolder}\Analysis\ExeExplorer\EXE.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\ExeExplorer"; Components: "analysis\exeexplorer";   Check: not Is64BitInstallMode; 
-
-
-
 ; ExeinfoPe
 [Components]
 Name: "analysis\exeinfope"; Description: "ExeinfoPe"; Types: full compact; 
