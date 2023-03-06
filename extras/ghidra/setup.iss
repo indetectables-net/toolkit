@@ -62,7 +62,7 @@ Name: "updater"; Description: "Tools auto updater"; Types: full compact custom; 
 Name: "updater\main"; Description: "Updater"; Types: full compact custom; Flags: fixed;
 
 [Files]
-Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
+Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: BeforeInstallScript;
 Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
@@ -99,22 +99,49 @@ Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y t
 
 ;;; etc
 [Run]
+; Install Ghidra
 Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u Ghidra -dic"; Flags: shellexec waituntilterminated;
 
-; Clean dont selected tools in tools.ini
-Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater"; Flags: runhidden;
+; Configure installed tools
+Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater /TYPE=clean"; Flags: runhidden;
+
+; Sync tools versions
+Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater /TYPE=sync"; Flags: runhidden;
+
 
 [Icons]
 Name: "{group}\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
 Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
 
 [code]
+function GetFileName(const FileName: string): string;
+begin
+    Result := ExpandConstant('{#MyAppBinsFolder}\updater\' + FileName);
+end;
+
+procedure BeforeInstallScript();
+begin
+    if FileExists(GetFileName('tools.ini')) then 
+    begin
+        RenameFile(GetFileName('tools.ini'), GetFileName('tools.ini.old'));
+    end;
+end;
+
 function NextButtonClick(PageId: Integer): Boolean;
 begin
     Result := True;
-    if (PageId = wpSelectDir) and not FileExists(ExpandConstant('{app}\CHANGELOG.md')) then begin
+    if (PageId = wpSelectDir) and not FileExists(ExpandConstant('{app}\CHANGELOG.md')) then
+    begin
         MsgBox(ExpandConstant('{cm:FolderValidationError}'), mbError, MB_OK);
         Result := False;
         exit;
+    end;
+end;
+
+procedure CurStepChanged(CurStep: TSetupStep);
+begin
+    if (CurStep = ssDone) and FileExists(GetFileName('tools.ini.old')) then 
+    begin
+        DeleteFile(GetFileName('tools.ini.old'));
     end;
 end;
