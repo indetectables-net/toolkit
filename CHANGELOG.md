@@ -14,6 +14,8 @@
 - Add RunAsDate
 - Add Keygener Assistant
 - Add CryptoTester
+- New Toolkit Extra: Oldies
+- New Toolkit Extra: Unpacking
 
 ### Changed
 

@@ -501,6 +501,26 @@ Unlike most archiving programs, UniExtract is not limited to **standard archives
 ***Developer:*** dswlab <br/>
 ***Description:*** This tool uses the technology of Virtual Machines. It can unpack various known & unknown shells. It is suitable for unpacking the shelled Trojan horse in virus analysis, and because all codes are run under the VM, they will not take any danger to your system. <br/>
 
+### Magicmida *Available using the extra called: Unpacking*
+***Web:*** https://github.com/Hendi48/Magicmida <br/>
+***Developer:*** Hendi48 <br/>
+***Description:*** Magicmida is a Themida auto-unpacker that works on some 32-bit applications. It works on all versions of Windows. <br/>
+
+### NoVmp *Available using the extra called: Unpacking*
+***Web:*** https://github.com/can1357/NoVmp <br/>
+***Developer:*** Can Bölük <br/>
+***Description:*** A static devirtualizer for VMProtect x64 3.x powered by VTIL. <br/>
+
+### VMUnprotect *Available using the extra called: Unpacking*
+***Web:*** https://github.com/void-stack/VMUnprotect <br/>
+***Developer:*** voidstack <br/>
+***Description:*** VMUnprotect is a project engaged in hunting virtualized VMProtect methods. It makes use of Harmony to dynamically read VMP behavior. Currently only supports method administration. Works on VMProtect 3.6.0 (Latest) and few versions back. <br/>
+
+### VMUnprotect Dumper *Available using the extra called: Unpacking*
+***Web:*** https://github.com/void-stack/VMUnprotect.Dumper <br/>
+***Developer:*** voidstack <br/>
+***Description:*** VMUnprotect.Dumper is a project engaged in hunting tampered VMProtect assemblies. It makes use of AsmResolver to dynamically unpack VMP protected assembly. Works on VMProtect 3.7.0 (Latest) and few versions back. <br/>
+
 ### XVolkolak
 ***Web:*** https://horsicq.github.io/ <br/>
 ***Developer:*** Hors <br/>
