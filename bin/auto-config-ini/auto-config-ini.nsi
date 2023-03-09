@@ -18,8 +18,8 @@ var UPDATE_FOLDER_PATH
 var CHECK_TYPE
 
 ; exe info
-VIProductVersion "2.0.0.0"
-VIAddVersionKey /LANG=1033 "FileVersion" "2.0.0.0"
+VIProductVersion "2.1.0.0"
+VIAddVersionKey /LANG=1033 "FileVersion" "2.1.0.0"
 VIAddVersionKey /LANG=1033 "ProductName" "auto-config-ini"
 VIAddVersionKey /LANG=1033 "FileDescription" "Indetectables Toolkit updater auto config tools.ini"
 VIAddVersionKey /LANG=1033 "LegalCopyright" "2023"
@@ -109,7 +109,9 @@ Function ReadSectionSyncCallback
 
     ; sync "local_version" from old file to new
     ReadINIStr $R0 "$OLD_CONFIG_PATH" "$9" "local_version"
-    WriteINIStr "$CONFIG_PATH" "$9" "local_version" "$R0"
+    ${If} $R0 != ""
+      WriteINIStr "$CONFIG_PATH" "$9" "local_version" "$R0"
+    ${EndIf}
 
     ; sync "merge" from old file to new
     ReadINIStr $R0 "$OLD_CONFIG_PATH" "$9" "merge"
