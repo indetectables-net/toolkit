@@ -11,7 +11,14 @@
 - Add VMUnprotectDumper
 
 
-## 2023.3 - Fri 3, 2023
+## [extras/ghidra] 2023.3 - Mar 6, 2023
+
+### Changed
+
+- Update installer code
+
+
+## 2023.3 - Mar 3, 2023
 
 ### Added
 
