@@ -1,6 +1,16 @@
 # Changelog
 
 
+## [extras/unpacking] 2023.3 - Mar 9, 2023
+
+### Added
+
+- Add Magicmida
+- Add NoVmp
+- Add VMUnprotect
+- Add VMUnprotectDumper
+
+
 ## 2023.3 - Fri 3, 2023
 
 ### Added
