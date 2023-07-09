@@ -1,6 +1,6 @@
 # -*- coding: utf-8  -*-
 #
-# Copyright (C) 2021 - 2022 DSR! <xchwarze@gmail.com>
+# Copyright (C) 2021 - 2023 DSR! <xchwarze@gmail.com>
 # Released under the terms of the MIT License
 # Developed for Python 3.6+
 # pip install requests py7zr rarfile colorama tqdm
@@ -505,7 +505,7 @@ class Updater:
 # Implementation
 class Setup:
     def __init__(self):
-        self.version = '1.8.0'
+        self.version = '1.8.1'
         self.arguments = {}
         self.config = configparser.ConfigParser()
         self.default_config = {}
@@ -548,8 +548,16 @@ class Setup:
             '-u',
             '--update',
             dest='update',
-            help='update tools (default: all)',
+            help='list of tools (default: all)',
             nargs='*'
+        )
+        parser.add_argument(
+            '-dsu',
+            '--disable-self-update',
+            dest='disable_self_update',
+            help='disable self update of this script',
+            action=argparse.BooleanOptionalAction,
+            default=False
         )
         parser.add_argument(
             '-dfc',
@@ -644,6 +652,7 @@ class Setup:
             use_github_api=self.arguments.use_github_api,
         )
 
+        # generate update list
         update_list = self.arguments.update
         if not update_list:
             update_list = self.config.sections()
@@ -656,10 +665,11 @@ class Setup:
             if 'UpdaterAutoUpdater' in update_list:
                 update_list.remove('UpdaterAutoUpdater')
 
-                try:
-                    updater.update('UpdaterAutoUpdater')
-                except Exception as exception:
-                    print(exception)
+                if not self.arguments.disable_self_update:
+                    try:
+                        updater.update('UpdaterAutoUpdater')
+                    except Exception as exception:
+                        print(exception)
 
         # normal execution
         for ini_name in update_list:
