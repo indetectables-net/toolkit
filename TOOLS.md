@@ -365,6 +365,11 @@ It is the first and only program of its kind to support output for display in va
 
 ## Reverse
 
+### ASM Calculator
+***Web:*** https://www.manhunter.ru/releases/108_32_bit_asm_calculator_1_12.html <br/>
+***Developer:*** ManHunter <br/>
+***Description:*** Allows you to execute arithmetic and bitwise Assembler commands, including commands that use Carry Flag value in calculations. The result of the operation is displayed in hexadecimal with byte reversal, in decimal with sign display, in binary with octets and in text if available. <br/>
+
 ### AT4RE Patcher
 ***Web:*** https://www.at4re.net/f/thread-54.html <br/>
 ***Developer:*** Agmcz & Sn!per X <br/>
