@@ -292,15 +292,15 @@ It is the first and only program of its kind to support output for display in va
 
 ## Other
 
-### Apk Easy Tool
-***Web:*** https://forum.xda-developers.com/t/tool-windows-apk-easy-tool-v1-59-2-2021-04-03.3333960/ <br/>
-***Developer:*** Evildog1 <br/>
-***Description:*** Apk Easy Tool is a lightweight GUI application that enables you to manage, sign, compile and decompile the APK files for the apps you are working on. <br/>
-
 ### APK Studio
 ***Web:*** https://github.com/vaibhavpandeyvpz/apkstudio <br/>
 ***Developer:*** Vaibhav Pandey -aka- VPZ <br/>
 ***Description:*** Open-source, cross-platform Qt based IDE for reverse-engineering Android application packages. <br/>
+
+### APK Tool GUI
+***Web:*** https://github.com/AndnixSH/APKToolGUI <br/>
+***Developer:*** AndnixSH <br/>
+***Description:*** GUI for apktool, signapk, zipalign and baksmali utilities. It is a tool for reverse engineering 3rd party, closed, binary Android apps. It can decode resources to nearly original form and rebuild them after making some modifications. <br/>
 
 ### AstroGrep
 ***Web:*** https://sourceforge.net/projects/astrogrep <br/>
