@@ -292,6 +292,11 @@ It is the first and only program of its kind to support output for display in va
 
 ## Other
 
+### APK Editor Studio
+***Web:*** https://github.com/kefir500/apk-editor-studio <br/>
+***Developer:***  Alexander Gorishnyak <br/>
+***Description:*** APK Editor Studio is a powerful yet easy to use APK reverse-engineering tool written in C++/Qt. <br/>
+
 ### APK Studio
 ***Web:*** https://github.com/vaibhavpandeyvpz/apkstudio <br/>
 ***Developer:*** Vaibhav Pandey -aka- VPZ <br/>
