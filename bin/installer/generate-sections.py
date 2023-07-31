@@ -57,6 +57,7 @@ class GenerateInstall:
             'sysanalyzer': ['sysanalyzer.exe'],
             'system informer': ['systeminformer.exe'],
             'keygener assistant': ['keyassistant.exe'],
+            'asm calculator': ['calc32.exe'],
 
             # support also the x64 versions
             '[autoit] unautoit': ['unautoit-windows-i686.exe', 'unautoit-windows-amd64.exe'],
@@ -75,9 +76,6 @@ class GenerateInstall:
             'winapi search': ['winapisearch32.exe', 'winapisearch64.exe'],
             'de4dot': ['de4dot.exe', 'de4dot-x64.exe'],
             'netunpack': ['netunpack.exe', 'netunpack-64.exe'],
-
-            # support other tools in package
-            'asm calculator': ['calc32.exe', 'conv32.exe'],            
         }
         self.fix_tool_exe_link_creation = [
             # analysis
@@ -87,10 +85,10 @@ class GenerateInstall:
             'immunity debugger', 'ollydbg 1.10',
 
             # other
-            'apkeasytool', 'astrogrep', 'indetectables offset locator',
+            'astrogrep', 'indetectables offset locator',
 
             # reverse
-            'at4re patcher', 'dlest', 'dup', 'extremedumper', 'x64dbgpluginmanager',
+            'asm calculator', 'at4re patcher', 'dlest', 'dup', 'extremedumper', 'x64dbgpluginmanager',
 
             # unpacking
             'netunpack', 'qunpack', 'uniextract',
@@ -115,7 +113,7 @@ class GenerateInstall:
             'apkstudio', 'floss', 'hashmyfiles', 'rawcap', 'resource hacker', 'virustotaluploader',
 
             # reverse
-            'cryptotester', 'getsymbol', 'scylla', 'winapi search', 'x64dbgpluginmanager',
+            'asm calculator', 'cryptotester', 'getsymbol', 'scylla', 'winapi search', 'x64dbgpluginmanager',
 
             # rootkits detector
             'gmer', 'sysinspector',

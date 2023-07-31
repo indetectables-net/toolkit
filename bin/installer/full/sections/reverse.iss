@@ -1,17 +1,13 @@
 ; ASM Calculator
 [Components]
-Name: "reverse\asmcalculator"; Description: "ASM Calculator"; Types: full; 
+Name: "reverse\asmcalculator"; Description: "ASM Calculator"; Types: full compact; 
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Reverse\ASM Calculator\*"; DestDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\calc32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\calc32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";   Check: not Is64BitInstallMode; 
-
-[Icons]
-Name: "{group}\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\conv32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\conv32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";   Check: not Is64BitInstallMode; 
+Name: "{group}\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\calc32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\calc32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";    
 
 
 
