@@ -1,6 +1,28 @@
 # Changelog
 
 
+## MASTER - ???
+
+### Added
+
+- Add ASM Calculator
+- Add APK Tool GUI
+- Add APK Editor Studio
+- Add WinObjEx64
+- Add MalUnpack
+
+### Changed
+
+- Update tools (30/07/2023)
+- Bump Universal Updater to 1.8.1
+- Fix PE-Bear url update
+- Fix IDR updater implementation
+
+### Removed
+
+- Drop Apk Easy Tool
+
+
 ## [extras/unpacking] 2023.3 - Mar 9, 2023
 
 ### Added
