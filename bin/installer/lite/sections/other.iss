@@ -37,6 +37,19 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashMyFiles"; Filename: "{#MyAppTo
 
 
 
+; MalUnpack
+[Components]
+Name: "other\malunpack"; Description: "MalUnpack"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\MalUnpack\*"; DestDir: "{#MyAppToolsFolder}\Other\MalUnpack"; Components: "other\malunpack"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\MalUnpack x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\MalUnpack"; Components: "other\malunpack"; Parameters: "/K ""{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"; Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\MalUnpack x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\MalUnpack"; Components: "other\malunpack"; Parameters: "/K ""{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"; Check: Is64BitInstallMode; 
+
+
+
 ; RawCap
 [Components]
 Name: "other\rawcap"; Description: "RawCap"; Types: full compact; 
@@ -103,5 +116,18 @@ Source: "{#MySrcDir}\toolkit\Other\VirusTotalUploader\*"; DestDir: "{#MyAppTools
 [Icons]
 Name: "{group}\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";    
+
+
+
+; WinObjEx64
+[Components]
+Name: "other\winobjex64"; Description: "WinObjEx64"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\WinObjEx64\*"; DestDir: "{#MyAppToolsFolder}\Other\WinObjEx64"; Components: "other\winobjex64"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\WinObjEx64 x64"; Filename: "{#MyAppToolsFolder}\Other\WinObjEx64\WinObjEx64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\WinObjEx64"; Components: "other\winobjex64";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\WinObjEx64 x64"; Filename: "{#MyAppToolsFolder}\Other\WinObjEx64\WinObjEx64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\WinObjEx64"; Components: "other\winobjex64";   Check: Is64BitInstallMode; 
 
 

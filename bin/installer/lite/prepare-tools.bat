@@ -31,7 +31,8 @@ RMDIR "toolkit\Monitor\SysAnalyzer" /S /Q
 RMDIR "toolkit\NFOMaker" /S /Q
 
 :: Other
-RMDIR "toolkit\Other\APKEasyTool" /S /Q
+RMDIR "toolkit\Other\APKEditorStudio" /S /Q
+RMDIR "toolkit\Other\APKToolGUI" /S /Q
 RMDIR "toolkit\Other\AstroGrep" /S /Q
 RMDIR "toolkit\Other\ProcDOT" /S /Q
 

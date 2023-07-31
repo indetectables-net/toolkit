@@ -1,13 +1,13 @@
-; APKEasyTool
+; APKEditorStudio
 [Components]
-Name: "other\apkeasytool"; Description: "APKEasyTool"; Types: full; 
+Name: "other\apkeditorstudio"; Description: "APKEditorStudio"; Types: full; 
 
 [Files]
-Source: "{#MySrcDir}\toolkit\Other\APKEasyTool\*"; DestDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+Source: "{#MySrcDir}\toolkit\Other\APKEditorStudio\*"; DestDir: "{#MyAppToolsFolder}\Other\APKEditorStudio"; Components: "other\apkeditorstudio"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\APKEasyTool"; Filename: "{#MyAppToolsFolder}\Other\APKEasyTool\apkeasytool.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\APKEasyTool"; Filename: "{#MyAppToolsFolder}\Other\APKEasyTool\apkeasytool.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEasyTool"; Components: "other\apkeasytool";    
+Name: "{group}\APKEditorStudio"; Filename: "{#MyAppToolsFolder}\Other\APKEditorStudio\apk-editor-studio.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEditorStudio"; Components: "other\apkeditorstudio";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\APKEditorStudio"; Filename: "{#MyAppToolsFolder}\Other\APKEditorStudio\apk-editor-studio.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKEditorStudio"; Components: "other\apkeditorstudio";    
 
 
 
@@ -21,6 +21,19 @@ Source: "{#MySrcDir}\toolkit\Other\ApkStudio\*"; DestDir: "{#MyAppToolsFolder}\O
 [Icons]
 Name: "{group}\ApkStudio x64"; Filename: "{#MyAppToolsFolder}\Other\ApkStudio\ApkStudio.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ApkStudio"; Components: "other\apkstudio";   Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ApkStudio x64"; Filename: "{#MyAppToolsFolder}\Other\ApkStudio\ApkStudio.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ApkStudio"; Components: "other\apkstudio";   Check: Is64BitInstallMode; 
+
+
+
+; APKToolGUI
+[Components]
+Name: "other\apktoolgui"; Description: "APKToolGUI"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\APKToolGUI\*"; DestDir: "{#MyAppToolsFolder}\Other\APKToolGUI"; Components: "other\apktoolgui"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\APKToolGUI"; Filename: "{#MyAppToolsFolder}\Other\APKToolGUI\APKToolGUI.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKToolGUI"; Components: "other\apktoolgui";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\APKToolGUI"; Filename: "{#MyAppToolsFolder}\Other\APKToolGUI\APKToolGUI.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\APKToolGUI"; Components: "other\apktoolgui";    
 
 
 
@@ -60,6 +73,19 @@ Source: "{#MySrcDir}\toolkit\Other\HashMyFiles\*"; DestDir: "{#MyAppToolsFolder}
 [Icons]
 Name: "{group}\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\HashMyFiles"; Filename: "{#MyAppToolsFolder}\Other\HashMyFiles\HashMyFiles.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\HashMyFiles"; Components: "other\hashmyfiles";    
+
+
+
+; MalUnpack
+[Components]
+Name: "other\malunpack"; Description: "MalUnpack"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\MalUnpack\*"; DestDir: "{#MyAppToolsFolder}\Other\MalUnpack"; Components: "other\malunpack"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\MalUnpack x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\MalUnpack"; Components: "other\malunpack"; Parameters: "/K ""{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"; Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\MalUnpack x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\MalUnpack"; Components: "other\malunpack"; Parameters: "/K ""{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\MalUnpack\mal_unpack.exe"; Check: Is64BitInstallMode; 
 
 
 
@@ -146,5 +172,18 @@ Source: "{#MySrcDir}\toolkit\Other\VirusTotalUploader\*"; DestDir: "{#MyAppTools
 [Icons]
 Name: "{group}\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\VirusTotalUploader"; Filename: "{#MyAppToolsFolder}\Other\VirusTotalUploader\uploader.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\VirusTotalUploader"; Components: "other\virustotaluploader";    
+
+
+
+; WinObjEx64
+[Components]
+Name: "other\winobjex64"; Description: "WinObjEx64"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\WinObjEx64\*"; DestDir: "{#MyAppToolsFolder}\Other\WinObjEx64"; Components: "other\winobjex64"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\WinObjEx64 x64"; Filename: "{#MyAppToolsFolder}\Other\WinObjEx64\WinObjEx64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\WinObjEx64"; Components: "other\winobjex64";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\WinObjEx64 x64"; Filename: "{#MyAppToolsFolder}\Other\WinObjEx64\WinObjEx64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\WinObjEx64"; Components: "other\winobjex64";   Check: Is64BitInstallMode; 
 
 

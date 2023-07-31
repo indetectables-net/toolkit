@@ -75,6 +75,9 @@ class GenerateInstall:
             'winapi search': ['winapisearch32.exe', 'winapisearch64.exe'],
             'de4dot': ['de4dot.exe', 'de4dot-x64.exe'],
             'netunpack': ['netunpack.exe', 'netunpack-64.exe'],
+
+            # support other tools in package
+            'asm calculator': ['calc32.exe', 'conv32.exe'],            
         }
         self.fix_tool_exe_link_creation = [
             # analysis
