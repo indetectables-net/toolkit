@@ -208,7 +208,12 @@ What makes ImHex special is that it has many advanced features that can often on
 ### HashMyFiles
 ***Web:*** https://www.nirsoft.net/utils/hash_my_files.html <br/>
 ***Developer:*** NirSoft <br/>
-***Description:*** HashMyFiles is small utility that allows you to calculate the MD5 and SHA1 hashes of one or more files in your system. You can easily copy the MD5/SHA1 hashes list into the clipboard, or save them into text/html/xml file.  <br/>
+***Description:*** HashMyFiles is small utility that allows you to calculate the MD5 and SHA1 hashes of one or more files in your system. You can easily copy the MD5/SHA1 hashes list into the clipboard, or save them into text/html/xml file. <br/>
+
+### MalUnpack
+***Web:*** https://github.com/hasherezade/mal_unpack <br/>
+***Developer:*** hasherezade <br/>
+***Description:*** Dynamic unpacker based on PE-sieve. It deploys a packed malware, waits for it to unpack the payload, dumps the payload, and kills the original process. <br/>
 
 ### Indetectables Offset Locator *Available using the extra called: Oldies*
 ***Web:*** https://www.indetectables.net/viewtopic.php?t=29725 <br/>
@@ -245,8 +250,18 @@ What makes ImHex special is that it has many advanced features that can often on
 ***Developer:*** Samuel Tulach <br/>
 ***Description:*** VirusTotal file uploader <br/>
 
+### WinObjEx64
+***Web:*** https://github.com/hfiref0x/WinObjEx64 <br/>
+***Developer:*** hfiref0x <br/>
+***Description:*** WinObjEx64 is an advanced utility that lets you explore the Windows Object Manager namespace. For certain object types, you can double-click on it or use the "Properties..." toolbar button to get more information, such as description, attributes, resource usage etc. WinObjEx64 let you view and edit object-related security information if you have required access rights. <br/>
+
 
 ## Reverse
+
+### ASM Calculator
+***Web:*** https://www.manhunter.ru/releases/108_32_bit_asm_calculator_1_12.html <br/>
+***Developer:*** ManHunter <br/>
+***Description:*** Allows you to execute arithmetic and bitwise Assembler commands, including commands that use Carry Flag value in calculations. The result of the operation is displayed in hexadecimal with byte reversal, in decimal with sign display, in binary with octets and in text if available. <br/>
 
 ### CryptoTester
 ***Web:*** https://github.com/Demonslay335/CryptoTester <br/>

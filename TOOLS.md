@@ -330,8 +330,7 @@ It is the first and only program of its kind to support output for display in va
 ### MalUnpack
 ***Web:*** https://github.com/hasherezade/mal_unpack <br/>
 ***Developer:*** hasherezade <br/>
-***Description:*** Dynamic unpacker based on PE-sieve.
-It deploys a packed malware, waits for it to unpack the payload, dumps the payload, and kills the original process. <br/>
+***Description:*** Dynamic unpacker based on PE-sieve. It deploys a packed malware, waits for it to unpack the payload, dumps the payload, and kills the original process. <br/>
 
 ### Indetectables Offset Locator *Available using the extra called: Oldies*
 ***Web:*** https://www.indetectables.net/viewtopic.php?t=29725 <br/>
