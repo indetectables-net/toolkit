@@ -54,13 +54,6 @@ Name: "extras\javajre"; Description: "Install Java Oracle JRE 8 (via Chocolatey)
 [Run]
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y jre8"; Components: "extras\javajre"; Flags: shellexec waituntilterminated;
 
-; Install Java JDK (for Ghidra!)
-[Components]
-Name: "extras\javajdk"; Description: "Install Java Temurin JDK 11 (via Chocolatey)"; ExtraDiskSpaceRequired: 315621376; Types: full; 
-
-[Run]
-Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y temurin11"; Components: "extras\javajdk"; Flags: shellexec waituntilterminated;
-
 
 ; Install Python
 [Components]
