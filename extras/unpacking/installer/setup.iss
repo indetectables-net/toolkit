@@ -3,7 +3,7 @@
 
 #define MyAppName "Indetectables Toolkit Extras: Unpacking"
 #define MyAppNameOriginal "Indetectables Toolkit"
-#define MyAppVersion "2023.3"
+#define MyAppVersion "2023.8"
 #define MyAppPublisher "Indetectables"
 #define MyAppURL "https://www.indetectables.net/"
 #define MyAppToolsFolder "{app}\toolkit"
