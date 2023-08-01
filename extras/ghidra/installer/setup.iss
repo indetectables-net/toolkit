@@ -31,7 +31,7 @@ Compression=lzma2/max
 SolidCompression=yes
 WizardStyle=modern
 ArchitecturesInstallIn64BitMode=x64
-SetupIconFile="{#MySrcDir}\extras\ghidra\icon.ico"
+SetupIconFile="{#MySrcDir}\extras\ghidra\installer\icon.ico"
 OutputDir={#MyOutputDir}
 Uninstallable=no
 DirExistsWarning=no
@@ -89,6 +89,7 @@ Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Componen
 [Run]
 Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javajdk"; Flags: shellexec waituntilterminated;
 
+
 ; Install Java JDK (for Ghidra!)
 [Components]
 Name: "extras\javajdk"; Description: "Install Java Temurin JDK 17+ (via Chocolatey)"; ExtraDiskSpaceRequired: 315621376; Types: full compact custom; 
@@ -98,21 +99,24 @@ Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y t
 
 
 ;;; etc
+;;;;;;;;;;;;;;;;;;;;;;;;
 [Run]
-; Install Ghidra
+; Install Ghidra in toolkit
 Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u Ghidra -dic"; Flags: shellexec waituntilterminated;
 
-; Configure installed tools
+; Configure installed tools in updater
 Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater /TYPE=clean"; Flags: runhidden;
 
 ; Sync tools versions
 Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater /TYPE=sync"; Flags: runhidden;
 
-
+; Create all links
 [Icons]
 Name: "{group}\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
 Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\Ghidra"; Filename: "{#MyAppToolsFolder}\Dissasembler\Ghidra\ghidraRun.bat"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\Ghidra"; IconFilename: "{#MyAppToolsIconsFolder}\ghidra.ico"
 
+
+; Custom installer checks and scripts
 [code]
 function GetFileName(const FileName: string): string;
 begin
