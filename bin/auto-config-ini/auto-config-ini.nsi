@@ -24,6 +24,7 @@ VIAddVersionKey /LANG=1033 "ProductName" "auto-config-ini"
 VIAddVersionKey /LANG=1033 "FileDescription" "Indetectables Toolkit updater auto config tools.ini"
 VIAddVersionKey /LANG=1033 "LegalCopyright" "2023"
 
+
 Function .onInit
   ; read exe params
   ${GetParameters} $RAW_PARAMS
@@ -55,21 +56,28 @@ Function .onInit
   ${EndIf}
 FunctionEnd
 
-; script default action
+
+; Autoloader
 Section ""
   ; debug
   ;MessageBox MB_OK "$CHECK_TYPE"
   ;MessageBox MB_OK "$CONFIG_PATH"
 
+  ; Synchronizes the updater configuration
   ${If} $CHECK_TYPE == "sync"
     Call ConfigSectionSync
     ${GetSectionNames} "$CONFIG_PATH" "ReadSectionSyncCallback"
+
+  ; Set the default updater configuration
   ${ElseIf} $CHECK_TYPE == "toolkit"
     Call ConfigToolkitDefault
+
+  ; Eliminate the tools that are not installed
   ${Else}
     ${GetSectionNames} "$CONFIG_PATH" "ReadSectionCleanCallback"
   ${EndIf}
 SectionEnd
+
 
 ; Synchronizes the updater configuration with the one the user had on their machine
 Function ConfigSectionSync
@@ -94,12 +102,14 @@ Function ConfigSectionSync
   WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "use_github_api" "$R0"
 FunctionEnd
 
-; Set the default updater configuration within the toolkit
+
+; Set the default updater configuration
 Function ConfigToolkitDefault
-  ; this is the correct updater configuration for use in the toolkit
+  ; this is the correct updater configuration for use in the installed version of toolkit
   WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "disable_clean" "True"
   WriteINIStr "$CONFIG_PATH" "UpdaterConfig" "disable_repack" "True"
 FunctionEnd
+
 
 ; Callback to synchronize the state of the tools
 Function ReadSectionSyncCallback
@@ -124,6 +134,7 @@ Function ReadSectionSyncCallback
   ; move on to the next
   Push $0
 FunctionEnd
+
 
 ; Callback to eliminate the tools that are not installed in the system
 Function ReadSectionCleanCallback
