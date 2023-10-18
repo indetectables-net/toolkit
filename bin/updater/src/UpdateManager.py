@@ -19,7 +19,7 @@ class UpdateManager:
         """
         Initialize the UpdateManager with a ConfigManager instance and command-line arguments.
         """
-        self.version = '2.0.0'
+        self.version = '2.1.0'
         self.config_file_name = 'tools.ini'
         self.config_section_defaults = 'UpdaterConfig'
         self.config_section_self_update = 'UpdaterAutoUpdater'

@@ -1,7 +1,7 @@
 import re
 import requests
 import urllib.parse
-import binascii
+import hashlib
 import colorama
 import logging
 
@@ -204,7 +204,7 @@ class Scraper:
         Check version from HTTP headers.
 
         :param headers: HTTP headers
-        :return: Version string
+        :return: Version string (SHA-1 based)
         """
         local_version = self.tool_config.get('local_version', '0')
 
@@ -212,11 +212,11 @@ class Scraper:
         if 'last-modified' in headers:
             logging.info(f'{self.tool_name}: using "last-modified" as version number...')
             input_bytes = headers['last-modified'].encode()
-            remote_version = str(binascii.crc32(input_bytes))
+            remote_version = hashlib.sha1(input_bytes).hexdigest()
         elif 'content-length' in headers:
             logging.info(f'{self.tool_name}: using "content-length" as version number...')
             input_bytes = headers['content-length'].encode()
-            remote_version = str(binascii.crc32(input_bytes))
+            remote_version = hashlib.sha1(input_bytes).hexdigest()
         else:
             raise Exception(colorama.Fore.RED +
                             f'{self.tool_name}: no header is found with which to determine if there is an update')
