@@ -42,7 +42,7 @@ Los valores utilizados para la configuración son:
 |----------------------|-------------|--------------------------------------------------------------------------------------------------------|
 | `folder`             | `SI`        | Carpeta donde se guardara la herramienta. Si no existe la misma se creara.                             |
 | `url`                | `SI`        | Web que se usara para realizar los chequeos con las regex.                                             |
-| `from`               | `NO`        | Indica la estrategia usada para el update. Los valores admitidos por el momento son: `web` o `github`. |
+| `from`               | `NO`        | Indica la estrategia usada para el update. Los valores admitidos por el momento son: `web`, `github` o `http`. |
 | `local_version`      | `NO`        | Versión descargada actualmente. Este valor se actualizara con cada update.                             |
 | `re_version`         | `NO`        | Regex usado para comprobar si hay nuevas versiones en la web de `url`.                                 |
 | `re_download`        | `NO`        | Regex usado para obtener el link de descarga en la web de `url`.                                       |
@@ -63,6 +63,7 @@ Combinando el uso de `update_url` y `re_download` se consiguen las siguientes es
 2. Usando solo `re_download` se obtiene el link de descarga en la web de `url`.
 3. Cuando se usan ambos parámetros se concatena el resultado de `re_download` con `update_url`.
 Esto es útil para arreglar los links de descarga de GitHub o Sourceforge.
+4. También se dispone de un método de detección de nuevas versiones que en lugar de regex usa las cabeceras http con las que responde el servidor.
 
 ## Ejemplos
 
@@ -121,5 +122,5 @@ SCHTASKS /DELETE /TN "ToolkitUpdater"
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile updater.py --icon=appicon.ico
+pyinstaller --onefile updater.py --icon=assets/appicon.ico
 ```

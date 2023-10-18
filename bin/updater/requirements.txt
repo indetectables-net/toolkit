@@ -1,0 +1,5 @@
+requests>=2.26.0
+colorama>=0.4.4
+tqdm>=4.62.3
+py7zr>=0.16.1
+rarfile>=4.0

@@ -42,7 +42,7 @@ The values used for configuration are:
 |--------------------|-----------|------------------------------------------------------------------------------------------------|
 | `folder`           | `YES`     | Folder where the tool will be saved. If it does not exist, it will be created.                 |
 | `url`              | `YES`     | Web that will be used to perform the checks with the regex.                                    |
-| `from`             | `NO`      | Indicates the strategy used for the update. Currently supported values are: `web` or `github`. |
+| `from`             | `NO`      | Indicates the strategy used for the update. Currently supported values are: `web`, `github` or `http`. |
 | `local_version`    | `NO`      | Currently downloaded version. This value will be updated with each update.                     |
 | `re_version`       | `NO`      | Regex used to check for new versions on the web used in `url`.                                 |
 | `re_download`      | `NO`      | Regex used to get the download link on the web used in `url`.                                  |
@@ -61,6 +61,7 @@ Combining the use of `update_url` and `re_download` the following download strat
 2. Using only `re_download` you get the download link on the web from `url`.
 3. When using both parameters, the result of `re_download` is concatenated with `update_url`.
 This is useful for fixing GitHub or Sourceforge download links.
+4. A new version detection method is also available that instead of regex uses the http headers with which the server responds.
 
 ## Examples
 
@@ -119,5 +120,5 @@ SCHTASKS /DELETE /TN "ToolkitUpdater"
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile updater.py --icon=appicon.ico
+pyinstaller --onefile updater.py --icon=assets/appicon.ico
 ```
