@@ -410,11 +410,6 @@ It is the first and only program of its kind to support output for display in va
 ***Developer:*** wwh1004 <br/>
 ***Description:*** .NET Assembly Dumper <br/>
 
-### GetSymbol
-***Web:*** https://github.com/dbgsymbol/getsymbol <br/>
-***Developer:*** @Paul091_ <br/>
-***Description:*** Simple tool to download debugging symbols from Microsoft, Google, Mozilla and Citrix symbol servers for reverse engineers compatible with Windows 8.1, 10 and 11. <br/>
-
 ### ImpREC (with plugins) *Available using the extra called: Oldies*
 ***Web:*** Unknown <br/>
 ***Developer:*** MackT/uCF <br/>

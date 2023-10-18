@@ -1,6 +1,17 @@
 # Changelog
 
 
+## MASTER
+
+### Changed
+
+- Bump Universal Updater to 2.0.0
+
+### Removed
+
+- Drop GetSymbol (Malware in 2.0.3 version: https://news.ycombinator.com/item?id=37423091)
+
+
 ## 2023.8 - Aug 1, 2023
 
 ### Added
