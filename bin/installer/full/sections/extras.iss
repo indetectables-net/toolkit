@@ -77,3 +77,19 @@ Name: "extras\winmerge"; Description: "Install WinMerge (via Chocolatey)"; Extra
 
 [Run]
 Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y winmerge"; Components: "extras\winmerge"; Flags: shellexec waituntilterminated;
+
+
+; Install Windows Terminal
+[Components]
+Name: "extras\terminal"; Description: "Install new Windows Terminal (via Chocolatey)"; ExtraDiskSpaceRequired: 31457280; Types: full; 
+
+[Run]
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y microsoft-windows-terminal"; Components: "extras\terminal"; Flags: shellexec waituntilterminated;
+
+
+; Install Visual C++ Redistributable packages
+[Components]
+Name: "extras\vcredist"; Description: "Install Visual C++ Redist 2008, 2013, 2015-2022 (via Chocolatey)"; ExtraDiskSpaceRequired: 52428800; Types: full; 
+
+[Run]
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y vcredist2008 vcredist2013 vcredist140"; Components: "extras\vcredist"; Flags: shellexec waituntilterminated;
