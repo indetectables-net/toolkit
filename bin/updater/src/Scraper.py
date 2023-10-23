@@ -158,9 +158,12 @@ class Scraper:
         """
         # get http response
         update_url = self.tool_config.get('update_url', None)
-        headers = {'User-Agent': self.user_agent}
+        if not update_url:
+            raise Exception(colorama.Fore.RED +
+                            f'{self.tool_name}: the update_url field is required for the selected mode')
 
         try:
+            headers = {'User-Agent': self.user_agent}
             http_response = requests.head(update_url, headers=headers)
             http_response.raise_for_status()
             logging.debug(f'{self.tool_name}: HTTP headers fetched, extracting version.')
@@ -210,11 +213,11 @@ class Scraper:
 
         remote_version = None
         if 'last-modified' in headers:
-            logging.info(f'{self.tool_name}: using "last-modified" as version number...')
+            logging.debug(f'{self.tool_name}: using "last-modified" as version number')
             input_bytes = headers['last-modified'].encode()
             remote_version = hashlib.sha1(input_bytes).hexdigest()
         elif 'content-length' in headers:
-            logging.info(f'{self.tool_name}: using "content-length" as version number...')
+            logging.debug(f'{self.tool_name}: using "content-length" as version number')
             input_bytes = headers['content-length'].encode()
             remote_version = hashlib.sha1(input_bytes).hexdigest()
         else:
