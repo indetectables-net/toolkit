@@ -3,8 +3,14 @@
 
 ## MASTER
 
+### Added
+
+- Add new Windows Terminal *Only in installer **Optional
+- Add Visual C++ Redist 2008, 2013 and 2015-2022 *Only in installer **Optional
+
 ### Changed
 
+- Update tools (23/10/2023)
 - Bump Universal Updater to 2.0.0
 
 ### Removed
