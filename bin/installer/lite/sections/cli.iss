@@ -54,6 +54,7 @@ begin
     if CurStep = ssPostInstall then
     begin
         if WizardIsComponentSelected('analysis\capa') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
+        if WizardIsComponentSelected('hexeditor\imhex') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\HEX Editor\ImHex');
         if WizardIsComponentSelected('monitor\pesieve') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         if WizardIsComponentSelected('other\floss') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         if WizardIsComponentSelected('other\malunpack') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\MalUnpack');
@@ -70,6 +71,7 @@ begin
     if CurUninstallStep = usPostUninstall then
     begin
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
+        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\HEX Editor\ImHex');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\MalUnpack');

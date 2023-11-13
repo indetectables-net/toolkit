@@ -58,19 +58,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ExtremeDumper"; Filename: "{sys}
 
 
 
-; GetSymbol
-[Components]
-Name: "reverse\getsymbol"; Description: "GetSymbol"; Types: full compact; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Reverse\GetSymbol\*"; DestDir: "{#MyAppToolsFolder}\Reverse\GetSymbol"; Components: "reverse\getsymbol"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\GetSymbol x64"; Filename: "{#MyAppToolsFolder}\Reverse\GetSymbol\GetSymbol.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\GetSymbol"; Components: "reverse\getsymbol";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\GetSymbol x64"; Filename: "{#MyAppToolsFolder}\Reverse\GetSymbol\GetSymbol.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\GetSymbol"; Components: "reverse\getsymbol";   Check: Is64BitInstallMode; 
-
-
-
 ; Keygener Assistant
 [Components]
 Name: "reverse\keygenerassistant"; Description: "Keygener Assistant"; Types: full; 
