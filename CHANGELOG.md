@@ -10,8 +10,8 @@
 
 ### Changed
 
-- Update tools (23/10/2023)
-- Bump Universal Updater to 2.0.0
+- Update tools (13/11/2023)
+- Bump Universal Updater to 2.1.0
 
 ### Removed
 
