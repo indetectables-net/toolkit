@@ -1,0 +1,13 @@
+name: Test Updater
+on:
+  workflow_dispatch:
+
+jobs:
+  test-updater:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+     
+      - name: Force update all tools
+        working-directory: ./bin/updater
+        run: updater.exe --disable-self-update --disable-install-check --disable-repack --force
