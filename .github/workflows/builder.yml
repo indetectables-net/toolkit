@@ -1,0 +1,29 @@
+name: Builder
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-job:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare directory
+        working-directory: ./bin/installer
+        run: python generate-sections.py -f ${{ github.workspace }}/toolkit -o ${{ github.workspace }}/bin/installer/full
+
+      - name: Prepare documents
+        working-directory: ./bin/installer
+        run: ./build-docs.bat
+
+      - name: Build installer
+        working-directory: ./bin/installer/full
+        run: ISCC setup.iss
+
+      - name: Upload Setup as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: setup-installer-artifact
+          path: ./bin/installer/full/*.exe
