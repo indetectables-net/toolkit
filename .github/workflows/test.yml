@@ -10,4 +10,4 @@ jobs:
      
       - name: Force update all tools
         working-directory: ./bin/updater
-        run: updater.exe --disable-self-update --disable-install-check --disable-repack --force
+        run: ./updater.exe --disable-self-update --disable-install-check --disable-repack --force
