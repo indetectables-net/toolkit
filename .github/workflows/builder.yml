@@ -16,7 +16,7 @@ jobs:
         run: pip install py7zr pefile colorama
 
       - name: Update .iss config paths
-        working-directory: ./src/bin/installer
+        working-directory: ./src/bin/installer/full
         shell: pwsh
         run: |
           $content = Get-Content -Path setup.iss -Raw
