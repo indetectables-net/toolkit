@@ -10,6 +10,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Python packages
+        run: pip install py7zr pefile colorama
+
       - name: Prepare directory
         working-directory: ./bin/installer
         run: python generate-sections.py -f ${{ github.workspace }}/toolkit -o ${{ github.workspace }}/bin/installer/full
