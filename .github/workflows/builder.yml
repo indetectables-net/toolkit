@@ -19,9 +19,11 @@ jobs:
         working-directory: ./src/bin/installer/full
         shell: pwsh
         run: |
+          $srcDirReplacement = '#define MySrcDir "' + "${{ github.workspace }}/src".Replace('\', '\\') + '"'
+          $outDirReplacement = '#define MyOutputDir "' + "${{ github.workspace }}".Replace('\', '\\') + '"'
           $content = Get-Content -Path setup.iss -Raw
-          $content = $content -replace '#define MySrcDir "C:\\\\code\\\\toolkit"', '#define MySrcDir "' + "${{ github.workspace }}/src" + '"'
-          $content = $content -replace '#define MyOutputDir "C:\\\\code"', '#define MyOutputDir "' + "${{ github.workspace }}" + '"'
+          $content = $content -replace '#define MySrcDir "C:\\\\code\\\\toolkit"', $srcDirReplacement
+          $content = $content -replace '#define MyOutputDir "C:\\\\code"', $outDirReplacement
           Set-Content -Path setup.iss -Value $content
 
       - name: Prepare directory
