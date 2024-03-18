@@ -22,6 +22,8 @@ jobs:
           WORKSPACE_SRC_PATH: ${{ github.workspace }}/src
         shell: bash
         run: |
+          WORKSPACE_BUILD_PATH=$(echo "/${WORKSPACE_BUILD_PATH}" | sed 's|/|\\\\|g')
+          WORKSPACE_SRC_PATH=$(echo "/${WORKSPACE_SRC_PATH}" | sed 's|/|\\\\|g')
           sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
           cat setup.iss
