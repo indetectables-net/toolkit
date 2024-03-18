@@ -23,7 +23,7 @@ jobs:
         shell: bash
         run: |
           WORKSPACE_BUILD_PATH=$(echo "${WORKSPACE_BUILD_PATH}"  | tr '\\' '/')
-          WORKSPACE_SRC_PATH=$(echo "${WORKSPACE_SRC_PATH}" |  | tr '\\' '/')
+          WORKSPACE_SRC_PATH=$(echo "${WORKSPACE_SRC_PATH}" | tr '\\' '/')
           sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
           cat setup.iss
