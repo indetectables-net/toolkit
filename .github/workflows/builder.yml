@@ -15,6 +15,15 @@ jobs:
       - name: Install Python packages
         run: pip install py7zr pefile colorama
 
+      - name: Update .iss config paths
+        working-directory: ./src/bin/installer
+        shell: pwsh
+        run: |
+          $content = Get-Content -Path setup.iss -Raw
+          $content = $content -replace '#define MySrcDir "C:\\\\code\\\\toolkit"', '#define MySrcDir "' + "${{ github.workspace }}/src" + '"'
+          $content = $content -replace '#define MyOutputDir "C:\\\\code"', '#define MyOutputDir "' + "${{ github.workspace }}" + '"'
+          Set-Content -Path setup.iss -Value $content
+
       - name: Prepare directory
         working-directory: ./src/bin/installer
         run: python generate-sections.py -f ${{ github.workspace }}/src/toolkit -o ${{ github.workspace }}/src/bin/installer/full
