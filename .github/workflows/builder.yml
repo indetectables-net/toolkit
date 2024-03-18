@@ -25,6 +25,7 @@ jobs:
           $content = $content -replace '#define MySrcDir "C:\\\\code\\\\toolkit"', $srcDirReplacement
           $content = $content -replace '#define MyOutputDir "C:\\\\code"', $outDirReplacement
           Set-Content -Path setup.iss -Value $content
+          Write-Output $content
 
       - name: Prepare directory
         working-directory: ./src/bin/installer
