@@ -25,7 +25,7 @@ jobs:
 
       - name: Build installer
         working-directory: ./src/bin/installer/full
-        run: ISCC setup.iss /dMySrcDir="${{ github.workspace }}/src" /dMyOutputDir="${{ github.workspace }}"
+        run: ISCC.exe setup.iss /DMySrcDir="${{ github.workspace }}/src" /DMyOutputDir="${{ github.workspace }}"
 
       - name: Upload Setup as Artifact
         uses: actions/upload-artifact@v4
