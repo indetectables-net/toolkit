@@ -15,6 +15,14 @@ jobs:
       - name: Install Python packages
         run: pip install py7zr pefile colorama
 
+      - name: Prepare directory
+        working-directory: ./src/bin/installer
+        run: python generate-sections.py -f ${{ github.workspace }}/src/toolkit -o ${{ github.workspace }}/src/bin/installer/full
+
+      - name: Prepare documents
+        working-directory: ./src/bin/installer
+        run: ./build-docs.bat
+
       - name: Update .iss config paths
         working-directory: ./src/bin/installer/full
         env:
@@ -27,14 +35,6 @@ jobs:
           sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
           cat setup.iss
-
-      - name: Prepare directory
-        working-directory: ./src/bin/installer
-        run: python generate-sections.py -f ${{ github.workspace }}/src/toolkit -o ${{ github.workspace }}/src/bin/installer/full
-
-      - name: Prepare documents
-        working-directory: ./src/bin/installer
-        run: ./build-docs.bat
 
       - name: Build installer
         working-directory: ./src/bin/installer/full
