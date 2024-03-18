@@ -17,15 +17,14 @@ jobs:
 
       - name: Update .iss config paths
         working-directory: ./src/bin/installer/full
-        shell: pwsh
+        env:
+          WORKSPACE_BUILD_PATH: ${{ github.workspace }}
+          WORKSPACE_SRC_PATH: ${{ github.workspace }}/src
+        shell: bash
         run: |
-          $srcDirReplacement = '#define MySrcDir "' + "${{ github.workspace }}/src".Replace('\', '\\') + '"'
-          $outDirReplacement = '#define MyOutputDir "' + "${{ github.workspace }}".Replace('\', '\\') + '"'
-          $content = Get-Content -Path setup.iss -Raw
-          $content = $content -replace '#define MySrcDir "C:\\\\code\\\\toolkit"', $srcDirReplacement
-          $content = $content -replace '#define MyOutputDir "C:\\\\code"', $outDirReplacement
-          Set-Content -Path setup.iss -Value $content
-          Write-Output $content
+          sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
+          sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
+          cat setup.iss
 
       - name: Prepare directory
         working-directory: ./src/bin/installer
