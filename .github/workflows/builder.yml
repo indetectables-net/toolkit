@@ -1,7 +1,13 @@
-name: Builder
+name: Builder main installer
 
 on:
   workflow_dispatch:
+
+env:
+  SRC_PATH: ${{ github.workspace }}/src
+  INSTALLER_SCRIPT_PATH: ${{ github.workspace }}/src/bin/installer
+  FULL_INSTALLER_PATH: ${{ github.workspace }}/src/bin/installer/full
+  LITE_INSTALLER_PATH: ${{ github.workspace }}/src/bin/installer/full
 
 jobs:
   build-job:
@@ -10,35 +16,44 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          path: src
+          path: ${{ env.SRC_PATH }}
 
       - name: Install Python packages
         run: pip install py7zr pefile colorama
 
       - name: Prepare directory
-        working-directory: ./src/bin/installer
-        run: python generate-sections.py -f ${{ github.workspace }}/src/toolkit -o ${{ github.workspace }}/src/bin/installer/full
+        working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
+        run: python generate-sections.py -f ${{ env.SRC_PATH }}/toolkit -o ${{ env.FULL_INSTALLER_PATH }}
 
       - name: Prepare documents
-        working-directory: ./src/bin/installer
+        working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
         run: ./build-docs.bat
 
-      - name: Update .iss config paths
-        working-directory: ./src/bin/installer/full
-        env:
-          WORKSPACE_BUILD_PATH: ${{ github.workspace }}
-          WORKSPACE_SRC_PATH: ${{ github.workspace }}/src
+      - name: Update full installer .iss config paths
+        working-directory: ${{ env.FULL_INSTALLER_PATH }}
         shell: bash
         run: |
-          WORKSPACE_BUILD_PATH=$(echo "${WORKSPACE_BUILD_PATH}"  | tr '\\' '/')
-          WORKSPACE_SRC_PATH=$(echo "${WORKSPACE_SRC_PATH}" | tr '\\' '/')
+          WORKSPACE_BUILD_PATH=$(echo "${{ github.workspace }}"  | tr '\\' '/')
+          WORKSPACE_SRC_PATH=$(echo "${{ env.SRC_PATH }}" | tr '\\' '/')
           sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
-          cat setup.iss
 
-      - name: Build installer
-        working-directory: ./src/bin/installer/full
-        run: ISCC.exe setup.iss /DMySrcDir="${{ github.workspace }}/src" /DMyOutputDir="${{ github.workspace }}"
+      - name: Build full installer
+        working-directory: ${{ env.FULL_INSTALLER_PATH }}
+        run: ISCC.exe setup.iss /DMySrcDir="${{ env.SRC_PATH }}" /DMyOutputDir="${{ github.workspace }}"
+
+      - name: Update lite installer .iss config paths
+        working-directory: ${{ env.LITE_INSTALLER_PATH }}
+        shell: bash
+        run: |
+          WORKSPACE_BUILD_PATH=$(echo "${{ github.workspace }}"  | tr '\\' '/')
+          WORKSPACE_SRC_PATH=$(echo "${{ env.SRC_PATH }}" | tr '\\' '/')
+          sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
+          sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
+
+      - name: Build lite installer
+        working-directory: ${{ env.LITE_INSTALLER_PATH }}
+        run: ISCC.exe setup.iss /DMySrcDir="${{ env.SRC_PATH }}" /DMyOutputDir="${{ github.workspace }}"
 
       - name: Upload Setup as Artifact
         uses: actions/upload-artifact@v4
