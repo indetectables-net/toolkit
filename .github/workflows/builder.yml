@@ -5,9 +5,9 @@ on:
 
 env:
   SRC_PATH: ${{ github.workspace }}/src
-  INSTALLER_SCRIPT_PATH: ${{ github.workspace }}/src/bin/installer
-  FULL_INSTALLER_PATH: ${{ github.workspace }}/src/bin/installer/full
-  LITE_INSTALLER_PATH: ${{ github.workspace }}/src/bin/installer/full
+  INSTALLER_SCRIPT_PATH: ${{ github.workspace }}/src/bin/installer/bin
+  FULL_INSTALLER_PATH: ${{ github.workspace }}/src/bin/installer/iss/full
+  LITE_INSTALLER_PATH: ${{ github.workspace }}/src/bin/installer/iss/lite
 
 jobs:
   build-job:
@@ -21,11 +21,11 @@ jobs:
       - name: Install Python packages
         run: pip install py7zr pefile colorama
 
-      - name: Prepare directory
+      - name: Unpack tools
         working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
-        run: python generate-sections.py -f ${{ env.SRC_PATH }}/toolkit -o ${{ env.FULL_INSTALLER_PATH }}
+        run: python unpack-project.py -f ${{ env.SRC_PATH }}/toolkit
 
-      - name: Prepare documents
+      - name: Build documents
         working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
         run: ./build-docs.bat
 
