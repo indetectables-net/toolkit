@@ -11,7 +11,7 @@ Es el complemento perfecto para los [manuales](https://github.com/indetectables-
 ## Ventajas
 
 1. **Integral**: Contiene todas las herramientas esenciales para escenarios tanto simples como complejos.
-2. **Actualizaciones Automáticas**: Integrado con un actualizador universal personalizado para mantener las herramientas actualizadas automáticamente.
+2. **Actualizaciones Automáticas**: Integrado con un [Actualizador Universal](https://github.com/xchwarze/universal-tool-updater) personalizado para mantener las herramientas actualizadas automáticamente.
 3. **Extensible**: Agrega fácilmente nuevas herramientas actualizando `bin\updater\tools.ini` y enlazándolas en `bin\sendto\sendto`.
 4. **Configuración Automática**: El instalador maneja las dependencias, las variables de entorno y puede programar actualizaciones semanales.
 
@@ -21,7 +21,7 @@ Es el complemento perfecto para los [manuales](https://github.com/indetectables-
 2. Usa el actualizador universal en `bin\updater\updater.exe` para mantener las herramientas actualizadas.
 3. Si necesitas descargar una herramienta específica, todas están comprimidas en la carpeta toolkit de este repositorio.
 
-## Conjunto de Herramientas
+## El Conjunto de Herramientas
 
 El conjunto incluye 98 aplicaciones que cubren una amplia gama de necesidades. Cuenta con herramientas tanto conocidas como menos conocidas, pero igualmente útiles, así como herramientas raras que son difíciles de encontrar. **Todas las herramientas se obtienen de sus sitios web oficiales, pero ten precaución, especialmente con herramientas provenientes de hilos de foros.** Consulta la lista completa de herramientas [aquí](TOOLS.md).
 
