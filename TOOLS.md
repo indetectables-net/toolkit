@@ -1,5 +1,7 @@
 # Tools
 
+This toolkit is organised into categories to help you find the tools you need quickly and efficiently. Each category contains powerful applications designed for specific tasks, from analysis to unpacking and everything in between.
+
 1. [Analysis](#analysis)
 1. [Decompilers](#decompilers)
 1. [Dissasembler](#dissasembler)
