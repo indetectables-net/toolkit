@@ -3,12 +3,12 @@ import pathlib
 import colorama
 import logging
 
-from src.Scraper import Scraper
-from src.Downloader import Downloader
-from src.Packer import Packer
-from src.FileManager import FileManager
-from src.ScriptExecutor import ScriptExecutor
-from src.Helpers import Helpers
+from universal_updater.Scraper import Scraper
+from universal_updater.Downloader import Downloader
+from universal_updater.Packer import Packer
+from universal_updater.FileManager import FileManager
+from universal_updater.ScriptExecutor import ScriptExecutor
+from universal_updater.Helpers import Helpers
 
 
 class Updater:

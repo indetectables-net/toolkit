@@ -3,7 +3,7 @@ import pathlib
 import shutil
 import logging
 
-from src.Helpers import Helpers
+from universal_updater.Helpers import Helpers
 
 
 class FileManager:

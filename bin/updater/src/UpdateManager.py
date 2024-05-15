@@ -5,9 +5,9 @@ import os
 import colorama
 import logging
 
-from src.Updater import Updater
-from src.ConfigManager import ConfigManager
-from src.ColoredFormatter import ColoredFormatter
+from universal_updater.Updater import Updater
+from universal_updater.ConfigManager import ConfigManager
+from universal_updater.ColoredFormatter import ColoredFormatter
 
 
 class UpdateManager:
@@ -19,7 +19,7 @@ class UpdateManager:
         """
         Initialize the UpdateManager with a ConfigManager instance and command-line arguments.
         """
-        self.version = '2.1.0'
+        self.version = '2.1.1'
         self.config_file_name = 'tools.ini'
         self.config_section_defaults = 'UpdaterConfig'
         self.config_section_self_update = 'UpdaterAutoUpdater'
@@ -100,7 +100,7 @@ class UpdateManager:
             dest='disable_clean',
             help='disable tool folder clean',
             action=argparse.BooleanOptionalAction,
-            default=self.get_argparse_default('disable_clean', False)
+            default=self.get_argparse_default('disable_clean', True)
         )
         parser.add_argument(
             '-dr',
@@ -108,7 +108,7 @@ class UpdateManager:
             dest='disable_repack',
             help='disable tool repack',
             action=argparse.BooleanOptionalAction,
-            default=self.get_argparse_default('disable_repack', False)
+            default=self.get_argparse_default('disable_repack', True)
         )
         parser.add_argument(
             '-dic',
@@ -289,3 +289,9 @@ class UpdateManager:
         self.set_logging_level()
         self.update_default_params()
         self.handle_updates()
+
+
+# Entry point for the script
+if __name__ == '__main__':
+    # Initialize and run the main method of UpdateManager
+    UpdateManager().main()

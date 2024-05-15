@@ -7,7 +7,7 @@ import shutil
 import colorama
 import logging
 
-from src.Helpers import Helpers
+from universal_updater.Helpers import Helpers
 
 
 class Packer:
@@ -87,12 +87,15 @@ class Packer:
         :return: None
         :raises: Exception if file extension is not supported
         """
-        if file_ext == '.zip':
-            return self.unpack_zip(file_path, unpack_path, file_pass)
-        elif file_ext == '.rar':
-            return self.unpack_rar(file_path, unpack_path, file_pass)
-        elif file_ext == '.7z':
-            return self.unpack_7z(file_path, unpack_path, file_pass)
+        try:
+            if file_ext == '.zip':
+                return self.unpack_zip(file_path, unpack_path, file_pass)
+            elif file_ext == '.rar':
+                return self.unpack_rar(file_path, unpack_path, file_pass)
+            elif file_ext == '.7z':
+                return self.unpack_7z(file_path, unpack_path, file_pass)
+        except Exception as error:
+            raise Exception(colorama.Fore.RED + f'An error occurred during unpacking: {error}')
 
         raise Exception(colorama.Fore.RED + f'{file_ext} extension not accepted by internal unpacker')
 

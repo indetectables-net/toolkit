@@ -122,5 +122,5 @@ SCHTASKS /DELETE /TN "ToolkitUpdater"
 
 ```bash
 pip install pyinstaller
-pyinstaller --onefile updater.py --icon=assets/appicon.ico
+pyinstaller --onefile UpdateManager.py --icon=../assets/appicon.ico
 ```
