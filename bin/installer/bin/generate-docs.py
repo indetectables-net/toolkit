@@ -1,8 +1,8 @@
 # -*- coding: utf-8  -*-
 #
 # Copyright (C) 2022 DSR! <xchwarze@gmail.com>
-# Released under the terms of the MIT License
-# Developed for Python 3.6+
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# More info at: https://github.com/indetectables-net/toolkit
 # pip install pywin32 colorama
 
 import argparse

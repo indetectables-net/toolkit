@@ -1,21 +1,19 @@
-# -*- coding: utf-8  -*-
+# -*- coding: utf-8 -*-
 #
 # Copyright (C) 2022 DSR! <xchwarze@gmail.com>
-# Released under the terms of the MIT License
-# Developed for Python 3.6+
-# pip install py7zr pefile colorama
+# SPDX-License-Identifier: LGPL-3.0-or-later
+# More info at: https://github.com/indetectables-net/toolkit
+# pip install pefile colorama
 
 import argparse
 import pathlib
-import os
 import re
 import shutil
-import py7zr
 import pefile
 import colorama
 
-
 def get_pe_info(file_path):
+    """Retrieve PE information about the given file."""
     IMAGE_FILE_MACHINE_AMD64 = 34404
     IMAGE_SUBSYSTEM_WINDOWS_CUI = 3
 
@@ -29,15 +27,16 @@ def get_pe_info(file_path):
             # https://docs.microsoft.com/en-us/windows/win32/debug/pe-format#windows-subsystem
             'is_cli': pe.OPTIONAL_HEADER.Subsystem == IMAGE_SUBSYSTEM_WINDOWS_CUI,
         }
-    except:
+    except pefile.PEFormatError as e:
+        print(colorama.Fore.RED + f'Error processing {file_path}: {e}')
         return False
 
-
 def component_name(name):
+    """Normalize the component name by removing non-alphanumeric characters and converting to lowercase."""
     return re.sub('[^a-zA-Z0-9]', '', name).lower()
 
 
-class GenerateInstall:
+class GenerateInstaller:
     def __init__(self):
         self.base_path = ''
         self.section_name = ''
@@ -121,49 +120,34 @@ class GenerateInstall:
             # unpacking
             'uniextract', 'xvolkolak',
         ]
-        self.disable_unpack = [
-            # decompilers
-            'graywolf - 1.83.7z',
-
-            # dissasembler
-            '[++] w32dasm - 8.93.7z', '[10] w32dasm - 8.93.7z', '[original] w32dasm - 8.93.7z',
-            '[bradpach] w32dasm - 8.93.7z',
-
-            # other
-            'imprec - 1.7e.7z',
-
-            # patcher
-            'at4re patcher - 0.6.3.7z', 'skins.7z',
-
-            # unpacking
-            'qunpack - 2.2.7z', 'qunpack - 3.4.7z', 'qunpack - src.7z',
-            'vmunpacker - 1.2.7z', 'vmunpacker - 1.3.7z',
-        ]
 
     # helpers
     def absolute_to_local_path(self, path):
+        """Convert an absolute path to a local path relative to the base path."""
         return str(path).replace(f'{str(self.base_path)}\\', '')
 
     def get_tool_icon(self):
+        """Get the icon filename for the current tool."""
         tool_name_list = self.tool_name.split()
         name = tool_name_list[1].lower() if self.tool_name[0] == '[' else self.tool_name.lower()
 
         return f'{{#MyAppToolsIconsFolder}}\\{name}.ico'
 
     def iss_types(self):
+        """Determine the types of installation for the current tool."""
         types = 'full'
-
         if self.tool_name.lower() in self.compact_tool_list:
             types += ' compact'
-        
+
         return types
 
     # script steps
     def iterate_sections(self, folder_path, output_path):
+        """Iterate through sections in the given folder path and generate ISS files."""
         self.base_path = folder_path
         for item in pathlib.Path(folder_path).iterdir():
             # check that the folder is valid for analysis
-            if item.is_dir() & (item.name.lower() in self.valid_folders):
+            if item.is_dir() and item.name.lower() in self.valid_folders:
                 print(colorama.Fore.WHITE + f'[*] Analyzing folder: {item.name}')
                 self.section_name = item.name
                 self.section_list = []
@@ -178,6 +162,7 @@ class GenerateInstall:
                 print("\n")
 
     def iterate_folder(self, folder_path):
+        """Iterate through folders and process each tool."""
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir():
                 print(colorama.Fore.YELLOW + f'[+] Process: {item.name}')
@@ -188,11 +173,7 @@ class GenerateInstall:
                 self.section_list.append('')
 
     def iterate_tool(self, folder_path, is_sub_folder=False):
-        # unpack
-        for item in folder_path.glob('*.7z'):
-            self.iterate_tool_unpack(item, folder_path)
-
-        # main data
+        """Process each tool in the folder."""
         if not is_sub_folder:
             self.section_list.append(f'; {self.tool_name}')
             self.section_list.append('[Components]')
@@ -219,23 +200,12 @@ class GenerateInstall:
 
         # iterate sub folders
         for item in pathlib.Path(folder_path).iterdir():
-            if item.is_dir() & (tool_exe_total == 0) & (tool_jar_total == 0) & (tool_py_total == 0):
+            if item.is_dir() and tool_exe_total == 0 and tool_jar_total == 0 and tool_py_total == 0:
                 print(colorama.Fore.MAGENTA + f'   [!] Iterate sub folder: "{item}"')
                 self.iterate_tool(item, True)
 
-    def iterate_tool_unpack(self, file_path, folder_path):
-        if file_path.name.lower() not in self.disable_unpack:
-            if len(os.listdir(folder_path)) > 1:
-                # In addition to creating the new directory, change the path of the folder_path
-                folder_path = pathlib.Path(folder_path).joinpath(file_path.stem)
-                pathlib.Path(folder_path).mkdir(exist_ok=True)
-
-            with py7zr.SevenZipFile(file_path, 'r') as compressed:
-                compressed.extractall(folder_path)
-
-            file_path.unlink()
-
     def iterate_tool_exe(self, folder_path):
+        """Process executable files in the folder."""
         is_first_set = False
         force_link_creation = self.tool_name.lower() in self.fix_tool_exe_link_creation
         exe_list_len = len(list(folder_path.glob('*.exe')))
@@ -255,7 +225,8 @@ class GenerateInstall:
 
         return exe_list_len
 
-    def iterate_tool_exe_gen(self, exe_path, force_link_creation = False):
+    def iterate_tool_exe_gen(self, exe_path, force_link_creation=False):
+        """Generate ISS entries for the executable."""
         print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(exe_path).name)}"')
         working_dir = str(pathlib.Path(exe_path).parent)
         pe_data = get_pe_info(exe_path)
@@ -306,9 +277,9 @@ class GenerateInstall:
         self.section_list.append('')
 
     def cli_list_append(self, component, working_dir):
-        for item in self.cli_list:
-            if item['component'] == component:
-                return False
+        """Append a CLI component to the list if not already present."""
+        if any(item['component'] == component for item in self.cli_list):
+            return
 
         self.cli_list.append({
             'component': component,
@@ -316,6 +287,7 @@ class GenerateInstall:
         })
 
     def iterate_tool_jar(self, folder_path):
+        """Process JAR files in the folder."""
         jar_list = list(folder_path.glob('*.jar'))
 
         # for now there is always 1
@@ -327,6 +299,7 @@ class GenerateInstall:
         return len(jar_list)
 
     def iterate_tool_jar_gen(self, jar_path):
+        """Generate ISS entries for the JAR file."""
         print(colorama.Fore.GREEN + f'   [*] Adding jar: "{str(pathlib.Path(jar_path).name)}"')
         tool_jar_path = self.absolute_to_local_path(jar_path)
         working_dir = str(pathlib.Path(jar_path).parent)
@@ -351,6 +324,7 @@ class GenerateInstall:
         self.section_list.append('')
 
     def iterate_tool_py(self, folder_path):
+        """Process Python files in the folder."""
         py_list = list(folder_path.glob('*.py'))
 
         # for now there is always 1
@@ -362,6 +336,7 @@ class GenerateInstall:
         return len(py_list)
 
     def iterate_tool_py_gen(self, py_path):
+        """Generate ISS entries for the Python file."""
         print(colorama.Fore.GREEN + f'   [*] Adding py: "{str(pathlib.Path(py_path).name)}"')
         tool_py_path = self.absolute_to_local_path(py_path)
         working_dir = str(pathlib.Path(py_path).parent)
@@ -386,9 +361,10 @@ class GenerateInstall:
         self.section_list.append('')
 
     def cli_env_extra_code(self, output_path):
+        """Generate additional CLI environment code for ISS."""
         # first check if content exist
-        if len(self.cli_list) == 0:
-            return;
+        if not self.cli_list:
+            return
 
         print('')
         print(colorama.Fore.YELLOW + f'[+] Generate cli register code')
@@ -426,11 +402,12 @@ class GenerateInstall:
         lines_list.append('')
 
         # save
-        shutil.copy('cli.iss.base', f'{output_path}\\sections\\cli.iss') 
+        shutil.copy('cli.iss.base', f'{output_path}\\sections\\cli.iss')
         with open(f'{output_path}\\sections\\cli.iss', 'a') as file:
             file.writelines('\n'.join(lines_list))
 
     def main(self):
+        """Main entry point for the script."""
         colorama.init(autoreset=True)
 
         parser = argparse.ArgumentParser(
@@ -440,34 +417,34 @@ class GenerateInstall:
             '-f',
             '--folder',
             dest='toolkit_folder',
-            help='path to toolkit folder',
+            help='Path to toolkit folder',
             type=pathlib.Path,
             required=True,
         )
         parser.add_argument(
             '-o',
             '--output',
-            dest='output_folder',
-            help='path to output folder',
+            dest='output_iss_folder',
+            help='Path to output folder',
             type=pathlib.Path,
             required=True,
         )
 
         arguments = parser.parse_args()
         toolkit_folder = arguments.toolkit_folder
-        output_folder = arguments.output_folder
+        output_iss_folder = arguments.output_iss_folder
         if not toolkit_folder.is_dir():
             print(colorama.Fore.RED + 'toolkit_folder is not a valid folder')
             return 0
 
-        if not output_folder.is_dir():
-            print(colorama.Fore.RED + 'output_folder is not a valid folder')
+        if not output_iss_folder.is_dir():
+            print(colorama.Fore.RED + 'output_iss_folder is not a valid folder')
             return 0
 
-        self.iterate_sections(toolkit_folder, output_folder)
-        self.cli_env_extra_code(output_folder)
+        self.iterate_sections(toolkit_folder, output_iss_folder)
+        self.cli_env_extra_code(output_iss_folder)
 
 
 # se fini
 if __name__ == '__main__':
-    GenerateInstall().main()
+    GenerateInstaller().main()
