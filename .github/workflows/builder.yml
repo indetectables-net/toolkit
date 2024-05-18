@@ -43,7 +43,7 @@ jobs:
         shell: bash
         run: |
           VERSION_CODE=$(date +'%Y.%m')
-          sed -i "s/#define MyAppVersion \"RELEASE\"/#define MyAppVersion \"$VERSION_CODE\"/g" setup.iss
+          sed -i 's/RELEASE/'"$VERSION_CODE"'/g' setup.iss
 
       - name: Build full installer
         working-directory: ${{ env.FULL_INSTALLER_PATH }}
@@ -63,7 +63,7 @@ jobs:
         shell: bash
         run: |
           VERSION_CODE=$(date +'%Y.%m')
-          sed -i "s/#define MyAppVersion \"RELEASE\"/#define MyAppVersion \"$VERSION_CODE\"/g" setup.iss
+          sed -i 's/RELEASE/'"$VERSION_CODE"'/g' setup.iss
 
       - name: Build lite installer
         working-directory: ${{ env.LITE_INSTALLER_PATH }}
