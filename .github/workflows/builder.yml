@@ -38,6 +38,13 @@ jobs:
           sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
 
+      - name: Update version number in full installer .iss
+        working-directory: ${{ env.FULL_INSTALLER_PATH }}
+        shell: bash
+        run: |
+          VERSION_CODE=$(date +'%Y.%m')
+          sed -i "s/#define MyAppVersion \"RELEASE\"/#define MyAppVersion \"$VERSION_CODE\"/g" setup.iss
+
       - name: Build full installer
         working-directory: ${{ env.FULL_INSTALLER_PATH }}
         run: ISCC.exe setup.iss /DMySrcDir="${{ env.SRC_PATH }}" /DMyOutputDir="${{ github.workspace }}"
@@ -50,6 +57,13 @@ jobs:
           WORKSPACE_SRC_PATH=$(echo "${{ env.SRC_PATH }}" | tr '\\' '/')
           sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
+
+      - name: Update version number in lite installer .iss
+        working-directory: ${{ env.FULL_INSTALLER_PATH }}
+        shell: bash
+        run: |
+          VERSION_CODE=$(date +'%Y.%m')
+          sed -i "s/#define MyAppVersion \"RELEASE\"/#define MyAppVersion \"$VERSION_CODE\"/g" setup.iss
 
       - name: Build lite installer
         working-directory: ${{ env.LITE_INSTALLER_PATH }}
