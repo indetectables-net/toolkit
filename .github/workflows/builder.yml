@@ -59,7 +59,7 @@ jobs:
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
 
       - name: Update version number in lite installer .iss
-        working-directory: ${{ env.FULL_INSTALLER_PATH }}
+        working-directory: ${{ env.LITE_INSTALLER_PATH }}
         shell: bash
         run: |
           VERSION_CODE=$(date +'%Y.%m')
