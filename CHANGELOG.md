@@ -5,6 +5,19 @@
 
 ### Added
 
+- ?????
+
+### Changed
+
+- Update tools (13/05/2024)
+- Bump Universal Updater to 2.1.1
+- Refactor and cleanup in all project
+
+
+## 2023.11 - Nov 14, 2023
+
+### Added
+
 - Add new Windows Terminal *Only in installer **Optional
 - Add Visual C++ Redist 2008, 2013 and 2015-2022 *Only in installer **Optional
 

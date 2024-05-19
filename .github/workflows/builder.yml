@@ -69,6 +69,12 @@ jobs:
         working-directory: ${{ env.LITE_INSTALLER_PATH }}
         run: ISCC.exe setup.iss /DMySrcDir="${{ env.SRC_PATH }}" /DMyOutputDir="${{ github.workspace }}"
 
+      - name: Generate checksums report
+        working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          .\generate-checksums.ps1 -Directory "${{ env.SRC_PATH }}/toolkit" -OutputFile "${{ env.SRC_PATH }}/tools_checksums.txt"
+
       - name: Upload Setup as Artifact
         uses: actions/upload-artifact@v4
         with:
