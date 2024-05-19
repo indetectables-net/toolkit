@@ -79,4 +79,6 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: setup-installer-artifact
-          path: ./*.exe
+          path: |
+            ./*.exe
+            ${{ env.SRC_PATH }}/tools_checksums.txt
