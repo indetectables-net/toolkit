@@ -73,12 +73,14 @@ jobs:
         working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
-          .\generate-checksums.ps1 -Directory "${{ env.SRC_PATH }}/toolkit" -OutputFile "${{ env.SRC_PATH }}/tools_checksums.txt"
+          .\generate-checksums.ps1 -Directory "${{ env.SRC_PATH }}/toolkit" -OutputFile "${{ github.workspace }}/tools_checksums.txt"
+          .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -OutputFile "${{ github.workspace }}/installer_checksums.txt"
 
       - name: Upload Setup as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: setup-installer-artifact
           path: |
-            ./*.exe
-            ${{ env.SRC_PATH }}/tools_checksums.txt
+            ${{ github.workspace }}/*.exe
+            ${{ github.workspace }}/tools_checksums.txt
+            ${{ github.workspace }}/installer_checksums.txt

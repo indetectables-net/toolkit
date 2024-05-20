@@ -1,6 +1,7 @@
 param (
     [string]$Directory = ".",
-    [string]$OutputFile = "checksums.txt"
+    [string]$OutputFile = "checksums.txt",
+    [string]$FilePattern = "*"
 )
 
 # Initialize an array to store the hash results
@@ -20,10 +21,13 @@ function Get-FileHashSHA256 {
     return [BitConverter]::ToString($hash) -replace "-", ""
 }
 
-# Iterate over each file in the directory
-Get-ChildItem -Path $Directory -File -Recurse | ForEach-Object {
+# Get the full path of the directory
+$fullDirectoryPath = (Get-Item -Path $Directory).FullName
+
+# Iterate over each file in the directory matching the pattern
+Get-ChildItem -Path $Directory -Filter $FilePattern -File -Recurse | ForEach-Object {
     $fileHash = Get-FileHashSHA256 -filePath $_.FullName
-    $relativePath = $_.FullName.Substring((Get-Location).Path.Length + 1)
+    $relativePath = $_.FullName.Substring($fullDirectoryPath.Length).TrimStart('\')
     $hashResults += "$fileHash  .\$relativePath"
 }
 

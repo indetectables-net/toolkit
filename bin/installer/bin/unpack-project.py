@@ -70,7 +70,7 @@ class UnpackProject:
         # Iterate sub folders
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir():
-                print(colorama.Fore.MAGENTA + f'   [!] Iterate sub folder: "{item}"')
+                #print(colorama.Fore.MAGENTA + f'   [!] Iterate sub folder: "{item}"')
                 self.iterate_tool(item)
 
     def iterate_tool_unpack(self, file_path, folder_path):
