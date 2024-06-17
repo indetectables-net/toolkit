@@ -1,4 +1,4 @@
-name: Builder main installer
+name: Builder extras installers
 
 on:
   workflow_dispatch:
