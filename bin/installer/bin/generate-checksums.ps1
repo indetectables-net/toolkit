@@ -25,7 +25,11 @@ function Get-FileHashSHA256 {
 $fullDirectoryPath = (Get-Item -Path $Directory).FullName
 
 # Determine recursion based on $NoRecurse
-$searchOption = $NoRecurse ? [System.IO.SearchOption]::TopDirectoryOnly : [System.IO.SearchOption]::AllDirectories
+if ($NoRecurse) {
+    $searchOption = [System.IO.SearchOption]::TopDirectoryOnly
+} else {
+    $searchOption = [System.IO.SearchOption]::AllDirectories
+}
 
 # Iterate over each file in the directory matching the pattern
 Get-ChildItem -Path $Directory -Filter $FilePattern -File -Recurse:$searchOption | ForEach-Object {
