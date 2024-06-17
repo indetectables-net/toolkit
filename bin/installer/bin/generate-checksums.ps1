@@ -28,7 +28,7 @@ $fullDirectoryPath = (Get-Item -Path $Directory).FullName
 $searchOption = $NoRecurse ? [System.IO.SearchOption]::TopDirectoryOnly : [System.IO.SearchOption]::AllDirectories
 
 # Iterate over each file in the directory matching the pattern
-Get-ChildItem -Path $Directory -Filter $FilePattern -File -Recurse: -not $NoRecurse | ForEach-Object {
+Get-ChildItem -Path $Directory -Filter $FilePattern -File -Recurse:$searchOption | ForEach-Object {
     $fileHash = Get-FileHashSHA256 -filePath $_.FullName
     $relativePath = $_.FullName.Substring($fullDirectoryPath.Length + 1).TrimStart('\')
     $hashResults.Add("$fileHash  .\$relativePath")
