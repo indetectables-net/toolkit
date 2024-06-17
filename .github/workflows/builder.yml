@@ -47,7 +47,7 @@ jobs:
 
       - name: Build full installer
         working-directory: ${{ env.FULL_INSTALLER_PATH }}
-        run: ISCC.exe setup.iss /DMySrcDir="${{ env.SRC_PATH }}" /DMyOutputDir="${{ github.workspace }}"
+        run: ISCC.exe setup.iss
 
       - name: Update lite installer .iss config paths
         working-directory: ${{ env.LITE_INSTALLER_PATH }}
@@ -67,7 +67,7 @@ jobs:
 
       - name: Build lite installer
         working-directory: ${{ env.LITE_INSTALLER_PATH }}
-        run: ISCC.exe setup.iss /DMySrcDir="${{ env.SRC_PATH }}" /DMyOutputDir="${{ github.workspace }}"
+        run: ISCC.exe setup.iss
 
       - name: Generate checksums report
         working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}

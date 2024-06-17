@@ -1,0 +1,118 @@
+name: Builder main installer
+
+on:
+  workflow_dispatch:
+
+env:
+  SRC_PATH: ${{ github.workspace }}/src
+  INSTALLER_SCRIPT_PATH: ${{ github.workspace }}/src/bin/installer/bin
+  EXTRAS_PATH: ${{ github.workspace }}/src/extras
+
+jobs:
+  build-job:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          path: ${{ env.SRC_PATH }}
+
+      - name: Install Python packages
+        run: pip install py7zr pefile colorama
+
+
+      ##----------------
+      ## Build Ghidra
+      ##----------------
+      - name: Update Ghidra installer .iss config paths
+        working-directory: ${{ env.EXTRAS_PATH }}/ghidra/installer
+        shell: bash
+        run: |
+          WORKSPACE_BUILD_PATH=$(echo "${{ github.workspace }}"  | tr '\\' '/')
+          WORKSPACE_SRC_PATH=$(echo "${{ env.SRC_PATH }}" | tr '\\' '/')
+          sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
+          sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
+
+      - name: Update version number in Ghidra installer .iss
+        working-directory: ${{ env.EXTRAS_PATH }}/ghidra/installer
+        shell: bash
+        run: |
+          VERSION_CODE=$(date +'%Y.%m')
+          sed -i 's/RELEASE/'"$VERSION_CODE"'/g' setup.iss
+
+      - name: Build Ghidra installer
+        working-directory: ${{ env.EXTRAS_PATH }}/ghidra/installer
+        run: ISCC.exe setup.iss
+
+
+      ##----------------
+      ## Build Oldies
+      ##----------------
+      - name: Unpack tools Oldies
+        working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
+        run: python unpack-project.py -f ${{ env.EXTRAS_PATH }}/oldies/toolkit
+
+      - name: Update Oldies installer .iss config paths
+        working-directory: ${{ env.EXTRAS_PATH }}/oldies/installer
+        shell: bash
+        run: |
+          WORKSPACE_BUILD_PATH=$(echo "${{ github.workspace }}"  | tr '\\' '/')
+          WORKSPACE_SRC_PATH=$(echo "${{ env.SRC_PATH }}" | tr '\\' '/')
+          sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
+          sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
+
+      - name: Update version number in Oldies installer .iss
+        working-directory: ${{ env.EXTRAS_PATH }}/oldies/installer
+        shell: bash
+        run: |
+          VERSION_CODE=$(date +'%Y.%m')
+          sed -i 's/RELEASE/'"$VERSION_CODE"'/g' setup.iss
+
+      - name: Build Oldies installer
+        working-directory: ${{ env.EXTRAS_PATH }}/oldies/installer
+        run: ISCC.exe setup.iss
+
+
+      ##----------------
+      ## Build Unpacking
+      ##----------------
+      - name: Unpack tools Unpacking
+        working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
+        run: python unpack-project.py -f ${{ env.EXTRAS_PATH }}/unpacking/toolkit
+
+      - name: Update Unpacking installer .iss config paths
+        working-directory: ${{ env.EXTRAS_PATH }}/unpacking/installer
+        shell: bash
+        run: |
+          WORKSPACE_BUILD_PATH=$(echo "${{ github.workspace }}"  | tr '\\' '/')
+          WORKSPACE_SRC_PATH=$(echo "${{ env.SRC_PATH }}" | tr '\\' '/')
+          sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
+          sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
+
+      - name: Update version number in Unpacking installer .iss
+        working-directory: ${{ env.EXTRAS_PATH }}/unpacking/installer
+        shell: bash
+        run: |
+          VERSION_CODE=$(date +'%Y.%m')
+          sed -i 's/RELEASE/'"$VERSION_CODE"'/g' setup.iss
+
+      - name: Build Unpacking installer
+        working-directory: ${{ env.EXTRAS_PATH }}/unpacking/installer
+        run: ISCC.exe setup.iss
+
+
+      - name: Generate checksums report
+        working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          .\generate-checksums.ps1 -Directory "${{ env.EXTRAS_PATH }}" -OutputFile "${{ github.workspace }}/extras_tools_checksums.txt"
+          .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -NoRecurse -OutputFile "${{ github.workspace }}/extras_installer_checksums.txt"
+
+      - name: Upload Setup as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: setup-installer-artifact
+          path: |
+            ${{ github.workspace }}/*.exe
+            ${{ github.workspace }}/extras_tools_checksums.txt
+            ${{ github.workspace }}/extras_installer_checksums.txt
