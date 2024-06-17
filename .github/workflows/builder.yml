@@ -77,6 +77,7 @@ jobs:
           .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -NoRecurse -OutputFile "${{ github.workspace }}/installer_checksums.txt"
 
       - name: Upload Setup as Artifact
+        if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
         with:
           name: setup-installer-artifact
@@ -84,3 +85,15 @@ jobs:
             ${{ github.workspace }}/*.exe
             ${{ github.workspace }}/tools_checksums.txt
             ${{ github.workspace }}/installer_checksums.txt
+
+      - name: Upload Setup as Artifact to Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            ${{ github.workspace }}/*.exe
+            ${{ github.workspace }}/tools_checksums.txt
+            ${{ github.workspace }}/installer_checksums.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
