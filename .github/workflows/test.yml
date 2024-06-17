@@ -1,6 +1,9 @@
 name: Test Updater
 on:
+  on:
   workflow_dispatch:
+  release:
+    types: [created]
 
 jobs:
   test-updater:

@@ -2,6 +2,8 @@ name: Builder main installer
 
 on:
   workflow_dispatch:
+  release:
+    types: [created]
 
 env:
   SRC_PATH: ${{ github.workspace }}/src
