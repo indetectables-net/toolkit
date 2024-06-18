@@ -31,7 +31,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### ❌ Removed
 
-- Drop GetSymbol (Malware in 2.0.3 version: https://news.ycombinator.com/item?id=37423091)
+- Drop GetSymbol: Malware found in 2.0.3 version https://news.ycombinator.com/item?id=37423091
 
 
 ## 🏷️ 2023.8 - Aug 1, 2023
@@ -53,7 +53,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### ❌ Removed
 
-- Drop Apk Easy Tool
+- Drop Apk Easy Tool: Development discontinued https://xdaforums.com/t/closed-discontinued-windows-apk-easy-tool-v1-60-2022-06-23.3333960/
 
 
 ## 🏷️ [extras/unpacking] 2023.3 - Mar 9, 2023
@@ -105,8 +105,8 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### ❌ Removed
 
-- Drop Immunity Debugger
-- Drop ExeExplorer
+- Drop Immunity Debugger: Has not received any updates in years.
+- Drop ExeExplorer: The toolkit already has several tools with the same functionalities.
 
 
 ## 🏷️ 2023.1 - Jan 5, 2023
@@ -213,9 +213,9 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### ❌ Removed
 
-- Drop WinHex
-- Drop ASCII Art Generator (replaced by Ascii Generator 2)
-- Drop P-Code-ExDec (replaced by VB Decompiler)
+- Drop WinHex: The other tools in this section can already do the same things as this one and are free of charge.
+- Drop ASCII Art Generator: Replaced by Ascii Generator 2
+- Drop P-Code-ExDec: Replaced by VB Decompiler
 
 
 ## 🏷️ 2022.2 - Feb 17, 2022
@@ -254,10 +254,10 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### ❌ Removed
 
-- Drop RDG Packer Detector (replaced by DIE)
-- Drop HashCalc (replaced by HashMyFiles)
-- Drop Process Hacker 2 (replaced by Process Hacker 3)
-- Drop dnSpy (replaced by dnSpyEx)
+- Drop RDG Packer Detector: Replaced by DIE
+- Drop HashCalc: Replaced by HashMyFiles
+- Drop Process Hacker 2: Replaced by Process Hacker 3
+- Drop dnSpy: Replaced by dnSpyEx
 
 
 ## 🏷️ 2021.10 - Oct 23, 2021
@@ -278,9 +278,9 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### ❌ Removed
 
-- Drop JAD support (replaced by Recaf)
-- Drop Stud PE support (replaced by ExeinfoPe)
-- Drop Flasm 
+- Drop JAD support: Replaced by Recaf
+- Drop Stud PE support: Replaced by ExeinfoPe
+- Drop Flasm: Nobody programs in SWF anymore
 
 
 ## 🏷️ 2021.5 - May 24, 2021
