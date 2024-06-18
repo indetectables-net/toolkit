@@ -1,39 +1,42 @@
 # Changelog
 
+This document provides detailed updates on the changes, improvements, and occasional removals that have been made to our tools and systems. Each entry in the changelog is meticulously documented to ensure that you can track the progression of changes, understand the evolution of our software, and access specific version information quickly and accurately.
 
-## MASTER
+---
 
-### Added
+## 🏷️ MASTER
+
+### 🆕 Added
 
 - ?????
 
-### Changed
+### 🔧 Changed
 
 - Update tools (13/05/2024)
 - Bump Universal Updater to 2.1.1
 - Refactor and cleanup in all project
 
 
-## 2023.11 - Nov 14, 2023
+## 🏷️ 2023.11 - Nov 14, 2023
 
-### Added
+### 🆕 Added
 
-- Add new Windows Terminal *Only in installer **Optional
-- Add Visual C++ Redist 2008, 2013 and 2015-2022 *Only in installer **Optional
+- Add new Windows Terminal [^1]
+- Add Visual C++ Redist 2008, 2013 and 2015-2022 [^1]
 
-### Changed
+### 🔧 Changed
 
 - Update tools (13/11/2023)
 - Bump Universal Updater to 2.1.0
 
-### Removed
+### ❌ Removed
 
 - Drop GetSymbol (Malware in 2.0.3 version: https://news.ycombinator.com/item?id=37423091)
 
 
-## 2023.8 - Aug 1, 2023
+## 🏷️ 2023.8 - Aug 1, 2023
 
-### Added
+### 🆕 Added
 
 - Add ASM Calculator
 - Add APK Tool GUI
@@ -41,21 +44,21 @@
 - Add WinObjEx64
 - Add MalUnpack
 
-### Changed
+### 🔧 Changed
 
 - Update tools (30/07/2023)
 - Bump Universal Updater to 1.8.1
 - Fix PE-Bear url update
 - Fix IDR updater implementation
 
-### Removed
+### ❌ Removed
 
 - Drop Apk Easy Tool
 
 
-## [extras/unpacking] 2023.3 - Mar 9, 2023
+## 🏷️ [extras/unpacking] 2023.3 - Mar 9, 2023
 
-### Added
+### 🆕 Added
 
 - Add Magicmida
 - Add NoVmp
@@ -63,19 +66,19 @@
 - Add VMUnprotectDumper
 
 
-## [extras/ghidra] 2023.3 - Mar 6, 2023
+## 🏷️ [extras/ghidra] 2023.3 - Mar 6, 2023
 
-### Changed
+### 🔧 Changed
 
 - Update installer code
 
 
-## 2023.3 - Mar 3, 2023
+## 🏷️ 2023.3 - Mar 3, 2023
 
-### Added
+### 🆕 Added
 
-- Add OpenHashTab *Only in installer **Optional
-- Add WinMerge *Only in installer **Optional
+- Add OpenHashTab [^1]
+- Add WinMerge [^1]
 - Add auto-config-ini.exe (based on auto-config-tools.exe)
 - Add WinAPI Search
 - Add ExtremeDumper
@@ -86,7 +89,7 @@
 - New Toolkit Extra: Oldies
 - New Toolkit Extra: Unpacking
 
-### Changed
+### 🔧 Changed
 
 - Update tools (01/03/2023)
 - Bump Universal Updater to 1.8.0
@@ -100,34 +103,34 @@
 - Add SysAnalyzer to updater
 - Add RawCap to updater
 
-### Removed
+### ❌ Removed
 
 - Drop Immunity Debugger
 - Drop ExeExplorer
 
 
-## 2023.1 - Jan 5, 2023
+## 🏷️ 2023.1 - Jan 5, 2023
 
-### Changed
+### 🔧 Changed
 
 - Update auto-config-tools config name section
 
 
-## 2022.12.1 - Dec 29, 2022
+## 🏷️ 2022.12.1 - Dec 29, 2022
 
-### Changed
+### 🔧 Changed
 
 - Fix updater config
 
 
-## 2022.12 - Dec 27, 2022
+## 🏷️ 2022.12 - Dec 27, 2022
 
-### Added
+### 🆕 Added
 
 - Add GetSymbol
 - Add DLest
 
-### Changed
+### 🔧 Changed
 
 - Update tools (27/12/2022)
 - Bump Universal Updater to 1.7.2
@@ -138,49 +141,49 @@
 - Add merge param to updater for: IDR, x64dbg, Cutter, Ghidra, HxD, REHex, ImHex, ApkStudio and APKEasyTool
 
 
-## 2022.10 - Oct 8, 2022
+## 🏷️ 2022.10 - Oct 8, 2022
 
-### Changed
+### 🔧 Changed
 
 - Update tools (08/10/2022)
 - Bump Universal Updater to 1.7.1
 - Add Universal Updater implementation to separate repo for use in updater
 
 
-## 2022.9 - Sep 4, 2022
+## 🏷️ 2022.9 - Sep 4, 2022
 
-### Added
+### 🆕 Added
 
 - Add UnAutoIt
 - Add RawCap
 
-### Changed
+### 🔧 Changed
 
 - Update tools (03/09/2022)
 - Exec updater on finish install
 
 
-## 2022.7 - Jul 15, 2022
+## 🏷️ 2022.7 - Jul 15, 2022
 
-### Added
+### 🆕 Added
 
 - Add x64dbgPluginManager
 
-### Changed
+### 🔧 Changed
 
 - Update tools (25/07/2022)
 - Fix updater config for: PEStudio, Cutter and ImHex
 
 
-## 2022.3 - May 11, 2022
+## 🏷️ 2022.3 - May 11, 2022
 
-### Added
+### 🆕 Added
 
 - Add 4n4lDetector
 - Add EXE Explorer
 - New Toolkit Extra: Ghidra
 
-### Changed
+### 🔧 Changed
 
 - Update updater script
 - Update tools (11/05/2022)
@@ -188,9 +191,9 @@
 - Other minor changes
 
 
-## 2022.3 - Mar 2, 2022
+## 🏷️ 2022.3 - Mar 2, 2022
 
-### Added
+### 🆕 Added
 
 - Add w32Dasm 8.93 HiEndsoft version
 - Add HashCalc again
@@ -200,7 +203,7 @@
 - Add dUP
 - Add uPPP
 
-### Changed
+### 🔧 Changed
 
 - Clean ShowString folder
 - Clean RL!dePacker folder
@@ -208,23 +211,23 @@
 - Update tools (28/02/2022)
 - Fix Sysinspector version
 
-### Removed
+### ❌ Removed
 
 - Drop WinHex
 - Drop ASCII Art Generator (replaced by Ascii Generator 2)
 - Drop P-Code-ExDec (replaced by VB Decompiler)
 
 
-## 2022.2 - Feb 17, 2022
+## 🏷️ 2022.2 - Feb 17, 2022
 
-### Added
+### 🆕 Added
 
 - Add SendTo+
 - Add Updater auto-config-tools exe
 - Add Updater Task Schedule example
-- Add Chocolatey package manager *Only in installer **Optional
-- Add Java 8 Runtime Environment *Only in installer **Optional
-- Add Python *Only in installer **Optional
+- Add Chocolatey package manager [^1]
+- Add Java 8 Runtime Environment [^1]
+- Add Python [^1]
 - Add Installer generator code
 - Add HashMyFiles
 - Add Threadtear
@@ -233,7 +236,7 @@
 - Add Cutter
 - Add PE-sieve
 
-### Changed
+### 🔧 Changed
 
 - Fix x64dbg install
 - Fix IDR install
@@ -249,7 +252,7 @@
 - Update updater to latest version (v1.5.1)
 - Add MultiMon to updater
 
-### Removed
+### ❌ Removed
 
 - Drop RDG Packer Detector (replaced by DIE)
 - Drop HashCalc (replaced by HashMyFiles)
@@ -257,13 +260,13 @@
 - Drop dnSpy (replaced by dnSpyEx)
 
 
-## 2021.10 - Oct 23, 2021
+## 🏷️ 2021.10 - Oct 23, 2021
 
-### Added
+### 🆕 Added
 
 - Add VirusTotalUploader
 
-### Changed
+### 🔧 Changed
 
 - Update updater to latest version from https://github.com/xchwarze/universal-tool-updater
 - Add PyInstxtractor to updater
@@ -273,16 +276,16 @@
 - Add HxD updater post_unpack script
 - Fix GitHub regex
 
-### Removed
+### ❌ Removed
 
 - Drop JAD support (replaced by Recaf)
 - Drop Stud PE support (replaced by ExeinfoPe)
 - Drop Flasm 
 
 
-## 2021.5 - May 24, 2021
+## 🏷️ 2021.5 - May 24, 2021
 
-### Added
+### 🆕 Added
 
 - Add ProcDOT
 - Add CAPA
@@ -292,7 +295,7 @@
 - Add AstroGrep
 - Add Scylla
 
-### Changed
+### 🔧 Changed
 
 - Update updater for support file password
 - Add 6 tools to updater
@@ -301,9 +304,9 @@
 - Update tools (24/05/2021)
 
 
-## 2021.3 - Mar 31, 2021
+## 🏷️ 2021.3 - Mar 31, 2021
 
-### Added
+### 🆕 Added
 
 - Add Exe2Aut
 - Add MyAutToExe
@@ -319,7 +322,7 @@
 - Add PyInstxtractor
 - Compile updater.py (pyinstaller --onefile updater.py)
 
-### Changed
+### 🔧 Changed
 
 - Update tools
 - Add 9 tools to updater
@@ -327,54 +330,60 @@
 - Change QUnpack version
 
 
-## 2021.2 - Feb 10, 2021
+## 🏷️ 2021.2 - Feb 10, 2021
 
-### Added
+### 🆕 Added
 
 - Add updater script (24/57)
 
-### Changed
+### 🔧 Changed
 
 - Migrate to 7zip
 
 
-## 2020.10 - Oct 16, 2020
+## 🏷️ 2020.10 - Oct 16, 2020
 
-### Added
+### 🆕 Added
 
 - Add XELFViewer
 
-### Changed
+### 🔧 Changed
 
 - Update tools
 
 
-## 2020.7 - Jul 13, 2020
+## 🏷️ 2020.7 - Jul 13, 2020
 
-### Added
+### 🆕 Added
 
 - Add 9 tools
 
-### Changed
+### 🔧 Changed
 
 - Update tools
 
 
-## 2020.5 - May 17, 2020
+## 🏷️ 2020.5 - May 17, 2020
 
-### Added
+### 🆕 Added
 
 - Add x64dbg dissasembler
 - Add jadx for android decompile
 
-### Changed
+### 🔧 Changed
 
 - Update tools
 
 
-## 2020.2 - Feb 17, 2020
+## 🏷️ 2020.2 - Feb 17, 2020
 
-### Added
+### 🆕 Added
 
 - First public version
 - 42 tools
+
+
+
+## Notes:
+
+[^1]: Only available in the installer and is an optional component.
