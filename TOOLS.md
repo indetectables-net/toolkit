@@ -143,6 +143,11 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 - **Developer:** extremecoders-re
 - **Description:** Python script to extract the contents of a PyInstaller generated Windows executable file. The contents of the pyz file (usually pyc files) present inside the executable are also extracted. The header of the pyc files are automatically fixed so that a Python bytecode decompiler will recognize it.
 
+### [PYTHON] Python Decompyle++
+- **Web:** https://github.com/xchwarze/pycdc
+- **Developer:** Michael Hansen, Darryl Pogue, charlietang98, Kunal Parmar, Olivier Iffrig, Zlodiy
+- **Description:** Decompyle++ is a tool that aims to translate compiled Python byte-code back into valid and human-readable Python source code. It includes both a byte-code disassembler (pycdas) and a decompiler (pycdc), and supports byte-code from any version of Python. 
+
 ### [VB] VB Decompiler
 - **Web:** https://www.vb-decompiler.org
 - **Developer:** DotFix Software
@@ -397,6 +402,11 @@ Miscellaneous tools that don't fit into the other categories.
 - **Web:** https://github.com/hfiref0x/WinObjEx64
 - **Developer:** hfiref0x
 - **Description:** WinObjEx64 is an advanced utility that lets you explore the Windows Object Manager namespace. For certain object types, you can double-click on it or use the "Properties..." toolbar button to get more information, such as description, attributes, resource usage etc. WinObjEx64 let you view and edit object-related security information if you have required access rights.
+
+### All Dlls Dependencies
+- **Web:** http://jacquelin.potier.free.fr/AllDllDeps/
+- **Developer:** Jacquelin POTIER
+- **Description:** All Dlls Dependencies is a static analyzer for DLL dependencies. It is a clone of Dependency Walker supporting Windows 7 and Windows 10 stub DLLs. The tool can analyze modules to find missing imported DLLs or functions, making it useful for identifying dependencies in applications.
 
 
 ## ⏪ Reverse

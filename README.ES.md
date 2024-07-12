@@ -23,7 +23,7 @@ Es el complemento perfecto para los [manuales](https://github.com/indetectables-
 
 ## El Conjunto de Herramientas
 
-El conjunto incluye 98 aplicaciones que cubren una amplia gama de necesidades. Cuenta con herramientas tanto conocidas como menos conocidas, pero igualmente útiles, así como herramientas raras que son difíciles de encontrar. **Todas las herramientas se obtienen de sus sitios web oficiales, pero ten precaución, especialmente con herramientas provenientes de hilos de foros.** Consulta la lista completa de herramientas [aquí](TOOLS.md).
+El conjunto incluye 100 aplicaciones que cubren una amplia gama de necesidades. Cuenta con herramientas tanto conocidas como menos conocidas, pero igualmente útiles, así como herramientas raras que son difíciles de encontrar. **Todas las herramientas se obtienen de sus sitios web oficiales, pero ten precaución, especialmente con herramientas provenientes de hilos de foros.** Consulta la lista completa de herramientas [aquí](TOOLS.md).
 
 ## Contribuciones
 

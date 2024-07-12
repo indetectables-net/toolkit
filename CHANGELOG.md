@@ -8,11 +8,11 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### 🆕 Added
 
-- ?????
+- Add All Dlls Dependencies
 
 ### 🔧 Changed
 
-- Update tools (13/05/2024)
+- Update tools (12/07/2024)
 - Bump Universal Updater to 2.1.1
 - Refactor and cleanup in all project
 
