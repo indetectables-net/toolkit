@@ -1,3 +1,16 @@
+; All Dlls Dependencies
+[Components]
+Name: "other\alldllsdependencies"; Description: "All Dlls Dependencies"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\All Dlls Dependencies\*"; DestDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\All Dlls Dependencies"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\All Dlls Dependencies"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";   Check: not Is64BitInstallMode; 
+
+
+
 ; APKEditorStudio
 [Components]
 Name: "other\apkeditorstudio"; Description: "APKEditorStudio"; Types: full; 

@@ -55,7 +55,7 @@ begin
     begin
         if WizardIsComponentSelected('analysis\capa') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
         if WizardIsComponentSelected('decompilers\autoitunautoit') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Decompilers\[AUTOIT] UnAutoIt');
-        if WizardIsComponentSelected('hexeditor\imhex') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\HEX Editor\ImHex');
+        if WizardIsComponentSelected('decompilers\pythonpythondecompyle') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Decompilers\[PYTHON] Python Decompyle++');
         if WizardIsComponentSelected('monitor\hollowshunter') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\HollowsHunter');
         if WizardIsComponentSelected('monitor\pesieve') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         if WizardIsComponentSelected('other\floss') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
@@ -74,7 +74,7 @@ begin
     begin
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Analysis\CAPA');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Decompilers\[AUTOIT] UnAutoIt');
-        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\HEX Editor\ImHex');
+        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Decompilers\[PYTHON] Python Decompyle++');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\HollowsHunter');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');

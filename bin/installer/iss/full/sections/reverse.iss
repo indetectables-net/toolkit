@@ -45,12 +45,12 @@ Name: "reverse\dlest"; Description: "DLest"; Types: full;
 Source: "{#MySrcDir}\toolkit\Reverse\DLest\*"; DestDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\dlest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\dlest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";    
+Name: "{group}\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";    
 
 [Icons]
-Name: "{group}\DLest x64"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\dlest64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest x64"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\dlest64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: Is64BitInstallMode; 
+Name: "{group}\DLest x64"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest x64"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: Is64BitInstallMode; 
 
 
 

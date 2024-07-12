@@ -23,8 +23,8 @@ Name: "hexeditor\imhex"; Description: "ImHex"; Types: full compact;
 Source: "{#MySrcDir}\toolkit\HEX Editor\ImHex\*"; DestDir: "{#MyAppToolsFolder}\HEX Editor\ImHex"; Components: "hexeditor\imhex"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\ImHex x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\ImHex"; Components: "hexeditor\imhex"; Parameters: "/K ""{#MyAppToolsFolder}\HEX Editor\ImHex\imhex-gui.exe"""; IconFilename: "{#MyAppToolsFolder}\HEX Editor\ImHex\imhex-gui.exe"; Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\ImHex x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\ImHex"; Components: "hexeditor\imhex"; Parameters: "/K ""{#MyAppToolsFolder}\HEX Editor\ImHex\imhex-gui.exe"""; IconFilename: "{#MyAppToolsFolder}\HEX Editor\ImHex\imhex-gui.exe"; Check: Is64BitInstallMode; 
+Name: "{group}\ImHex x64"; Filename: "{#MyAppToolsFolder}\HEX Editor\ImHex\imhex-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\ImHex"; Components: "hexeditor\imhex";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\ImHex x64"; Filename: "{#MyAppToolsFolder}\HEX Editor\ImHex\imhex-gui.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\ImHex"; Components: "hexeditor\imhex";   Check: Is64BitInstallMode; 
 
 
 

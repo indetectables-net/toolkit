@@ -132,6 +132,19 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] PyInstxtractor"; Fi
 
 
 
+; [PYTHON] Python Decompyle++
+[Components]
+Name: "decompilers\pythonpythondecompyle"; Description: "[PYTHON] Python Decompyle++"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Decompilers\[PYTHON] Python Decompyle++\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"; Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"; Check: not Is64BitInstallMode; 
+
+
+
 ; [VB] VB Decompiler
 [Components]
 Name: "decompilers\vbvbdecompiler"; Description: "[VB] VB Decompiler"; Types: full; 
