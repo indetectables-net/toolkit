@@ -99,6 +99,11 @@ Tools for decompiling binaries to source code.
 - **Developer:** extremecoders-re
 - **Description:** Python script to extract the contents of a PyInstaller generated Windows executable file. The contents of the pyz file (usually pyc files) present inside the executable are also extracted. The header of the pyc files are automatically fixed so that a Python bytecode decompiler will recognize it.
 
+### [PYTHON] Python Decompyle++
+- **Web:** https://github.com/xchwarze/pycdc
+- **Developer:** Michael Hansen, Darryl Pogue, charlietang98, Kunal Parmar, Olivier Iffrig, Zlodiy
+- **Description:** Decompyle++ is a tool that aims to translate compiled Python byte-code back into valid and human-readable Python source code. It includes both a byte-code disassembler (pycdas) and a decompiler (pycdc), and supports byte-code from any version of Python. 
+
 
 ## 🛠 Dissasembler
 Resources and tools to disassemble compiled programs.
