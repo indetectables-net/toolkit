@@ -6,8 +6,12 @@ Name: "other\alldllsdependencies"; Description: "All Dlls Dependencies"; Types: 
 Source: "{#MySrcDir}\toolkit\Other\All Dlls Dependencies\*"; DestDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\All Dlls Dependencies"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\All Dlls Dependencies"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";    
+Name: "{group}\All Dlls Dependencies"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\All Dlls Dependencies"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps32.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";   Check: not Is64BitInstallMode; 
+
+[Icons]
+Name: "{group}\All Dlls Dependencies x64"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\All Dlls Dependencies x64"; Filename: "{#MyAppToolsFolder}\Other\All Dlls Dependencies\AllDllDeps64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\All Dlls Dependencies"; Components: "other\alldllsdependencies";   Check: Is64BitInstallMode; 
 
 
 
@@ -110,8 +114,8 @@ Name: "other\procdot"; Description: "ProcDOT"; Types: full;
 Source: "{#MySrcDir}\toolkit\Other\ProcDOT\*"; DestDir: "{#MyAppToolsFolder}\Other\ProcDOT"; Components: "other\procdot"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";    
+Name: "{group}\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win32\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win32"; Components: "other\procdot";   Check: not Is64BitInstallMode; 
 
 [Icons]
 Name: "{group}\ProcDOT x64"; Filename: "{#MyAppToolsFolder}\Other\ProcDOT\win64\procdot.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\ProcDOT\win64"; Components: "other\procdot";   Check: Is64BitInstallMode; 

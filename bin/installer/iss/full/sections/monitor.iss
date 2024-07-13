@@ -186,8 +186,8 @@ Name: "{group}\System Informer x64"; Filename: "{#MyAppToolsFolder}\Monitor\Syst
 Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\System Informer x64"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\amd64\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\amd64"; Components: "monitor\systeminformer";   Check: Is64BitInstallMode; 
 
 [Icons]
-Name: "{group}\System Informer"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\i386\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\i386"; Components: "monitor\systeminformer";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\System Informer"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\i386\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\i386"; Components: "monitor\systeminformer";    
+Name: "{group}\System Informer"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\i386\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\i386"; Components: "monitor\systeminformer";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\System Informer"; Filename: "{#MyAppToolsFolder}\Monitor\System Informer\i386\SystemInformer.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\System Informer\i386"; Components: "monitor\systeminformer";   Check: not Is64BitInstallMode; 
 
 
 
