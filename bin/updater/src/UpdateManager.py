@@ -19,7 +19,7 @@ class UpdateManager:
         """
         Initialize the UpdateManager with a ConfigManager instance and command-line arguments.
         """
-        self.version = '2.1.1'
+        self.version = '2.2.0'
         self.config_file_name = 'tools.ini'
         self.config_section_defaults = 'UpdaterConfig'
         self.config_section_self_update = 'UpdaterAutoUpdater'
@@ -244,6 +244,8 @@ class UpdateManager:
         )
         if self.config_section_self_update in self.config_manager.get_sections() and \
                 not self.arguments.disable_self_update:
+            logging.info(colorama.Fore.YELLOW + f"\nChecking for engine updates:")
+
             try:
                 updater.update(self.config_section_self_update)
             except Exception as exception:
@@ -256,11 +258,17 @@ class UpdateManager:
         :param updater: An instance of the Updater class responsible for updating tools
         :param update_list: List of tools to update
         """
+        failed_updates = 0
+        total_updates = len(update_list)
+        logging.info(colorama.Fore.YELLOW + f"\nChecking for tool updates:")
+
         for tool in update_list:
             try:
                 updater.update(tool)
             except Exception as exception:
                 logging.info(exception)
+
+        logging.info(colorama.Fore.YELLOW + f"\nUpdate process completed: {total_updates - failed_updates} succeeded, {failed_updates} failed out of {total_updates} total updates.")
 
     def handle_updates(self):
         """

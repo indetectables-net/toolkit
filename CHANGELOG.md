@@ -14,7 +14,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 ### 🔧 Changed
 
 - Update tools (12/07/2024)
-- Bump Universal Updater to 2.1.1
+- Bump Universal Updater to 2.2.0
 - Refactor and cleanup in all project
 
 
