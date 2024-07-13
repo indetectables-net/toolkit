@@ -75,6 +75,7 @@ class GenerateInstaller:
             'winapi search': ['winapisearch32.exe', 'winapisearch64.exe'],
             'de4dot': ['de4dot.exe', 'de4dot-x64.exe'],
             'netunpack': ['netunpack.exe', 'netunpack-64.exe'],
+            'all dlls dependencies': ['alldlldeps32.exe', 'alldlldeps64.exe'],
         }
         self.force_architecture_check_list = [
             '[autoit] unautoit',
@@ -93,6 +94,9 @@ class GenerateInstaller:
             'winapi search',
             'de4dot',
             'netunpack',
+            'system informer',
+            'all dlls dependencies',
+            'procdot'
         ]
         self.compact_tool_list = [
             # analysis
