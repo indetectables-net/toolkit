@@ -23,8 +23,8 @@ Name: "{group}\NETUnpack x64"; Filename: "{#MyAppToolsFolder}\UnPacking\NETUnpac
 Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\NETUnpack x64"; Filename: "{#MyAppToolsFolder}\UnPacking\NETUnpack\NETUnpack-64.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\NETUnpack"; Components: "unpacking\netunpack";   Check: Is64BitInstallMode; 
 
 [Icons]
-Name: "{group}\NETUnpack"; Filename: "{#MyAppToolsFolder}\UnPacking\NETUnpack\NETUnpack.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\NETUnpack"; Components: "unpacking\netunpack";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\NETUnpack"; Filename: "{#MyAppToolsFolder}\UnPacking\NETUnpack\NETUnpack.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\NETUnpack"; Components: "unpacking\netunpack";    
+Name: "{group}\NETUnpack"; Filename: "{#MyAppToolsFolder}\UnPacking\NETUnpack\NETUnpack.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\NETUnpack"; Components: "unpacking\netunpack";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\NETUnpack"; Filename: "{#MyAppToolsFolder}\UnPacking\NETUnpack\NETUnpack.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\NETUnpack"; Components: "unpacking\netunpack";   Check: not Is64BitInstallMode; 
 
 
 

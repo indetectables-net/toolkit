@@ -45,7 +45,7 @@ Name: "unpacking\vmunprotectdumper"; Description: "VMUnprotectDumper"; Types: fu
 Source: "{#MySrcDir}\toolkit\UnPacking\VMUnprotectDumper\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper"; Components: "unpacking\vmunprotectdumper"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\VMUnprotectDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper"; Components: "unpacking\vmunprotectdumper"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotectDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotectDumper.exe";  
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\VMUnprotectDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper"; Components: "unpacking\vmunprotectdumper"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotectDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotectDumper.exe";  
+Name: "{group}\VMUnprotectDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper"; Components: "unpacking\vmunprotectdumper"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotect.Dumper.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotect.Dumper.exe";  
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\VMUnprotectDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper"; Components: "unpacking\vmunprotectdumper"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotect.Dumper.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\VMUnprotectDumper\VMUnprotect.Dumper.exe";  
 
 
