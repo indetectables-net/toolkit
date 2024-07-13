@@ -47,7 +47,7 @@ class GenerateInstaller:
             'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
             'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
         ]
-        self.fix_tool_exe_list = {
+        self.correct_tool_exe_list = {
             # fix to support main executable
             '[dotnet] dnspyex': ['dnspy.exe'],
             'ollydbg 1.10': ['ollydbg.exe'],
@@ -76,21 +76,23 @@ class GenerateInstaller:
             'de4dot': ['de4dot.exe', 'de4dot-x64.exe'],
             'netunpack': ['netunpack.exe', 'netunpack-64.exe'],
         }
-        self.fix_tool_exe_link_creation = [
-            # analysis
-            'die', 'xapkdetector',
-
-            # dissasembler
-            'immunity debugger', 'ollydbg 1.10',
-
-            # other
-            'astrogrep', 'indetectables offset locator',
-
-            # reverse
-            'asm calculator', 'at4re patcher', 'dlest', 'dup', 'extremedumper', 'x64dbgpluginmanager',
-
-            # unpacking
-            'netunpack', 'qunpack', 'uniextract',
+        self.force_architecture_check_list = [
+            '[autoit] unautoit',
+            'hxd',
+            'api monitor',
+            'autoruns',
+            'process explorer',
+            'procmon',
+            'regshot',
+            'tcpview',
+            'process-dump',
+            'scylla',
+            'strings',
+            'dlest',
+            'extremedumper',
+            'winapi search',
+            'de4dot',
+            'netunpack',
         ]
         self.compact_tool_list = [
             # analysis
@@ -207,25 +209,25 @@ class GenerateInstaller:
     def iterate_tool_exe(self, folder_path):
         """Process executable files in the folder."""
         is_first_set = False
-        force_link_creation = self.tool_name.lower() in self.fix_tool_exe_link_creation
+        force_architecture_check = self.tool_name.lower() in self.force_architecture_check_list
         exe_list_len = len(list(folder_path.glob('*.exe')))
         for item in folder_path.glob('*.exe'):
             if exe_list_len > 1:
-                if self.tool_name.lower() in self.fix_tool_exe_list.keys():
-                    if item.name.lower() in self.fix_tool_exe_list[self.tool_name.lower()]:
-                        self.iterate_tool_exe_gen(item, force_link_creation)
+                if self.tool_name.lower() in self.correct_tool_exe_list.keys():
+                    if item.name.lower() in self.correct_tool_exe_list[self.tool_name.lower()]:
+                        self.iterate_tool_exe_gen(item, force_architecture_check)
 
                 elif not is_first_set:
                     print(colorama.Fore.MAGENTA + f'   [!!!] Find multiple exes. Grabbing the first!')
                     is_first_set = True
-                    self.iterate_tool_exe_gen(item, force_link_creation)
+                    self.iterate_tool_exe_gen(item, force_architecture_check)
 
             else:
-                self.iterate_tool_exe_gen(item, True)
+                self.iterate_tool_exe_gen(item, force_architecture_check)
 
         return exe_list_len
 
-    def iterate_tool_exe_gen(self, exe_path, force_link_creation=False):
+    def iterate_tool_exe_gen(self, exe_path, force_architecture_check=False):
         """Generate ISS entries for the executable."""
         print(colorama.Fore.GREEN + f'   [*] Adding: "{str(pathlib.Path(exe_path).name)}"')
         working_dir = str(pathlib.Path(exe_path).parent)
@@ -238,11 +240,11 @@ class GenerateInstaller:
         iss_components = f'{component_name(self.section_name)}\\{component_name(self.tool_name)}'
         iss_parameters = f'Parameters: "/K ""{iss_filename}""";' if pe_data['is_cli'] else ''
         iss_icon = f'IconFilename: "{iss_filename}";' if pe_data['is_cli'] else ''
-        iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else 'Check: not Is64BitInstallMode;'
+        iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
 
-        if force_link_creation:
-            print(colorama.Fore.MAGENTA + f'      [!] force link creation')
-            iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
+        if force_architecture_check:
+            print(colorama.Fore.MAGENTA + f'      [!] force architecture check')
+            iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else 'Check: not Is64BitInstallMode;'
 
         if pe_data['is_x64']:
             print(colorama.Fore.MAGENTA + f'      [!] x64 exe')
