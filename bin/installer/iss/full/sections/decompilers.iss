@@ -140,8 +140,8 @@ Name: "decompilers\pythonpythondecompyle"; Description: "[PYTHON] Python Decompy
 Source: "{#MySrcDir}\toolkit\Decompilers\[PYTHON] Python Decompyle++\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"; Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdc.exe"; Check: not Is64BitInstallMode; 
+Name: "{group}\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe";  
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe";  
 
 
 

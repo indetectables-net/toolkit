@@ -62,3 +62,16 @@ Name: "{group}\[PYTHON] PyInstxtractor"; Filename: "{sys}\cmd.exe"; Parameters: 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] PyInstxtractor"; Filename: "{sys}\cmd.exe"; Parameters: "/K python ""{#MyAppToolsFolder}\Decompilers\[PYTHON] PyInstxtractor\pyinstxtractor.py"""; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] PyInstxtractor"; Components: "decompilers\pythonpyinstxtractor"; IconFilename: "{#MyAppToolsIconsFolder}\pyinstxtractor.ico";
 
 
+
+; [PYTHON] Python Decompyle++
+[Components]
+Name: "decompilers\pythonpythondecompyle"; Description: "[PYTHON] Python Decompyle++"; Types: full; 
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Decompilers\[PYTHON] Python Decompyle++\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
+[Icons]
+Name: "{group}\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe";  
+Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] Python Decompyle++"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++"; Components: "decompilers\pythonpythondecompyle"; Parameters: "/K ""{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe"""; IconFilename: "{#MyAppToolsFolder}\Decompilers\[PYTHON] Python Decompyle++\pycdas.exe";  
+
+

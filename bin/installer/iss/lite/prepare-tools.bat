@@ -1,6 +1,6 @@
 @ECHO OFF
 
-cd "..\..\..\"
+cd "..\..\..\..\"
 
 :: Analysis
 RMDIR "toolkit\Analysis\4n4lDetector" /S /Q
@@ -35,6 +35,7 @@ RMDIR "toolkit\Other\APKEditorStudio" /S /Q
 RMDIR "toolkit\Other\APKToolGUI" /S /Q
 RMDIR "toolkit\Other\AstroGrep" /S /Q
 RMDIR "toolkit\Other\ProcDOT" /S /Q
+RMDIR "toolkit\Other\All Dlls Dependencies" /S /Q
 
 :: Reverse
 RMDIR "toolkit\Reverse\AT4RE Patcher" /S /Q

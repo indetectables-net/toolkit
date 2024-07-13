@@ -45,8 +45,8 @@ Name: "reverse\dlest"; Description: "DLest"; Types: full;
 Source: "{#MySrcDir}\toolkit\Reverse\DLest\*"; DestDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";    
+Name: "{group}\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: not Is64BitInstallMode; 
 
 [Icons]
 Name: "{group}\DLest x64"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: Is64BitInstallMode; 
@@ -75,12 +75,12 @@ Name: "reverse\extremedumper"; Description: "ExtremeDumper"; Types: full;
 Source: "{#MySrcDir}\toolkit\Reverse\ExtremeDumper\*"; DestDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe";  
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe";  
+Name: "{group}\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe"; Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper-x86.exe"; Check: not Is64BitInstallMode; 
 
 [Icons]
-Name: "{group}\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe";  
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe";  
+Name: "{group}\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"; Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"; Check: not Is64BitInstallMode; 
 
 
 
@@ -92,8 +92,8 @@ Name: "reverse\keygenerassistant"; Description: "Keygener Assistant"; Types: ful
 Source: "{#MySrcDir}\toolkit\Reverse\Keygener Assistant\*"; DestDir: "{#MyAppToolsFolder}\Reverse\Keygener Assistant"; Components: "reverse\keygenerassistant"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\Keygener Assistant"; Filename: "{#MyAppToolsFolder}\Reverse\Keygener Assistant\keyAssistant.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Keygener Assistant"; Components: "reverse\keygenerassistant";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Keygener Assistant"; Filename: "{#MyAppToolsFolder}\Reverse\Keygener Assistant\keyAssistant.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Keygener Assistant"; Components: "reverse\keygenerassistant";   Check: not Is64BitInstallMode; 
+Name: "{group}\Keygener Assistant"; Filename: "{#MyAppToolsFolder}\Reverse\Keygener Assistant\keyAssistant.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Keygener Assistant"; Components: "reverse\keygenerassistant";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Keygener Assistant"; Filename: "{#MyAppToolsFolder}\Reverse\Keygener Assistant\keyAssistant.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Keygener Assistant"; Components: "reverse\keygenerassistant";    
 
 
 
@@ -105,8 +105,8 @@ Name: "reverse\processdump"; Description: "Process-Dump"; Types: full;
 Source: "{#MySrcDir}\toolkit\Reverse\Process-Dump\*"; DestDir: "{#MyAppToolsFolder}\Reverse\Process-Dump"; Components: "reverse\processdump"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Process-Dump"; Components: "reverse\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe";  
-Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Process-Dump"; Components: "reverse\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe";  
+Name: "{group}\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Process-Dump"; Components: "reverse\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"; Check: not Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Process-Dump"; Components: "reverse\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"; Check: not Is64BitInstallMode; 
 
 
 
