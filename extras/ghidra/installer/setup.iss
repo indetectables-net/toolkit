@@ -102,7 +102,7 @@ Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y t
 ;;;;;;;;;;;;;;;;;;;;;;;;
 [Run]
 ; Install Ghidra in toolkit
-Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u Ghidra -dic"; Flags: shellexec waituntilterminated;
+Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u Ghidra -dic -dsu"; Flags: shellexec waituntilterminated;
 
 ; Configure installed tools in updater
 Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater /TYPE=clean"; Flags: runhidden;
