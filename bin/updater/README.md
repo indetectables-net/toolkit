@@ -31,9 +31,10 @@ re_download = die_win64_portable_(?:\S+).zip
 
 [Portmon]
 folder = Monitor\Portmon
-url = https://docs.microsoft.com/en-us/sysinternals/downloads/portmon
+url = https://raw.githubusercontent.com/MicrosoftDocs/sysinternals/main/sysinternals/downloads/portmon.md
 update_url = https://download.sysinternals.com/files/PortMon.zip
-re_version = <h1 [^>]*>Portmon for Windows v(.*?)</h1>
+from = web
+re_version = # Portmon v(\d+\.\d+)
 ```
 
 The values used for configuration are:
@@ -62,6 +63,27 @@ Combining the use of `update_url` and `re_download` the following download strat
 3. When using both parameters, the result of `re_download` is concatenated with `update_url`.
 This is useful for fixing GitHub or Sourceforge download links.
 4. A new version detection method is also available that instead of regex uses the http headers with which the server responds.
+
+## Command-line Parameters
+
+The updater provides a flexible set of parameters to control its behavior:
+
+| Parameter                                                          | Description                                                                                       |
+|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
+| `-h, --help`                                                       | Show this help message and exit.                                                                 |
+| `-v, --version`                                                    | Display the program's version number and exit.                                                   |
+| `-u [UPDATE ...], --update [UPDATE ...]`                           | Specify a list of tools to update. Defaults to updating all tools if not provided.                        |
+| `-dsu, --disable-self-update`                                      | Disable automatic self-update of this script.                                                    |
+| `-dfc, --disable-folder-clean`                                     | Skip cleaning the tool's folder during updates.                                                  |
+| `-dr, --disable-repack`                                            | Prevent repacking of tools after the update process.                                             |
+| `-dic, --disable-install-check`                                    | Skip checking if the tools are properly installed.                                             |
+| `-dpb, --disable-progress-bar`                                     | Disable the download progress bar for updates.                                                   |
+| `-sft {full,version,name}, --save-format-type {full,version,name}` | Specify the save format type for compressed updates: `full`, `version`, or `name`. |
+| `-f, --force`                                                      | Force the download of updates, even if they appear up to date.                                   |
+| `-uga USE_GITHUB_API, --use-github-api USE_GITHUB_API`             | Use the GitHub API for updates, specifying the token to authenticate.                           |
+| `-udp, --update-default-params`                                    | Update the default parameters stored in the configuration.                                     |
+| `-dmc, --disable-mutex-check`                                      | Allow multiple instances of the script to run simultaneously by disabling the mutex check.       |
+| `-d, --debug`                                                      | Enable detailed debug output for troubleshooting.                                                |
 
 ## Examples
 

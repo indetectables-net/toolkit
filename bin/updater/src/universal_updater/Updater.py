@@ -141,6 +141,8 @@ class Updater:
         Perform the update process for a given tool.
 
         :param tool_name: Name of the tool to update
+        :return: bool: True if the update completes successfully, False if no update is needed.
+        :raises Exception: If any step in the update process fails.
         """
         # tool data setup
         self.tool_name = tool_name
@@ -155,6 +157,8 @@ class Updater:
 
         # generate version and download data
         scrape_data = self.scraper.scrape_step()
+        if scrape_data is False:
+            return False
 
         # download and process file
         update_file_path = self.download_step(scrape_data['download_url'])
@@ -165,3 +169,4 @@ class Updater:
         self.post_update(processing_info)
 
         logging.info(f'{self.tool_name}: update complete')
+        return True

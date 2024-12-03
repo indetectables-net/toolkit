@@ -65,7 +65,11 @@ class Scraper:
         """
         Scrape web for version and download URL based on tool_config.
 
-        :return: Dictionary containing 'download_version' and 'download_url'
+        :return: dict|bool: A dictionary containing:
+            - 'download_version' (str): Extracted version using regex.
+            - 'download_url' (str): Extracted or generated download URL.
+            Returns False if the version cannot be extracted.
+        :raises Exception: If required configuration fields are missing or HTTP requests fail.
         """
         update_url = self.tool_config.get('update_url', None)
         re_version = self.tool_config.get('re_version', None)
@@ -78,6 +82,9 @@ class Scraper:
 
         # regex shit
         download_version = self.check_version_from_web(html_response.text, re_version)
+        if download_version is None:
+            return False
+
         download_url = self.get_download_url_from_web(html_response.text, url, update_url, re_download)
         logging.debug(f'{self.tool_name}: Regex matching done.')
 
@@ -90,7 +97,11 @@ class Scraper:
         """
         Scrape GitHub for version and download URL based on tool_config.
 
-        :return: Dictionary containing 'download_version' and 'download_url'
+        :return: dict|bool: A dictionary containing:
+            - 'download_version' (str): Extracted version from GitHub.
+            - 'download_url' (str): The determined or generated download URL.
+            Returns False if the version cannot be extracted.
+        :raises Exception: If required configuration fields are missing or HTTP requests fail.
         """
         if self.use_github_api:
             return self.scrape_github_api()
@@ -103,6 +114,9 @@ class Scraper:
         logging.debug(f'{self.tool_name}: Version HTML fetched, starting regex matching for version.')
 
         download_version = self.check_version_from_web(version_html_response.text, self.re_github_version)
+        if download_version is None:
+            return False
+
         logging.debug(f'{self.tool_name}: Regex matching for version done.')
 
         # load second html
@@ -124,7 +138,11 @@ class Scraper:
         """
         Scrape GitHub API for version and download URL based on tool_config.
 
-        :return: Dictionary containing 'download_version' and 'download_url'
+        :return: dict|bool: A dictionary containing:
+            - 'download_version' (str): Extracted version from the API response.
+            - 'download_url' (str): The determined or generated download URL.
+            Returns False if the version cannot be extracted.
+        :raises Exception: If the API request fails or the response is invalid.
         """
         logging.debug(f'{self.tool_name}: Consuming GitHub via Api')
         github_repo = self.tool_config.get('url', None)
@@ -142,6 +160,9 @@ class Scraper:
             update_url = self.get_download_url_from_github(json_response)
 
         download_version = self.check_version_from_github(json_response)
+        if download_version is None:
+            return False
+
         logging.debug(f'{self.tool_name}: Version and download URL extracted.')
 
         # regex shit
@@ -154,7 +175,11 @@ class Scraper:
         """
         Scrape HTTP headers for version based on tool_config.
 
-        :return: Dictionary containing 'download_version' and 'download_url'
+        :return: dict|bool: A dictionary containing:
+            - 'download_version' (str): Extracted version from the headers.
+            - 'download_url' (str): The update URL.
+            Returns False if the version cannot be extracted.
+        :raises Exception: If 'update_url' is missing or an HTTP error occurs.
         """
         # get http response
         update_url = self.tool_config.get('update_url', None)
@@ -171,6 +196,9 @@ class Scraper:
             raise Exception(colorama.Fore.RED + f'{self.tool_name}: Error {exception}')
 
         download_version = self.check_version_from_http(http_response.headers)
+        if download_version is None:
+            return False
+
         logging.debug(f'{self.tool_name}: Version extracted.')
 
         return {
@@ -196,7 +224,8 @@ class Scraper:
             raise Exception(colorama.Fore.RED + f'{self.tool_name}: re_version regex not match ({re_version})')
 
         if not self.force_download and local_version == html_regex_version[0]:
-            raise Exception(f'{self.tool_name}: {local_version} is the latest version')
+            logging.info(f'{self.tool_name}: {local_version} is the latest version')
+            return None
 
         logging.info(f'{self.tool_name}: updated from {local_version} --> {html_regex_version[0]}')
 
@@ -225,7 +254,8 @@ class Scraper:
                             f'{self.tool_name}: no header is found with which to determine if there is an update')
 
         if not self.force_download and local_version == remote_version:
-            raise Exception(f'{self.tool_name}: {local_version} is the latest version')
+            logging.info(f'{self.tool_name}: {local_version} is the latest version')
+            return None
 
         logging.info(f'{self.tool_name}: updated from {local_version} --> {remote_version}')
 
@@ -241,14 +271,15 @@ class Scraper:
         local_version = self.tool_config.get('local_version', '0')
 
         if not self.force_download and local_version == json['tag_name']:
-            raise Exception(f'{self.tool_name}: {local_version} is the latest version')
+            logging.info(f'{self.tool_name}: {local_version} is the latest version')
+            return None
 
         logging.info(f'{self.tool_name}: updated from {local_version} --> {json["tag_name"]}')
 
         return json['tag_name']
 
     #################
-    # Check methods
+    # Download url methods
     #################
     def get_download_url_from_web(self, html, html_url, update_url, re_download):
         """

@@ -4,6 +4,7 @@ import sys
 import os
 import colorama
 import logging
+import psutil
 
 from universal_updater.Updater import Updater
 from universal_updater.ConfigManager import ConfigManager
@@ -19,7 +20,8 @@ class UpdateManager:
         """
         Initialize the UpdateManager with a ConfigManager instance and command-line arguments.
         """
-        self.version = '2.2.0'
+        self.version = '2.3.1'
+        self.process_mutex = 'mutex.lock'
         self.config_file_name = 'tools.ini'
         self.config_section_defaults = 'UpdaterConfig'
         self.config_section_self_update = 'UpdaterAutoUpdater'
@@ -43,15 +45,48 @@ class UpdateManager:
  Version: {self.version}
         """)
 
-    def exit_handler(self, signal, frame):
+    def exit_handler(self, signum, frame):
         """
-        Handles signals like SIGINT for graceful exit.
+        Handles signals like SIGINT or SIGTERM for graceful exit.
 
-        :param signal: Signal type
+        :param signum: Signal type (e.g., SIGINT, SIGTERM)
         :param frame: Current stack frame
         """
-        print(colorama.Fore.YELLOW + 'SIGINT or CTRL-C detected. Exiting gracefully')
+        signal_name = 'SIGINT' if signum == signal.SIGINT else 'SIGTERM'
+        print(colorama.Fore.YELLOW + f'{signal_name} detected. Exiting gracefully')
+        self.cleanup_mutex()
         sys.exit(0)
+
+    def check_single_instance(self):
+        """
+        Ensures only a single instance of the script is running by creating a lock file with the current PID.
+        If the lock file exists and contains a different PID, the script will exit.
+        """
+        if self.arguments.disable_mutex_check:
+            print('Mutex check is disabled. Multiple instances can run concurrently.')
+            return
+
+        if os.path.exists(self.process_mutex):
+            with open(self.process_mutex, 'r') as lock:
+                existing_pid = int(lock.read().strip())
+
+            # Verify if the process with the PID exists
+            if existing_pid and psutil.pid_exists(existing_pid):
+                print(f"Another instance of the script is already running (PID: {existing_pid}). Exiting.")
+                sys.exit(1)
+            else:
+                print(f"Stale mutex detected (PID: {existing_pid}). Regenerating with current PID.")
+
+        # Create a new lock file with the current PID
+        with open(self.process_mutex, 'w') as lock:
+            lock.write(str(os.getpid()))
+
+    def cleanup_mutex(self):
+        """
+        Removes the mutex file if mutex check is enabled and the file exists.
+        """
+        if not self.arguments.disable_mutex_check and os.path.exists(self.process_mutex):
+            os.remove(self.process_mutex)
 
     def get_argparse_default(self, option, default, is_bool=True):
         """
@@ -83,54 +118,54 @@ class UpdateManager:
             '-u',
             '--update',
             dest='update',
-            help='list of tools (default: all)',
+            help='Specify a list of tools to update. Defaults to updating all tools if not provided.',
             nargs='*'
         )
         parser.add_argument(
             '-dsu',
             '--disable-self-update',
             dest='disable_self_update',
-            help='disable self update of this script',
-            action=argparse.BooleanOptionalAction,
+            help='Disable automatic self-update of this script.',
+            action='store_true',
             default=False
         )
         parser.add_argument(
             '-dfc',
             '--disable-folder-clean',
             dest='disable_clean',
-            help='disable tool folder clean',
-            action=argparse.BooleanOptionalAction,
+            help='Skip cleaning the tool\'s folder during updates.',
+            action='store_true',
             default=self.get_argparse_default('disable_clean', True)
         )
         parser.add_argument(
             '-dr',
             '--disable-repack',
             dest='disable_repack',
-            help='disable tool repack',
-            action=argparse.BooleanOptionalAction,
+            help='Prevent repacking of tools after the update process.',
+            action='store_true',
             default=self.get_argparse_default('disable_repack', True)
         )
         parser.add_argument(
             '-dic',
             '--disable-install-check',
             dest='disable_install_check',
-            help='disable tool install check',
-            action=argparse.BooleanOptionalAction,
+            help='Skip checking if the tools are properly installed.',
+            action='store_true',
             default=self.get_argparse_default('disable_install_check', False)
         )
         parser.add_argument(
             '-dpb',
             '--disable-progress-bar',
             dest='disable_progress',
-            help='disable download progress bar',
-            action=argparse.BooleanOptionalAction,
+            help='Disable the download progress bar for updates.',
+            action='store_true',
             default=self.get_argparse_default('disable_progress', False)
         )
         parser.add_argument(
             '-sft',
             '--save-format-type',
             dest='save_format_type',
-            help='compress save format name',
+            help='Specify the save format type for compressed updates: "full", "version", or "name".',
             choices=['full', 'version', 'name'],
             default=self.get_argparse_default('save_format_type', 'full', False)
         )
@@ -138,31 +173,39 @@ class UpdateManager:
             '-f',
             '--force',
             dest='force_download',
-            help='force download',
-            action=argparse.BooleanOptionalAction,
+            help='Force the download of updates, even if they appear up to date.',
+            action='store_true',
             default=False
         )
         parser.add_argument(
             '-uga',
             '--use-github-api',
             dest='use_github_api',
-            help='use github api with this token',
+            help='Use the GitHub API for updates, specifying the token to authenticate.',
             default=self.get_argparse_default('use_github_api', '', False)
         )
         parser.add_argument(
             '-udp',
             '--update-default-params',
             dest='update_default_params',
-            help='update default params',
-            action=argparse.BooleanOptionalAction,
+            help='Update the default parameters stored in the configuration.',
+            action='store_true',
+            default=False
+        )
+        parser.add_argument(
+            '-dmc',
+            '--disable-mutex-check',
+            dest='disable_mutex_check',
+            help='Allow multiple instances of the script to run simultaneously by disabling the mutex check.',
+            action='store_true',
             default=False
         )
         parser.add_argument(
             '-d',
             '--debug',
             dest='debug',
-            help='enable debug output',
-            action=argparse.BooleanOptionalAction,
+            help='Enable detailed debug output for troubleshooting.',
+            action='store_true',
             default=False
         )
 
@@ -249,7 +292,7 @@ class UpdateManager:
             try:
                 updater.update(self.config_section_self_update)
             except Exception as exception:
-                logging.info(exception)
+                logging.error(exception)
 
             # add missing new line separator
             logging.info("\n")
@@ -269,7 +312,8 @@ class UpdateManager:
             try:
                 updater.update(tool)
             except Exception as exception:
-                logging.info(exception)
+                failed_updates += 1
+                logging.error(exception)
 
         logging.info(colorama.Fore.YELLOW + f"\n[*] Update process completed: {total_updates - failed_updates} succeeded, {failed_updates} failed out of {total_updates} total updates.")
 
@@ -293,13 +337,19 @@ class UpdateManager:
         """
         Main entry point for the UpdateManager.
         """
+        # setup signals
         signal.signal(signal.SIGINT, self.exit_handler)
+        signal.signal(signal.SIGTERM, self.exit_handler)
+
+        # setup script
         self.change_current_directory()
         self.print_banner()
         self.parse_arguments()
         self.set_logging_level()
+        self.check_single_instance()
         self.update_default_params()
         self.handle_updates()
+        self.cleanup_mutex()
 
 
 # Entry point for the script

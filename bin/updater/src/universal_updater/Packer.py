@@ -62,6 +62,7 @@ class Packer:
         """
         # download first "UnRAR for Windows" from https://www.rarlab.com/rar_add.htm
         # direct link: https://www.rarlab.com/rar/unrarw32.exe
+        # new link: https://www.win-rar.com/predownload.html?&Version=32bit&L=0.
         with rarfile.RarFile(file_path, 'r') as compressed:
             compressed.extractall(unpack_path, pwd=file_pass)
 
