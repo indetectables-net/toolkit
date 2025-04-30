@@ -41,10 +41,13 @@ Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string;
 Name: "extras\choco"; Description: "Install Chocolatey package manager"; ExtraDiskSpaceRequired: 16777216; Types: full compact; 
 
 [Files]
-Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Components: "extras\choco"; Flags: ignoreversion recursesubdirs createallsubdirs;
+Source: "{#MySrcDir}\bin\choco\*"; DestDir: "{#MyAppBinsFolder}\choco"; Components: "extras\choco or extras\javajre or extras\python or extras\openhashtab or extras\winmerge or extras\terminal or extras\vcredist"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Run]
 Filename: "{#MyAppBinsFolder}\choco\installChocolatey.cmd"; Components: "extras\choco or extras\javajre or extras\python or extras\openhashtab or extras\winmerge or extras\terminal or extras\vcredist"; Flags: shellexec waituntilterminated;
+
+; add choco GUI
+Filename: "{sd}\ProgramData\chocolatey\bin\choco.exe"; Parameters: "install -y ChocolateyGUI"; Components: "extras\choco or extras\javajre or extras\python or extras\openhashtab or extras\winmerge or extras\terminal or extras\vcredist"; Flags: shellexec waituntilterminated;
 
 
 ; Install Java JRE
