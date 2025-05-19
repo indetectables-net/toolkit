@@ -1,4 +1,8 @@
 @ECHO OFF
+SET "TOOL_NAME=%~1"
+SET "UNPACK_DIR=%~2"
+SET "DOWNLOAD_VER=%~3"
+
 echo Fix IDR folder structure and files
 echo.
 echo Warning: 
@@ -7,7 +11,7 @@ echo so I decided to leave in the pack only the most common ones to use
 echo if you need to use all of them install them from the repo!
 echo.
 
-cd "updates\master\IDR-master"
+cd "%UNPACK_DIR%"
 
 del *.cpp
 del *.dfm

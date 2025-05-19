@@ -1,6 +1,10 @@
 @ECHO OFF
+SET "TOOL_NAME=%~1"
+SET "UNPACK_DIR=%~2"
+SET "DOWNLOAD_VER=%~3"
+
 echo Update VBDEC
-cd "updates/VBDEC_Setup"
+cd "%UNPACK_DIR%"
 
 :: unpack
 echo.

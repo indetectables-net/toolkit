@@ -1,6 +1,10 @@
 @ECHO OFF
+SET "TOOL_NAME=%~1"
+SET "UNPACK_DIR=%~2"
+SET "DOWNLOAD_VER=%~3"
+
 echo Fix x64dbg folder structure
-cd "updates\download"
+cd "%UNPACK_DIR%"
 
 SET src_folder=release
 SET tar_folder=.
