@@ -11,7 +11,7 @@ echo so I decided to leave in the pack only the most common ones to use
 echo if you need to use all of them install them from the repo!
 echo.
 
-cd "%UNPACK_DIR%"
+cd "%UNPACK_DIR%\IDR-master"
 
 del *.cpp
 del *.dfm
