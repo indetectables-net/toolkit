@@ -39,51 +39,66 @@ re_version = # Portmon v(\d+\.\d+)
 
 The values used for configuration are:
 
-| Name               | Mandatory | Description                                                                                    |
-|--------------------|-----------|------------------------------------------------------------------------------------------------|
-| `folder`           | `YES`     | Folder where the tool will be saved. If it does not exist, it will be created.                 |
-| `url`              | `YES`     | Web that will be used to perform the checks with the regex.                                    |
-| `from`             | `NO`      | Indicates the strategy used for the update. Currently supported values are: `web`, `github` or `http`. |
-| `local_version`    | `NO`      | Currently downloaded version. This value will be updated with each update.                     |
-| `re_version`       | `NO`      | Regex used to check for new versions on the web used in `url`.                                 |
-| `re_download`      | `NO`      | Regex used to get the download link on the web used in `url`.                                  |
-| `update_url`       | `NO`      | Update download URL. See "Strategy for download" for more info.                                |
-| `update_file_pass` | `NO`      | Use this password to unzip the update.                                                         |
-| `merge`            | `NO`      | Merge new version with local.                                                                  |
-| `pre_update`       | `NO`      | The entered script will be executed before the update process.                                 |
-| `post_update`      | `NO`      | The entered script will be executed after the update process.                                  |
-| `post_unpack`      | `NO`      | The entered script will be executed after unpack the update file.                              |
+| Name               | Mandatory | Description                                                                                                    |
+|--------------------|-----------|----------------------------------------------------------------------------------------------------------------|
+| `folder`           | YES       | Folder where the tool will be saved. If it does not exist, it will be created.                                 |
+| `url`              | YES       | Web page used as the primary source for version check and/or regex scraping.                                   |
+| `from`             | NO        | Strategy to use: `web`, `github` or `http`. Default is `web`.                                                  |
+| `local_version`    | NO        | Currently installed version. Updated after each successful run.                                                |
+| `re_version`       | NO        | Regex to extract the new version string from the HTML at `url`.                                                |
+| `re_download`      | NO        | Regex to extract the download link from HTML. Should capture either a full URL or a relative path.             |
+| `update_url`       | NO        | Base URL or direct download link. Used when `re_download` yields a relative path or when no regex is provided. |
+| `update_file_pass` | NO        | Password to unzip the downloaded archive.                                                                      |
+| `merge`            | NO        | If set, merge the freshly downloaded files into the existing folder.                                           |
+| `pre_update`       | NO        | Script or command to run before performing the update.                                                         |
+| `post_update`      | NO        | Script or command to run immediately after the update download completes.                                      |
+| `post_unpack`      | NO        | Script or command to run after unpacking the downloaded archive.                                               |
+
 
 ## Strategy for download
 
-Combining the use of `update_url` and `re_download` the following download strategies are achieved:
+1. **If `re_download` is set**  
+   a. Try to extract link from the initial `url` HTML.  
+   b. If you get a match and it’s a valid absolute URL → use it.  
+   c. If you get a match but it’s a relative path →  
+      - If `update_url` is defined, prepend it.  
+      - Otherwise, build from the original page’s scheme+netloc.  
+   d. If no match on the initial HTML and `update_url` is defined → fetch `update_url` once, retry the same regex.  
+   e. If still no match → raise an error.
 
-1. Using only `update_url` it downloads directly without any extra processing.
-2. Using only `re_download` you get the download link on the web from `url`.
-3. When using both parameters, the result of `re_download` is concatenated with `update_url`.
-This is useful for fixing GitHub or Sourceforge download links.
-4. A new version detection method is also available that instead of regex uses the http headers with which the server responds.
+2. **Else if only `update_url` is set**  
+   Use `update_url` directly as the download link.
+
+3. **HTTP mode (`from = http`)**  
+   - Sends a **HEAD** request to `update_url`.  
+   - Extracts a version fingerprint by hashing either the `Last-Modified` or `Content-Length` header.  
+   - If the hash differs from `local_version` (or `force_download`), uses `update_url` as the download link.  
+   - If the headers match and `force_download` is false, no update is performed.
+
+4. **Otherwise**  
+   Error out: neither `re_download` nor `update_url` provided, so no download link can be determined.
+
 
 ## Command-line Parameters
 
 The updater provides a flexible set of parameters to control its behavior:
 
-| Parameter                                                          | Description                                                                                       |
-|--------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|
-| `-h, --help`                                                       | Show this help message and exit.                                                                 |
-| `-v, --version`                                                    | Display the program's version number and exit.                                                   |
-| `-u [UPDATE ...], --update [UPDATE ...]`                           | Specify a list of tools to update. Defaults to updating all tools if not provided.                        |
-| `-dsu, --disable-self-update`                                      | Disable automatic self-update of this script.                                                    |
-| `-dfc, --disable-folder-clean`                                     | Skip cleaning the tool's folder during updates.                                                  |
-| `-dr, --disable-repack`                                            | Prevent repacking of tools after the update process.                                             |
-| `-dic, --disable-install-check`                                    | Skip checking if the tools are properly installed.                                             |
-| `-dpb, --disable-progress-bar`                                     | Disable the download progress bar for updates.                                                   |
-| `-sft {full,version,name}, --save-format-type {full,version,name}` | Specify the save format type for compressed updates: `full`, `version`, or `name`. |
-| `-f, --force`                                                      | Force the download of updates, even if they appear up to date.                                   |
-| `-uga USE_GITHUB_API, --use-github-api USE_GITHUB_API`             | Use the GitHub API for updates, specifying the token to authenticate.                           |
-| `-udp, --update-default-params`                                    | Update the default parameters stored in the configuration.                                     |
-| `-dmc, --disable-mutex-check`                                      | Allow multiple instances of the script to run simultaneously by disabling the mutex check.       |
-| `-d, --debug`                                                      | Enable detailed debug output for troubleshooting.                                                |
+| Parameter                                                          | Description                                                                                |
+|--------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
+| `-h, --help`                                                       | Show this help message and exit.                                                           |
+| `-v, --version`                                                    | Display the program's version number and exit.                                             |
+| `-u [UPDATE ...], --update [UPDATE ...]`                           | Specify a list of tools to update. Defaults to updating all tools if not provided.         |
+| `-dsu, --disable-self-update`                                      | Disable automatic self-update of this script.                                              |
+| `-dfc, --disable-folder-clean`                                     | Skip cleaning the tool's folder during updates.                                            |
+| `-dr, --disable-repack`                                            | Prevent repacking of tools after the update process.                                       |
+| `-dic, --disable-install-check`                                    | Skip checking if the tools are properly installed.                                         |
+| `-dpb, --disable-progress-bar`                                     | Disable the download progress bar for updates.                                             |
+| `-sft {full,version,name}, --save-format-type {full,version,name}` | Specify the save format type for compressed updates: `full`, `version`, or `name`.         |
+| `-f, --force`                                                      | Force the download of updates, even if they appear up to date.                             |
+| `-uga USE_GITHUB_API, --use-github-api USE_GITHUB_API`             | Use the GitHub API for updates, specifying the token to authenticate.                      |
+| `-udp, --update-default-params`                                    | Update the default parameters stored in the configuration.                                 |
+| `-dmc, --disable-mutex-check`                                      | Allow multiple instances of the script to run simultaneously by disabling the mutex check. |
+| `-d, --debug`                                                      | Enable detailed debug output for troubleshooting.                                          |
 
 ## Examples
 
