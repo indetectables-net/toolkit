@@ -26,31 +26,29 @@ class ScriptExecutor:
         self.tool_name = tool_name
         self.tool_config = tool_config
 
-    def execute_script(self, script_type):
+    def execute_script(self, script_type, script_params = None):
         """
         Execute a specific script for a given tool.
 
         :param script_type: Type of script to execute ('pre_update', 'post_update', 'post_unpack')
+        :param script_params: Optional dict of parameters to pass to the script as args
         """
         if script_type in self.valid_types and script_type in self.tool_config:
             script = self.tool_config[script_type]
+            params = script_params.values() if script_params else []
+
             logging.info(f'{self.tool_name}: exec {script_type} "{script}"')
             logging.info(colorama.Fore.BLUE + '------------------------------')
-            subprocess.run(script)
+            subprocess.run([script, *params])
             logging.info(colorama.Fore.BLUE + '------------------------------')
 
-    def execute_global_script(self, processing_info):
+    def execute_global_script(self, script_params):
         """
         Execute a global script.
 
-        :param processing_info: Dictionary containing processing information
+        :param script_params: Dict of parameters to pass to the script as args
         """
         if 'global_post_update' in self.tool_config:
             script = self.tool_config['global_post_update']
             logging.info(f'{self.tool_name}: exec global script "{script}"')
-            subprocess.run([
-                script,
-                processing_info['tool_name'],
-                processing_info['tool_folder'],
-                processing_info['save_compress_name'],
-            ])
+            subprocess.run([script, *script_params.values()])

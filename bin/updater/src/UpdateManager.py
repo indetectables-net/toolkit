@@ -20,7 +20,7 @@ class UpdateManager:
         """
         Initialize the UpdateManager with a ConfigManager instance and command-line arguments.
         """
-        self.version = '2.3.1'
+        self.version = '2.4.0'
         self.process_mutex = 'mutex.lock'
         self.config_file_name = 'tools.ini'
         self.config_section_defaults = 'UpdaterConfig'
@@ -305,17 +305,28 @@ class UpdateManager:
         :param update_list: List of tools to update
         """
         failed_updates = 0
+        failed_names = []
         total_updates = len(update_list)
         logging.info(colorama.Fore.YELLOW + '[+] Checking for tool updates:')
 
-        for tool in update_list:
+        for name in update_list:
             try:
-                updater.update(tool)
+                updater.update(name)
             except Exception as exception:
                 failed_updates += 1
+                failed_names.append(name)
                 logging.error(exception)
 
-        logging.info(colorama.Fore.YELLOW + f"\n[*] Update process completed: {total_updates - failed_updates} succeeded, {failed_updates} failed out of {total_updates} total updates.")
+        # add missing new line separator
+        logging.info("\n")
+
+        success = total_updates - failed_updates
+        logging.info(colorama.Fore.YELLOW +
+                     f"[*] Update process completed: {success} succeeded, "
+                     f"{failed_updates} failed out of {total_updates} total updates.")
+        if failed_names:
+            logging.info(colorama.Fore.YELLOW +
+                     f"    Failed updates: {', '.join(failed_names)}")
 
     def handle_updates(self):
         """

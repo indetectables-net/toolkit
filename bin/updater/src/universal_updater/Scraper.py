@@ -5,6 +5,8 @@ import hashlib
 import colorama
 import logging
 
+from universal_updater.Helpers import Helpers
+
 
 class Scraper:
     """
@@ -39,7 +41,7 @@ class Scraper:
         self.tool_name = tool_name
         self.tool_config = tool_config
 
-    def web_get_request(self, url, headers=None):
+    def get_request(self, url, headers=None):
         """
         Performs a GET request to a given URL.
 
@@ -71,21 +73,18 @@ class Scraper:
             Returns False if the version cannot be extracted.
         :raises Exception: If required configuration fields are missing or HTTP requests fail.
         """
-        update_url = self.tool_config.get('update_url', None)
-        re_version = self.tool_config.get('re_version', None)
-        re_download = self.tool_config.get('re_download', None)
-
         # load html
         url = self.tool_config.get('url', None)
-        html_response = self.web_get_request(url)
+        url_response = self.get_request(url)
         logging.debug(f'{self.tool_name}: HTML content fetched, starting regex matching.')
 
         # regex shit
-        download_version = self.check_version_from_web(html_response.text, re_version)
+        re_version = self.tool_config.get('re_version', None)
+        download_version = self.check_version_from_web(url_response.text, re_version)
         if download_version is None:
             return False
 
-        download_url = self.get_download_url_from_web(html_response.text, url, update_url, re_download)
+        download_url = self.get_download_url_from_web(url, url_response.text)
         logging.debug(f'{self.tool_name}: Regex matching done.')
 
         return {
@@ -110,24 +109,21 @@ class Scraper:
 
         # load html
         version_url = self.github_version_check.format(github_repo)
-        version_html_response = self.web_get_request(version_url)
+        version_response = self.get_request(version_url)
         logging.debug(f'{self.tool_name}: Version HTML fetched, starting regex matching for version.')
 
-        download_version = self.check_version_from_web(version_html_response.text, self.re_github_version)
+        download_version = self.check_version_from_web(version_response.text, self.re_github_version)
         if download_version is None:
             return False
 
         logging.debug(f'{self.tool_name}: Regex matching for version done.')
 
-        # load second html
+        # the download url is not configured, so I have to generate one.
         update_url = self.tool_config.get('update_url', None)
         if not update_url:
             logging.debug(f'{self.tool_name}: update_url not set. I try to generate it.')
             download_url = self.github_files.format(github_repo, download_version)
-            download_html_response = self.web_get_request(download_url)
-
-            re_download = self.re_github_download.format(self.tool_config.get('re_download', None))
-            update_url = self.get_download_url_from_web(download_html_response.text, version_url, '', re_download)
+            update_url = self.get_download_url_from_github(download_url)
 
         return {
             'download_version': download_version,
@@ -150,16 +146,16 @@ class Scraper:
 
         # load json
         headers = {'Authorization': f'token {self.use_github_api}'}
-        api_response = self.web_get_request(repo_url, headers)
+        api_response = self.get_request(repo_url, headers)
         json_response = api_response.json()
         logging.debug(f'{self.tool_name}: JSON fetched, extracting version and download URL.')
 
         update_url = self.tool_config.get('update_url', None)
         if not update_url:
             logging.debug(f'{self.tool_name}: update_url not set. I try to generate it.')
-            update_url = self.get_download_url_from_github(json_response)
+            update_url = self.get_download_url_from_github_api(json_response)
 
-        download_version = self.check_version_from_github(json_response)
+        download_version = self.check_version_from_github_api(json_response)
         if download_version is None:
             return False
 
@@ -261,7 +257,7 @@ class Scraper:
 
         return remote_version
 
-    def check_version_from_github(self, json):
+    def check_version_from_github_api(self, json):
         """
         Check version from GitHub API JSON response.
 
@@ -281,41 +277,73 @@ class Scraper:
     #################
     # Download url methods
     #################
-    def get_download_url_from_web(self, html, html_url, update_url, re_download):
+    def get_download_url_from_web(self, url, response_html):
         """
         Get download URL from a web page using regex.
 
-        :param html: HTML content of the web page
-        :param html_url: Original URL of the web page
-        :param update_url: Base URL for download
-        :param re_download: Regex pattern to find the download URL
+        :param url: Original URL of the web page
+        :param response_html: HTML content of the web page
         :return: Download URL found or None
         """
+        re_download = self.tool_config.get('re_download', None)
+        update_url = self.tool_config.get('update_url', None)
+
         # case 2: if update_url is not set, scrape the link from html
         if re_download:
-            html_regex_download = re.findall(re_download, html)
+            html_regex_download = re.findall(re_download, response_html)
             if not html_regex_download:
-                raise Exception(colorama.Fore.RED + f'{self.tool_name}: re_download regex not match ({re_download})')
+                # case 4: use update_url as regex target
+                if not update_url:
+                    raise Exception(colorama.Fore.RED + f'{self.tool_name}: re_download regex not match ({re_download})')
 
-            # check if valid url
-            download_url_parse = urllib.parse.urlparse(html_regex_download[0])
+                logging.debug(f'{self.tool_name}: Testing combination of update_url and re_download.')
+                update_url_response = self.get_request(update_url)
+                html_regex_download = re.findall(re_download, update_url_response.text)
+                if not html_regex_download:
+                    raise Exception(colorama.Fore.RED + f'{self.tool_name}: re_download regex not match ({re_download})')
 
-            # case 3: if update_url and re_download is set.... generate download link
+            # case 1: generated link is valid
+            if Helpers.is_valid_url(html_regex_download[0]):
+                return html_regex_download[0]
+
+            # case 2: fix generated link
             if update_url:
+                # fix from configured path
                 update_url = f'{update_url}{html_regex_download[0]}'
-            elif download_url_parse.scheme == '':
-                html_url_parse_fix = urllib.parse.urlparse(html_url)
-                update_url = f'{html_url_parse_fix.scheme}://{html_url_parse_fix.netloc}/{html_regex_download[0]}'
             else:
-                update_url = html_regex_download[0]
+                # fix from original url path
+                url_parse_fix = urllib.parse.urlparse(url)
+                update_url = f'{url_parse_fix.scheme}://{url_parse_fix.netloc}/{html_regex_download[0]}'
 
-        # case 1: if update_url is set... download it!
+        # case 3: if only update_url is set... download it!
         if not update_url:
             raise Exception(colorama.Fore.RED + f'{self.tool_name}: update_url not generated!')
 
         return update_url
 
-    def get_download_url_from_github(self, json):
+    def get_download_url_from_github(self, download_url):
+        """
+        Get download URL from a github release page using regex.
+
+        :param download_url: Base URL for download
+        :return: Download URL found or None
+        """
+        re_download = self.tool_config.get('re_download', None)
+        if not re_download:
+            raise Exception(colorama.Fore.RED + f'{self.tool_name}: re_download not set!')
+
+        download_response = self.get_request(download_url)
+        fixed_re_download = self.re_github_download.format(re_download)
+        html_regex_download = re.findall(fixed_re_download, download_response.text)
+        if not html_regex_download:
+            raise Exception(colorama.Fore.RED + f'{self.tool_name}: re_download regex not match ({re_download})')
+
+        download_url_parse = urllib.parse.urlparse(download_url)
+        update_url = f'{download_url_parse.scheme}://{download_url_parse.netloc}/{html_regex_download[0]}'
+
+        return update_url
+
+    def get_download_url_from_github_api(self, json):
         """
         Get download URL from GitHub API JSON response.
 

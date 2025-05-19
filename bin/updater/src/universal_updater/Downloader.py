@@ -4,6 +4,8 @@ import pathlib
 import colorama
 import logging
 
+from universal_updater.Helpers import Helpers
+
 
 class Downloader:
     """Handles file downloads."""
@@ -19,36 +21,31 @@ class Downloader:
         self.user_agent = user_agent
         self.disable_progress = disable_progress
         self.update_folder_path = update_folder_path
+        self.tool_name = ""
 
-    def get_filename_from_url(self, url):
-        """
-        Extract the filename from a given URL.
-
-        :param url: URL string
-        :return: Extracted filename as a string
-        """
-        fragment_removed = url.split('#')[0]  # keep to left of first "#"
-        query_string_removed = fragment_removed.split('?')[0]
-        scheme_removed = query_string_removed.split('://')[-1].split(':')[-1]
-
-        if scheme_removed.find('/') == -1:
-            return ''
-
-        return pathlib.Path(scheme_removed).name
-
-    def download_file(self, url, dest_path, progress_bar_desc):
+    def download_file(self, url, progress_bar_desc):
         """
         Download a file from a given URL.
 
         :param url: URL of the file to download
-        :param dest_path: Destination path to save the file
         :param progress_bar_desc: Description for the progress bar
+        :return: Path where the file has been saved
         """
         headers = {'User-Agent': self.user_agent}
         response = requests.get(url, headers=headers, stream=True)
         response.raise_for_status()
 
+        # grab data from response
         total_length = int(response.headers.get('content-length', 0))
+        filename = Helpers.get_filename_from_url(response.url)
+
+        # try to get filename from Content-Disposition header
+        content_disposition = response.headers.get('content-disposition', '')
+        if 'filename=' in content_disposition:
+            logging.debug(f'Using name from content-disposition: {content_disposition}')
+            filename = content_disposition.split('filename=')[-1].strip('"; ')
+
+        dest_path = pathlib.Path(self.update_folder_path).joinpath(filename)
         with open(dest_path, 'wb') as handle, tqdm(
                 disable=self.disable_progress,
                 colour='green',
@@ -64,6 +61,7 @@ class Downloader:
                 bar.update(size)
 
         bar.close()
+        return dest_path
 
     def download_from_web(self, tool_name, download_url):
         """
@@ -73,19 +71,17 @@ class Downloader:
         :param download_url: URL from which to download the tool
         :return: Path where the file has been saved
         """
-        file_name = self.get_filename_from_url(download_url)
-        file_path = pathlib.Path(self.update_folder_path).joinpath(file_name)
-
-        logging.info(f'{tool_name}: downloading update "{file_name}"')
+        self.tool_name = tool_name
+        file_name = Helpers.get_filename_from_url(download_url)
+        logging.info(f'{self.tool_name}: downloading update "{file_name}"')
 
         try:
-            self.download_file(
+            file_path = self.download_file(
                 url=download_url,
-                dest_path=file_path,
                 progress_bar_desc=tool_name,
             )
         except Exception as exception:
-            logging.error(f'{tool_name}: download url {download_url}')
-            raise Exception(colorama.Fore.RED + f'{tool_name}: Error {exception}')
+            logging.error(f'{self.tool_name}: download url {download_url}')
+            raise Exception(colorama.Fore.RED + f'{self.tool_name}: Error {exception}')
 
         return file_path
