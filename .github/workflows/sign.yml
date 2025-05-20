@@ -79,6 +79,7 @@ jobs:
           for exe in artifacts/*.exe; do
             ./cosign sign-blob --yes \
               --identity-token "${{ steps.oidc.outputs.result }}" \
+              --signature "${exe}.sig" \
               "$exe"
           done
 
