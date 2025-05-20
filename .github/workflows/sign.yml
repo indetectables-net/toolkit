@@ -42,6 +42,7 @@ jobs:
       - name: Download release assets
         uses: repo-sync/download-release@v2
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           owner: ${{ github.repository_owner }}
           repo: ${{ github.repository }}
           tag: ${{ steps.tag.outputs.result }}
