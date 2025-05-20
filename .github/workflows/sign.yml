@@ -89,6 +89,7 @@ jobs:
           for exe in artifacts/*.exe; do
             ./cosign verify-blob \
               --certificate-identity-regexp "https://github\\.com/${{ github.repository }}/.*" \
+              --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
               --bundle "${exe}.bundle" \
               "$exe"
           done
