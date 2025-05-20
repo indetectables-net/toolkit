@@ -20,6 +20,11 @@ jobs:
         with:
           path: ${{ env.SRC_PATH }}
 
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
       - name: Install Python packages
         run: pip install py7zr pefile colorama
 
