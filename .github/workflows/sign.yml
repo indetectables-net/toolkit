@@ -92,13 +92,27 @@ jobs:
               "$exe"
           done
 
-      - name: Upload signed installers to Release
-        uses: softprops/action-gh-release@v2
+      - name: Get release upload URL
+        id: get_release
+        uses: actions/github-script@v7
         with:
-          tag_name: ${{ steps.tag.outputs.result }}
-          files: |
-            artifacts/*.exe.sig
-            artifacts/*.bundle
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          result-encoding: string
+          script: |
+            const release = await github.rest.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag: '${{ steps.tag.outputs.result }}'
+            });
+            return release.data.upload_url.replace('{?name,label}','');
+
+      - name: Upload signed assets
+        run: |
+          for sig in artifacts/*.exe.sig; do
+            exe_basename=$(basename "$sig" .sig)
+            gh api --method POST "$UPLOAD_URL" \
+              -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Content-Type: application/octet-stream" \
+              --data-binary "@${sig}" \
+              -F name="${exe_basename}.exe.sig"
+          done
 
