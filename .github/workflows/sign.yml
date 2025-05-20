@@ -39,14 +39,14 @@ jobs:
             });
             return latest.data.tag_name;
 
-      - name: Download release assets
-        uses: repo-sync/download-release@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.repository }}
-          tag: ${{ steps.tag.outputs.result }}
-          pattern: '*.exe'
+      - name: Download release assets via GH CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download ${{ steps.tag.outputs.result }} \
+            --repo ${{ github.repository }} \
+            --pattern '*.exe' \
+            --dir artifacts
 
       - name: Install cosign
         run: |
@@ -66,7 +66,7 @@ jobs:
         env:
           COSIGN_EXPERIMENTAL: '1'
         run: |
-          for exe in *.exe; do
+          for exe in artifacts/*.exe; do
             ./cosign sign-blob \
               --identity-token "${{ steps.oidc.outputs.result }}" \
               "$exe"
@@ -74,7 +74,7 @@ jobs:
 
       - name: Verify signatures
         run: |
-          for exe in *.exe; do
+          for exe in artifacts/*.exe; do
             ./cosign verify-blob \
               --certificate-identity "https://github.com/${{ github.repository }}" \
               "$exe" --signature "$exe.sig"
