@@ -4,7 +4,20 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ---
 
-## 🏷️ 2024.07 - Jul 12, 2024
+## 🏷️ 2025.5 - May 20, 2025
+
+### 🆕 Added
+
+- Add Choco GUI [^1]
+
+### 🔧 Changed
+
+- Update tools (20/05/2025)
+- Bump Universal Updater to 2.4.0
+- Fixes in tools updater regexs
+
+
+## 🏷️ 2024.7 - Jul 12, 2024
 
 ### 🆕 Added
 
