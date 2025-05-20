@@ -1,0 +1,57 @@
+name: Sign installers
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Builder main installer"]
+    types: [completed]
+
+permissions:
+  contents: read      # para descargar assets de release
+  id-token: write     # para OIDC keyless
+
+jobs:
+  sign:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download release assets
+        uses: repo-sync/download-release@v2
+        with:
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.repository }}
+          tag: ${{ github.event.workflow_run.event.release.tag_name }}
+          pattern: '*.exe'
+
+      - name: Install cosign
+        run: |
+          curl -sSL -o cosign \
+            https://github.com/sigstore/cosign/releases/latest/download/cosign-linux-amd64
+          chmod +x cosign
+
+      - name: Fetch OIDC token
+        id: oidc
+        uses: actions/github-script@v7
+        with:
+          script: |
+            // return GitHub OIDC token scoped for sigstore
+            return await github.actions.getOIDCToken({audience: 'sigstore'});
+
+      - name: Keyless sign installers
+        env:
+          COSIGN_EXPERIMENTAL: '1'
+        run: |
+          for exe in *.exe; do
+            ./cosign sign-blob \
+              --identity-token "${{ steps.oidc.outputs.result }}" \
+              "$exe"
+          done
+
+      - name: Verify signatures
+        run: |
+          for exe in *.exe; do
+            ./cosign verify-blob \
+              --certificate-identity "https://github.com/${{ github.repository }}" \
+              "$exe" --signature "$exe.sig"
+          done
