@@ -28,11 +28,19 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
+            // grab tag from user input
             const inputTag = '${{ github.event.inputs.tag }}';
-            if (inputTag) return inputTag;
+            if (inputTag) {
+              // duh
+              return inputTag;
+            }
+
+            // grab tag from release
             if (context.eventName === 'workflow_run') {
               return context.payload.workflow_run.event.release.tag_name;
             }
+
+            // grab tag from last release
             const latest = await github.rest.repos.getLatestRelease({
               owner: context.repo.owner,
               repo: context.repo.repo
@@ -70,6 +78,7 @@ jobs:
           for exe in artifacts/*.exe; do
             ./cosign sign-blob --yes \
               --identity-token "${{ steps.oidc.outputs.result }}" \
+              --bundle "${exe}.bundle" \
               "$exe"
           done
 
@@ -77,8 +86,8 @@ jobs:
         run: |
           for exe in artifacts/*.exe; do
             ./cosign verify-blob \
-              --certificate-identity "https://github.com/${{ github.repository }}" \
-              "$exe" --signature "$exe.sig"
+               --bundle "${exe}.bundle" \
+               "$exe"
           done
 
       - name: Upload signed installers to Release
@@ -87,6 +96,7 @@ jobs:
           tag_name: ${{ steps.tag.outputs.result }}
           files: |
             artifacts/*.exe.sig
+            artifacts/*.bundle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
