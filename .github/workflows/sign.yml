@@ -68,7 +68,7 @@ jobs:
           COSIGN_EXPERIMENTAL: '1'
         run: |
           for exe in artifacts/*.exe; do
-            ./cosign sign-blob \
+            ./cosign sign-blob --yes \
               --identity-token "${{ steps.oidc.outputs.result }}" \
               "$exe"
           done
@@ -80,3 +80,13 @@ jobs:
               --certificate-identity "https://github.com/${{ github.repository }}" \
               "$exe" --signature "$exe.sig"
           done
+
+      - name: Upload signed installers to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag.outputs.result }}
+          files: |
+            artifacts/*.exe.sig
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
