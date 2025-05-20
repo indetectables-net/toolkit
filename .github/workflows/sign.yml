@@ -58,9 +58,10 @@ jobs:
         id: oidc
         uses: actions/github-script@v7
         with:
+          result-encoding: string
           script: |
-            // return GitHub OIDC token scoped for sigstore
-            return await github.actions.getOIDCToken({audience: 'sigstore'});
+            // minimal OIDC fetch for Sigstore
+            return await core.getIDToken('sigstore');
 
       - name: Keyless sign installers
         env:
