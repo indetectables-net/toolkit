@@ -79,7 +79,8 @@ jobs:
           for exe in artifacts/*.exe; do
             ./cosign sign-blob --yes \
               --identity-token "${{ steps.oidc.outputs.result }}" \
-              --signature "${exe}.sig" \
+              --bundle "${exe}.bundle" \
+              --output-signature "${exe}.sig" \
               "$exe"
           done
 
@@ -87,9 +88,7 @@ jobs:
         run: |
           for exe in artifacts/*.exe; do
             ./cosign verify-blob \
-              --certificate-identity-regexp "https://github\\.com/${{ github.repository }}/.*" \
-              --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-              --signature "${exe}.sig" \
+              --bundle "${exe}.bundle" \
               "$exe"
           done
 
