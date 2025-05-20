@@ -86,8 +86,9 @@ jobs:
         run: |
           for exe in artifacts/*.exe; do
             ./cosign verify-blob \
-               --bundle "${exe}.bundle" \
-               "$exe"
+              --certificate-identity "https://github.com/${{ github.repository }}" \
+              --bundle "${exe}.bundle" \
+              "$exe"
           done
 
       - name: Upload signed installers to Release
