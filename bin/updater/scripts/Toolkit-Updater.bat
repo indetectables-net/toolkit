@@ -1,4 +1,8 @@
 @ECHO OFF
+SET "TOOL_NAME=%~1"
+SET "UNPACK_DIR=%~2"
+SET "DOWNLOAD_VER=%~3"
+
 echo Update all Universal Update stuff and restart...
 
 :: Kill updater process to be able to update all the files
@@ -11,9 +15,9 @@ del mutex.lock
 move tools.ini tools.ini.old
 
 :: Update files
-xcopy /Y /C updates\main\toolkit-updater-main .
-xcopy /Y /C updates\main\toolkit-updater-main\bin bin 
-xcopy /Y /C updates\main\toolkit-updater-main\scripts scripts
+xcopy /Y /C "%UNPACK_DIR%\toolkit-updater-main" .
+xcopy /Y /C "%UNPACK_DIR%\toolkit-updater-main\bin" bin 
+xcopy /Y /C "%UNPACK_DIR%\toolkit-updater-main\scripts" scripts
 
 :: Configure installed tools
 bin\auto-config-ini.exe /FOLDER=..\updater /TYPE=clean
