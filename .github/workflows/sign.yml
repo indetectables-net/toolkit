@@ -99,7 +99,9 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag.outputs.result }}
-          files: artifacts/*.exe.sig
+          files: |
+            artifacts/*.exe.sig
+            artifacts/*.exe.pem
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
