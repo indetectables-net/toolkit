@@ -1,4 +1,4 @@
-name: Sign installers
+name: Sign installers with cosign
 
 on:
   workflow_dispatch:
@@ -79,8 +79,8 @@ jobs:
           for exe in artifacts/*.exe; do
             ./cosign sign-blob --yes \
               --identity-token "${{ steps.oidc.outputs.result }}" \
-              --bundle "${exe}.bundle" \
               --output-signature "${exe}.sig" \
+              --output-certificate "${exe}.pem" \
               "$exe"
           done
 
@@ -90,7 +90,8 @@ jobs:
             ./cosign verify-blob \
               --certificate-identity-regexp "https://github\\.com/${{ github.repository }}/.*" \
               --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-              --bundle "${exe}.bundle" \
+              --signature "${exe}.sig" \
+              --certificate "${exe}.pem" \
               "$exe"
           done
 
