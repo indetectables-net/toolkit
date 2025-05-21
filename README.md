@@ -23,7 +23,7 @@ This toolkit complements the [manuals](https://github.com/indetectables-net/manu
 
 ## The Tool Set
 
-The toolkit includes 100 apps covering a wide range of needs. It features both well-known tools and lesser-known, yet highly useful ones, as well as rare tools that are hard to find. **All tools are sourced from their official websites, but exercise caution, especially with tools from forum threads.** View the complete tool list [here](TOOLS.md).
+The toolkit includes 100 apps covering a wide range of needs. It features both well-known tools and lesser-known, yet highly useful ones, as well as rare tools that are hard to find. **All tools are sourced from their official websites, but exercise caution, especially with tools from forum threads.** View the [complete tool list here](TOOLS.md).
 
 ## Contributions
 
