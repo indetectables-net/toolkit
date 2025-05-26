@@ -14,6 +14,7 @@ Es el complemento perfecto para los [manuales](https://github.com/indetectables-
 2. **Actualizaciones Automáticas**: Integrado con un [Actualizador Universal](https://github.com/xchwarze/universal-tool-updater) personalizado para mantener las herramientas actualizadas automáticamente.
 3. **Extensible**: Agrega fácilmente nuevas herramientas actualizando `bin\updater\tools.ini` y enlazándolas en `bin\sendto\sendto`.
 4. **Configuración Automática**: El instalador maneja las dependencias, las variables de entorno y puede programar actualizaciones semanales.
+5. **Integración del menú contextual**: Registra [SendTo Recomposed](https://github.com/xchwarze/sendto-recomposed) en el menú contextual de Windows para archivos.
 
 ## Instalación
 

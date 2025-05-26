@@ -14,6 +14,7 @@ This toolkit complements the [manuals](https://github.com/indetectables-net/manu
 2. **Automated Updates**: Integrated with a custom [Universal Updater](https://github.com/xchwarze/universal-tool-updater) to keep tools updated automatically.
 3. **Extensible**: Easily add new tools by updating `bin\updater\tools.ini` and linking them in `bin\sendto\sendto`.
 4. **Automatic Setup**: The installer handles dependencies, environment variables, and can schedule weekly updates.
+5. **Context menu integration**: Registers [SendTo Recomposed](https://github.com/xchwarze/sendto-recomposed) in the Windows right-click menu for files.
 
 ## Installation
 
