@@ -1,52 +1,91 @@
-# sendto+: Send what sent to me to my sendto
+# SendTo Recomposed
 
-Windows XP 之后，右键菜单“发送到”不再具有以文件夹实现分组的功能了。sendto+ 程序就是为你重新实现这个功能的。甚至，它也可以当作启动器来用。
+A modern, Unicode-only re-implementation of the classic **SendTo+** helper for Windows.  
+Compared with the original project, this version is faster, 64-bit clean and shows *custom folder icons* in the popup.  
+Licensed under **GPL v3**.
 
-After Windows XP, there is NO grouping shortcuts in directories feature anymore for context menu 'sendto'. sendto+ is a tool insists to get it back. And more, it can be used as a launcher.
+## Key Ingredients
 
-sendto+ 不修改系统文件和进程。它需要的只是多一次点击。对我来说还是挺好的 ;p
+* **Unicode-only** no ANSI/TCHAR branches – predictable builds 
+* **Dark mode ready** Native dark-theme support
+* **Custom folder icons** honours `desktop.ini` for nicer menu visuals 
+* **Icon cache** a single `SHGetImageList` call – speedy painting 
+* **Secure recursion** hidden/system items skipped, depth capped to 4 
+* **Robust drag-and-drop** real `IDataObject`, always calls `DragLeave` 
+* **Clean shutdown** no GDI, COM or image-list leaks 
+* **High-DPI aware** PerMonitorV2 scaling on Windows 10+
+* **Custom SendTo directory** Override default via `/D <directory>` switch
+* **Native 64-bit** Compiled and tested for x86_64 with no WOW64 redirection issues
 
-sendto+ doesn't modify any file or process of the system. It just need your one more click. Acceptable to me ;p
+## Building
 
-## 用法/Usage:
+MSVC 
 
-1. 在程序目录下，创建"sendto"文件夹，并组织你的快捷方式。
+```cmd
+rc /r sendto.rc
 
-   Create a 'sendto' directory in the same directory as sendto+ program, and then organize the the shortcuts with sub-directories.
+cl /O2 /MD /DUNICODE /D_UNICODE ^
+   sendto.c ^
+   ole32.lib shell32.lib shlwapi.lib comctl32.lib user32.lib gdi32.lib uuid.lib
 
-   Grouping shortcuts
+mt -nologo -manifest sendto.manifest -outputresource:sendto.exe;#1
+```
 
-   ![](docs/SendTo_0.1.png)
+The output `sendto.exe` is fully 64-bit.
 
-2. 在系统的"sendto"文件夹，创建 sendto+ 的快捷方式。
+## Usage
 
-   Create a shortcut in the system sendto directory.
+1. Copy the executable anywhere on disk.
+2. Run it – a **Send To** style popup appears under the cursor with every item (and sub-folder) from the `sendto` folder located next to the executable.
+   - Use `sendto.exe /D <directory>` to point to a custom directory.
+   - Use `sendto.exe /?` to display this help message.
+3. Either click an entry to launch it, or drag files onto the menu and drop them on a target to perform the same action Explorer would.
 
-   ![](docs/SendTo_0.2.png)
+## Context-Menu Integration
 
-3. 用右键菜单时，发送到 sendto+，就会出现第1步中组织的菜单了。
+To register **SendTo Recomposed** in the Windows right-click menu for files and folders, create this `.reg`:
 
-   When you want to use the sendto, send the selection to 'sendto+', then there will be the menu organized in groups of step 1.
+```reg
+Windows Registry Editor Version 5.00
 
-   ![](docs/SendTo_1.1.png)
-   ![](docs/SendTo_1.2.png)
+; ── Add "Send To+" for all files
+[HKEY_CLASSES_ROOT\*\shell\SendToRecomposed]
+@="Send To+"
+"Icon"="\"%ProgramFiles%\\SendTo Recomposed\\sendto.exe\""
 
-4. 在桌面或者快速启动栏创建快捷方式，运行后可以当作启动器。
+[HKEY_CLASSES_ROOT\*\shell\SendToRecomposed\command]
+@="\"%ProgramFiles%\\SendTo Recomposed\\sendto.exe\" \"%1\""
 
-   Create a shortcut of sendto+ onto the desktop or quick launch bar, then it can be run as a launcher.
+; ── Add "Send To+" for folders
+[HKEY_CLASSES_ROOT\Directory\shell\SendToRecomposed]
+@="Send To+"
+"Icon"="\"%ProgramFiles%\\SendTo Recomposed\\sendto.exe\""
 
-   ![](docs/SendTo_2.png)
+[HKEY_CLASSES_ROOT\Directory\shell\SendToRecomposed\command]
+@="\"%ProgramFiles%\\SendTo Recomposed\\sendto.exe\" \"%1\""
+````
 
-## 注意/Tips:
-- 64位系统需要用64位版本的程序。
+**Usage**
 
-  64 bit OS needs 64 bit version to work correctly.
+1. Copy `sendto.exe` into `C:\Program Files\SendTo Recomposed\`.
+2. Save the above as `add-context-menu.reg` and double-click to merge into your registry.
+3. Right-click any file or folder and select **Send To+**.
 
-## 其它/Others
-Build: MSVC, run the bat file.
+To unregister, create a `.reg` with these deletions:
 
-Download: [https://github.com/lifenjoiner/sendto-plus/releases](https://github.com/lifenjoiner/sendto-plus/releases)
+```reg
+Windows Registry Editor Version 5.00
 
-Author: [https://github.com/lifenjoiner](https://github.com/lifenjoiner)
+[-HKEY_CLASSES_ROOT\*\shell\SendToRecomposed]
+[-HKEY_CLASSES_ROOT\Directory\shell\SendToRecomposed]
+```
 
-Licensing: See the license file.
+## License
+
+This code is released under the **GNU General Public License v3.0**.
+See [LICENSE](LICENSE.txt) for full text.
+
+## Credits
+
+* **Original concept & code** © 2017 lifenjoiner
+* **Complete refactor & modernisation** © 2025 DSR! - xchwarze@gmail.com
