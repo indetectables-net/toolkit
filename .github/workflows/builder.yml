@@ -86,17 +86,21 @@ jobs:
           .\generate-checksums.ps1 -Directory "${{ env.SRC_PATH }}/toolkit" -OutputFile "${{ github.workspace }}/toolkit_tools_checksums.txt"
           .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -NoRecurse -OutputFile "${{ github.workspace }}/toolkit_installer_checksums.txt"
 
-      - name: Upload Setup as Artifact
+      - name: Upload full Setup as Artifact
         if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
         with:
-          name: setup-installer-artifact
-          path: |
-            ${{ github.workspace }}/*.exe
-            ${{ github.workspace }}/toolkit_tools_checksums.txt
-            ${{ github.workspace }}/toolkit_installer_checksums.txt
+          name: full-installer-artifact
+          path: ${{ github.workspace }}/Toolkit_*_Setup.exe
 
-      - name: Upload Setup as Release download
+      - name: Upload lite Setup as Artifact
+        if: github.event_name != 'release'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lite-installer-artifact
+          path: ${{ github.workspace }}/Toolkit_*_Setup_lite
+
+      - name: Upload all Setups as Release download
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
