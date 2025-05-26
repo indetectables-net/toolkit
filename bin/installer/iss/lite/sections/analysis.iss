@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Flags: runhidden
+
+
+
 ; CAPA
 [Components]
 Name: "analysis\capa"; Description: "CAPA"; Types: full compact; 

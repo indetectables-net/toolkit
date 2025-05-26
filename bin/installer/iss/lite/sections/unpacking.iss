@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Flags: runhidden
+
+
+
 ; De4Dot
 [Components]
 Name: "unpacking\de4dot"; Description: "De4Dot"; Types: full; 

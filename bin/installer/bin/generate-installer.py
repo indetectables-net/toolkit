@@ -169,6 +169,18 @@ class GenerateInstaller:
 
     def iterate_folder(self, folder_path):
         """Iterate through folders and process each tool."""
+        # add folder desktop.ini support
+        self.section_list.append('[Run]')
+        self.section_list.append(
+            'Filename: "attrib.exe"; '
+            f'Parameters: "+s +h ""{{#MySrcDir}}\\toolkit\\{self.absolute_to_local_path(folder_path.absolute())}\\desktop.ini"""; '
+            'Flags: runhidden; '
+        )
+        self.section_list.append('')
+        self.section_list.append('')
+        self.section_list.append('')
+
+        # iterate sub folders
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir():
                 print(colorama.Fore.YELLOW + f'[+] Process: {item.name}')

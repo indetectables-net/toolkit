@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Flags: runhidden;
+
+
+
 ; 4n4lDetector
 [Components]
 Name: "analysis\4n4ldetector"; Description: "4n4lDetector"; Types: full; 

@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Decompilers\desktop.ini"""; Flags: runhidden;
+
+
+
 ; [ANDROID] JADX
 [Components]
 Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full compact; 

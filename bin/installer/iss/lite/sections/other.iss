@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Flags: runhidden
+
+
+
 ; ApkStudio
 [Components]
 Name: "other\apkstudio"; Description: "ApkStudio"; Types: full compact; 

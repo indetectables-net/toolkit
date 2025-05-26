@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Flags: runhidden;
+
+
+
 ; HxD
 [Components]
 Name: "hexeditor\hxd"; Description: "HxD"; Types: full compact; 

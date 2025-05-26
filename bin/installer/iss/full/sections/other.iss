@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Flags: runhidden;
+
+
+
 ; All Dlls Dependencies
 [Components]
 Name: "other\alldllsdependencies"; Description: "All Dlls Dependencies"; Types: full; 

@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Flags: runhidden;
+
+
+
 ; ASM Calculator
 [Components]
 Name: "reverse\asmcalculator"; Description: "ASM Calculator"; Types: full compact; 

@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Flags: runhidden;
+
+
+
 ; Cutter
 [Components]
 Name: "dissasembler\cutter"; Description: "Cutter"; Types: full; 

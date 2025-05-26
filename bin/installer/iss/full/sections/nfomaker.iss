@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\NFOMaker\desktop.ini"""; Flags: runhidden;
+
+
+
 ; Ascii Generator 2
 [Components]
 Name: "nfomaker\asciigenerator2"; Description: "Ascii Generator 2"; Types: full; 

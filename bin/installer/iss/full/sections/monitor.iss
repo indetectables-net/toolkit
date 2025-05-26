@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Monitor\desktop.ini"""; Flags: runhidden;
+
+
+
 ; Api Monitor
 [Components]
 Name: "monitor\apimonitor"; Description: "Api Monitor"; Types: full compact; 

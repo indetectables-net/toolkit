@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Flags: runhidden
+
+
+
 ; x64dbg
 [Components]
 Name: "dissasembler\x64dbg"; Description: "x64dbg"; Types: full compact; 

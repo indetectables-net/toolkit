@@ -1,3 +1,8 @@
+[Run]
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Flags: runhidden;
+
+
+
 ; GMER
 [Components]
 Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact; 
