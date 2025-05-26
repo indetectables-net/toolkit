@@ -179,7 +179,7 @@ class GenerateInstaller:
             if item.is_dir():
                 print(colorama.Fore.YELLOW + f'[+] Process: {item.name}')
                 self.tool_name = item.name
-                self.tool_iss_component = f'{component_name(self.section_name)}\\{component_name(item.name)}"'
+                self.tool_iss_component = f'{component_name(self.section_name)}\\{component_name(item.name)}'
 
                 self.iterate_tool(item)
                 self.section_list.append('')
