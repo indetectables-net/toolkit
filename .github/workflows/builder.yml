@@ -91,16 +91,16 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: full-installer-artifact
-          path: ${{ github.workspace }}/Toolkit_*_Setup.exe
+          path: ${{ github.workspace }}/*_Setup.exe
 
       - name: Upload lite Setup as Artifact
         if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
         with:
           name: lite-installer-artifact
-          path: ${{ github.workspace }}/Toolkit_*_Setup_lite
+          path: ${{ github.workspace }}/*_Setup_lite.exe
 
-      - name: Upload all Setups as Release download
+      - name: Upload all Setups as Release
         if: github.event_name == 'release'
         uses: softprops/action-gh-release@v2
         with:
