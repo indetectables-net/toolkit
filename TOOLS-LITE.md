@@ -4,11 +4,11 @@ From unpacking routines to deep static inspection, this toolkit is segmented by 
 
 🔗 **Browse Categories:**
 1. [🧪 Analysis](#-analysis)
-1. [🔧 Decompilers](#-decompilers)
+1. [🧩 Decompilers](#-decompilers)
 1. [🛠 Dissasembler](#-dissasembler)
-1. [🖋 Hex editor](#-hex-editor)
-1. [📊 Monitor](#-monitor)
-1. [🧩 Other](#-other)
+1. [🧾 Hex editor](#-hex-editor)
+1. [🔍 Monitor](#-monitor)
+1. [🧰 Other](#-other)
 1. [⏪ Reverse](#-reverse)
 1. [📦 Unpacking](#-unpacking)
 
@@ -59,7 +59,7 @@ A collection of tools designed to deeply analyze and interpret software and data
 - **Description:** This is an ELF file viewer/editor for Windows, Linux and MacOS.
 
 
-## 🔧 Decompilers
+## 🧩 Decompilers
 Tools for decompiling binaries to source code.
 
 ### [ANDROID] JADX
@@ -139,7 +139,7 @@ Although W32DASM is ancient since hasn't received updates for a very long time (
 - **Description:** An open-source binary debugger for Windows, aimed at malware analysis and reverse engineering of executables you do not have the source code for. There are many features available and a comprehensive plugin system to add your own.
 
 
-## 🖋 Hex Editor
+## 🧾 Hex Editor
 Utilities for editing binaries at the byte level.
 
 ### HxD
@@ -155,7 +155,7 @@ The easy to use interface offers features such as searching and replacing, expor
 What makes ImHex special is that it has many advanced features that can often only be found in paid applications. Such features are a completely custom binary template and pattern language to decode and highlight structures in the data, a graphical node-based data processor to pre-process values before they're displayed, a disassembler, diffing support, bookmarks and much much more.
 
 
-## 📊 Monitor
+## 🔍 Monitor
 Software for monitoring system performance and activities.
 
 ### Api Monitor
@@ -209,7 +209,7 @@ Software for monitoring system performance and activities.
 - **Description:** TCPView is a Windows program that will show you detailed listings of all TCP and UDP endpoints on your system, including the local and remote addresses and state of TCP connections.
 
 
-## 🧩 Other
+## 🧰 Other
 Miscellaneous tools that don't fit into the other categories.
 
 ### APK Studio

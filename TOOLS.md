@@ -4,12 +4,12 @@ From unpacking routines to deep static inspection, this toolkit is segmented by 
 
 🔗 **Browse Categories:**
 1. [🧪 Analysis](#-analysis)
-1. [🔧 Decompilers](#-decompilers)
+1. [🧩 Decompilers](#-decompilers)
 1. [🛠 Dissasembler](#-dissasembler)
-1. [🖋 Hex editor](#-hex-editor)
-1. [📊 Monitor](#-monitor)
+1. [🧾 Hex editor](#-hex-editor)
+1. [🔍 Monitor](#-monitor)
 1. [🎨 NFOMaker](#-nfomaker)
-1. [🧩 Other](#-other)
+1. [🧰 Other](#-other)
 1. [⏪ Reverse](#-reverse)
 1. [🛡 Rootkits detector](#-rootkits-detector)
 1. [📦 Unpacking](#-unpacking)
@@ -76,7 +76,7 @@ A collection of tools designed to deeply analyze and interpret software and data
 - **Description:** This tool is a PE file viewer/editor for Windows, Linux and MacOS.
 
 
-## 🔧 Decompilers
+## 🧩 Decompilers
 Tools for decompiling binaries to source code.
 
 ### [ANDROID] JADX
@@ -193,7 +193,7 @@ Although W32DASM is ancient since hasn't received updates for a very long time (
 - **Description:** An open-source binary debugger for Windows, aimed at malware analysis and reverse engineering of executables you do not have the source code for. There are many features available and a comprehensive plugin system to add your own.
 
 
-## 🖋 Hex Editor
+## 🧾 Hex Editor
 Utilities for editing binaries at the byte level.
 
 ### HxD
@@ -214,7 +214,7 @@ What makes ImHex special is that it has many advanced features that can often on
 - **Description:** A cross-platform (Windows, Linux, Mac) hex editor for reverse engineering, and everything else.
 
 
-## 📊 Monitor
+## 🔍 Monitor
 Software for monitoring system performance and activities.
 
 ### Api Monitor
@@ -312,7 +312,7 @@ It is the first and only program of its kind to support output for display in va
 - **Description:** NFO Maker generator
 
 
-## 🧩 Other
+## 🧰 Other
 Miscellaneous tools that don't fit into the other categories.
 
 ### APK Editor Studio
