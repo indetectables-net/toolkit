@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\NFOMaker\desktop.ini"; DestDir: "{#MyAppToolsFolder}\NFOMaker"; Components: "nfomaker"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\NFOMaker\folder.ico"; DestDir: "{#MyAppToolsFolder}\NFOMaker"; Components: "nfomaker"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\NFOMaker\desktop.ini"""; Flags: runhidden;
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\NFOMaker\desktop.ini"""; Components: "nfomaker"; Flags: runhidden; 
 
 
 

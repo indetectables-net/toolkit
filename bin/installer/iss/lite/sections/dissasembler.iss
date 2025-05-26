@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\Dissasembler\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Dissasembler\folder.ico"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Flags: runhidden
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Components: "dissasembler"; Flags: runhidden; 
 
 
 

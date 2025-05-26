@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\folder.ico"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Flags: runhidden;
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
 
 
 
@@ -24,8 +28,8 @@ Name: "rootkitsdetector\sysinspector"; Description: "Sysinspector"; Types: full 
 Source: "{#MySrcDir}\toolkit\Rootkits Detector\Sysinspector\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64_enu.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64_enu.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
+Name: "{group}\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\Sysinspector x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector\sysinspector_nt64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Sysinspector"; Components: "rootkitsdetector\sysinspector";   Check: Is64BitInstallMode; 
 
 
 

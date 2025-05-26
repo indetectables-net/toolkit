@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\Monitor\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Monitor"; Components: "monitor"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Monitor\folder.ico"; DestDir: "{#MyAppToolsFolder}\Monitor"; Components: "monitor"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Monitor\desktop.ini"""; Flags: runhidden
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Monitor\desktop.ini"""; Components: "monitor"; Flags: runhidden; 
 
 
 

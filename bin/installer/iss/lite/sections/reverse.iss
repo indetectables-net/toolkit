@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Flags: runhidden
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
 
 
 

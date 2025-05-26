@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Other\folder.ico"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Flags: runhidden
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
 
 
 

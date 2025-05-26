@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\HEX Editor\desktop.ini"; DestDir: "{#MyAppToolsFolder}\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\HEX Editor\folder.ico"; DestDir: "{#MyAppToolsFolder}\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Flags: runhidden;
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Components: "hexeditor"; Flags: runhidden; 
 
 
 

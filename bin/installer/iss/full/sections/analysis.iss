@@ -1,5 +1,9 @@
+[Files]
+Source: "{#MySrcDir}\toolkit\Analysis\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Analysis"; Components: "analysis"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Analysis\folder.ico"; DestDir: "{#MyAppToolsFolder}\Analysis"; Components: "analysis"; Flags: ignoreversion; 
+
 [Run]
-Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Flags: runhidden;
+Filename: "attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Components: "analysis"; Flags: runhidden; 
 
 
 
@@ -63,8 +67,8 @@ Name: "analysis\pebear"; Description: "PE-Bear"; Types: full;
 Source: "{#MySrcDir}\toolkit\Analysis\PE-Bear\*"; DestDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear"; Flags: ignoreversion recursesubdirs createallsubdirs; 
 
 [Icons]
-Name: "{group}\PE-Bear x64"; Filename: "{#MyAppToolsFolder}\Analysis\PE-Bear\PE-bear.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PE-Bear x64"; Filename: "{#MyAppToolsFolder}\Analysis\PE-Bear\PE-bear.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear";   Check: Is64BitInstallMode; 
+Name: "{group}\PE-Bear"; Filename: "{#MyAppToolsFolder}\Analysis\PE-Bear\PE-bear.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear";    
+Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\PE-Bear"; Filename: "{#MyAppToolsFolder}\Analysis\PE-Bear\PE-bear.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\PE-Bear"; Components: "analysis\pebear";    
 
 
 
