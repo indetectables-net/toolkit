@@ -4,7 +4,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ---
 
-## 🏷️ 2025.5 - May 20, 2025
+## 🏷️ 2025.5 - May 25, 2025
 
 ### 🆕 Added
 
@@ -12,6 +12,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ### 🔧 Changed
 
+- Use [SendTo Recomposed](https://github.com/xchwarze/sendto-recomposed) in the Windows right-click menu for files. [^1]
 - Update tools (20/05/2025)
 - Bump Universal Updater to 2.4.0
 - Fixes in tools updater regexs
