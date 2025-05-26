@@ -32,13 +32,7 @@ jobs:
             // grab tag from user input
             const inputTag = '${{ github.event.inputs.tag }}';
             if (inputTag) {
-              // duh
               return inputTag;
-            }
-
-            // grab tag from release
-            if (context.eventName === 'workflow_run') {
-              return context.payload.workflow_run.event.release.tag_name;
             }
 
             // grab tag from last release
@@ -102,6 +96,3 @@ jobs:
           files: |
             artifacts/*.exe.sig
             artifacts/*.exe.pem
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
