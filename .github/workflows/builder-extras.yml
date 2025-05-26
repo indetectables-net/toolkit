@@ -5,6 +5,9 @@ on:
   release:
     types: [created]
 
+permissions:
+  contents: write
+
 env:
   SRC_PATH: ${{ github.workspace }}/src
   INSTALLER_SCRIPT_PATH: ${{ github.workspace }}/src/bin/installer/bin
@@ -132,5 +135,3 @@ jobs:
             ${{ github.workspace }}/*.exe
             ${{ github.workspace }}/extras_tools_checksums.txt
             ${{ github.workspace }}/extras_installer_checksums.txt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
