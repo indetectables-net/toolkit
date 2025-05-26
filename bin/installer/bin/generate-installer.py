@@ -41,6 +41,7 @@ class GenerateInstaller:
         self.base_path = ''
         self.section_name = ''
         self.tool_name = ''
+        self.tool_iss_component = ''
         self.section_list = []
         self.cli_list = []
         self.valid_folders = [
@@ -151,6 +152,7 @@ class GenerateInstaller:
     def iterate_sections(self, folder_path, output_path):
         """Iterate through sections in the given folder path and generate ISS files."""
         self.base_path = folder_path
+
         for item in pathlib.Path(folder_path).iterdir():
             # check that the folder is valid for analysis
             if item.is_dir() and item.name.lower() in self.valid_folders:
@@ -170,25 +172,52 @@ class GenerateInstaller:
     def iterate_folder(self, folder_path):
         """Iterate through folders and process each tool."""
         # add folder desktop.ini support
-        self.section_list.append('[Run]')
-        self.section_list.append(
-            'Filename: "attrib.exe"; '
-            f'Parameters: "+s +h ""{{#MySrcDir}}\\toolkit\\{self.absolute_to_local_path(folder_path.absolute())}\\desktop.ini"""; '
-            'Flags: runhidden; '
-        )
-        self.section_list.append('')
-        self.section_list.append('')
-        self.section_list.append('')
+        self.generate_folder_icon(folder_path)
 
         # iterate sub folders
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir():
                 print(colorama.Fore.YELLOW + f'[+] Process: {item.name}')
                 self.tool_name = item.name
+                self.tool_iss_component = f'{component_name(self.section_name)}\\{component_name(item.name)}"'
 
                 self.iterate_tool(item)
                 self.section_list.append('')
                 self.section_list.append('')
+
+    def generate_folder_icon(self, folder_path):
+        """Generate desktop.ini setup."""
+        folder_path_name = self.absolute_to_local_path(folder_path.absolute())
+        iss_component = component_name(self.section_name)
+        iss_source = f'{{#MySrcDir}}\\toolkit\\{self.absolute_to_local_path(folder_path.absolute())}'
+        iss_dest = f'{{#MyAppToolsFolder}}\\{self.section_name}'
+
+        self.section_list.append('[Files]')
+        self.section_list.append(
+            f'Source: "{iss_source}\\desktop.ini"; '
+            f'DestDir: "{iss_dest}"; '
+            f'Components: "{iss_component}"; '
+            'Flags: ignoreversion; '
+        )
+        self.section_list.append(
+            f'Source: "{iss_source}\\folder.ico"; '
+            f'DestDir: "{iss_dest}"; '
+            f'Components: "{iss_component}"; '
+            'Flags: ignoreversion; '
+        )
+        self.section_list.append('')
+
+
+        self.section_list.append('[Run]')
+        self.section_list.append(
+            'Filename: "attrib.exe"; '
+            f'Parameters: "+s +h ""{{#MyAppToolsFolder}}\\toolkit\\{folder_path_name}\\desktop.ini"""; '
+            f'Components: "{iss_component}"; '
+            'Flags: runhidden; '
+        )
+        self.section_list.append('')
+        self.section_list.append('')
+        self.section_list.append('')
 
     def iterate_tool(self, folder_path, is_sub_folder=False):
         """Process each tool in the folder."""
@@ -196,7 +225,7 @@ class GenerateInstaller:
             self.section_list.append(f'; {self.tool_name}')
             self.section_list.append('[Components]')
             self.section_list.append(
-                f'Name: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+                f'Name: "{self.tool_iss_component}"; '
                 f'Description: "{self.tool_name}"; '
                 f'Types: {self.iss_types()}; '
             )
@@ -206,7 +235,7 @@ class GenerateInstaller:
             self.section_list.append(
                 f'Source: "{{#MySrcDir}}\\toolkit\\{self.absolute_to_local_path(folder_path.absolute())}\\*"; '
                 f'DestDir: "{{#MyAppToolsFolder}}\\{self.section_name}\\{self.tool_name}"; '
-                f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+                f'Components: "{self.tool_iss_component}"; '
                 'Flags: ignoreversion recursesubdirs createallsubdirs; '
             )
             self.section_list.append('')
@@ -253,7 +282,6 @@ class GenerateInstaller:
         iss_name = f'{self.tool_name} x64' if pe_data['is_x64'] else self.tool_name
         iss_filename = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(exe_path)}'
         iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
-        iss_components = f'{component_name(self.section_name)}\\{component_name(self.tool_name)}'
         iss_parameters = f'Parameters: "/K ""{iss_filename}""";' if pe_data['is_cli'] else ''
         iss_icon = f'IconFilename: "{iss_filename}";' if pe_data['is_cli'] else ''
         iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
@@ -269,7 +297,7 @@ class GenerateInstaller:
             print(colorama.Fore.MAGENTA + f'      [!] CLI exe')
             iss_filename = f'{{sys}}\\cmd.exe'
             self.cli_list_append(
-                iss_components,
+                self.tool_iss_component,
                 f'\\{self.absolute_to_local_path(working_dir)}',
             )
 
@@ -278,7 +306,7 @@ class GenerateInstaller:
             f'Name: "{{group}}\\{iss_name}"; '
             f'Filename: "{iss_filename}"; '
             f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{iss_components}"; '
+            f'Components: "{self.tool_iss_component}"; '
             f'{iss_parameters} '
             f'{iss_icon} '
             f'{iss_check} '
@@ -287,7 +315,7 @@ class GenerateInstaller:
             f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{iss_name}"; '
             f'Filename: "{iss_filename}"; '
             f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{iss_components}"; '
+            f'Components: "{self.tool_iss_component}"; '
             f'{iss_parameters} '
             f'{iss_icon} '
             f'{iss_check} '
@@ -321,22 +349,23 @@ class GenerateInstaller:
         print(colorama.Fore.GREEN + f'   [*] Adding jar: "{str(pathlib.Path(jar_path).name)}"')
         tool_jar_path = self.absolute_to_local_path(jar_path)
         working_dir = str(pathlib.Path(jar_path).parent)
+        iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
 
         self.section_list.append('[Icons]')
         self.section_list.append(
             f'Name: "{{group}}\\{self.tool_name}"; '
             # f'Filename: "java -jar {{#MyAppToolsFolder}}\\{tool_jar_path}"; '
             f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
-            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
-            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+            f'WorkingDir: "{iss_working_dir}"; '
+            f'Components: "{self.tool_iss_component}"; '
             f'IconFilename: "{self.get_tool_icon()}";'
         )
         self.section_list.append(
             f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{self.tool_name}"; '
             # f'Filename: "java -jar {{#MyAppToolsFolder}}\\{tool_jar_path}"; '
             f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
-            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
-            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+            f'WorkingDir: "{iss_working_dir}"; '
+            f'Components: "{self.tool_iss_component}"; '
             f'IconFilename: "{self.get_tool_icon()}";'
         )
         self.section_list.append('')
@@ -358,29 +387,30 @@ class GenerateInstaller:
         print(colorama.Fore.GREEN + f'   [*] Adding py: "{str(pathlib.Path(py_path).name)}"')
         tool_py_path = self.absolute_to_local_path(py_path)
         working_dir = str(pathlib.Path(py_path).parent)
+        iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
 
         self.section_list.append('[Icons]')
         self.section_list.append(
             f'Name: "{{group}}\\{self.tool_name}"; '
             f'Filename: "{{sys}}\\cmd.exe"; '
             f'Parameters: "/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}"""; '
-            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
-            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+            f'WorkingDir: "{iss_working_dir}"; '
+            f'Components: "{self.tool_iss_component}"; '
             f'IconFilename: "{self.get_tool_icon()}";'
         )
         self.section_list.append(
             f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{self.tool_name}"; '
             f'Filename: "{{sys}}\\cmd.exe"; '
             f'Parameters: "/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}"""; '
-            f'WorkingDir: "{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}"; '
-            f'Components: "{component_name(self.section_name)}\\{component_name(self.tool_name)}"; '
+            f'WorkingDir: "{iss_working_dir}"; '
+            f'Components: "{self.tool_iss_component}"; '
             f'IconFilename: "{self.get_tool_icon()}";'
         )
         self.section_list.append('')
 
     def cli_env_extra_code(self, output_path):
         """Generate additional CLI environment code for ISS."""
-        # first check if content exist
+        # first check if any cli executable used
         if not self.cli_list:
             return
 
