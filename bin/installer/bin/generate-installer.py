@@ -173,7 +173,7 @@ class GenerateInstaller:
         """Iterate through folders and process each tool."""
         # add folder desktop.ini support
         self.generate_folder_icon(folder_path)
-        
+
         # iterate sub folders
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir():
@@ -218,6 +218,8 @@ class GenerateInstaller:
             f'Components: "{iss_component}"; '
             'Flags: runhidden; '
         )
+        self.section_list.append('')
+        self.section_list.append('')
         self.section_list.append('')
 
     def iterate_tool(self, folder_path, is_sub_folder=False):
