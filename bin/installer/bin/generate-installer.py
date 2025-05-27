@@ -207,13 +207,13 @@ class GenerateInstaller:
 
         self.section_list.append('[Run]')
         self.section_list.append(
-            'Filename: "attrib.exe"; '
+            'Filename: "{{sys}}\\attrib.exe"; '
             f'Parameters: "+s +h ""{{#MyAppToolsFolder}}\\toolkit\\{folder_path_name}\\desktop.ini"""; '
             f'Components: "{iss_component}"; '
             'Flags: runhidden; '
         )
         self.section_list.append(
-            'Filename: "attrib.exe"; '
+            'Filename: "{{sys}}\\attrib.exe"; '
             f'Parameters: "+r ""{{#MyAppToolsFolder}}\\toolkit\\{folder_path_name}"""; '
             f'Components: "{iss_component}"; '
             'Flags: runhidden; '
