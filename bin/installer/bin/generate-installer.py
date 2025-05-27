@@ -195,23 +195,19 @@ class GenerateInstaller:
             f'Source: "{iss_source}\\desktop.ini"; '
             f'DestDir: "{iss_dest}"; '
             f'Components: "{iss_component}"; '
+            'Attribs: hidden system; '
             'Flags: ignoreversion; '
         )
         self.section_list.append(
             f'Source: "{iss_source}\\folder.ico"; '
             f'DestDir: "{iss_dest}"; '
             f'Components: "{iss_component}"; '
+            'Attribs: hidden; '
             'Flags: ignoreversion; '
         )
         self.section_list.append('')
 
         self.section_list.append('[Run]')
-        self.section_list.append(
-            f'Filename: "{{sys}}\\attrib.exe"; '
-            f'Parameters: "+s +h ""{iss_dest}\\desktop.ini"""; '
-            f'Components: "{iss_component}"; '
-            'Flags: runhidden; '
-        )
         self.section_list.append(
             f'Filename: "{{sys}}\\attrib.exe"; '
             f'Parameters: "+r ""{iss_dest}"""; '
