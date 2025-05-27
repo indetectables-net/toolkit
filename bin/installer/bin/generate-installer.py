@@ -178,6 +178,8 @@ class GenerateInstaller:
                 self.tool_name = item.name
                 self.tool_iss_component = f'{component_name(self.section_name)}\\{component_name(item.name)}'
                 self.iterate_tool(item)
+                self.section_list.append('')
+                self.section_list.append('')
 
         # add folder desktop.ini support
         self.generate_folder_icon(folder_path)
@@ -204,7 +206,6 @@ class GenerateInstaller:
         )
         self.section_list.append('')
 
-
         self.section_list.append('[Run]')
         self.section_list.append(
             f'Filename: "{{sys}}\\attrib.exe"; '
@@ -218,8 +219,6 @@ class GenerateInstaller:
             f'Components: "{iss_component}"; '
             'Flags: runhidden; '
         )
-        self.section_list.append('')
-        self.section_list.append('')
         self.section_list.append('')
 
     def iterate_tool(self, folder_path, is_sub_folder=False):
