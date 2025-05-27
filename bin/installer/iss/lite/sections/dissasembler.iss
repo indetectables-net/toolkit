@@ -1,11 +1,11 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\Dissasembler\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Dissasembler\folder.ico"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Dissasembler\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Dissasembler\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Components: "dissasembler"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Dissasembler"""; Components: "dissasembler"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\Dissasembler\desktop.ini"""; Components: "dissasembler"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\Dissasembler"""; Components: "dissasembler"; Flags: runhidden; 
 
 
 

@@ -1,11 +1,11 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\Other\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Other\folder.ico"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Other\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Other"; Components: "other"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Other\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Other"; Components: "other"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Other"""; Components: "other"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\Other"""; Components: "other"; Flags: runhidden; 
 
 
 

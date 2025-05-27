@@ -1,11 +1,11 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\Rootkits Detector\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Rootkits Detector\folder.ico"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Rootkits Detector"""; Components: "rootkitsdetector"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector"""; Components: "rootkitsdetector"; Flags: runhidden; 
 
 
 
