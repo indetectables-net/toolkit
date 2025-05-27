@@ -24,12 +24,12 @@ A collection of tools designed to deeply analyze and interpret software and data
 ### DIE
 - **Web:** https://github.com/horsicq/DIE-engine
 - **Developer:** Hors
-- **Description:** Detect It Easy, or abbreviated "DIE" is a program for determining types of files. DIE-Engine is a Graphical User Interface for DIE. 
+- **Description:** Detect It Easy (DIE) is a static analysis tool designed to identify file types and extract metadata from executables, primarily PE (Portable Executable), ELF, and other binary formats. It leverages a customizable signature-based engine combined with heuristics to detect compilers, packers, protectors, and programming languages used in binary construction.
 
 ### ExeinfoPe
 - **Web:** https://github.com/ExeinfoASL/ASL
 - **Developer:** ASL - http://www.exeinfo.byethost18.com
-- **Description:** ExEinfo PE detects packers, obfuscators, compilers & protectors in binary files.
+- **Description:** Exeinfo PE is a compact and powerful executable analyzer focused on identifying packers, obfuscators, protectors, and compilers used in binary files, especially Windows PE executables. It scans binaries using a built-in signature database and heuristic methods to provide detailed information about the file’s structure and potential protections.
 
 ### PE-Bear
 - **Web:** https://github.com/hasherezade/pe-bear-releases
@@ -45,18 +45,18 @@ A collection of tools designed to deeply analyze and interpret software and data
 ### PEStudio
 - **Web:** https://www.winitor.com/download
 - **Developer:** winitor
-- **Description:** The goal of pestudio is to spot artifacts of executable files in order to ease and accelerate Malware Initial Assessment. The tool is used by Computer Emergency Response Teams (CERT), Security Operations Centers (SOC) and Digital-Forensic Labs worldwide.
+- **Description:** PEStudio is a static analysis tool designed to inspect Windows executable files (PE) without executing them. It extracts a wide range of metadata—such as imports, exports, strings, resources, certificates, indicators, and suspicious patterns—to assist in identifying anomalies, malware traits, or indicators of compromise (IOCs).
 
 ### ProtectionID
 - ***Note:*** Available using the extra called: **Oldies**
 - **Web:** https://web.archive.org/web/20210331144912/https://protectionid.net/
 - **Developer:** CDKiller & TippeX
-- **Description:** PiD Team's Protection ID started as a PC game protection detector, and quickly became a swiss-army knife to detect packers & .NET protections.
+- **Description:** ProtectionID is a comprehensive scanner originally developed to detect copy protection schemes in PC games. Over time, it evolved into a versatile tool capable of identifying a wide range of executable protections, packers, cryptors, and .NET obfuscators.
 
 ### XELFViewer
 - **Web:** https://github.com/horsicq/XELFViewer
 - **Developer:** Hors
-- **Description:** This is an ELF file viewer/editor for Windows, Linux and MacOS.
+- **Description:** XELFViewer is a cross-platform viewer/editor for ELF binaries, supporting Windows, Linux, and macOS. It allows in-depth inspection of ELF headers, sections, segments, and dynamic linking data, making it useful for reverse engineering and binary inspection tasks involving Unix-like systems.
 
 
 ## 🧩 Decompilers
@@ -65,7 +65,7 @@ Tools for decompiling binaries to source code.
 ### [ANDROID] JADX
 - **Web:** https://github.com/skylot/jadx
 - **Developer:** skylot
-- **Description:** Dex to Java decompiler: command line and GUI tools for producing Java source code from Android Dex and Apk files
+- **Description:** JADX is a decompiler for Android's DEX and APK files that translates bytecode into readable Java source code. It includes both CLI and GUI tools, supports resource extraction, and aids reverse engineering of Android applications.
 
 ### [DELPHI] Dede
 - ***Note:*** Available using the extra called: **Oldies**
@@ -82,12 +82,12 @@ Tools for decompiling binaries to source code.
 ### [DOTNET] ILSpy
 - **Web:** https://github.com/icsharpcode/ILSpy
 - **Developer:** ic#code
-- **Description:** ILSpy is the open-source .NET assembly browser and decompiler.
+- **Description:** ILSpy is an open-source .NET decompiler and assembly browser. It provides fast and reliable decompilation of managed binaries.
 
 ### [JAVA] JD-GUI
 - **Web:** https://github.com/java-decompiler/jd-gui
 - **Developer:** the Java Decompiler dev team
-- **Description:** This is a standalone graphical utility that displays Java sources from CLASS files.
+- **Description:** JD-GUI is a standalone Java decompiler that displays source code from .class files in a readable form. Useful for auditing and code recovery.
 
 ### [JAVA] Recaf
 - **Web:** https://github.com/Col-E/Recaf
@@ -198,10 +198,10 @@ Software for monitoring system performance and activities.
 - **Developer:** NirSoft
 - **Description:**  RegistryChangesView is a tool for Windows that allows you to take a snapshot of Windows Registry and later compare it with another Registry snapshots, with the current Registry or with Registry files stored in a shadow copy created by Windows. When comparing 2 Registry snapshots, you can see the exact changes made in the Registry between the 2 snapshots, and optionally export the Registry changes into a standard .reg file of RegEdit.
 
-### System Informer (Process Hacker 3)
+### System Informer (formerly known as "Process Hacker 3")
 - **Web:** https://systeminformer.sourceforge.io
 - **Developer:** System Informer
-- **Description:** A free, powerful, multi-purpose tool that helps you monitor system resources, debug software and detect malware.
+- **Description:** System Informer is a powerful, open-source system monitoring and debugging tool for Windows. It provides detailed views of processes, threads, modules, network connections, and handles. Designed for advanced users, it enables malware detection, live process memory editing, and service management with granularity beyond Task Manager.
 
 ### TCPView
 - **Web:** https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview
@@ -221,7 +221,7 @@ Miscellaneous tools that don't fit into the other categories.
 - ***Note:*** Available using the extra called: **Oldies**
 - **Web:** www.indetectables.net
 - **Developer:** Sr Sombrero
-- **Description:** AVFucker is a tool that helps you evade Antivirus using the “replace byte signature” technique.
+- **Description:** AVFucker is a classic evasion tool that modifies known antivirus signature bytes within executable files to bypass detection. It automates the “replace byte signature” technique, often used in packer or crypter workflows.
 
 ### FLOSS
 - **Web:** https://github.com/fireeye/flare-floss
@@ -242,7 +242,7 @@ Miscellaneous tools that don't fit into the other categories.
 - ***Note:*** Available using the extra called: **Oldies**
 - **Web:** https://www.indetectables.net/viewtopic.php?t=29725
 - **Developer:** Mingo, Yorll & Metal
-- **Description:** This is a classic, great tool to clean AV signatures in executables.
+- **Description:** Indetectables Offset Locator is a legacy tool used to locate and manipulate offsets in PE files to help evade antivirus detection. Commonly used for AV signature cleaning in binaries, it allows manual patching of suspicious byte patterns.
 
 ### RawCap
 - **Web:** https://www.netresec.com/?page=RawCap
@@ -268,12 +268,12 @@ Miscellaneous tools that don't fit into the other categories.
 ### Strings
 - **Web:** https://docs.microsoft.com/en-us/sysinternals/downloads/strings
 - **Developer:** Sysinternals
-- **Description:** Search for ANSI and Unicode strings in binary images.
+- **Description:** Strings is a Sysinternals utility that extracts ASCII and Unicode strings from binary files. Commonly used in malware analysis, it helps identify readable content, paths, URLs, or embedded commands within executables.
 
 ### VirusTotal Uploader
 - **Web:** https://github.com/SamuelTulach/VirusTotalUploader
 - **Developer:** Samuel Tulach
-- **Description:** VirusTotal file uploader
+- **Description:** VirusTotal Uploader is a desktop utility that allows fast file submissions to VirusTotal directly from your machine. It streamlines malware scanning by integrating API-based uploads and result fetching.
 
 ### WinObjEx64
 - **Web:** https://github.com/hfiref0x/WinObjEx64
@@ -292,7 +292,7 @@ Software and techniques for reversing engineering.
 ### CryptoTester
 - **Web:** https://github.com/Demonslay335/CryptoTester
 - **Developer:** Michael Gillespie
-- **Description:** A utility for playing with cryptography, geared towards ransomware analysis.
+- **Description:** CryptoTester is a cryptographic analysis utility designed to aid in ransomware research. It allows testing of common crypto algorithms and configurations used in malware encryption routines.
 
 ### DLest
 - **Web:** https://github.com/DarkCoderSc/DLest
@@ -302,13 +302,13 @@ Software and techniques for reversing engineering.
 ### ExtremeDumper
 - **Web:** https://github.com/wwh1004/ExtremeDumper
 - **Developer:** wwh1004
-- **Description:** .NET Assembly Dumper
+- **Description:** ExtremeDumper is a .NET assembly dumper capable of extracting in-memory .NET modules from running processes. It supports both 32-bit and 64-bit targets and is useful for unpacking and analyzing obfuscated or protected .NET applications.
 
 ### ImpREC (with plugins)
 - ***Note:*** Available using the extra called: **Oldies**
 - **Web:** Unknown
 - **Developer:** MackT/uCF
-- **Description:** ImpRec is a very handy tool that can be used to repair/reconstruct the import table for packed programs.
+- **Description:** ImpREC (Import Reconstructor) is a classic reverse engineering tool used to reconstruct or repair the Import Address Table (IAT) of packed or manually unpacked PE files. It supports plugin extensions and is essential in many unpacking workflows.
 
 ### Keygener Assistant
 - **Web:** https://www.at4re.net/f/thread-47.html
@@ -323,7 +323,7 @@ Software and techniques for reversing engineering.
 ### Scylla
 - **Web:** https://github.com/NtQuery/Scylla
 - **Developer:** The NtQuery team
-- **Description:** Great tool for the purpose of rebuilding an Import Table. This is an alternative to ImpRec.
+- **Description:** Scylla is a modern alternative to ImpREC for rebuilding the Import Address Table (IAT) of PE files. It supports dumping and fixing in-memory modules, making it a key tool in unpacking and reverse engineering workflows.
 
 ### WinAPI Search
 - **Web:** https://dennisbabkin.com/winapisearch/
@@ -333,7 +333,7 @@ Software and techniques for reversing engineering.
 ### x64dbg Plugin Manager
 - **Web:** https://github.com/horsicq/x64dbg-Plugin-Manager
 - **Developer:** Hors
-- **Description:** Plugin manager for x64dbg.
+- **Description:** x64dbg Plugin Manager is a graphical utility to manage, install, and update plugins for the x64dbg debugger. It streamlines plugin handling for reverse engineering workflows.
 
 
 ## 📦 UnPacking
