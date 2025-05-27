@@ -97,7 +97,7 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 - **Description:** Decompiles 'compiled' AutoIT Exe files.
 
 ### [AUTOIT] UnAutoIt
-- **Web:** https://github.com/x0r19x91/UnAutoIt
+- **Web:** https://web.archive.org/web/20220601075656/https://github.com/x0r19x91/UnAutoIt
 - **Developer:** x0r19x91
 - **Description:** Decompiles AutoIt v3+ Exe files.
 
@@ -144,7 +144,7 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 - **Description:** Python script to extract the contents of a PyInstaller generated Windows executable file. The contents of the pyz file (usually pyc files) present inside the executable are also extracted. The header of the pyc files are automatically fixed so that a Python bytecode decompiler will recognize it.
 
 ### [PYTHON] Python Decompyle++
-- **Web:** https://github.com/xchwarze/pycdc
+- **Web:** https://github.com/zrax/pycdc
 - **Developer:** Michael Hansen, Darryl Pogue, charlietang98, Kunal Parmar, Olivier Iffrig, Zlodiy
 - **Description:** Decompyle++ is a tool that aims to translate compiled Python byte-code back into valid and human-readable Python source code. It includes both a byte-code disassembler (pycdas) and a decompiler (pycdc), and supports byte-code from any version of Python. 
 
@@ -182,7 +182,7 @@ Resources and tools to disassemble compiled programs.
 
 ### w32Dasm (with all versions)
 - ***Note:*** Available using the extra called: **Oldies**
-- **Web:** http://members.home.net/w32dasm/ (closed)
+- **Web:** https://web.archive.org/web/20020204180925/http://members.home.net/w32dasm/
 - **Developer:** URSoftware
 - **Description:** W32DASM is a disassembler: a tool made to translate machine language back into assembly language. It's ideal for those interested in reverse engineering, who want to take code apart and find out how it works. 
 Although W32DASM is ancient since hasn't received updates for a very long time (it's officially discontinued), it works without any trouble on Windows 10.
@@ -302,7 +302,7 @@ Tools for creating or editing NFO files.
 It is the first and only program of its kind to support output for display in variable width fonts, with real-time output adjustment and much more.
 
 ### Cool Beans NFO Creator
-- **Web:** https://www.coolbeans.ws/nfocreator.shtml
+- **Web:** https://web.archive.org/web/20210425192927/http://www.coolbeans.ws/nfocreator.shtml
 - **Developer:** Cool Beans Software
 - **Description:** Cool Beans NFO Creator is a small program that generates detailed .nfo text files based on nearly fifty user-input fields.
 
@@ -531,7 +531,7 @@ From Chinese developers. Competitor of Quick Unpack.
 - **Description:** This is a program to dump .NET packed applications. Of course no serious .NET protection relies on packing. In fact, this software shows how easily you can unpack a protected assemly.
 
 ### QUnpack
-- **Web:** http://qunpack.ahteam.org
+- **Web:** https://www.at4re.net/f/thread-24.html
 - **Developer:** Archer & FEUERRADER
 - **Description:** The program is intended for a dynamic unpacking of binders, crypters, packers and protectors.
 QuickUnpack tries to bypass all possible scramblers/obfuscators and restores redirected import. From the version 1 the opportunity of unpacking dll is added. From the version 2 the attach process feature added which allows to use QuickUnpack as a dumper and import recoverer. Scripts are also supported from version 2 which allows unpacking of more complicated protections. Version 3 brought x64 support and hardware virtualization debugging engine. This makes QuickUnpack a unique software product which has no similar analogues in the world!
