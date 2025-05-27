@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Analysis\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Analysis"; Components: "analysis"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Analysis\folder.ico"; DestDir: "{#MyAppToolsFolder}\Analysis"; Components: "analysis"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Components: "analysis"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Analysis"""; Components: "analysis"; Flags: runhidden; 
+
 ; CAPA
 [Components]
 Name: "analysis\capa"; Description: "CAPA"; Types: full compact; 
@@ -75,11 +84,3 @@ Name: "{group}\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\x
 Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XELFViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XELFViewer\xelfviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XELFViewer"; Components: "analysis\xelfviewer";    
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Analysis"; Components: "analysis"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Analysis\folder.ico"; DestDir: "{#MyAppToolsFolder}\Analysis"; Components: "analysis"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Components: "analysis"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Analysis"""; Components: "analysis"; Flags: runhidden; 

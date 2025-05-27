@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\folder.ico"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Rootkits Detector"""; Components: "rootkitsdetector"; Flags: runhidden; 
+
 ; GMER
 [Components]
 Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact; 
@@ -36,11 +45,3 @@ Name: "{group}\Windows Kernel Explorer x64"; Filename: "{#MyAppToolsFolder}\Root
 Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\Windows Kernel Explorer x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer\WKE64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer"; Components: "rootkitsdetector\windowskernelexplorer";   Check: Is64BitInstallMode; 
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Rootkits Detector\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Rootkits Detector\folder.ico"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Rootkits Detector"""; Components: "rootkitsdetector"; Flags: runhidden; 

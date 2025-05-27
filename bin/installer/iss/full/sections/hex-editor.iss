@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\HEX Editor\desktop.ini"; DestDir: "{#MyAppToolsFolder}\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\HEX Editor\folder.ico"; DestDir: "{#MyAppToolsFolder}\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Components: "hexeditor"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\HEX Editor"""; Components: "hexeditor"; Flags: runhidden; 
+
 ; HxD
 [Components]
 Name: "hexeditor\hxd"; Description: "HxD"; Types: full compact; 
@@ -40,11 +49,3 @@ Name: "{group}\REHex x64"; Filename: "{#MyAppToolsFolder}\HEX Editor\REHex\rehex
 Name: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor\REHex x64"; Filename: "{#MyAppToolsFolder}\HEX Editor\REHex\rehex.exe"; WorkingDir: "{#MyAppToolsFolder}\HEX Editor\REHex"; Components: "hexeditor\rehex";   Check: Is64BitInstallMode; 
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\HEX Editor\desktop.ini"; DestDir: "{#MyAppToolsFolder}\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\HEX Editor\folder.ico"; DestDir: "{#MyAppToolsFolder}\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Components: "hexeditor"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\HEX Editor"""; Components: "hexeditor"; Flags: runhidden; 

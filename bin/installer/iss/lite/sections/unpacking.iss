@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\UnPacking\desktop.ini"; DestDir: "{#MyAppToolsFolder}\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppToolsFolder}\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Components: "unpacking"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\UnPacking"""; Components: "unpacking"; Flags: runhidden; 
+
 ; De4Dot
 [Components]
 Name: "unpacking\de4dot"; Description: "De4Dot"; Types: full; 
@@ -63,11 +72,3 @@ Name: "{group}\XVolkolak"; Filename: "{#MyAppToolsFolder}\UnPacking\XVolkolak\xv
 Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\XVolkolak"; Filename: "{#MyAppToolsFolder}\UnPacking\XVolkolak\xvlk.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\XVolkolak"; Components: "unpacking\xvolkolak";    
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\UnPacking\desktop.ini"; DestDir: "{#MyAppToolsFolder}\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppToolsFolder}\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Components: "unpacking"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\UnPacking"""; Components: "unpacking"; Flags: runhidden; 

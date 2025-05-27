@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Dissasembler\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Dissasembler\folder.ico"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Components: "dissasembler"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Dissasembler"""; Components: "dissasembler"; Flags: runhidden; 
+
 ; x64dbg
 [Components]
 Name: "dissasembler\x64dbg"; Description: "x64dbg"; Types: full compact; 
@@ -10,11 +19,3 @@ Name: "{group}\x64dbg"; Filename: "{#MyAppToolsFolder}\Dissasembler\x64dbg\x96db
 Name: "{#MyAppBinsFolder}\sendto\sendto\Dissasembler\x64dbg"; Filename: "{#MyAppToolsFolder}\Dissasembler\x64dbg\x96dbg.exe"; WorkingDir: "{#MyAppToolsFolder}\Dissasembler\x64dbg"; Components: "dissasembler\x64dbg";    
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Dissasembler\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Dissasembler\folder.ico"; DestDir: "{#MyAppToolsFolder}\Dissasembler"; Components: "dissasembler"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Components: "dissasembler"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Dissasembler"""; Components: "dissasembler"; Flags: runhidden; 

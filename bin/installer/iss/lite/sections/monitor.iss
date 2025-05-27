@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Monitor\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Monitor"; Components: "monitor"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Monitor\folder.ico"; DestDir: "{#MyAppToolsFolder}\Monitor"; Components: "monitor"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Monitor\desktop.ini"""; Components: "monitor"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Monitor"""; Components: "monitor"; Flags: runhidden; 
+
 ; Api Monitor
 [Components]
 Name: "monitor\apimonitor"; Description: "Api Monitor"; Types: full compact; 
@@ -155,11 +164,3 @@ Name: "{group}\TCPView x64"; Filename: "{#MyAppToolsFolder}\Monitor\TCPView\tcpv
 Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\TCPView x64"; Filename: "{#MyAppToolsFolder}\Monitor\TCPView\tcpview64.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview";   Check: Is64BitInstallMode; 
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Monitor\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Monitor"; Components: "monitor"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Monitor\folder.ico"; DestDir: "{#MyAppToolsFolder}\Monitor"; Components: "monitor"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Monitor\desktop.ini"""; Components: "monitor"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Monitor"""; Components: "monitor"; Flags: runhidden; 

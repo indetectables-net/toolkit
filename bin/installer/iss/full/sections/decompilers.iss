@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Decompilers\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Decompilers"; Components: "decompilers"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Decompilers\folder.ico"; DestDir: "{#MyAppToolsFolder}\Decompilers"; Components: "decompilers"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Decompilers\desktop.ini"""; Components: "decompilers"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Decompilers"""; Components: "decompilers"; Flags: runhidden; 
+
 ; [ANDROID] JADX
 [Components]
 Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full compact; 
@@ -157,11 +166,3 @@ Name: "{group}\[VB] VB Decompiler"; Filename: "{#MyAppToolsFolder}\Decompilers\[
 Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[VB] VB Decompiler"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler\VB Decompiler.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler";    
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Decompilers\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Decompilers"; Components: "decompilers"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Decompilers\folder.ico"; DestDir: "{#MyAppToolsFolder}\Decompilers"; Components: "decompilers"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Decompilers\desktop.ini"""; Components: "decompilers"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Decompilers"""; Components: "decompilers"; Flags: runhidden; 

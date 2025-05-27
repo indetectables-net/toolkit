@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Reverse"""; Components: "reverse"; Flags: runhidden; 
+
 ; ASM Calculator
 [Components]
 Name: "reverse\asmcalculator"; Description: "ASM Calculator"; Types: full compact; 
@@ -199,11 +208,3 @@ Name: "{group}\XOpCodeCalc x64"; Filename: "{#MyAppToolsFolder}\Reverse\XOpCodeC
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\XOpCodeCalc x64"; Filename: "{#MyAppToolsFolder}\Reverse\XOpCodeCalc\xocalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\XOpCodeCalc"; Components: "reverse\xopcodecalc";   Check: Is64BitInstallMode; 
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Reverse"""; Components: "reverse"; Flags: runhidden; 

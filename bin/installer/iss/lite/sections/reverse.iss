@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Reverse"""; Components: "reverse"; Flags: runhidden; 
+
 ; ASM Calculator
 [Components]
 Name: "reverse\asmcalculator"; Description: "ASM Calculator"; Types: full compact; 
@@ -130,11 +139,3 @@ Name: "{group}\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Reverse\x64d
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Reverse\x64dbgPluginManager\x64plgmnr.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\x64dbgPluginManager"; Components: "reverse\x64dbgpluginmanager";    
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Reverse"""; Components: "reverse"; Flags: runhidden; 

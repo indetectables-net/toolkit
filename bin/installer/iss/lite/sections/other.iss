@@ -1,3 +1,12 @@
+; Main section
+[Files]
+Source: "{#MySrcDir}\toolkit\Other\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Other\folder.ico"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
+
+[Run]
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Other"""; Components: "other"; Flags: runhidden; 
+
 ; ApkStudio
 [Components]
 Name: "other\apkstudio"; Description: "ApkStudio"; Types: full compact; 
@@ -131,11 +140,3 @@ Name: "{group}\WinObjEx64 x64"; Filename: "{#MyAppToolsFolder}\Other\WinObjEx64\
 Name: "{#MyAppBinsFolder}\sendto\sendto\Other\WinObjEx64 x64"; Filename: "{#MyAppToolsFolder}\Other\WinObjEx64\WinObjEx64.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\WinObjEx64"; Components: "other\winobjex64";   Check: Is64BitInstallMode; 
 
 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Other\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Other\folder.ico"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
-
-[Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
-Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Other"""; Components: "other"; Flags: runhidden; 
