@@ -178,8 +178,6 @@ class GenerateInstaller:
                 self.tool_name = item.name
                 self.tool_iss_component = f'{component_name(self.section_name)}\\{component_name(item.name)}'
                 self.iterate_tool(item)
-                self.section_list.append('')
-                self.section_list.append('')
 
         # add folder desktop.ini support
         self.generate_folder_icon(folder_path)
@@ -241,8 +239,6 @@ class GenerateInstaller:
                 'Flags: ignoreversion recursesubdirs createallsubdirs; '
             )
             self.section_list.append('')
-            self.section_list.append('')
-            self.section_list.append('')
 
         # generate tool info
         tool_exe_total = self.iterate_tool_exe(folder_path)
@@ -254,6 +250,9 @@ class GenerateInstaller:
             if item.is_dir() and tool_exe_total == 0 and tool_jar_total == 0 and tool_py_total == 0:
                 print(colorama.Fore.MAGENTA + f'   [!] Iterate sub folder: "{item}"')
                 self.iterate_tool(item, True)
+
+        self.section_list.append('')
+        self.section_list.append('')
 
     def iterate_tool_exe(self, folder_path):
         """Process executable files in the folder."""
