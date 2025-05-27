@@ -187,7 +187,7 @@ class GenerateInstaller:
         folder_path_name = self.absolute_to_local_path(folder_path.absolute())
         iss_component = component_name(self.section_name)
         iss_source = f'{{#MySrcDir}}\\toolkit\\{self.absolute_to_local_path(folder_path.absolute())}'
-        iss_dest = f'{{#MyAppToolsFolder}}\\{self.section_name}'
+        iss_dest = f'{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}'
 
         self.section_list.append('; Main section')
         self.section_list.append('[Files]')
@@ -208,13 +208,13 @@ class GenerateInstaller:
         self.section_list.append('[Run]')
         self.section_list.append(
             f'Filename: "{{sys}}\\attrib.exe"; '
-            f'Parameters: "+s +h ""{{#MyAppToolsFolder}}\\toolkit\\{folder_path_name}\\desktop.ini"""; '
+            f'Parameters: "+s +h ""{iss_dest}\\desktop.ini"""; '
             f'Components: "{iss_component}"; '
             'Flags: runhidden; '
         )
         self.section_list.append(
             f'Filename: "{{sys}}\\attrib.exe"; '
-            f'Parameters: "+r ""{{#MyAppToolsFolder}}\\toolkit\\{folder_path_name}"""; '
+            f'Parameters: "+r ""{iss_dest}"""; '
             f'Components: "{iss_component}"; '
             'Flags: runhidden; '
         )
