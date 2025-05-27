@@ -18,7 +18,11 @@ permissions:
 jobs:
   sign:
     if: >
-      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success')
+      (
+        github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success' &&
+        github.event.workflow_run.event == 'push'
+      )
       || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
 
