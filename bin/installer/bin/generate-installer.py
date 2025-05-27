@@ -171,6 +171,9 @@ class GenerateInstaller:
 
     def iterate_folder(self, folder_path):
         """Iterate through folders and process each tool."""
+        # add folder desktop.ini support
+        self.generate_folder_icon(folder_path)
+        
         # iterate sub folders
         for item in pathlib.Path(folder_path).iterdir():
             if item.is_dir():
@@ -179,9 +182,6 @@ class GenerateInstaller:
                 self.tool_iss_component = f'{component_name(self.section_name)}\\{component_name(item.name)}'
                 self.iterate_tool(item)
 
-        # add folder desktop.ini support
-        self.generate_folder_icon(folder_path)
-
     def generate_folder_icon(self, folder_path):
         """Generate desktop.ini setup."""
         folder_path_name = self.absolute_to_local_path(folder_path.absolute())
@@ -189,6 +189,7 @@ class GenerateInstaller:
         iss_source = f'{{#MySrcDir}}\\toolkit\\{self.absolute_to_local_path(folder_path.absolute())}'
         iss_dest = f'{{#MyAppToolsFolder}}\\{self.section_name}'
 
+        self.section_list.append('; Main section')
         self.section_list.append('[Files]')
         self.section_list.append(
             f'Source: "{iss_source}\\desktop.ini"; '
