@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\Other\folder.ico"; DestDir: "{#MyAppToolsFolder}\Ot
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Other"""; Components: "other"; Flags: runhidden; 
 
+
+
 ; All Dlls Dependencies
 [Components]
 Name: "other\alldllsdependencies"; Description: "All Dlls Dependencies"; Types: full; 

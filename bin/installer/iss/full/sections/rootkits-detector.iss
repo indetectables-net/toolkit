@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\Rootkits Detector\folder.ico"; DestDir: "{#MyAppToo
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Rootkits Detector"""; Components: "rootkitsdetector"; Flags: runhidden; 
 
+
+
 ; GMER
 [Components]
 Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact; 

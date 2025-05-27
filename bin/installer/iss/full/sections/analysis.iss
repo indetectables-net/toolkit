@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\Analysis\folder.ico"; DestDir: "{#MyAppToolsFolder}
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Components: "analysis"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Analysis"""; Components: "analysis"; Flags: runhidden; 
 
+
+
 ; 4n4lDetector
 [Components]
 Name: "analysis\4n4ldetector"; Description: "4n4lDetector"; Types: full; 

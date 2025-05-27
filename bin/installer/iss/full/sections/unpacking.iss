@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppToolsFolder
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Components: "unpacking"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\UnPacking"""; Components: "unpacking"; Flags: runhidden; 
 
+
+
 ; De4Dot
 [Components]
 Name: "unpacking\de4dot"; Description: "De4Dot"; Types: full; 

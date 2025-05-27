@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\Dissasembler\folder.ico"; DestDir: "{#MyAppToolsFol
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Dissasembler\desktop.ini"""; Components: "dissasembler"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Dissasembler"""; Components: "dissasembler"; Flags: runhidden; 
 
+
+
 ; Cutter
 [Components]
 Name: "dissasembler\cutter"; Description: "Cutter"; Types: full; 

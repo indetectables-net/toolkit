@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\Monitor\folder.ico"; DestDir: "{#MyAppToolsFolder}\
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Monitor\desktop.ini"""; Components: "monitor"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Monitor"""; Components: "monitor"; Flags: runhidden; 
 
+
+
 ; Api Monitor
 [Components]
 Name: "monitor\apimonitor"; Description: "Api Monitor"; Types: full compact; 

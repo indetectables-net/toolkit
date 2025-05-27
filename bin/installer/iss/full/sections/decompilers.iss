@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\Decompilers\folder.ico"; DestDir: "{#MyAppToolsFold
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Decompilers\desktop.ini"""; Components: "decompilers"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Decompilers"""; Components: "decompilers"; Flags: runhidden; 
 
+
+
 ; [ANDROID] JADX
 [Components]
 Name: "decompilers\androidjadx"; Description: "[ANDROID] JADX"; Types: full compact; 

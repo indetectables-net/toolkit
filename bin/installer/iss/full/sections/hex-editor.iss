@@ -7,6 +7,8 @@ Source: "{#MySrcDir}\toolkit\HEX Editor\folder.ico"; DestDir: "{#MyAppToolsFolde
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Components: "hexeditor"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\HEX Editor"""; Components: "hexeditor"; Flags: runhidden; 
 
+
+
 ; HxD
 [Components]
 Name: "hexeditor\hxd"; Description: "HxD"; Types: full compact; 
