@@ -81,7 +81,7 @@ Source: "{#MySrcDir}\toolkit\Decompilers\desktop.ini"; DestDir: "{#MyAppToolsFol
 Source: "{#MySrcDir}\toolkit\Decompilers\folder.ico"; DestDir: "{#MyAppToolsFolder}\Decompilers"; Components: "decompilers"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Decompilers\desktop.ini"""; Components: "decompilers"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Decompilers"""; Components: "decompilers"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Decompilers\desktop.ini"""; Components: "decompilers"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Decompilers"""; Components: "decompilers"; Flags: runhidden; 
 
 

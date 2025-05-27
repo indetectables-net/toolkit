@@ -210,7 +210,7 @@ Source: "{#MySrcDir}\toolkit\Other\desktop.ini"; DestDir: "{#MyAppToolsFolder}\O
 Source: "{#MySrcDir}\toolkit\Other\folder.ico"; DestDir: "{#MyAppToolsFolder}\Other"; Components: "other"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Other"""; Components: "other"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Other\desktop.ini"""; Components: "other"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Other"""; Components: "other"; Flags: runhidden; 
 
 

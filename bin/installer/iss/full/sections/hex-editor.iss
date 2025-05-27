@@ -46,7 +46,7 @@ Source: "{#MySrcDir}\toolkit\HEX Editor\desktop.ini"; DestDir: "{#MyAppToolsFold
 Source: "{#MySrcDir}\toolkit\HEX Editor\folder.ico"; DestDir: "{#MyAppToolsFolder}\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Components: "hexeditor"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\HEX Editor"""; Components: "hexeditor"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\HEX Editor\desktop.ini"""; Components: "hexeditor"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\HEX Editor"""; Components: "hexeditor"; Flags: runhidden; 
 
 

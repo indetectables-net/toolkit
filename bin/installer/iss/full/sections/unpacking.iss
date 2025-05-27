@@ -63,7 +63,7 @@ Source: "{#MySrcDir}\toolkit\UnPacking\desktop.ini"; DestDir: "{#MyAppToolsFolde
 Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppToolsFolder}\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Components: "unpacking"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\UnPacking"""; Components: "unpacking"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Components: "unpacking"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\UnPacking"""; Components: "unpacking"; Flags: runhidden; 
 
 

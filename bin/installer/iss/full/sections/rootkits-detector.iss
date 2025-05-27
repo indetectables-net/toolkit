@@ -42,7 +42,7 @@ Source: "{#MySrcDir}\toolkit\Rootkits Detector\desktop.ini"; DestDir: "{#MyAppTo
 Source: "{#MySrcDir}\toolkit\Rootkits Detector\folder.ico"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector"; Components: "rootkitsdetector"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Rootkits Detector"""; Components: "rootkitsdetector"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Rootkits Detector\desktop.ini"""; Components: "rootkitsdetector"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Rootkits Detector"""; Components: "rootkitsdetector"; Flags: runhidden; 
 
 

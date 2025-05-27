@@ -136,7 +136,7 @@ Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppToolsFolder}
 Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Reverse"""; Components: "reverse"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Reverse"""; Components: "reverse"; Flags: runhidden; 
 
 

@@ -120,7 +120,7 @@ Source: "{#MySrcDir}\toolkit\Analysis\desktop.ini"; DestDir: "{#MyAppToolsFolder
 Source: "{#MySrcDir}\toolkit\Analysis\folder.ico"; DestDir: "{#MyAppToolsFolder}\Analysis"; Components: "analysis"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Components: "analysis"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Analysis"""; Components: "analysis"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Analysis\desktop.ini"""; Components: "analysis"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Analysis"""; Components: "analysis"; Flags: runhidden; 
 
 

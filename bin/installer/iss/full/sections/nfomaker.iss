@@ -42,7 +42,7 @@ Source: "{#MySrcDir}\toolkit\NFOMaker\desktop.ini"; DestDir: "{#MyAppToolsFolder
 Source: "{#MySrcDir}\toolkit\NFOMaker\folder.ico"; DestDir: "{#MyAppToolsFolder}\NFOMaker"; Components: "nfomaker"; Flags: ignoreversion; 
 
 [Run]
-Filename: "{{sys}}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\NFOMaker\desktop.ini"""; Components: "nfomaker"; Flags: runhidden; 
-Filename: "{{sys}}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\NFOMaker"""; Components: "nfomaker"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\NFOMaker\desktop.ini"""; Components: "nfomaker"; Flags: runhidden; 
+Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\NFOMaker"""; Components: "nfomaker"; Flags: runhidden; 
 
 
