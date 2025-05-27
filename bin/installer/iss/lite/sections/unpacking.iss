@@ -15,6 +15,8 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot x64"; Filename: "{sys}\
 Name: "{group}\De4Dot"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; Check: not Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; Check: not Is64BitInstallMode; 
 
+
+
 ; QUnpack
 [Components]
 Name: "unpacking\qunpack"; Description: "QUnpack"; Types: full; 
@@ -32,6 +34,8 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\QUnpack"; Filename: "{#MyAppTo
 Name: "{group}\QUnpack x64"; Filename: "{#MyAppToolsFolder}\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64\Explorer.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"; Components: "unpacking\qunpack";   Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\QUnpack x64"; Filename: "{#MyAppToolsFolder}\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64\Explorer.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\QUnpack\QUnpack - 4.3\QUnpack64"; Components: "unpacking\qunpack";   Check: Is64BitInstallMode; 
 
+
+
 ; UniExtract
 [Components]
 Name: "unpacking\uniextract"; Description: "UniExtract"; Types: full compact; 
@@ -44,6 +48,8 @@ Source: "{#MySrcDir}\toolkit\UnPacking\UniExtract\*"; DestDir: "{#MyAppToolsFold
 [Icons]
 Name: "{group}\UniExtract"; Filename: "{#MyAppToolsFolder}\UnPacking\UniExtract\UniExtract.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\UniExtract"; Components: "unpacking\uniextract";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\UniExtract"; Filename: "{#MyAppToolsFolder}\UnPacking\UniExtract\UniExtract.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\UniExtract"; Components: "unpacking\uniextract";    
+
+
 
 ; XVolkolak
 [Components]
@@ -58,6 +64,8 @@ Source: "{#MySrcDir}\toolkit\UnPacking\XVolkolak\*"; DestDir: "{#MyAppToolsFolde
 Name: "{group}\XVolkolak"; Filename: "{#MyAppToolsFolder}\UnPacking\XVolkolak\xvlk.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\XVolkolak"; Components: "unpacking\xvolkolak";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\XVolkolak"; Filename: "{#MyAppToolsFolder}\UnPacking\XVolkolak\xvlk.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\XVolkolak"; Components: "unpacking\xvolkolak";    
 
+
+
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\desktop.ini"; DestDir: "{#MyAppToolsFolder}\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
 Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppToolsFolder}\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
@@ -65,5 +73,3 @@ Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppToolsFolder
 [Run]
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\UnPacking\desktop.ini"""; Components: "unpacking"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\UnPacking"""; Components: "unpacking"; Flags: runhidden; 
-
-

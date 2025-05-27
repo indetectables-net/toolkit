@@ -11,6 +11,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\ASM Calculator\*"; DestDir: "{#MyAppToolsFo
 Name: "{group}\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\calc32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ASM Calculator"; Filename: "{#MyAppToolsFolder}\Reverse\ASM Calculator\calc32.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ASM Calculator"; Components: "reverse\asmcalculator";    
 
+
+
 ; AT4RE Patcher
 [Components]
 Name: "reverse\at4repatcher"; Description: "AT4RE Patcher"; Types: full; 
@@ -24,6 +26,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\AT4RE Patcher\*"; DestDir: "{#MyAppToolsFol
 Name: "{group}\AT4RE Patcher"; Filename: "{#MyAppToolsFolder}\Reverse\AT4RE Patcher\AT4RE Patcher - 0.7.6\AT4RE Patcher.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\AT4RE Patcher\AT4RE Patcher - 0.7.6"; Components: "reverse\at4repatcher";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\AT4RE Patcher"; Filename: "{#MyAppToolsFolder}\Reverse\AT4RE Patcher\AT4RE Patcher - 0.7.6\AT4RE Patcher.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\AT4RE Patcher\AT4RE Patcher - 0.7.6"; Components: "reverse\at4repatcher";    
 
+
+
 ; CryptoTester
 [Components]
 Name: "reverse\cryptotester"; Description: "CryptoTester"; Types: full compact; 
@@ -36,6 +40,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\CryptoTester\*"; DestDir: "{#MyAppToolsFold
 [Icons]
 Name: "{group}\CryptoTester"; Filename: "{#MyAppToolsFolder}\Reverse\CryptoTester\CryptoTester.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\CryptoTester"; Components: "reverse\cryptotester";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\CryptoTester"; Filename: "{#MyAppToolsFolder}\Reverse\CryptoTester\CryptoTester.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\CryptoTester"; Components: "reverse\cryptotester";    
+
+
 
 ; DLest
 [Components]
@@ -54,6 +60,8 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest"; Filename: "{#MyAppToolsF
 Name: "{group}\DLest x64"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\DLest x64"; Filename: "{#MyAppToolsFolder}\Reverse\DLest\DLest64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\DLest"; Components: "reverse\dlest";   Check: Is64BitInstallMode; 
 
+
+
 ; dUP
 [Components]
 Name: "reverse\dup"; Description: "dUP"; Types: full; 
@@ -66,6 +74,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\dUP\*"; DestDir: "{#MyAppToolsFolder}\Rever
 [Icons]
 Name: "{group}\dUP"; Filename: "{#MyAppToolsFolder}\Reverse\dUP\dUP - 2.26.1\dup2.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\dUP\dUP - 2.26.1"; Components: "reverse\dup";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\dUP"; Filename: "{#MyAppToolsFolder}\Reverse\dUP\dUP - 2.26.1\dup2.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\dUP\dUP - 2.26.1"; Components: "reverse\dup";    
+
+
 
 ; ExtremeDumper
 [Components]
@@ -84,6 +94,8 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ExtremeDumper"; Filename: "{sys}
 Name: "{group}\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"; Check: not Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\ExtremeDumper"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\ExtremeDumper"; Components: "reverse\extremedumper"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\ExtremeDumper\ExtremeDumper.exe"; Check: not Is64BitInstallMode; 
 
+
+
 ; Keygener Assistant
 [Components]
 Name: "reverse\keygenerassistant"; Description: "Keygener Assistant"; Types: full; 
@@ -97,6 +109,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\Keygener Assistant\*"; DestDir: "{#MyAppToo
 Name: "{group}\Keygener Assistant"; Filename: "{#MyAppToolsFolder}\Reverse\Keygener Assistant\keyAssistant.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Keygener Assistant"; Components: "reverse\keygenerassistant";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Keygener Assistant"; Filename: "{#MyAppToolsFolder}\Reverse\Keygener Assistant\keyAssistant.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Keygener Assistant"; Components: "reverse\keygenerassistant";    
 
+
+
 ; Process-Dump
 [Components]
 Name: "reverse\processdump"; Description: "Process-Dump"; Types: full; 
@@ -109,6 +123,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\Process-Dump\*"; DestDir: "{#MyAppToolsFold
 [Icons]
 Name: "{group}\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Process-Dump"; Components: "reverse\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"; Check: not Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Process-Dump"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Process-Dump"; Components: "reverse\processdump"; Parameters: "/K ""{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"""; IconFilename: "{#MyAppToolsFolder}\Reverse\Process-Dump\pd32.exe"; Check: not Is64BitInstallMode; 
+
+
 
 ; Scylla
 [Components]
@@ -127,6 +143,8 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Scylla x64"; Filename: "{#MyAppT
 Name: "{group}\Scylla"; Filename: "{#MyAppToolsFolder}\Reverse\Scylla\Scylla_x86.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Scylla"; Components: "reverse\scylla";   Check: not Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Scylla"; Filename: "{#MyAppToolsFolder}\Reverse\Scylla\Scylla_x86.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Scylla"; Components: "reverse\scylla";   Check: not Is64BitInstallMode; 
 
+
+
 ; Threadtear
 [Components]
 Name: "reverse\threadtear"; Description: "Threadtear"; Types: full; 
@@ -140,6 +158,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\Threadtear\*"; DestDir: "{#MyAppToolsFolder
 Name: "{group}\Threadtear"; Filename: "{#MyAppToolsFolder}\Reverse\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Threadtear"; Components: "reverse\threadtear"; IconFilename: "{#MyAppToolsIconsFolder}\threadtear.ico";
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\Threadtear"; Filename: "{#MyAppToolsFolder}\Reverse\Threadtear\threadtear-gui-all.jar"; WorkingDir: "{#MyAppToolsFolder}\Reverse\Threadtear"; Components: "reverse\threadtear"; IconFilename: "{#MyAppToolsIconsFolder}\threadtear.ico";
 
+
+
 ; uPPP
 [Components]
 Name: "reverse\uppp"; Description: "uPPP"; Types: full; 
@@ -152,6 +172,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\uPPP\*"; DestDir: "{#MyAppToolsFolder}\Reve
 [Icons]
 Name: "{group}\uPPP"; Filename: "{#MyAppToolsFolder}\Reverse\uPPP\uPPP.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\uPPP"; Components: "reverse\uppp";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\uPPP"; Filename: "{#MyAppToolsFolder}\Reverse\uPPP\uPPP.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\uPPP"; Components: "reverse\uppp";    
+
+
 
 ; WinAPI Search
 [Components]
@@ -170,6 +192,8 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\WinAPI Search"; Filename: "{#MyA
 Name: "{group}\WinAPI Search x64"; Filename: "{#MyAppToolsFolder}\Reverse\WinAPI Search\WinApiSearch64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\WinAPI Search"; Components: "reverse\winapisearch";   Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\WinAPI Search x64"; Filename: "{#MyAppToolsFolder}\Reverse\WinAPI Search\WinApiSearch64.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\WinAPI Search"; Components: "reverse\winapisearch";   Check: Is64BitInstallMode; 
 
+
+
 ; x64dbgPluginManager
 [Components]
 Name: "reverse\x64dbgpluginmanager"; Description: "x64dbgPluginManager"; Types: full compact; 
@@ -182,6 +206,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\x64dbgPluginManager\*"; DestDir: "{#MyAppTo
 [Icons]
 Name: "{group}\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Reverse\x64dbgPluginManager\x64plgmnr.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\x64dbgPluginManager"; Components: "reverse\x64dbgpluginmanager";    
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\x64dbgPluginManager"; Filename: "{#MyAppToolsFolder}\Reverse\x64dbgPluginManager\x64plgmnr.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\x64dbgPluginManager"; Components: "reverse\x64dbgpluginmanager";    
+
+
 
 ; XOpCodeCalc
 [Components]
@@ -196,6 +222,8 @@ Source: "{#MySrcDir}\toolkit\Reverse\XOpCodeCalc\*"; DestDir: "{#MyAppToolsFolde
 Name: "{group}\XOpCodeCalc x64"; Filename: "{#MyAppToolsFolder}\Reverse\XOpCodeCalc\xocalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\XOpCodeCalc"; Components: "reverse\xopcodecalc";   Check: Is64BitInstallMode; 
 Name: "{#MyAppBinsFolder}\sendto\sendto\Reverse\XOpCodeCalc x64"; Filename: "{#MyAppToolsFolder}\Reverse\XOpCodeCalc\xocalc.exe"; WorkingDir: "{#MyAppToolsFolder}\Reverse\XOpCodeCalc"; Components: "reverse\xopcodecalc";   Check: Is64BitInstallMode; 
 
+
+
 [Files]
 Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
 Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\Reverse"; Components: "reverse"; Flags: ignoreversion; 
@@ -203,5 +231,3 @@ Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppToolsFolder}\
 [Run]
 Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppToolsFolder}\toolkit\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppToolsFolder}\toolkit\Reverse"""; Components: "reverse"; Flags: runhidden; 
-
-
