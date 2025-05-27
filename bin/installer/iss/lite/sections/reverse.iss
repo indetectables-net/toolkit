@@ -1,10 +1,9 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Reverse"; Components: "reverse"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Reverse"; Components: "reverse"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Reverse\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Reverse"; Components: "reverse"; Attribs: hidden system; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Reverse\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Reverse"; Components: "reverse"; Attribs: hidden; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\Reverse\desktop.ini"""; Components: "reverse"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\Reverse"""; Components: "reverse"; Flags: runhidden; 
 
 

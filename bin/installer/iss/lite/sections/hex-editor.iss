@@ -1,10 +1,9 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\HEX Editor\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\HEX Editor\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor"; Components: "hexeditor"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\HEX Editor\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor"; Components: "hexeditor"; Attribs: hidden system; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\HEX Editor\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\HEX Editor"; Components: "hexeditor"; Attribs: hidden; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\HEX Editor\desktop.ini"""; Components: "hexeditor"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\HEX Editor"""; Components: "hexeditor"; Flags: runhidden; 
 
 

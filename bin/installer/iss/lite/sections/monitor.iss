@@ -1,10 +1,9 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\Monitor\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Monitor"; Components: "monitor"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Monitor\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Monitor"; Components: "monitor"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Monitor\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Monitor"; Components: "monitor"; Attribs: hidden system; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Monitor\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Monitor"; Components: "monitor"; Attribs: hidden; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\Monitor\desktop.ini"""; Components: "monitor"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\Monitor"""; Components: "monitor"; Flags: runhidden; 
 
 

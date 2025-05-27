@@ -1,10 +1,9 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\UnPacking\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\UnPacking"; Components: "unpacking"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\UnPacking\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\UnPacking"; Components: "unpacking"; Attribs: hidden system; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\UnPacking\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\UnPacking"; Components: "unpacking"; Attribs: hidden; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\UnPacking\desktop.ini"""; Components: "unpacking"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\UnPacking"""; Components: "unpacking"; Flags: runhidden; 
 
 

@@ -1,10 +1,9 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\Analysis\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Analysis"; Components: "analysis"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Analysis\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Analysis"; Components: "analysis"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Analysis\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Analysis"; Components: "analysis"; Attribs: hidden system; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Analysis\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Analysis"; Components: "analysis"; Attribs: hidden; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\Analysis\desktop.ini"""; Components: "analysis"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\Analysis"""; Components: "analysis"; Flags: runhidden; 
 
 

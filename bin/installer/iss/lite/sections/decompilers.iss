@@ -1,10 +1,9 @@
 ; Main section
 [Files]
-Source: "{#MySrcDir}\toolkit\Decompilers\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Decompilers"; Components: "decompilers"; Flags: ignoreversion; 
-Source: "{#MySrcDir}\toolkit\Decompilers\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Decompilers"; Components: "decompilers"; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Decompilers\desktop.ini"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Decompilers"; Components: "decompilers"; Attribs: hidden system; Flags: ignoreversion; 
+Source: "{#MySrcDir}\toolkit\Decompilers\folder.ico"; DestDir: "{#MyAppBinsFolder}\sendto\sendto\Decompilers"; Components: "decompilers"; Attribs: hidden; Flags: ignoreversion; 
 
 [Run]
-Filename: "{sys}\attrib.exe"; Parameters: "+s +h ""{#MyAppBinsFolder}\sendto\sendto\Decompilers\desktop.ini"""; Components: "decompilers"; Flags: runhidden; 
 Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto\Decompilers"""; Components: "decompilers"; Flags: runhidden; 
 
 
