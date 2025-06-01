@@ -102,7 +102,13 @@ Tools for decompiling binaries to source code.
 ### [PYTHON] Python Decompyle++
 - **Web:** https://github.com/zrax/pycdc
 - **Developer:** Michael Hansen, Darryl Pogue, charlietang98, Kunal Parmar, Olivier Iffrig, Zlodiy
-- **Description:** Decompyle++ is a tool that aims to translate compiled Python byte-code back into valid and human-readable Python source code. It includes both a byte-code disassembler (pycdas) and a decompiler (pycdc), and supports byte-code from any version of Python. 
+- **Description:** Decompyle++ is a tool that aims to translate compiled Python byte-code back into valid and human-readable Python source code. It includes both a byte-code disassembler (pycdas) and a decompiler (pycdc), and supports byte-code from any version of Python.
+
+### [VB] VBDEC
+- ***Note:*** Available using the extra called: **VBDEC**
+- **Web:** https://www.sandsprite.com
+- **Developer:** David Zimmer
+- **Description:** VBDEC is a lightweight Visual Basic 5/6 decompiler and analysis tool. It allows inspection of VB p-code structures, forms, modules, and runtime behavior by extracting metadata and reconstructing symbolic representations. While not a full decompiler like commercial solutions, VBDEC is useful for basic reverse engineering, educational purposes, and format exploration of legacy VB applications.
 
 
 ## 🛠 Dissasembler

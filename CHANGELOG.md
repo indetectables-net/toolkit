@@ -4,6 +4,21 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ---
 
+## 🏷️ [extras/vbdec] 2025.6 - Jun 1, 2025
+
+### 🆕 Added
+
+- Add vbdec to updater and SendTo Recomposed menu
+
+
+## 🏷️ 2025.6 - Jun 1, 2025
+
+### 🔧 Changed
+
+- Update tools (01/06/2025)
+- Bump SendTo Recomposed to 1.1.1
+
+
 ## 🏷️ 2025.5 - May 25, 2025
 
 ### 🆕 Added

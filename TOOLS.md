@@ -153,6 +153,12 @@ executables that have been packed and protected using AutoIt3Camo, Themida, Arma
 - **Developer:** DotFix Software
 - **Description:** VB Decompiler is an advanced tool that can decompile programs (EXE, DLL, or OCX) written in Visual Basic 5.0/6.0 and disassemble programs based on .NET technology. As you know, programs written in Visual Basic can be compiled to interpreted p-code or to native code, and a .NET assembly is always compiled to Microsoft intermediate language (MSIL).
 
+### [VB] VBDEC
+- ***Note:*** Available using the extra called: **VBDEC**
+- **Web:** https://www.sandsprite.com
+- **Developer:** David Zimmer
+- **Description:** VBDEC is a lightweight Visual Basic 5/6 decompiler and analysis tool. It allows inspection of VB p-code structures, forms, modules, and runtime behavior by extracting metadata and reconstructing symbolic representations. While not a full decompiler like commercial solutions, VBDEC is useful for basic reverse engineering, educational purposes, and format exploration of legacy VB applications.
+
 
 ## 🛠 Dissasembler
 Resources and tools to disassemble compiled programs.

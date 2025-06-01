@@ -149,7 +149,7 @@ jobs:
         if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
         with:
-          name: extras-setup-installer-artifact
+          name: extras-setup-installer
           path: |
             ${{ github.workspace }}/*.exe
             ${{ github.workspace }}/extras-tools.txt
