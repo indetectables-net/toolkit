@@ -82,7 +82,7 @@ Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: dis
 Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u VBDEC -dic -dsu"; Flags: shellexec waituntilterminated;
 
 ; Setup VBDEC components
-Filename: "{#MyAppToolsFolder}\Decompilers\[VB] VBDEC\VBDEC-register.bat"; Parameters: ""; Flags: shellexec waituntilterminated runasadmin;
+Filename: "{#MyAppToolsFolder}\Decompilers\[VB] VBDEC\VBDEC-register.bat"; Parameters: ""; Flags: shellexec waituntilterminated;
 
 ; Configure installed tools in updater
 Filename: "{#MyAppBinsFolder}\updater\bin\auto-config-ini.exe"; Parameters: "/FOLDER={#MyAppBinsFolder}\updater /TYPE=clean"; Flags: runhidden;

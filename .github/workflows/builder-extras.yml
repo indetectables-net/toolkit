@@ -114,7 +114,7 @@ jobs:
       ##----------------
       ## Build VBDEC
       ##----------------
-      - name: Update Unpacking installer .iss config paths
+      - name: Update VBDEC installer .iss config paths
         working-directory: ${{ env.EXTRAS_PATH }}/vbdec/installer
         shell: bash
         run: |
@@ -123,14 +123,14 @@ jobs:
           sed -i "s|C:\\\\code\\\\toolkit|$WORKSPACE_SRC_PATH|g" setup.iss
           sed -i "s|C:\\\\code|$WORKSPACE_BUILD_PATH|g" setup.iss
 
-      - name: Update version number in Unpacking installer .iss
+      - name: Update version number in VBDEC installer .iss
         working-directory: ${{ env.EXTRAS_PATH }}/vbdec/installer
         shell: bash
         run: |
           VERSION_CODE=$(date +'%Y.%m')
           sed -i 's/RELEASE/'"$VERSION_CODE"'/g' setup.iss
 
-      - name: Build Unpacking installer
+      - name: Build VBDEC installer
         working-directory: ${{ env.EXTRAS_PATH }}/vbdec/installer
         run: ISCC.exe setup.iss
 
