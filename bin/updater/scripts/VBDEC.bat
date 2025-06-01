@@ -2,26 +2,30 @@
 SET "TOOL_NAME=%~1"
 SET "UNPACK_DIR=%~2"
 SET "DOWNLOAD_VER=%~3"
+SET "BIN_DIR=%UNPACK_DIR%\..\..\bin"
 
 echo Update VBDEC
 cd "%UNPACK_DIR%"
 
 :: unpack
 echo.
-"../../bin/innounp.exe" -x "VBDEC_Setup.exe"
+"%BIN_DIR%\innounp.exe" -x -y "VBDEC_Setup.exe"
+IF ERRORLEVEL 1 (
+    ECHO Extraction failed!
+    EXIT /B 1
+)
 
 :: clean
 echo.
 echo Clean files...
-xcopy {app}\*.* /E /I /H
-xcopy {sys}\*.* /E /I /H
-del "VBDEC_Setup.exe"
+xcopy {app}\*.* /E /I /H /Y
+xcopy {sys}\*.* /E /I /H /Y
+del /F /Q "VBDEC_Setup.exe"
 rmdir /S /Q {app}
 move {sys} sys
 
 :: copy register script
 echo.
 echo Remember to run the "VBDEC-register.bat" script before starting the program for the first time!
-cp "../../bin/VBDEC-register.bat" VBDEC-register.bat
-cp "../../bin/tregsvr.exe" tregsvr.exe
-
+copy "%BIN_DIR%\VBDEC-register.bat" . /Y
+copy "%BIN_DIR%\tregsvr.exe" . /Y
