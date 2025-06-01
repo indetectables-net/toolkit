@@ -24,7 +24,11 @@ Es el complemento perfecto para los [manuales](https://github.com/indetectables-
 
 ## El Conjunto de Herramientas
 
-El conjunto incluye 100 aplicaciones que cubren una amplia gama de necesidades. Cuenta con herramientas tanto conocidas como menos conocidas, pero igualmente útiles, así como herramientas raras que son difíciles de encontrar. **Todas las herramientas se obtienen de sus sitios web oficiales, pero ten precaución, especialmente con herramientas provenientes de hilos de foros.** Consulta la [lista completa de herramientas aquí](TOOLS.md).
+El conjunto incluye 101 aplicaciones que cubren una amplia gama de necesidades. Cuenta con herramientas tanto conocidas como menos conocidas, pero igualmente útiles, así como herramientas raras que son difíciles de encontrar. **Todas las herramientas se obtienen de sus sitios web oficiales, pero ten precaución, especialmente con herramientas provenientes de hilos de foros.** Consulta la [lista completa de herramientas aquí](TOOLS.md).
+
+Este conjunto de herramientas se inspira en los antiguos *Crackers Kits* populares alrededor de 2010, pero corrigiendo todas sus limitaciones y defectos. Partimos de las utilidades que tradicionalmente recomendamos dentro de nuestra comunidad.
+
+Nuestro primer lanzamiento fue la versión 2020.2, publicada el 17 de febrero de 2020, lo que nos posiciona como un proyecto más veterano —y mantenido activamente— que muchas alternativas actuales.
 
 ## Contribuciones
 

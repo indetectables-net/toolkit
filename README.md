@@ -24,7 +24,11 @@ This toolkit complements the [manuals](https://github.com/indetectables-net/manu
 
 ## The Tool Set
 
-The toolkit includes 100 apps covering a wide range of needs. It features both well-known tools and lesser-known, yet highly useful ones, as well as rare tools that are hard to find. **All tools are sourced from their official websites, but exercise caution, especially with tools from forum threads.** View the [complete tool list here](TOOLS.md).
+The toolkit includes 101 apps covering a wide range of needs. It features both well-known tools and lesser-known, yet highly useful ones, as well as rare tools that are hard to find. **All tools are sourced from their official websites, but exercise caution, especially with tools from forum threads.** View the [complete tool list here](TOOLS.md).
+
+This toolset is inspired by the old *Crackers Kits* that gained popularity around 2010, but with all their limitations and flaws addressed. We based it on the tools we have traditionally recommended within our community.
+
+Our first release was version 2020.2, published on February 17, 2020, which makes this a more veteran —and actively maintained— project than many current alternatives.
 
 ## Contributions
 
