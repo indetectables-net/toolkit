@@ -83,22 +83,22 @@ jobs:
         working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
-          .\generate-checksums.ps1 -Directory "${{ env.SRC_PATH }}/toolkit" -OutputFile "${{ github.workspace }}/toolkit_tools_checksums.txt"
-          .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -NoRecurse -OutputFile "${{ github.workspace }}/toolkit_installer_checksums.txt"
+          .\generate-checksums.ps1 -Directory "${{ env.SRC_PATH }}/toolkit" -OutputFile "${{ github.workspace }}/toolkit-tools.txt"
+          .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -NoRecurse -OutputFile "${{ github.workspace }}/toolkit-installer.txt"
 
       - name: Upload full Setup as Artifact
         if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
         with:
-          name: full-installer-artifact
-          path: ${{ github.workspace }}/*_Setup.exe
+          name: full-installer
+          path: ${{ github.workspace }}/toolkit-*.exe
 
       - name: Upload lite Setup as Artifact
         if: github.event_name != 'release'
         uses: actions/upload-artifact@v4
         with:
-          name: lite-installer-artifact
-          path: ${{ github.workspace }}/*_Setup_lite.exe
+          name: lite-installer
+          path: ${{ github.workspace }}/toolkit-*-lite.exe
 
       - name: Upload all Setups as Release
         if: github.event_name == 'release'
@@ -106,5 +106,5 @@ jobs:
         with:
           files: |
             ${{ github.workspace }}/*.exe
-            ${{ github.workspace }}/toolkit_tools_checksums.txt
-            ${{ github.workspace }}/toolkit_installer_checksums.txt
+            ${{ github.workspace }}/toolkit-tools.txt
+            ${{ github.workspace }}/toolkit-installer.txt

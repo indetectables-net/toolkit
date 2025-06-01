@@ -114,8 +114,8 @@ jobs:
         working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
-          .\generate-checksums.ps1 -Directory "${{ env.EXTRAS_PATH }}" -OutputFile "${{ github.workspace }}/extras_tools_checksums.txt"
-          .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -NoRecurse -OutputFile "${{ github.workspace }}/extras_installer_checksums.txt"
+          .\generate-checksums.ps1 -Directory "${{ env.EXTRAS_PATH }}" -OutputFile "${{ github.workspace }}/extras-tools.txt"
+          .\generate-checksums.ps1 -Directory "${{ github.workspace }}" -FilePattern "*.exe" -NoRecurse -OutputFile "${{ github.workspace }}/extras-installer.txt"
 
       - name: Upload Setup as Artifact
         if: github.event_name != 'release'
@@ -124,8 +124,8 @@ jobs:
           name: extras-setup-installer-artifact
           path: |
             ${{ github.workspace }}/*.exe
-            ${{ github.workspace }}/extras_tools_checksums.txt
-            ${{ github.workspace }}/extras_installer_checksums.txt
+            ${{ github.workspace }}/extras-tools.txt
+            ${{ github.workspace }}/extras-installer.txt
 
       - name: Upload Setup as Release download
         if: github.event_name == 'release'
@@ -133,5 +133,5 @@ jobs:
         with:
           files: |
             ${{ github.workspace }}/*.exe
-            ${{ github.workspace }}/extras_tools_checksums.txt
-            ${{ github.workspace }}/extras_installer_checksums.txt
+            ${{ github.workspace }}/extras-tools.txt
+            ${{ github.workspace }}/extras-installer.txt
