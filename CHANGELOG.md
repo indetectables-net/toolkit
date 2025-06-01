@@ -13,6 +13,10 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ## 🏷️ 2025.6 - Jun 1, 2025
 
+### 🆕 Added
+
+- Add folder icons
+
 ### 🔧 Changed
 
 - Update tools (01/06/2025)
