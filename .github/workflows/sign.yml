@@ -21,7 +21,7 @@ jobs:
       (
         github.event_name == 'workflow_run' &&
         github.event.workflow_run.conclusion == 'success' &&
-        github.event.workflow_run.event == 'push'
+        github.event.workflow_run.event == 'release'
       )
       || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
@@ -93,10 +93,13 @@ jobs:
               "$exe"
           done
 
+      - name: Package signatures
+        run: |
+          cd artifacts
+          zip -j "signatures-${{ steps.tag.outputs.result }}.zip" *.exe.sig *.exe.pem
+
       - name: Publish signatures
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag.outputs.result }}
-          files: |
-            artifacts/*.exe.sig
-            artifacts/*.exe.pem
+          files: artifacts/cosign-signatures-${{ steps.tag.outputs.result }}.zip
