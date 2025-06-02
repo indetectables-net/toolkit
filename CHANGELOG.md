@@ -20,7 +20,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 ### 🔧 Changed
 
 - Update tools (01/06/2025)
-- Bump SendTo Recomposed to 1.1.1
+- Bump SendTo Recomposed to 1.2.0
 
 
 ## 🏷️ 2025.5 - May 25, 2025
