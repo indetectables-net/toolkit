@@ -96,10 +96,10 @@ jobs:
       - name: Package signatures
         run: |
           cd artifacts
-          zip -j "signatures-${{ steps.tag.outputs.result }}.zip" *.exe.sig *.exe.pem
+          zip -j "cosign-signatures-${{ steps.tag.outputs.result }}.zip" *.exe.sig *.exe.pem
 
       - name: Publish signatures
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.tag.outputs.result }}
-          files: artifacts/cosign-signatures-${{ steps.tag.outputs.result }}.zip
+          files: artifacts/cosign-signatures-*.zip
