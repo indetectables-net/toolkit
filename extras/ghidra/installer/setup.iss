@@ -56,23 +56,18 @@ Name: "ghidra"; Description: "Install Ghidra via Updater"; ExtraDiskSpaceRequire
 [Components]
 Name: "updater"; Description: "Tools auto updater"; Types: full compact custom; Flags: fixed;
 
-
-; Updater
-[Components]
-Name: "updater\main"; Description: "Updater"; Types: full compact custom; Flags: fixed;
-
 [Files]
-Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: BeforeInstallScript;
-Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
+Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater"; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: BeforeInstallScript;
+Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart"; Components: "updater"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
-Name: "{group}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
-Name: "{userdesktop}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
+Name: "{group}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater";
+Name: "{userdesktop}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater";
 
 ; Fix default update config
 [INI]
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_clean; String: True; Components: "updater\main"; 
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_repack; String: True; Components: "updater\main"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_clean; String: True; Components: "updater"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_repack; String: True; Components: "updater"; 
 
 
 [Components]

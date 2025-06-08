@@ -27,5 +27,3 @@ move {sys} sys
 :: copy register script
 echo.
 echo Remember to run the "VBDEC-register.bat" script before starting the program for the first time!
-copy "%BIN_DIR%\VBDEC-register.bat" . /Y
-copy "%BIN_DIR%\tregsvr.exe" . /Y

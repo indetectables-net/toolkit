@@ -10,6 +10,7 @@
 #define MyAppBinsFolder "{app}\bin"
 #define MyAppToolsIconsFolder "{app}\assets\icons"
 #define MySrcDir "C:\code\toolkit"
+#define MyExtrasSrcDir "C:\code\toolkit\extras\vbdec"
 #define MyOutputDir "C:\code"
 
 [Setup]
@@ -50,33 +51,31 @@ portuguese.FolderValidationError=O conjunto de ferramentas não foi encontrado n
 
 
 [Components]
-Name: "vbdec"; Description: "Install VBDEC via Updater"; ExtraDiskSpaceRequired: 996147200; Types: full compact custom; Flags: fixed;
+Name: "vbdec"; Description: "Install VBDEC via Updater"; ExtraDiskSpaceRequired: 15000000; Types: full compact custom; Flags: fixed;
 
 
 [Components]
 Name: "updater"; Description: "Tools auto updater"; Types: full compact custom; Flags: fixed;
 
-
-; Updater
-[Components]
-Name: "updater\main"; Description: "Updater"; Types: full compact custom; Flags: fixed;
-
 [Files]
-Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: BeforeInstallScript;
-Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart\"; Components: "updater\main"; Flags: ignoreversion recursesubdirs createallsubdirs;
+Source: "{#MySrcDir}\bin\updater\*"; DestDir: "{#MyAppBinsFolder}\updater"; Components: "updater"; Flags: ignoreversion recursesubdirs createallsubdirs; BeforeInstall: BeforeInstallScript;
+Source: "{#MySrcDir}\bin\hstart\*"; Destdir: "{#MyAppBinsFolder}\hstart"; Components: "updater"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
-Name: "{group}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
-Name: "{userdesktop}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater\main";
+Name: "{group}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater";
+Name: "{userdesktop}\{#MyAppNameOriginal}\Toolkit Updater"; Filename: "{#MyAppBinsFolder}\updater\updater.exe"; WorkingDir: "{#MyAppBinsFolder}\updater"; Components: "updater";
 
 ; Fix default update config
 [INI]
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_clean; String: True; Components: "updater\main"; 
-Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_repack; String: True; Components: "updater\main"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_clean; String: True; Components: "updater"; 
+Filename: {#MyAppBinsFolder}\updater\tools.ini; Section: UpdaterConfig; Key: disable_repack; String: True; Components: "updater"; 
 
 
 ;;; etc
 ;;;;;;;;;;;;;;;;;;;;;;;;
+[Files]
+Source: "{#MyExtrasSrcDir}\toolkit\Decompilers\[VB] VBDEC\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[VB] VBDEC"; Components: "vbdec"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+
 [Run]
 ; Install VBDEC in toolkit
 Filename: "{#MyAppBinsFolder}\updater\updater.exe"; Parameters: "-f -u VBDEC -dic -dsu"; Flags: shellexec waituntilterminated;
