@@ -20,6 +20,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          fetch-depth: 1
           path: ${{ env.SRC_PATH }}
 
       - name: Setup Python 3.12
