@@ -56,9 +56,30 @@ Los valores utilizados para la configuración son:
 | `merge`            | NO          | Si está definido, fusiona los archivos nuevos con los existentes.                                   |
 | `scoop_bucket`     | NO          | Bucket de Scoop cuando `from = scoop`: `main` o `extras`. Por defecto: `main`.                      |
 | `force_x86`        | NO          | Con `from = scoop`, fuerza la descarga de 32 bits ignorando la arquitectura del OS. Por defecto: `false`. |
+| `disable_repack`   | NO          | Desactiva el reempaquetado para esta herramienta específica. Sobreescribe el flag global `--disable-repack`. Por defecto: `false`. |
+| `disable_content_type_check` | NO | Desactiva la validación de Content-Type en las descargas. Por defecto se rechazan respuestas con Content-Type no binario (ej. `text/html`). Poner `true` para omitir este chequeo. |
 | `pre_update`       | NO          | Comando o script a ejecutar antes de iniciar la actualización.                                      |
 | `post_update`      | NO          | Comando o script a ejecutar inmediatamente tras completar la descarga.                              |
 | `post_unpack`      | NO          | Comando o script a ejecutar tras descomprimir el archivo descargado.                                |
+
+
+## Configuración Global
+
+Los parámetros por defecto se pueden persistir en la sección `[UpdaterConfig]` de `tools.ini`. Estos valores se usan como defaults para los argumentos de línea de comandos y se guardan con `--update-default-params`.
+
+| Nombre              | Descripción                                                                                     |
+|---------------------|-------------------------------------------------------------------------------------------------|
+| `disable_clean`     | Evita limpiar la carpeta de herramientas durante las actualizaciones. Por defecto: `true`.       |
+| `disable_repack`    | Impide el reempaquetado de herramientas tras la actualización. Por defecto: `true`.              |
+| `disable_install_check` | Omite la verificación de si las herramientas están instaladas. Por defecto: `false`.         |
+| `disable_progress`  | Desactiva la barra de progreso de descarga. Por defecto: `false`.                               |
+| `save_format_type`  | Formato para guardar actualizaciones comprimidas: `full`, `version` o `name`. Por defecto: `full`. |
+| `use_github_api`    | Token de la API de GitHub para peticiones autenticadas. Por defecto: vacío.                     |
+| `request_timeout`   | Timeout en segundos para peticiones HTTP. Por defecto: `30`.                                    |
+| `download_retries`  | Cantidad de reintentos ante fallo de descarga. Por defecto: `3`.                                |
+| `parallel_workers`  | Cantidad de herramientas a actualizar en paralelo. Por defecto: `1`.                            |
+| `download_segments` | Cantidad de segmentos para descargas aceleradas. Por defecto: `3`.                              |
+| `global_post_update` | Script o comando a ejecutar como hook global post-update. Recibe nombre de herramienta, carpeta y nombre del archivo comprimido. |
 
 
 ## Estrategia de descarga
@@ -101,8 +122,10 @@ El actualizador ofrece un conjunto flexible de parámetros para controlar su com
 | `-v, --version`                                                    | Muestra el número de versión del programa y finaliza.                                                   |
 | `-u [UPDATE ...], --update [UPDATE ...]`                           | Especifica una lista de herramientas a actualizar. Si no se proporciona, se actualizarán todas.         |
 | `-dsu, --disable-self-update`                                      | Desactiva la auto-actualización automática del script.                                                  |
-| `-dfc, --disable-folder-clean`                                     | Evita limpiar la carpeta de herramientas durante las actualizaciones.                                   |
-| `-dr, --disable-repack`                                            | Impide empaquetar nuevamente las herramientas después del proceso de actualización.                     |
+| `-dfc, --disable-folder-clean`                                     | Evita limpiar la carpeta de herramientas durante las actualizaciones. Por defecto: `true` (salvo que se sobreescriba en `[UpdaterConfig]`). |
+| `-fc, --folder-clean`                                              | Limpia la carpeta de herramientas durante las actualizaciones. Mutuamente exclusivo con `-dfc`.         |
+| `-dr, --disable-repack`                                            | Impide empaquetar nuevamente las herramientas después del proceso de actualización. Por defecto: `true` (salvo que se sobreescriba en `[UpdaterConfig]`). |
+| `-r, --repack`                                                     | Reempaqueta las herramientas después del proceso de actualización. Mutuamente exclusivo con `-dr`.      |
 | `-dic, --disable-install-check`                                    | Omite la verificación de si las herramientas están instaladas correctamente.                            |
 | `-dpb, --disable-progress-bar`                                     | Desactiva la barra de progreso durante las descargas.                                                   |
 | `-sft {full,version,name}, --save-format-type {full,version,name}` | Especifica el tipo de formato para guardar las actualizaciones comprimidas: `full`, `version` o `name`. |
@@ -174,6 +197,10 @@ SCHTASKS /DELETE /TN "ToolkitUpdater"
 ## Compilar a exe
 
 ```bash
+cd src
+
+pip install -r requirements.txt
 pip install pyinstaller
+
 pyinstaller --onefile UpdateManager.py --icon=../assets/appicon.ico --collect-all aiohttp --collect-all aiofiles
 ```

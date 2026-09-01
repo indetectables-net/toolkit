@@ -56,9 +56,30 @@ The values used for configuration are:
 | `merge`            | NO        | If set, merge the freshly downloaded files into the existing folder.                                           |
 | `scoop_bucket`     | NO        | Scoop bucket to use when `from = scoop`: `main` or `extras`. Default: `main`.                                  |
 | `force_x86`        | NO        | When `from = scoop`, force the 32-bit download regardless of OS architecture. Default: `false`.                |
+| `disable_repack`   | NO        | Disable repacking for this specific tool. Overrides the global `--disable-repack` flag. Default: `false`.      |
+| `disable_content_type_check` | NO | Disable Content-Type validation on downloads. By default the downloader rejects responses that return a non-binary Content-Type (e.g. `text/html`). Set to `true` to skip this check. |
 | `pre_update`       | NO        | Script or command to run before performing the update.                                                         |
 | `post_update`      | NO        | Script or command to run immediately after the update download completes.                                      |
 | `post_unpack`      | NO        | Script or command to run after unpacking the downloaded archive.                                               |
+
+
+## Global Configuration
+
+Default parameters can be persisted in the `[UpdaterConfig]` section of `tools.ini`. These values are used as defaults for the command-line arguments and can be saved with `--update-default-params`.
+
+| Name                | Description                                                                                     |
+|---------------------|-------------------------------------------------------------------------------------------------|
+| `disable_clean`     | Skip cleaning the tool's folder during updates. Default: `true`.                                |
+| `disable_repack`    | Prevent repacking of tools after the update process. Default: `true`.                           |
+| `disable_install_check` | Skip checking if the tools are properly installed. Default: `false`.                        |
+| `disable_progress`  | Disable the download progress bar. Default: `false`.                                            |
+| `save_format_type`  | Save format type for compressed updates: `full`, `version`, or `name`. Default: `full`.         |
+| `use_github_api`    | GitHub API token for authenticated requests. Default: empty.                                    |
+| `request_timeout`   | Timeout in seconds for HTTP requests. Default: `30`.                                            |
+| `download_retries`  | Number of retry attempts on download failure. Default: `3`.                                     |
+| `parallel_workers`  | Number of tools to update in parallel. Default: `1`.                                            |
+| `download_segments` | Number of segments for accelerated downloads. Default: `3`.                                     |
+| `global_post_update` | Script or command to run as a global post-update hook. Receives tool name, folder, and compressed file name. |
 
 
 ## Strategy for download
@@ -101,8 +122,10 @@ The updater provides a flexible set of parameters to control its behavior:
 | `-v, --version`                                                    | Display the program's version number and exit.                                             |
 | `-u [UPDATE ...], --update [UPDATE ...]`                           | Specify a list of tools to update. Defaults to updating all tools if not provided.         |
 | `-dsu, --disable-self-update`                                      | Disable automatic self-update of this script.                                              |
-| `-dfc, --disable-folder-clean`                                     | Skip cleaning the tool's folder during updates.                                            |
-| `-dr, --disable-repack`                                            | Prevent repacking of tools after the update process.                                       |
+| `-dfc, --disable-folder-clean`                                     | Skip cleaning the tool's folder during updates. Default: `true` (unless overridden in `[UpdaterConfig]`). |
+| `-fc, --folder-clean`                                              | Clean the tool's folder during updates. Mutually exclusive with `-dfc`.                    |
+| `-dr, --disable-repack`                                            | Prevent repacking of tools after the update process. Default: `true` (unless overridden in `[UpdaterConfig]`). |
+| `-r, --repack`                                                     | Repack tools after the update process. Mutually exclusive with `-dr`.                      |
 | `-dic, --disable-install-check`                                    | Skip checking if the tools are properly installed.                                         |
 | `-dpb, --disable-progress-bar`                                     | Disable the download progress bar for updates.                                             |
 | `-sft {full,version,name}, --save-format-type {full,version,name}` | Specify the save format type for compressed updates: `full`, `version`, or `name`.         |
@@ -173,6 +196,10 @@ SCHTASKS /DELETE /TN "ToolkitUpdater"
 ## Compile to exe
 
 ```bash
+cd src
+
+pip install -r requirements.txt
 pip install pyinstaller
+
 pyinstaller --onefile UpdateManager.py --icon=../assets/appicon.ico --collect-all aiohttp --collect-all aiofiles
 ```
