@@ -44,6 +44,7 @@ class GenerateInstaller:
         self.tool_iss_component = ''
         self.section_list = []
         self.cli_list = []
+        self.nss_items = []
         self.valid_folders = [
             'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
             'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
@@ -128,7 +129,9 @@ class GenerateInstaller:
             'uniextract', 'xvolkolak',
         ]
 
+    # =========================================================================
     # helpers
+    # =========================================================================
     def absolute_to_local_path(self, path):
         """Convert an absolute path to a local path relative to the base path."""
         return str(path).replace(f'{str(self.base_path)}\\', '')
@@ -148,7 +151,45 @@ class GenerateInstaller:
 
         return types
 
+    def iss_add_icon(self, name, filename, working_dir, parameters='', icon_filename='', check=''):
+        """Add an ISS [Icons] entry for Start Menu and SendTo shortcuts."""
+        params_part = f'Parameters: "{parameters}"; ' if parameters else ''
+        icon_part = f'IconFilename: "{icon_filename}"; ' if icon_filename else ''
+        check_part = f'{check} ' if check else ''
+
+        self.section_list.append('[Icons]')
+        self.section_list.append(
+            f'Name: "{{group}}\\{name}"; '
+            f'Filename: "{filename}"; '
+            f'WorkingDir: "{working_dir}"; '
+            f'Components: "{self.tool_iss_component}"; '
+            f'{params_part}'
+            f'{icon_part}'
+            f'{check_part}'
+        )
+        self.section_list.append(
+            f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{name}"; '
+            f'Filename: "{filename}"; '
+            f'WorkingDir: "{working_dir}"; '
+            f'Components: "{self.tool_iss_component}"; '
+            f'{params_part}'
+            f'{icon_part}'
+            f'{check_part}'
+        )
+        self.section_list.append('')
+
+    def nss_add_item(self, title, cmd, arg):
+        """Add a Nilesoft Shell menu item to the generation list."""
+        line = f"item(title='{title}' cmd='{cmd}' arg='{arg}')"
+        self.nss_items.append({
+            'section': self.section_name,
+            'component': self.tool_iss_component,
+            'line': line,
+        })
+
+    # =========================================================================
     # script steps
+    # =========================================================================
     def iterate_sections(self, folder_path, output_path):
         """Iterate through sections in the given folder path and generate ISS files."""
         self.base_path = folder_path
@@ -284,8 +325,8 @@ class GenerateInstaller:
         iss_name = f'{self.tool_name} x64' if pe_data['is_x64'] else self.tool_name
         iss_filename = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(exe_path)}'
         iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
-        iss_parameters = f'Parameters: "/K ""{iss_filename}""";' if pe_data['is_cli'] else ''
-        iss_icon = f'IconFilename: "{iss_filename}";' if pe_data['is_cli'] else ''
+        iss_parameters = f'/K ""{iss_filename}""' if pe_data['is_cli'] else ''
+        iss_icon = iss_filename if pe_data['is_cli'] else ''
         iss_check = 'Check: Is64BitInstallMode;' if pe_data['is_x64'] else ''
 
         if force_architecture_check:
@@ -303,26 +344,20 @@ class GenerateInstaller:
                 f'\\{self.absolute_to_local_path(working_dir)}',
             )
 
-        self.section_list.append('[Icons]')
-        self.section_list.append(
-            f'Name: "{{group}}\\{iss_name}"; '
-            f'Filename: "{iss_filename}"; '
-            f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{self.tool_iss_component}"; '
-            f'{iss_parameters} '
-            f'{iss_icon} '
-            f'{iss_check} '
-        )
-        self.section_list.append(
-            f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{iss_name}"; '
-            f'Filename: "{iss_filename}"; '
-            f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{self.tool_iss_component}"; '
-            f'{iss_parameters} '
-            f'{iss_icon} '
-            f'{iss_check} '
-        )
-        self.section_list.append('')
+        # link
+        self.iss_add_icon(iss_name, iss_filename, iss_working_dir, iss_parameters, iss_icon, iss_check)
+
+        # menu
+        nss_rel_path = self.absolute_to_local_path(exe_path)
+
+        nss_cmd = f'@tools_path\\{nss_rel_path}'
+        nss_arg = '"@sel.path"'
+        if pe_data['is_cli']:
+            nss_cmd = 'cmd.exe'
+            nss_arg = f'/K \\"@tools_path\\{nss_rel_path}\\" \\"@sel.path\\"'
+
+        nss_title = f'{self.tool_name} x64' if pe_data['is_x64'] and force_architecture_check else self.tool_name
+        self.nss_add_item(nss_title, nss_cmd, nss_arg)
 
     def cli_list_append(self, component, working_dir):
         """Append a CLI component to the list if not already present."""
@@ -353,24 +388,22 @@ class GenerateInstaller:
         working_dir = str(pathlib.Path(jar_path).parent)
         iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
 
-        self.section_list.append('[Icons]')
-        self.section_list.append(
-            f'Name: "{{group}}\\{self.tool_name}"; '
-            # f'Filename: "java -jar {{#MyAppToolsFolder}}\\{tool_jar_path}"; '
-            f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
-            f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{self.tool_iss_component}"; '
-            f'IconFilename: "{self.get_tool_icon()}";'
+        # link
+        self.iss_add_icon(
+            name=self.tool_name,
+            # filename=f'java -jar {{#MyAppToolsFolder}}\\{tool_jar_path}',
+            filename=f'{{#MyAppToolsFolder}}\\{tool_jar_path}',
+            working_dir=iss_working_dir,
+            icon_filename=self.get_tool_icon(),
         )
-        self.section_list.append(
-            f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{self.tool_name}"; '
-            # f'Filename: "java -jar {{#MyAppToolsFolder}}\\{tool_jar_path}"; '
-            f'Filename: "{{#MyAppToolsFolder}}\\{tool_jar_path}"; '
-            f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{self.tool_iss_component}"; '
-            f'IconFilename: "{self.get_tool_icon()}";'
+
+        # menu
+        nss_jar_path = self.absolute_to_local_path(jar_path)
+        self.nss_add_item(
+            title=self.tool_name,
+            cmd='javaw.exe',
+            arg=f'-jar \\"@tools_path\\{nss_jar_path}\\" \\"@sel.path\\"',
         )
-        self.section_list.append('')
 
     def iterate_tool_py(self, folder_path):
         """Process Python files in the folder."""
@@ -391,26 +424,24 @@ class GenerateInstaller:
         working_dir = str(pathlib.Path(py_path).parent)
         iss_working_dir = f'{{#MyAppToolsFolder}}\\{self.absolute_to_local_path(working_dir)}'
 
-        self.section_list.append('[Icons]')
-        self.section_list.append(
-            f'Name: "{{group}}\\{self.tool_name}"; '
-            f'Filename: "{{sys}}\\cmd.exe"; '
-            f'Parameters: "/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}"""; '
-            f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{self.tool_iss_component}"; '
-            f'IconFilename: "{self.get_tool_icon()}";'
+        # link
+        self.iss_add_icon(
+            name=self.tool_name,
+            filename=f'{{sys}}\\cmd.exe',
+            working_dir=iss_working_dir,
+            parameters=f'/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}""',
+            icon_filename=self.get_tool_icon(),
         )
-        self.section_list.append(
-            f'Name: "{{#MyAppBinsFolder}}\\sendto\\sendto\\{self.section_name}\\{self.tool_name}"; '
-            f'Filename: "{{sys}}\\cmd.exe"; '
-            f'Parameters: "/K python ""{{#MyAppToolsFolder}}\\{tool_py_path}"""; '
-            f'WorkingDir: "{iss_working_dir}"; '
-            f'Components: "{self.tool_iss_component}"; '
-            f'IconFilename: "{self.get_tool_icon()}";'
-        )
-        self.section_list.append('')
 
-    def cli_env_extra_code(self, output_path):
+        # menu
+        nss_py_path = self.absolute_to_local_path(py_path)
+        self.nss_add_item(
+            title=self.tool_name,
+            cmd='cmd.exe',
+            arg=f'/K python \\"@tools_path\\{nss_py_path}\\" \\"@sel.path\\"',
+        )
+
+    def gen_env_registers(self, output_path):
         """Generate additional CLI environment code for ISS."""
         # first check if any cli executable used
         if not self.cli_list:
@@ -419,42 +450,108 @@ class GenerateInstaller:
         print('')
         print(colorama.Fore.YELLOW + f'[+] Generate cli register code')
 
-        lines_list = []
-        lines_list.append('{')
-        lines_list.append(';;;;; AUTOGENERATED!')
-        lines_list.append(';;;;;;;;;;;;;;;;;;;;;;;;;')
-        lines_list.append('}')
+        lines = []
+        lines.append('{')
+        lines.append(';;;;; AUTOGENERATED!')
+        lines.append(';;;;;;;;;;;;;;;;;;;;;;;;;')
+        lines.append('}')
+        lines.append('[Code]')
 
-        # install hook
-        lines_list.append('procedure CurStepChanged(CurStep: TSetupStep);')
-        lines_list.append('begin')
-        lines_list.append('    if CurStep = ssPostInstall then')
-        lines_list.append('    begin')
-
-        for item in self.cli_list:
-            lines_list.append(f'        if WizardIsComponentSelected(\'{item["component"]}\') then EnvAddPath(ExpandConstant(\'{{#MyAppToolsFolder}}\') + \'{item["working_dir"]}\');')
-
-        lines_list.append('    end')
-        lines_list.append('end;')
-        lines_list.append('')
-
-        # uninstall hook
-        lines_list.append('procedure CurUninstallStepChanged(CurUninstallStep: TUninstallStep);')
-        lines_list.append('begin')
-        lines_list.append('    if CurUninstallStep = usPostUninstall then')
-        lines_list.append('    begin')
+        # install procedure
+        lines.append('procedure RegisterCLIPaths();')
+        lines.append('begin')
 
         for item in self.cli_list:
-            lines_list.append(f'        EnvRemovePath(ExpandConstant(\'{{#MyAppToolsFolder}}\') + \'{item["working_dir"]}\');')
+            lines.append(f'    if WizardIsComponentSelected(\'{item["component"]}\') then')
+            lines.append(f'        EnvAddPath(ExpandConstant(\'{{#MyAppToolsFolder}}\') + \'{item["working_dir"]}\');')
 
-        lines_list.append('    end')
-        lines_list.append('end;')
-        lines_list.append('')
+        lines.append('end;')
+        lines.append('')
+
+        # uninstall procedure
+        lines.append('procedure UnregisterCLIPaths();')
+        lines.append('begin')
+
+        for item in self.cli_list:
+            lines.append(f'    EnvRemovePath(ExpandConstant(\'{{#MyAppToolsFolder}}\') + \'{item["working_dir"]}\');')
+
+        lines.append('end;')
+        lines.append('')
 
         # save
-        shutil.copy('cli.iss.base', f'{output_path}\\sections\\cli.iss')
-        with open(f'{output_path}\\sections\\cli.iss', 'a') as file:
-            file.writelines('\n'.join(lines_list))
+        cli_iss_path = f'{output_path}\\sections\\cli.iss'
+        with open(cli_iss_path, 'w', encoding='utf-8') as f:
+            f.write('\n'.join(lines))
+
+    def gen_nss_iss_code(self, output_path):
+        """Generate ISS Pascal code that writes toolkit.nss at install time based on selected components."""
+        if not self.nss_items:
+            return
+
+        print('')
+        print(colorama.Fore.YELLOW + f'[+] Generate NSS context menu code')
+
+        # group items by section
+        sections = {}
+        for item in self.nss_items:
+            sections.setdefault(item['section'], []).append(item)
+
+        lines = []
+        lines.append('{')
+        lines.append(';;;;; AUTOGENERATED!')
+        lines.append(';;;;;;;;;;;;;;;;;;;;;;;;;')
+        lines.append('}')
+        lines.append('[Code]')
+
+        lines.append('procedure GenerateNSSFile();')
+        lines.append('var')
+        lines.append('  NSSPath: String;')
+        lines.append('  Lines: TStringList;')
+        lines.append('  HasItems: Boolean;')
+        lines.append('begin')
+        lines.append("  NSSPath := ExpandConstant('{#MyAppToolsFolder}\\toolkit.nss');")
+        lines.append('  Lines := TStringList.Create;')
+        lines.append('  try')
+        lines.append("    Lines.Add('// Auto-generated Nilesoft Shell context menu for Toolkit');")
+        lines.append("    Lines.Add('$tools_path = ' + '''' + ExpandConstant('{#MyAppToolsFolder}') + '''');")
+        lines.append("    Lines.Add('');")
+        lines.append('')
+
+        for section_name, items in sections.items():
+            lines.append(f"    // {section_name}")
+            lines.append('    HasItems := False;')
+
+            for item in items:
+                escaped_line = item['line'].replace("'", "''")
+                lines.append(f"    if WizardIsComponentSelected('{item['component']}') then begin")
+                lines.append(f"      if not HasItems then begin")
+                lines.append(f"        Lines.Add('menu(title=''{section_name}'' type=''file'' image=inherit)');")
+                lines.append(f"        Lines.Add('{{{{');")
+                lines.append(f"        HasItems := True;")
+                lines.append(f"      end;")
+                lines.append(f"      Lines.Add(#9'{escaped_line}');")
+                lines.append(f"    end;")
+
+            lines.append(f"    if HasItems then begin")
+            lines.append(f"      Lines.Add('}}}}');")
+            lines.append(f"      Lines.Add('');")
+            lines.append(f"    end;")
+            lines.append('')
+
+        lines.append('    Lines.SaveToFile(NSSPath);')
+        lines.append('  finally')
+        lines.append('    Lines.Free;')
+        lines.append('  end;')
+        lines.append('end;')
+
+        nss_iss_path = f'{output_path}\\sections\\nss.iss'
+        with open(nss_iss_path, 'w', encoding='utf-8') as f:
+            f.write('\n'.join(lines))
+
+    def gen_iss_support_files(self, output_path):
+        """Copy support ISS files to the output root."""
+        shutil.copy('cli_helpers.iss', f'{output_path}\\cli_helpers.iss')
+        shutil.copy('iss_hooks.iss', f'{output_path}\\iss_hooks.iss')
 
     def main(self):
         """Main entry point for the script."""
@@ -492,7 +589,9 @@ class GenerateInstaller:
             return 0
 
         self.iterate_sections(toolkit_folder, output_iss_folder)
-        self.cli_env_extra_code(output_iss_folder)
+        self.gen_env_registers(output_iss_folder)
+        #self.gen_nss_iss_code(output_iss_folder)
+        self.gen_iss_support_files(output_iss_folder)
 
 
 # se fini

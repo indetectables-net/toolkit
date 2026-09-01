@@ -44,4 +44,3 @@ begin
     else
         Log(Format('Error while removing the [%s] from PATH: [%s]', [Path, Paths]));
 end;
-

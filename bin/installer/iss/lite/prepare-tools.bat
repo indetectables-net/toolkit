@@ -5,7 +5,6 @@ cd "..\..\..\..\"
 :: Analysis
 RMDIR "toolkit\Analysis\4n4lDetector" /S /Q
 RMDIR "toolkit\Analysis\XAPKDetector" /S /Q
-RMDIR "toolkit\Analysis\XPEViewer" /S /Q
 
 :: Decompilers
 RMDIR "toolkit\Decompilers\[AUTOIT] Exe2Aut" /S /Q
@@ -13,7 +12,6 @@ RMDIR "toolkit\Decompilers\[AUTOIT] MyAutToExe" /S /Q
 RMDIR "toolkit\Decompilers\[AUTOIT] UnAutoIt" /S /Q
 RMDIR "toolkit\Decompilers\[DELPHI] IDR" /S /Q
 RMDIR "toolkit\Decompilers\[DOTNET] dnSpyEx" /S /Q
-RMDIR "toolkit\Decompilers\[VB] VB Decompiler" /S /Q
 
 :: Dissasembler
 RMDIR "toolkit\Dissasembler\Cutter" /S /Q

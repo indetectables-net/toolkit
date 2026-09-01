@@ -121,5 +121,8 @@ Type: filesandordirs; Name: "{#MyAppToolsFolder}"
 Type: filesandordirs; Name: "{#MyAppBinsFolder}"
 
 
-; Cli programs register/unregister
+; Extra iss scripts
 #include "sections\cli.iss"
+#include "sections\nss.iss"
+#include "cli_helpers.iss"
+#include "iss_hooks.iss"
