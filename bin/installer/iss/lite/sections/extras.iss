@@ -19,6 +19,29 @@ Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string;
 
 
 
+; Restore classic (Windows 10-style) context menu on Windows 11
+; the condensed Windows 11 menu hides third-party entries behind "Show more options"
+[Code]
+function IsWindows11: Boolean;
+var
+  Version: TWindowsVersion;
+begin
+  GetWindowsVersionEx(Version);
+  Result := (Version.Major >= 10) and (Version.Build >= 22000);
+end;
+
+[Components]
+Name: "extras\classiccontextmenu"; Description: "Restore classic context menu (Windows 11 only)"; Types: full compact; Check: IsWindows11;
+
+[Registry]
+Root: HKCU; Subkey: "Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"; ValueType: string; ValueName: ""; ValueData: ""; Components: "extras\classiccontextmenu"; Flags: uninsdeletekey;
+
+[Run]
+Filename: "{sys}\taskkill.exe"; Parameters: "/F /IM explorer.exe"; Components: "extras\classiccontextmenu"; Flags: runhidden waituntilterminated;
+Filename: "{win}\explorer.exe"; Components: "extras\classiccontextmenu"; Flags: nowait skipifsilent;
+
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ; Chocolatey packages
 ;;;;;;;;;;;;;;;;;;;;;;;;

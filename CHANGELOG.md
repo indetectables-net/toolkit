@@ -12,6 +12,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 - Add Fiddler
 - Add Magic Extractor
 - Add Network category (CurrPorts, RawCap, TCPView, mitmproxy, Fiddler)
+- Add installer option to restore the classic context menu on Windows 11
 
 ### 🔧 Changed
 
