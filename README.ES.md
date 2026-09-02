@@ -22,9 +22,11 @@ Es el complemento perfecto para los [manuales](https://github.com/indetectables-
 2. Usa el actualizador universal en `bin\updater\updater.exe` para mantener las herramientas actualizadas.
 3. Si necesitas descargar una herramienta específica, todas están comprimidas en la carpeta toolkit de este repositorio.
 
+Cada lanzamiento incluye dos instaladores: **full** (`toolkit-{version}.exe`), con todas las herramientas listadas abajo, y **lite** (`toolkit-{version}-lite.exe`), una selección más liviana — ver la [lista lite](TOOLS-LITE.md). Algunas herramientas también se distribuyen como paquetes **extras** separados y opcionales (`extras-{version}-{name}.exe`: ghidra, oldies, unpacking, vbdec), disponibles en la misma sección de lanzamientos y marcadas en [TOOLS.md](TOOLS.md) como *Available using the extra called: X*.
+
 ## El Conjunto de Herramientas
 
-El conjunto incluye 101 aplicaciones que cubren una amplia gama de necesidades. Cuenta con herramientas tanto conocidas como menos conocidas, pero igualmente útiles, así como herramientas raras que son difíciles de encontrar. **Todas las herramientas se obtienen de sus sitios web oficiales, pero ten precaución, especialmente con herramientas provenientes de hilos de foros.** Consulta la [lista completa de herramientas aquí](TOOLS.md).
+El conjunto incluye 102 aplicaciones que cubren una amplia gama de necesidades. Cuenta con herramientas tanto conocidas como menos conocidas, pero igualmente útiles, así como herramientas raras que son difíciles de encontrar. **Todas las herramientas se obtienen de sus sitios web oficiales, pero ten precaución, especialmente con herramientas provenientes de hilos de foros.** Consulta la [lista completa de herramientas aquí](TOOLS.md).
 
 Este conjunto de herramientas se inspira en los antiguos *Crackers Kits* populares alrededor de 2010, pero corrigiendo todas sus limitaciones y defectos. Partimos de las utilidades que tradicionalmente recomendamos dentro de nuestra comunidad.
 

@@ -2,6 +2,8 @@
 
 From unpacking routines to deep static inspection, this toolkit is segmented by task to optimize your workflow and minimize tool-hunting.
 
+This is the lite edition, bundled by the lite installer. See the [full list](TOOLS.md) for everything else. Tools marked ***Note:** Available using the extra called: X* ship as separate, optional installers (`extras-{version}-{name}.exe`) on the [releases page](https://github.com/indetectables-net/toolkit/releases) instead of the main installer.
+
 🔗 **Browse Categories:**
 1. [🧪 Analysis](#-analysis)
 1. [🧩 Decompilers](#-decompilers)

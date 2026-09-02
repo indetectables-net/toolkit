@@ -22,9 +22,11 @@ This toolkit complements the [manuals](https://github.com/indetectables-net/manu
 2. Use the Universal Updater in `bin\updater\updater.exe` to keep tools updated.
 3. If you need to download a specific tool, they are all compressed in the toolkit folder of this repo.
 
+Each release ships two installers: **full** (`toolkit-{version}.exe`), with every tool listed below, and **lite** (`toolkit-{version}-lite.exe`), a leaner selection — see the [lite tool list](TOOLS-LITE.md). A handful of tools also ship as separate, optional **extras** packs (`extras-{version}-{name}.exe`: ghidra, oldies, unpacking, vbdec), available on the same releases page and marked in [TOOLS.md](TOOLS.md) as *Available using the extra called: X*.
+
 ## The Tool Set
 
-The toolkit includes 101 apps covering a wide range of needs. It features both well-known tools and lesser-known, yet highly useful ones, as well as rare tools that are hard to find. **All tools are sourced from their official websites, but exercise caution, especially with tools from forum threads.** View the [complete tool list here](TOOLS.md).
+The toolkit includes 102 apps covering a wide range of needs. It features both well-known tools and lesser-known, yet highly useful ones, as well as rare tools that are hard to find. **All tools are sourced from their official websites, but exercise caution, especially with tools from forum threads.** View the [complete tool list here](TOOLS.md).
 
 This toolset is inspired by the old *Crackers Kits* that gained popularity around 2010, but with all their limitations and flaws addressed. We based it on the tools we have traditionally recommended within our community.
 
