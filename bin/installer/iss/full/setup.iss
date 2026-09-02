@@ -62,6 +62,10 @@ Name: "monitor"; Description: "Monitor tools"; Types: full;
 #include "sections\monitor.iss"
 
 [Components]
+Name: "network"; Description: "Network tools"; Types: full;
+#include "sections\network.iss"
+
+[Components]
 Name: "nfomaker"; Description: "NFOMaker"; Types: full;
 #include "sections\nfomaker.iss"
 

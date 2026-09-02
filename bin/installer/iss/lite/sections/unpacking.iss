@@ -8,20 +8,20 @@ Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto
 
 
 
-; De4Dot
+; de4dotEx
 [Components]
-Name: "unpacking\de4dot"; Description: "De4Dot"; Types: full; 
+Name: "unpacking\de4dotex"; Description: "de4dotEx"; Types: full;
 
 [Files]
-Source: "{#MySrcDir}\toolkit\UnPacking\De4Dot\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+Source: "{#MySrcDir}\toolkit\UnPacking\de4dotEx\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\de4dotEx"; Components: "unpacking\de4dotex"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
-Name: "{group}\De4Dot x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"; Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot-x64.exe"; Check: Is64BitInstallMode; 
+Name: "{group}\de4dotEx x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\de4dotEx"; Components: "unpacking\de4dotex"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot-x64.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot-x64.exe"; Check: Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\de4dotEx x64"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\de4dotEx"; Components: "unpacking\de4dotex"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot-x64.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot-x64.exe"; Check: Is64BitInstallMode;
 
 [Icons]
-Name: "{group}\De4Dot"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\De4Dot"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\De4Dot"; Components: "unpacking\de4dot"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\De4Dot\de4dot.exe"; Check: not Is64BitInstallMode; 
+Name: "{group}\de4dotEx"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\de4dotEx"; Components: "unpacking\de4dotex"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot.exe"; Check: not Is64BitInstallMode;
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\de4dotEx"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\de4dotEx"; Components: "unpacking\de4dotex"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\de4dotEx\de4dot.exe"; Check: not Is64BitInstallMode;
 
 
 

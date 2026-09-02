@@ -42,19 +42,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\Autoruns x64"; Filename: "{#MyAp
 
 
 
-; CurrPorts
-[Components]
-Name: "monitor\currports"; Description: "CurrPorts"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Monitor\CurrPorts\*"; DestDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\CurrPorts"; Filename: "{#MyAppToolsFolder}\Monitor\CurrPorts\cports.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\CurrPorts"; Filename: "{#MyAppToolsFolder}\Monitor\CurrPorts\cports.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\CurrPorts"; Components: "monitor\currports";    
-
-
-
 ; PE-sieve
 [Components]
 Name: "monitor\pesieve"; Description: "PE-sieve"; Types: full compact; 
@@ -147,21 +134,5 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\System Informer"; Filename: "{#M
 
 
 
-
-
-; TCPView
-[Components]
-Name: "monitor\tcpview"; Description: "TCPView"; Types: full compact; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Monitor\TCPView\*"; DestDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\TCPView"; Filename: "{#MyAppToolsFolder}\Monitor\TCPView\tcpview.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview";   Check: not Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\TCPView"; Filename: "{#MyAppToolsFolder}\Monitor\TCPView\tcpview.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview";   Check: not Is64BitInstallMode; 
-
-[Icons]
-Name: "{group}\TCPView x64"; Filename: "{#MyAppToolsFolder}\Monitor\TCPView\tcpview64.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Monitor\TCPView x64"; Filename: "{#MyAppToolsFolder}\Monitor\TCPView\tcpview64.exe"; WorkingDir: "{#MyAppToolsFolder}\Monitor\TCPView"; Components: "monitor\tcpview";   Check: Is64BitInstallMode; 
 
 

@@ -137,19 +137,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Other\ProcDOT x64"; Filename: "{#MyAppTo
 
 
 
-; RawCap
-[Components]
-Name: "other\rawcap"; Description: "RawCap"; Types: full compact; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Other\RawCap\*"; DestDir: "{#MyAppToolsFolder}\Other\RawCap"; Components: "other\rawcap"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\RawCap"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\RawCap"; Components: "other\rawcap"; Parameters: "/K ""{#MyAppToolsFolder}\Other\RawCap\RawCap.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\RawCap\RawCap.exe";  
-Name: "{#MyAppBinsFolder}\sendto\sendto\Other\RawCap"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Other\RawCap"; Components: "other\rawcap"; Parameters: "/K ""{#MyAppToolsFolder}\Other\RawCap\RawCap.exe"""; IconFilename: "{#MyAppToolsFolder}\Other\RawCap\RawCap.exe";  
-
-
-
 ; Resource Hacker
 [Components]
 Name: "other\resourcehacker"; Description: "Resource Hacker"; Types: full compact; 

@@ -59,7 +59,7 @@ class DocsGenerator:
         self.tool_processed = 0
         self.valid_folders = [
             'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
-            'nfomaker', 'other', 'patcher', 'rootkits detector', 'unpacking'
+            'network', 'nfomaker', 'other', 'patcher', 'rootkits detector', 'unpacking'
         ]
         self.fix_tool_exe_list = {
             # fix to support main executable
@@ -79,7 +79,7 @@ class DocsGenerator:
             'process-dump': ['pd32.exe'],
             'scylla': ['scylla_x86.exe'],
             'strings': ['strings.exe'],
-            'de4dot': ['de4dot.exe'],
+            'de4dotex': ['de4dot.exe'],
             'netunpack': ['netunpack.exe'],
         }
 

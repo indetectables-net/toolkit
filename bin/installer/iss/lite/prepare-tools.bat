@@ -23,9 +23,11 @@ RMDIR "toolkit\HEX Editor\REHex" /S /Q
 
 :: Monitor
 RMDIR "toolkit\Monitor\HollowsHunter" /S /Q
-RMDIR "toolkit\Monitor\MultiMon" /S /Q
 RMDIR "toolkit\Monitor\RegShot" /S /Q
 RMDIR "toolkit\Monitor\SysAnalyzer" /S /Q
+
+:: Network
+RMDIR "toolkit\Network\mitmproxy" /S /Q
 
 :: NFOMaker
 RMDIR "toolkit\NFOMaker" /S /Q

@@ -17,7 +17,7 @@ class UnpackProject:
         self.base_path = ''
         self.valid_folders = [
             'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
-            'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
+            'network', 'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
         ]
         self.disable_unpack = [
             # decompilers

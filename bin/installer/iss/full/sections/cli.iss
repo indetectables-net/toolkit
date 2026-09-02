@@ -60,11 +60,11 @@ begin
         if WizardIsComponentSelected('monitor\pesieve') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         if WizardIsComponentSelected('other\floss') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         if WizardIsComponentSelected('other\malunpack') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\MalUnpack');
-        if WizardIsComponentSelected('other\rawcap') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\RawCap');
+        if WizardIsComponentSelected('network\rawcap') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Network\RawCap');
         if WizardIsComponentSelected('other\strings') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Strings');
         if WizardIsComponentSelected('reverse\extremedumper') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Reverse\ExtremeDumper');
         if WizardIsComponentSelected('reverse\processdump') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\Reverse\Process-Dump');
-        if WizardIsComponentSelected('unpacking\de4dot') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\UnPacking\De4Dot');
+        if WizardIsComponentSelected('unpacking\de4dotex') then EnvAddPath(ExpandConstant('{#MyAppToolsFolder}') + '\UnPacking\de4dotEx');
     end
 end;
 
@@ -79,10 +79,10 @@ begin
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Monitor\PE-sieve');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\FLOSS');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\MalUnpack');
-        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\RawCap');
+        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Network\RawCap');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Other\Strings');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Reverse\ExtremeDumper');
         EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\Reverse\Process-Dump');
-        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\UnPacking\De4Dot');
+        EnvRemovePath(ExpandConstant('{#MyAppToolsFolder}') + '\UnPacking\de4dotEx');
     end
 end;

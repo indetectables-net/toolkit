@@ -46,7 +46,7 @@ class GenerateInstaller:
         self.cli_list = []
         self.valid_folders = [
             'analysis', 'decompilers', 'dissasembler', 'hex editor', 'monitor',
-            'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
+            'network', 'nfomaker', 'other', 'reverse', 'rootkits detector', 'unpacking'
         ]
         self.correct_tool_exe_list = {
             # fix to support main executable
@@ -74,7 +74,7 @@ class GenerateInstaller:
             'dlest': ['dlest32.exe', 'dlest64.exe'],
             'extremedumper': ['extremedumper-x86.exe', 'extremedumper.exe'],
             'winapi search': ['winapisearch32.exe', 'winapisearch64.exe'],
-            'de4dot': ['de4dot.exe', 'de4dot-x64.exe'],
+            'de4dotex': ['de4dot.exe', 'de4dot-x64.exe'],
             'netunpack': ['netunpack.exe', 'netunpack-64.exe'],
             'all dlls dependencies': ['alldlldeps32.exe', 'alldlldeps64.exe'],
         }
@@ -93,7 +93,7 @@ class GenerateInstaller:
             'dlest',
             'extremedumper',
             'winapi search',
-            'de4dot',
+            'de4dotex',
             'netunpack',
             'system informer',
             'all dlls dependencies',
@@ -113,10 +113,13 @@ class GenerateInstaller:
             'hxd', 'imhex',
 
             # monitor
-            'api monitor', 'pe-sieve', 'process explorer', 'system informer', 'procmon', 'tcpview',
+            'api monitor', 'pe-sieve', 'process explorer', 'system informer', 'procmon',
+
+            # network
+            'rawcap', 'tcpview',
 
             # other
-            'apkstudio', 'floss', 'hashmyfiles', 'rawcap', 'resource hacker', 'virustotaluploader',
+            'apkstudio', 'floss', 'hashmyfiles', 'resource hacker', 'virustotaluploader',
 
             # reverse
             'asm calculator', 'cryptotester', 'getsymbol', 'scylla', 'winapi search', 'x64dbgpluginmanager',
