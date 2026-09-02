@@ -30,7 +30,7 @@ jobs:
           python-version: '3.12'
 
       - name: Install Python packages
-        run: pip install py7zr pefile colorama
+        run: pip install py7zr==0.22.0 pefile colorama
 
       - name: Unpack tools
         working-directory: ${{ env.INSTALLER_SCRIPT_PATH }}
