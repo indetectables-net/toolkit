@@ -71,14 +71,11 @@ jobs:
             return await core.getIDToken('sigstore');
 
       - name: Keyless sign installers
-        env:
-          COSIGN_EXPERIMENTAL: '1'
         run: |
           for exe in artifacts/*.exe; do
             ./cosign sign-blob --yes \
               --identity-token "${{ steps.oidc.outputs.result }}" \
-              --output-signature "${exe}.sig" \
-              --output-certificate "${exe}.pem" \
+              --bundle "${exe}.sigstore.json" \
               "$exe"
           done
 
@@ -88,15 +85,14 @@ jobs:
             ./cosign verify-blob \
               --certificate-identity-regexp "https://github\\.com/${{ github.repository }}/.*" \
               --certificate-oidc-issuer "https://token.actions.githubusercontent.com" \
-              --signature "${exe}.sig" \
-              --certificate "${exe}.pem" \
+              --bundle "${exe}.sigstore.json" \
               "$exe"
           done
 
       - name: Package signatures
         run: |
           cd artifacts
-          zip -j "cosign-signatures-${{ steps.tag.outputs.result }}.zip" *.exe.sig *.exe.pem
+          zip -j "cosign-signatures-${{ steps.tag.outputs.result }}.zip" *.exe.sigstore.json
 
       - name: Publish signatures
         uses: softprops/action-gh-release@v2
