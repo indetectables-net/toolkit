@@ -497,6 +497,11 @@ Software and techniques for reversing engineering.
 ## 🛡 Rootkits Detector
 Tools specifically for detecting and handling rootkits.
 
+### DeepTaskScan
+- **Web:** https://deuteriumsoftware.com/software/deeptaskscan/
+- **Developer:** Deuterium Software
+- **Description:** DeepTaskScan is a Windows forensics utility that uncovers scheduled tasks hidden by advanced techniques (eg. file and registry deletion), detecting far more entries than Task Scheduler, PowerShell, or other standard tools. Useful for APT investigation and security audits.
+
 ### GMER
 - **Web:** www.gmer.net
 - **Developer:** The GMER dev team.
@@ -511,6 +516,11 @@ Tools specifically for detecting and handling rootkits.
 - **Web:** https://github.com/AxtMueller/Windows-Kernel-Explorer
 - **Developer:**  Axt Müller (AxtMueller)
 - **Description:** Windows Kernel Explorer is a free but powerful kernel research tool. It supports from Windows XP to Windows 11. Compared with WIN64AST and PCHunter, WKE can run on the latest Windows 11 without updating binary files.
+
+### WMISubscriptionsView
+- **Web:** https://deuteriumsoftware.com/software/wmisubscriptionsview/
+- **Developer:** Deuterium Software
+- **Description:** WMISubscriptionsView lists Windows Management Instrumentation (WMI) event subscriptions and lets you view, export, create, and delete them, flagging suspicious subscriptions (eg. those running PowerShell or cmd) used by fileless malware for persistence.
 
 
 ## 📦 UnPacking

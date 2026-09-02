@@ -8,9 +8,22 @@ Filename: "{sys}\attrib.exe"; Parameters: "+r ""{#MyAppBinsFolder}\sendto\sendto
 
 
 
+; DeepTaskScan
+[Components]
+Name: "rootkitsdetector\deeptaskscan"; Description: "DeepTaskScan"; Types: full;
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\DeepTaskScan\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\DeepTaskScan"; Components: "rootkitsdetector\deeptaskscan"; Flags: ignoreversion recursesubdirs createallsubdirs;
+
+[Icons]
+Name: "{group}\DeepTaskScan"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\DeepTaskScan\DeepTaskScan64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\DeepTaskScan"; Components: "rootkitsdetector\deeptaskscan";
+Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\DeepTaskScan"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\DeepTaskScan\DeepTaskScan64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\DeepTaskScan"; Components: "rootkitsdetector\deeptaskscan";
+
+
+
 ; GMER
 [Components]
-Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact; 
+Name: "rootkitsdetector\gmer"; Description: "GMER"; Types: full compact;
 
 [Files]
 Source: "{#MySrcDir}\toolkit\Rootkits Detector\GMER\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\GMER"; Components: "rootkitsdetector\gmer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
@@ -43,6 +56,19 @@ Source: "{#MySrcDir}\toolkit\Rootkits Detector\Windows Kernel Explorer\*"; DestD
 
 [Icons]
 Name: "{group}\Windows Kernel Explorer x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer\WKE64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer"; Components: "rootkitsdetector\windowskernelexplorer";   Check: Is64BitInstallMode; 
-Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\Windows Kernel Explorer x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer\WKE64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer"; Components: "rootkitsdetector\windowskernelexplorer";   Check: Is64BitInstallMode; 
+Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\Windows Kernel Explorer x64"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer\WKE64.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\Windows Kernel Explorer"; Components: "rootkitsdetector\windowskernelexplorer";   Check: Is64BitInstallMode;
+
+
+
+; WMISubscriptionsView
+[Components]
+Name: "rootkitsdetector\wmisubscriptionsview"; Description: "WMISubscriptionsView"; Types: full;
+
+[Files]
+Source: "{#MySrcDir}\toolkit\Rootkits Detector\WMISubscriptionsView\*"; DestDir: "{#MyAppToolsFolder}\Rootkits Detector\WMISubscriptionsView"; Components: "rootkitsdetector\wmisubscriptionsview"; Flags: ignoreversion recursesubdirs createallsubdirs;
+
+[Icons]
+Name: "{group}\WMISubscriptionsView"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\WMISubscriptionsView\WMISubscriptionsView.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\WMISubscriptionsView"; Components: "rootkitsdetector\wmisubscriptionsview";
+Name: "{#MyAppBinsFolder}\sendto\sendto\Rootkits Detector\WMISubscriptionsView"; Filename: "{#MyAppToolsFolder}\Rootkits Detector\WMISubscriptionsView\WMISubscriptionsView.exe"; WorkingDir: "{#MyAppToolsFolder}\Rootkits Detector\WMISubscriptionsView"; Components: "rootkitsdetector\wmisubscriptionsview";
 
 
