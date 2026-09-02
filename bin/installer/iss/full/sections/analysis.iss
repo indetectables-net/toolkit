@@ -112,15 +112,3 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XELFViewer"; Filename: "{#MyApp
 
 
 
-; XPEViewer
-[Components]
-Name: "analysis\xpeviewer"; Description: "XPEViewer"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Analysis\XPEViewer\*"; DestDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\XPEViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XPEViewer\xpeviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Analysis\XPEViewer"; Filename: "{#MyAppToolsFolder}\Analysis\XPEViewer\xpeviewer.exe"; WorkingDir: "{#MyAppToolsFolder}\Analysis\XPEViewer"; Components: "analysis\xpeviewer";    
-
-

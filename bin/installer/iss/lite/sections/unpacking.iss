@@ -50,7 +50,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\QUnpack x64"; Filename: "{#MyA
 
 ; UniExtract
 [Components]
-Name: "unpacking\uniextract"; Description: "UniExtract"; Types: full compact; 
+Name: "unpacking\uniextract"; Description: "UniExtract"; Types: full;
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\UniExtract\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\UniExtract"; Components: "unpacking\uniextract"; Flags: ignoreversion recursesubdirs createallsubdirs; 

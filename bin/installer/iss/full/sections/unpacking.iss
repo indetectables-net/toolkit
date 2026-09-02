@@ -27,7 +27,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\de4dotEx"; Filename: "{sys}\cm
 
 ; Magic Extractor
 [Components]
-Name: "unpacking\magicextractor"; Description: "Magic Extractor"; Types: full;
+Name: "unpacking\magicextractor"; Description: "Magic Extractor"; Types: full compact;
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\Magic Extractor\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\Magic Extractor"; Components: "unpacking\magicextractor"; Flags: ignoreversion recursesubdirs createallsubdirs;
@@ -67,7 +67,7 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\QUnpack x64"; Filename: "{#MyA
 
 ; UniExtract
 [Components]
-Name: "unpacking\uniextract"; Description: "UniExtract"; Types: full compact; 
+Name: "unpacking\uniextract"; Description: "UniExtract"; Types: full;
 
 [Files]
 Source: "{#MySrcDir}\toolkit\UnPacking\UniExtract\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\UniExtract"; Components: "unpacking\uniextract"; Flags: ignoreversion recursesubdirs createallsubdirs; 

@@ -155,15 +155,3 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[PYTHON] Python Decompyle++"
 
 
 
-; [VB] VB Decompiler
-[Components]
-Name: "decompilers\vbvbdecompiler"; Description: "[VB] VB Decompiler"; Types: full; 
-
-[Files]
-Source: "{#MySrcDir}\toolkit\Decompilers\[VB] VB Decompiler\*"; DestDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler"; Flags: ignoreversion recursesubdirs createallsubdirs; 
-
-[Icons]
-Name: "{group}\[VB] VB Decompiler"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler\VB Decompiler.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\Decompilers\[VB] VB Decompiler"; Filename: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler\VB Decompiler.exe"; WorkingDir: "{#MyAppToolsFolder}\Decompilers\[VB] VB Decompiler"; Components: "decompilers\vbvbdecompiler";    
-
-

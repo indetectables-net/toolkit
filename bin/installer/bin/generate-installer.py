@@ -128,7 +128,7 @@ class GenerateInstaller:
             'gmer', 'sysinspector',
 
             # unpacking
-            'uniextract', 'xvolkolak',
+            'magic extractor', 'xvolkolak',
         ]
 
     # helpers
