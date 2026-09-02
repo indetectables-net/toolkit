@@ -1,13 +1,26 @@
-; Magicmida
+; Magicmida x86
 [Components]
-Name: "unpacking\magicmida"; Description: "Magicmida"; Types: full; 
+Name: "unpacking\magicmida"; Description: "Magicmida x86"; Types: full;
 
 [Files]
-Source: "{#MySrcDir}\toolkit\UnPacking\Magicmida\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\Magicmida"; Components: "unpacking\magicmida"; Flags: ignoreversion recursesubdirs createallsubdirs; 
+Source: "{#MySrcDir}\toolkit\UnPacking\Magicmida\x86\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\Magicmida\x86"; Components: "unpacking\magicmida"; Flags: ignoreversion recursesubdirs createallsubdirs;
 
 [Icons]
-Name: "{group}\Magicmida"; Filename: "{#MyAppToolsFolder}\UnPacking\Magicmida\Magicmida.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magicmida"; Components: "unpacking\magicmida";    
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\Magicmida"; Filename: "{#MyAppToolsFolder}\UnPacking\Magicmida\Magicmida.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magicmida"; Components: "unpacking\magicmida";    
+Name: "{group}\Magicmida x86"; Filename: "{#MyAppToolsFolder}\UnPacking\Magicmida\x86\Magicmida.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magicmida\x86"; Components: "unpacking\magicmida";
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\Magicmida x86"; Filename: "{#MyAppToolsFolder}\UnPacking\Magicmida\x86\Magicmida.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magicmida\x86"; Components: "unpacking\magicmida";
+
+
+
+; Magicmida x64
+[Components]
+Name: "unpacking\magicmida64"; Description: "Magicmida x64"; Types: full;
+
+[Files]
+Source: "{#MySrcDir}\toolkit\UnPacking\Magicmida\x64\*"; DestDir: "{#MyAppToolsFolder}\UnPacking\Magicmida\x64"; Components: "unpacking\magicmida64"; Flags: ignoreversion recursesubdirs createallsubdirs;
+
+[Icons]
+Name: "{group}\Magicmida x64"; Filename: "{#MyAppToolsFolder}\UnPacking\Magicmida\x64\Magicmida.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magicmida\x64"; Components: "unpacking\magicmida64";
+Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\Magicmida x64"; Filename: "{#MyAppToolsFolder}\UnPacking\Magicmida\x64\Magicmida.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magicmida\x64"; Components: "unpacking\magicmida64";
 
 
 

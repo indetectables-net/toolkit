@@ -579,7 +579,7 @@ Unlike most archiving programs, UniExtract is not limited to **standard archives
 - ***Note:*** Available using the extra called: **Unpacking**
 - **Web:** https://github.com/Hendi48/Magicmida
 - **Developer:** Hendi48
-- **Description:** Magicmida is a Themida auto-unpacker that works on some 32-bit applications. It works on all versions of Windows.
+- **Description:** Magicmida is a Themida auto-unpacker with separate x86 and x64 builds. It works on all versions of Windows.
 
 ### NoVmp
 - ***Note:*** Available using the extra called: **Unpacking**

@@ -22,6 +22,7 @@ This document provides detailed updates on the changes, improvements, and occasi
 - Update tools (01/09/2026)
 - Bump Universal Updater to 2.6.0
 - Bump SendTo Recomposed to 1.3.0
+- Split Magicmida into x86/x64 variants (upstream added x64 support)
 - Enable persistent icon cache (/C) for the context-menu integration
 
 ### ❌ Removed
