@@ -8,6 +8,7 @@ From unpacking routines to deep static inspection, this toolkit is segmented by 
 1. [🛠 Dissasembler](#-dissasembler)
 1. [🧾 Hex editor](#-hex-editor)
 1. [🔍 Monitor](#-monitor)
+1. [🌐 Network](#-network)
 1. [🎨 NFOMaker](#-nfomaker)
 1. [🧰 Other](#-other)
 1. [⏪ Reverse](#-reverse)
@@ -223,20 +224,10 @@ Software for monitoring system performance and activities.
 - **Developer:** Sysinternals
 - **Description:** This utility, which has the most comprehensive knowledge of auto-starting locations of any startup monitor, shows you what programs are configured to run during system bootup or login, and when you start various built-in Windows applications like Internet Explorer, Explorer and media players.
 
-### CurrPorts
-- **Web:** https://www.nirsoft.net/utils/cports.html
-- **Developer:** NirSoft
-- **Description:** CurrPorts is network monitoring software that displays the list of all currently opened TCP/IP and UDP ports on your local computer. For each port in the list, information about the process that opened the port is also displayed, including the process name, full path of the process, version information of the process (product name, file description, and so on), the time that the process was created, and the user that created it.
-
 ### HollowsHunter
 - **Web:** https://github.com/hasherezade/hollows_hunter
 - **Developer:** hasherezade
 - **Description:** Scans all running processes. Recognizes and dumps a variety of potentially malicious implants (replaced/implanted PEs, shellcodes, hooks, in-memory patches).
-
-### MultiMon
-- **Web:** https://www.resplendence.com/multimon_whatsnew
-- **Developer:** Resplendence Software Projects Sp.
-- **Description:** MultiMon is an advanced multifunctional system monitoring tool for Windows which displays detailed output of a wide range of activities in real-time. The system monitor displays process and thread creation as well as binary image loading. The file system monitor displays activity from the perspective of the file system. The registry monitor shows registry activity in real time.
 
 ### PE-sieve
 - **Web:** https://github.com/hasherezade/pe-sieve
@@ -281,6 +272,30 @@ binary took while running on the system.
 - **Web:** https://systeminformer.sourceforge.io
 - **Developer:** System Informer
 - **Description:** System Informer is a powerful, open-source system monitoring and debugging tool for Windows. It provides detailed views of processes, threads, modules, network connections, and handles. Designed for advanced users, it enables malware detection, live process memory editing, and service management with granularity beyond Task Manager.
+
+
+## 🌐 Network
+Tools for capturing, inspecting, and manipulating network traffic.
+
+### CurrPorts
+- **Web:** https://www.nirsoft.net/utils/cports.html
+- **Developer:** NirSoft
+- **Description:** CurrPorts is network monitoring software that displays the list of all currently opened TCP/IP and UDP ports on your local computer. For each port in the list, information about the process that opened the port is also displayed, including the process name, full path of the process, version information of the process (product name, file description, and so on), the time that the process was created, and the user that created it.
+
+### Fiddler
+- **Web:** https://www.telerik.com/fiddler
+- **Developer:** Progress Telerik
+- **Description:** Fiddler is a web debugging proxy that captures, inspects, and modifies HTTP/HTTPS traffic, including HTTP/2. It lets you create, replay, and tamper with requests to find bugs faster when logs conflict across systems.
+
+### mitmproxy
+- **Web:** https://mitmproxy.org
+- **Developer:** Aldo Cortesi, Maximilian Hils, Thomas Kriechbaumer
+- **Description:** mitmproxy is a free and open source interactive HTTPS proxy that intercepts, inspects, modifies, and replays traffic across HTTP/1, HTTP/2, HTTP/3, WebSockets, and TLS. It ships as a CLI tool, a web interface (mitmweb), and a scriptable Python API (mitmdump).
+
+### RawCap
+- **Web:** https://www.netresec.com/?page=RawCap
+- **Developer:** Netresec
+- **Description:**  RawCap is a free command line network sniffer for Windows that uses raw sockets. Can sniff most interface types, including WiFi, WWAN (Mobile Broadband) and PPP interfaces.
 
 ### TCPView
 - **Web:** https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview
@@ -362,11 +377,6 @@ Miscellaneous tools that don't fit into the other categories.
 - **Web:** https://www.procdot.com/downloadprocdotbinaries.htm
 - **Developer:** CERT.at
 - **Description:** ProcDOT aids malware analysis via visual means, by correlating ProcMon and PCAP data and showing it as an interactive, animated graph. It also detects and shows Thread Injection, smartly follows algorithms, filters out noise, and correlates network events with the involved processes.
-
-### RawCap
-- **Web:** https://www.netresec.com/?page=RawCap
-- **Developer:** Netresec
-- **Description:**  RawCap is a free command line network sniffer for Windows that uses raw sockets. Can sniff most interface types, including WiFi, WWAN (Mobile Broadband) and PPP interfaces.
 
 ### Resource Hacker
 - **Web:** http://www.angusj.com/resourcehacker
@@ -506,10 +516,10 @@ Tools specifically for detecting and handling rootkits.
 ## 📦 UnPacking
 Utilities for unpacking and decompressing files and binaries.
 
-### De4Dot
-- **Web:** https://github.com/de4dot/de4dot
-- **Developer:** de4dot
-- **Description:** de4dot is an open source .NET deobfuscator and unpacker written in C#. It will try its best to restore a packed and obfuscated assembly to almost the original assembly.
+### de4dotEx
+- **Web:** https://github.com/GDATAAdvancedAnalytics/de4dotEx
+- **Developer:** G DATA Advanced Analytics
+- **Description:** de4dotEx is an open source .NET deobfuscator and unpacker written in C#, forked from de4dot. It will try its best to restore a packed and obfuscated assembly to almost the original assembly, supporting around 30 obfuscators and packers.
 Most of the obfuscation can be completely restored (eg. string encryption), but symbol renaming is impossible to restore since the original names aren't (usually) part of the obfuscated assembly.<br/>
 
 ### GUnPacker
@@ -543,6 +553,11 @@ Generic unpacker can unpack ONLY packers that do not use IAT redirection, that d
 - **Developer:** Bioruebe
 - **Description:** Universal Extractor 2 is a tool designed to extract files from any type of extractable file.
 Unlike most archiving programs, UniExtract is not limited to **standard archives** such as `.zip` and `.rar`. It can also deal with **application installers**, **disk images** and even **game archives** and other **multimedia files**. An overview of supported file types can be found [here](https://github.com/Bioruebe/UniExtract2/blob/master/docs/FORMATS.md)
+
+### Magic Extractor
+- **Web:** https://github.com/xchwarze/magic-extractor
+- **Developer:** xchwarze
+- **Description:** Magic Extractor identifies a file with several detectors (puremagic, built-in signatures, DIE, binwalk, Google Magika) and routes it to the right bundled extractor, covering over 80 archive, installer, disk image, and forensic formats. It supports recursive extraction, a bruteforce mode for uncertain detections, and carving embedded archives out of larger files such as firmware images.
 
 ### VMUnpacker (with all versions)
 - ***Note:*** Available using the extra called: **Oldies**

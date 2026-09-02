@@ -8,6 +8,7 @@ From unpacking routines to deep static inspection, this toolkit is segmented by 
 1. [🛠 Dissasembler](#-dissasembler)
 1. [🧾 Hex editor](#-hex-editor)
 1. [🔍 Monitor](#-monitor)
+1. [🌐 Network](#-network)
 1. [🧰 Other](#-other)
 1. [⏪ Reverse](#-reverse)
 1. [📦 Unpacking](#-unpacking)
@@ -174,11 +175,6 @@ Software for monitoring system performance and activities.
 - **Developer:** Sysinternals
 - **Description:** This utility, which has the most comprehensive knowledge of auto-starting locations of any startup monitor, shows you what programs are configured to run during system bootup or login, and when you start various built-in Windows applications like Internet Explorer, Explorer and media players.
 
-### CurrPorts
-- **Web:** https://www.nirsoft.net/utils/cports.html
-- **Developer:** NirSoft
-- **Description:** CurrPorts is network monitoring software that displays the list of all currently opened TCP/IP and UDP ports on your local computer. For each port in the list, information about the process that opened the port is also displayed, including the process name, full path of the process, version information of the process (product name, file description, and so on), the time that the process was created, and the user that created it.
-
 ### PE-sieve
 - **Web:** https://github.com/hasherezade/pe-sieve
 - **Developer:** hasherezade
@@ -208,6 +204,25 @@ Software for monitoring system performance and activities.
 - **Web:** https://systeminformer.sourceforge.io
 - **Developer:** System Informer
 - **Description:** System Informer is a powerful, open-source system monitoring and debugging tool for Windows. It provides detailed views of processes, threads, modules, network connections, and handles. Designed for advanced users, it enables malware detection, live process memory editing, and service management with granularity beyond Task Manager.
+
+
+## 🌐 Network
+Tools for capturing, inspecting, and manipulating network traffic.
+
+### CurrPorts
+- **Web:** https://www.nirsoft.net/utils/cports.html
+- **Developer:** NirSoft
+- **Description:** CurrPorts is network monitoring software that displays the list of all currently opened TCP/IP and UDP ports on your local computer. For each port in the list, information about the process that opened the port is also displayed, including the process name, full path of the process, version information of the process (product name, file description, and so on), the time that the process was created, and the user that created it.
+
+### Fiddler
+- **Web:** https://www.telerik.com/fiddler
+- **Developer:** Progress Telerik
+- **Description:** Fiddler is a web debugging proxy that captures, inspects, and modifies HTTP/HTTPS traffic, including HTTP/2. It lets you create, replay, and tamper with requests to find bugs faster when logs conflict across systems.
+
+### RawCap
+- **Web:** https://www.netresec.com/?page=RawCap
+- **Developer:** Netresec
+- **Description:**  RawCap is a free command line network sniffer for Windows that uses raw sockets. Can sniff most interface types, including WiFi, WWAN (Mobile Broadband) and PPP interfaces.
 
 ### TCPView
 - **Web:** https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview
@@ -249,11 +264,6 @@ Miscellaneous tools that don't fit into the other categories.
 - **Web:** https://www.indetectables.net/viewtopic.php?t=29725
 - **Developer:** Mingo, Yorll & Metal
 - **Description:** Indetectables Offset Locator is a legacy tool used to locate and manipulate offsets in PE files to help evade antivirus detection. Commonly used for AV signature cleaning in binaries, it allows manual patching of suspicious byte patterns.
-
-### RawCap
-- **Web:** https://www.netresec.com/?page=RawCap
-- **Developer:** Netresec
-- **Description:**  RawCap is a free command line network sniffer for Windows that uses raw sockets. Can sniff most interface types, including WiFi, WWAN (Mobile Broadband) and PPP interfaces.
 
 ### Resource Hacker
 - **Web:** http://www.angusj.com/resourcehacker
@@ -345,10 +355,10 @@ Software and techniques for reversing engineering.
 ## 📦 UnPacking
 Utilities for unpacking and decompressing files and binaries.
 
-### De4Dot
-- **Web:** https://github.com/de4dot/de4dot
-- **Developer:** de4dot
-- **Description:** de4dot is an open source .NET deobfuscator and unpacker written in C#. It will try its best to restore a packed and obfuscated assembly to almost the original assembly.
+### de4dotEx
+- **Web:** https://github.com/GDATAAdvancedAnalytics/de4dotEx
+- **Developer:** G DATA Advanced Analytics
+- **Description:** de4dotEx is an open source .NET deobfuscator and unpacker written in C#, forked from de4dot. It will try its best to restore a packed and obfuscated assembly to almost the original assembly, supporting around 30 obfuscators and packers.
 Most of the obfuscation can be completely restored (eg. string encryption), but symbol renaming is impossible to restore since the original names aren't (usually) part of the obfuscated assembly.<br/>
 
 ### GUnPacker

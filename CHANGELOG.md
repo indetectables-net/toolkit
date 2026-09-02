@@ -4,6 +4,27 @@ This document provides detailed updates on the changes, improvements, and occasi
 
 ---
 
+## 🏷️ 2026.9 - Sep 1, 2026
+
+### 🆕 Added
+
+- Add mitmproxy
+- Add Fiddler
+- Add Magic Extractor
+- Add Network category (CurrPorts, RawCap, TCPView, mitmproxy, Fiddler)
+
+### 🔧 Changed
+
+- Replace De4Dot with de4dotEx
+- Update tools (01/09/2026)
+- Bump Universal Updater to 2.6.0
+
+### ❌ Removed
+
+- Remove XPEViewer and VB Decompiler
+- Remove MultiMon
+
+
 ## 🏷️ [extras/vbdec] 2025.6 - Jun 1, 2025
 
 ### 🆕 Added
