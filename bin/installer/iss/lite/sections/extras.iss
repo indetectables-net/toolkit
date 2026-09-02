@@ -34,7 +34,7 @@ end;
 Name: "extras\classiccontextmenu"; Description: "Restore classic context menu (Windows 11 only)"; Types: full compact; Check: IsWindows11;
 
 [Registry]
-Root: HKCU; Subkey: "Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"; ValueType: string; ValueName: ""; ValueData: ""; Components: "extras\classiccontextmenu"; Flags: uninsdeletekey;
+Root: HKCU; Subkey: "Software\Classes\CLSID\{{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32"; ValueType: string; ValueName: ""; ValueData: ""; Components: "extras\classiccontextmenu"; Flags: uninsdeletekey;
 
 [Run]
 Filename: "{sys}\taskkill.exe"; Parameters: "/F /IM explorer.exe"; Components: "extras\classiccontextmenu"; Flags: runhidden waituntilterminated;

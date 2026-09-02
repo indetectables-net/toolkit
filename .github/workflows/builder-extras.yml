@@ -23,10 +23,10 @@ jobs:
           fetch-depth: 1
           path: ${{ env.SRC_PATH }}
 
-      - name: Setup Python 3.12
+      - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: '3.13'
 
       - name: Install Python packages
         run: pip install py7zr==0.22.0 pefile colorama
