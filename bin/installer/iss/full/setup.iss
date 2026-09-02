@@ -120,11 +120,7 @@ Name: "{userdesktop}\{#MyAppNameOriginal}\Explore all tools"; Filename: "{#MyApp
 Source: "{#MySrcDir}\bin\sendto\*"; Destdir: "{#MyAppBinsFolder}\sendto\";
 
 [Icons]
-; x64
-Name: "{userdesktop}\{#MyAppNameOriginal}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x64.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Check: Is64BitInstallMode
-
-; x32
-Name: "{userdesktop}\{#MyAppNameOriginal}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto_x86.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"; Check: not Is64BitInstallMode
+Name: "{userdesktop}\{#MyAppNameOriginal}\Menu"; Filename: "{#MyAppBinsFolder}\sendto\sendto.exe"; WorkingDir: "{#MyAppBinsFolder}\sendto\"; IconFilename: "{#MyAppToolsIconsFolder}\toolkit.ico"
 
 
 ; Force delete all files

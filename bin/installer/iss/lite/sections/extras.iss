@@ -11,11 +11,7 @@ Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueNa
 ;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorBefore"; ValueData: ""; Components: "extras\contextmenu"; Flags: uninsdeletekey;
 ;Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit"; ValueType: string; ValueName: "SeparatorAfter"; ValueData: ""; Components: "extras\contextmenu"; Flags: uninsdeletekey;
 
-; x64
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string; ValueName: ""; ValueData: """{#MyAppBinsFolder}\sendto\sendto_x64.exe"" /C /D ""{#MyAppBinsFolder}\sendto\sendto"" ""%1"""; Components: "extras\contextmenu"; Flags: uninsdeletekey; Check: Is64BitInstallMode;
-
-; x32
-Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string; ValueName: ""; ValueData: """{#MyAppBinsFolder}\sendto\sendto_x86.exe"" /C /D ""{#MyAppBinsFolder}\sendto\sendto"" ""%1"""; Components: "extras\contextmenu"; Flags: uninsdeletekey; Check: not Is64BitInstallMode;
+Root: "HKCR"; Subkey: "*\shell\IndetectablesToolkit\command"; ValueType: string; ValueName: ""; ValueData: """{#MyAppBinsFolder}\sendto\sendto.exe"" /C /D ""{#MyAppBinsFolder}\sendto\sendto"" ""%1"""; Components: "extras\contextmenu"; Flags: uninsdeletekey;
 
 
 

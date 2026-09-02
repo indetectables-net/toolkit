@@ -43,7 +43,6 @@ Source: "{#MySrcDir}\toolkit\Network\mitmproxy\*"; DestDir: "{#MyAppToolsFolder}
 
 [Icons]
 Name: "{group}\mitmproxy"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Network\mitmproxy"; Components: "network\mitmproxy"; Parameters: "/K ""{#MyAppToolsFolder}\Network\mitmproxy\mitmproxy.exe"""; IconFilename: "{#MyAppToolsFolder}\Network\mitmproxy\mitmproxy.exe";
-Name: "{#MyAppBinsFolder}\sendto\sendto\Network\mitmproxy"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\Network\mitmproxy"; Components: "network\mitmproxy"; Parameters: "/K ""{#MyAppToolsFolder}\Network\mitmproxy\mitmproxy.exe"""; IconFilename: "{#MyAppToolsFolder}\Network\mitmproxy\mitmproxy.exe";
 
 [Icons]
 Name: "{group}\mitmweb"; Filename: "{#MyAppToolsFolder}\Network\mitmproxy\mitmweb.exe"; WorkingDir: "{#MyAppToolsFolder}\Network\mitmproxy"; Components: "network\mitmproxy";

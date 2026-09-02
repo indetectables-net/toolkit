@@ -38,7 +38,6 @@ Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\Magic Extractor"; Filename: "{
 
 [Icons]
 Name: "{group}\Magic Extractor CLI"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magic Extractor"; Components: "unpacking\magicextractor"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\Magic Extractor\magic-extractor.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\Magic Extractor\magic-extractor.exe";
-Name: "{#MyAppBinsFolder}\sendto\sendto\UnPacking\Magic Extractor CLI"; Filename: "{sys}\cmd.exe"; WorkingDir: "{#MyAppToolsFolder}\UnPacking\Magic Extractor"; Components: "unpacking\magicextractor"; Parameters: "/K ""{#MyAppToolsFolder}\UnPacking\Magic Extractor\magic-extractor.exe"""; IconFilename: "{#MyAppToolsFolder}\UnPacking\Magic Extractor\magic-extractor.exe";
 
 
 
