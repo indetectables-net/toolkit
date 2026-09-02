@@ -82,7 +82,10 @@ class UnpackProject:
                 pathlib.Path(folder_path).mkdir(exist_ok=True)
 
             with py7zr.SevenZipFile(file_path, 'r') as compressed:
-                compressed.extractall(folder_path)
+                # some archives store a "." entry for their own root folder, which
+                # py7zr's path sanitizer rejects as a bad path (Bad7zFile) on extractall
+                targets = [name for name in compressed.getnames() if name not in ('.', '')]
+                compressed.extract(path=folder_path, targets=targets)
 
             file_path.unlink()
 

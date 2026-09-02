@@ -29,7 +29,7 @@ jobs:
           python-version: '3.13'
 
       - name: Install Python packages
-        run: pip install py7zr==0.22.0 pefile colorama
+        run: pip install py7zr pefile colorama
 
       - name: Update all installer .iss recursively
         working-directory: ${{ env.EXTRAS_PATH }}
